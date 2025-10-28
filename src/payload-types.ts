@@ -69,6 +69,7 @@ export interface Config {
   collections: {
     users: User;
     media: Media;
+    pages: Page;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -77,6 +78,7 @@ export interface Config {
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    pages: PagesSelect<false> | PagesSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -158,6 +160,286 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: number;
+  title: string;
+  /**
+   * De URL van deze pagina (bijv. "makelaars" of "/" voor homepage)
+   */
+  slug: string;
+  status: 'draft' | 'published';
+  /**
+   * Sleep blokken om de volgorde te wijzigen. Klik op een blok om deze te bewerken.
+   */
+  blocks: (
+    | {
+        kicker?: string | null;
+        title: string;
+        subtitle?: string | null;
+        ctaPrimary: {
+          label: string;
+          href: string;
+        };
+        ctaSecondary?: {
+          label?: string | null;
+          href?: string | null;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'heroSection';
+      }
+    | {
+        items: {
+          text: string;
+          id?: string | null;
+        }[];
+        ariaLabel?: string | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'trustStrip';
+      }
+    | {
+        kicker?: string | null;
+        title: string;
+        subtitle?: string | null;
+        oldSituation?: {
+          title?: string | null;
+          items?:
+            | {
+                icon: string;
+                text: string;
+                id?: string | null;
+              }[]
+            | null;
+        };
+        newSituation?: {
+          title?: string | null;
+          items?:
+            | {
+                icon: string;
+                text: string;
+                id?: string | null;
+              }[]
+            | null;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'problemSection';
+      }
+    | {
+        kicker?: string | null;
+        title: string;
+        subtitle?: string | null;
+        tone?: ('light' | 'dark') | null;
+        frameless?: boolean | null;
+        showBackdropLogo?: boolean | null;
+        image?: (number | null) | Media;
+        kpis?:
+          | {
+              label: string;
+              from: number;
+              to: number;
+              unit?: ('eur' | 'percentage' | 'number') | null;
+              sublabel?: string | null;
+              span?: number | null;
+              id?: string | null;
+            }[]
+          | null;
+        bullets?:
+          | {
+              text: string;
+              id?: string | null;
+            }[]
+          | null;
+        ctaPrimary?: {
+          label?: string | null;
+          href?: string | null;
+        };
+        ctaSecondary?: {
+          label?: string | null;
+          href?: string | null;
+        };
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'caseStudy';
+      }
+    | {
+        kicker?: string | null;
+        title: string;
+        subtitle?: string | null;
+        metricValue?: string | null;
+        metricLabel?: string | null;
+        card1Title?: string | null;
+        card1Description?: string | null;
+        card2Title?: string | null;
+        card2Description?: string | null;
+        card3Title?: string | null;
+        card3Description?: string | null;
+        card4Title?: string | null;
+        card4Description?: string | null;
+        ctaText?: string | null;
+        ctaButtonLabel?: string | null;
+        ctaButtonHref?: string | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'uniqueApproach';
+      }
+    | {
+        /**
+         * Dit block heeft geen configureerbare opties - het is puur visueel
+         */
+        note?: string | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'flowConnector';
+      }
+    | {
+        title: string;
+        subtitle?: string | null;
+        features: {
+          icon: string;
+          name: string;
+          description: string;
+          href?: string | null;
+          cta?: string | null;
+          image?: (number | null) | Media;
+          id?: string | null;
+        }[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'marketingMachine';
+      }
+    | {
+        title: string;
+        subtitle?: string | null;
+        items?:
+          | {
+              name: string;
+              description: string;
+              image?: (number | null) | Media;
+              href?: string | null;
+              key?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'targetGroupsOverview';
+      }
+    | {
+        title: string;
+        stats: {
+          value: string;
+          label: string;
+          id?: string | null;
+        }[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'numbersSection';
+      }
+    | {
+        title: string;
+        description?: string | null;
+        durationSec?: number | null;
+        testimonials: {
+          title: string;
+          companyLogo?: (number | null) | Media;
+          badges?:
+            | {
+                text?: string | null;
+                id?: string | null;
+              }[]
+            | null;
+          author: {
+            name: string;
+            handle?: string | null;
+            avatar?: (number | null) | Media;
+          };
+          text: string;
+          href?: string | null;
+          id?: string | null;
+        }[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'testimonialsSection';
+      }
+    | {
+        title: string;
+        subtitle?: string | null;
+        items: {
+          icon?: string | null;
+          question: string;
+          answer: string;
+          id?: string | null;
+        }[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'faqSection';
+      }
+    | {
+        title: string;
+        subtitle?: string | null;
+        steps: {
+          title: string;
+          subtitle?: string | null;
+          icon: string;
+          bullets?:
+            | {
+                text: string;
+                id?: string | null;
+              }[]
+            | null;
+          id?: string | null;
+        }[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'howItWorksSection';
+      }
+    | {
+        title: string;
+        subtitle?: string | null;
+        ctaLabel: string;
+        ctaHref: string;
+        bullets?:
+          | {
+              text: string;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'finalCTA';
+      }
+  )[];
+  seo?: {
+    /**
+     * Verschijnt in Google zoekresulataten (max 60 karakters)
+     */
+    metaTitle?: string | null;
+    /**
+     * Verschijnt in Google zoekresulataten (max 160 karakters)
+     */
+    metaDescription?: string | null;
+    /**
+     * Afbeelding die getoond wordt bij delen op social media
+     */
+    ogImage?: (number | null) | Media;
+  };
+  organizationSchema?: {
+    enabled?: boolean | null;
+    name?: string | null;
+    description?: string | null;
+    contactEmail?: string | null;
+    contactPhone?: string | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -170,6 +452,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'media';
         value: number | Media;
+      } | null)
+    | ({
+        relationTo: 'pages';
+        value: number | Page;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -252,6 +538,312 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages_select".
+ */
+export interface PagesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  status?: T;
+  blocks?:
+    | T
+    | {
+        heroSection?:
+          | T
+          | {
+              kicker?: T;
+              title?: T;
+              subtitle?: T;
+              ctaPrimary?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                  };
+              ctaSecondary?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        trustStrip?:
+          | T
+          | {
+              items?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              ariaLabel?: T;
+              id?: T;
+              blockName?: T;
+            };
+        problemSection?:
+          | T
+          | {
+              kicker?: T;
+              title?: T;
+              subtitle?: T;
+              oldSituation?:
+                | T
+                | {
+                    title?: T;
+                    items?:
+                      | T
+                      | {
+                          icon?: T;
+                          text?: T;
+                          id?: T;
+                        };
+                  };
+              newSituation?:
+                | T
+                | {
+                    title?: T;
+                    items?:
+                      | T
+                      | {
+                          icon?: T;
+                          text?: T;
+                          id?: T;
+                        };
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        caseStudy?:
+          | T
+          | {
+              kicker?: T;
+              title?: T;
+              subtitle?: T;
+              tone?: T;
+              frameless?: T;
+              showBackdropLogo?: T;
+              image?: T;
+              kpis?:
+                | T
+                | {
+                    label?: T;
+                    from?: T;
+                    to?: T;
+                    unit?: T;
+                    sublabel?: T;
+                    span?: T;
+                    id?: T;
+                  };
+              bullets?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              ctaPrimary?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                  };
+              ctaSecondary?:
+                | T
+                | {
+                    label?: T;
+                    href?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        uniqueApproach?:
+          | T
+          | {
+              kicker?: T;
+              title?: T;
+              subtitle?: T;
+              metricValue?: T;
+              metricLabel?: T;
+              card1Title?: T;
+              card1Description?: T;
+              card2Title?: T;
+              card2Description?: T;
+              card3Title?: T;
+              card3Description?: T;
+              card4Title?: T;
+              card4Description?: T;
+              ctaText?: T;
+              ctaButtonLabel?: T;
+              ctaButtonHref?: T;
+              id?: T;
+              blockName?: T;
+            };
+        flowConnector?:
+          | T
+          | {
+              note?: T;
+              id?: T;
+              blockName?: T;
+            };
+        marketingMachine?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              features?:
+                | T
+                | {
+                    icon?: T;
+                    name?: T;
+                    description?: T;
+                    href?: T;
+                    cta?: T;
+                    image?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        targetGroupsOverview?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              items?:
+                | T
+                | {
+                    name?: T;
+                    description?: T;
+                    image?: T;
+                    href?: T;
+                    key?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        numbersSection?:
+          | T
+          | {
+              title?: T;
+              stats?:
+                | T
+                | {
+                    value?: T;
+                    label?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        testimonialsSection?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              durationSec?: T;
+              testimonials?:
+                | T
+                | {
+                    title?: T;
+                    companyLogo?: T;
+                    badges?:
+                      | T
+                      | {
+                          text?: T;
+                          id?: T;
+                        };
+                    author?:
+                      | T
+                      | {
+                          name?: T;
+                          handle?: T;
+                          avatar?: T;
+                        };
+                    text?: T;
+                    href?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        faqSection?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              items?:
+                | T
+                | {
+                    icon?: T;
+                    question?: T;
+                    answer?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        howItWorksSection?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              steps?:
+                | T
+                | {
+                    title?: T;
+                    subtitle?: T;
+                    icon?: T;
+                    bullets?:
+                      | T
+                      | {
+                          text?: T;
+                          id?: T;
+                        };
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        finalCTA?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              ctaLabel?: T;
+              ctaHref?: T;
+              bullets?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+      };
+  seo?:
+    | T
+    | {
+        metaTitle?: T;
+        metaDescription?: T;
+        ogImage?: T;
+      };
+  organizationSchema?:
+    | T
+    | {
+        enabled?: T;
+        name?: T;
+        description?: T;
+        contactEmail?: T;
+        contactPhone?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
