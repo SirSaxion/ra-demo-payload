@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import { StrategySessionDialogProvider } from "@/components/strategy/StrategySessionDialog";
-import { Toaster } from "@/components/ui/sonner";
-import SiteLayout from "@/components/SiteLayout";
+import "./(frontend)/globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -64,15 +61,35 @@ const organizationSchema = {
   ]
 };
 
-export default function FrontendLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <StrategySessionDialogProvider>
-      <SiteLayout>{children}</SiteLayout>
-      <Toaster position="top-right" />
-    </StrategySessionDialogProvider>
+    <html lang="nl" className="dark">
+      <head>
+        {/* Preload critical hero poster image for LCP */}
+        <link rel="preload" href="/images/herofootage_first_frame.png" as="image" fetchPriority="high" />
+        
+        {/* Preload critical font to reduce render blocking */}
+        <link 
+          rel="preload" 
+          href="/_next/static/media/93f479601ee12b01-s.woff2" 
+          as="font" 
+          type="font/woff2" 
+          crossOrigin="anonymous"
+        />
+        
+        {/* Organization Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+      </head>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased font-sans`}>
+        {children}
+      </body>
+    </html>
   );
 }
