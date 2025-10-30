@@ -14,6 +14,15 @@ import {
   FAQSection,
   HowItWorksSection,
   FinalCTA,
+  // Cases blocks
+  CasesHero,
+  CasesBestVariants,
+  CasesVideoTestimonials,
+  CasesMasonry,
+  CasesProjectsShowcase,
+  CasesIndustryBreakdown,
+  CasesProcessShowcase,
+  CasesStartYourStory,
 } from '../blocks'
 
 export const Pages: CollectionConfig = {
@@ -88,6 +97,15 @@ export const Pages: CollectionConfig = {
                 FAQSection,
                 HowItWorksSection,
                 FinalCTA,
+                // Cases blocks
+                CasesHero,
+                CasesBestVariants,
+                CasesVideoTestimonials,
+                CasesMasonry,
+                CasesProjectsShowcase,
+                CasesIndustryBreakdown,
+                CasesProcessShowcase,
+                CasesStartYourStory,
               ],
               admin: {
                 description: 'Sleep blokken om de volgorde te wijzigen. Klik op een blok om deze te bewerken.',

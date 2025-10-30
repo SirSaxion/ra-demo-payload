@@ -438,6 +438,14 @@ export interface Page {
         blockName?: string | null;
         blockType: 'finalCTA';
       }
+    | CasesHero
+    | CasesBestVariants
+    | CasesVideoTestimonials
+    | CasesMasonry
+    | CasesProjectsShowcase
+    | CasesIndustryBreakdown
+    | CasesProcessShowcase
+    | CasesStartYourStory
   )[];
   seo?: {
     /**
@@ -463,6 +471,192 @@ export interface Page {
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CasesHero".
+ */
+export interface CasesHero {
+  badge: string;
+  title: string;
+  titleHighlight: string;
+  subtitle: string;
+  ctaPrimary: string;
+  ctaSecondary: string;
+  ctaSecondaryHref: string;
+  stats?:
+    | {
+        icon?: string | null;
+        label?: string | null;
+        value?: number | null;
+        suffix?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  image: string;
+  imageAlt: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'casesHero';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CasesBestVariants".
+ */
+export interface CasesBestVariants {
+  badge: string;
+  title: string;
+  subtitle: string;
+  featuredBadge: string;
+  featuredCompany: string;
+  featuredSubtitle: string;
+  featuredImage: string;
+  featuredImageAlt: string;
+  stats?:
+    | {
+        icon?: string | null;
+        label?: string | null;
+        from?: string | null;
+        to?: string | null;
+        suffix?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  results?:
+    | {
+        icon?: string | null;
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  otherCases?:
+    | {
+        company?: string | null;
+        sector?: string | null;
+        icon?: string | null;
+        highlight?: string | null;
+        bullets?:
+          | {
+              text?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        image?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'casesBestVariants';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CasesVideoTestimonials".
+ */
+export interface CasesVideoTestimonials {
+  badge: string;
+  title: string;
+  subtitle: string;
+  durationBadge: string;
+  activeIndicator: string;
+  sidebarHeader: string;
+  videos?:
+    | {
+        id?: number | null;
+        company?: string | null;
+        name?: string | null;
+        role?: string | null;
+        thumbnail?: string | null;
+        videoUrl?: string | null;
+        quote?: string | null;
+        highlight?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'casesVideoTestimonials';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CasesMasonry".
+ */
+export interface CasesMasonry {
+  kicker: string;
+  title: string;
+  subtitle: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'casesMasonry';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CasesProjectsShowcase".
+ */
+export interface CasesProjectsShowcase {
+  badge: string;
+  title: string;
+  subtitle: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'casesProjectsShowcase';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CasesIndustryBreakdown".
+ */
+export interface CasesIndustryBreakdown {
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'casesIndustryBreakdown';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CasesProcessShowcase".
+ */
+export interface CasesProcessShowcase {
+  badge: string;
+  title: string;
+  subtitle: string;
+  steps?:
+    | {
+        number?: string | null;
+        title?: string | null;
+        subtitle?: string | null;
+        icon?: string | null;
+        items?:
+          | {
+              text?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        timeline?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'casesProcessShowcase';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CasesStartYourStory".
+ */
+export interface CasesStartYourStory {
+  badge: string;
+  title: string;
+  titleHighlight: string;
+  benefits?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  ctaLabel: string;
+  ctaSubtext: string;
+  ctaFootnote: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'casesStartYourStory';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -870,6 +1064,14 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        casesHero?: T | CasesHeroSelect<T>;
+        casesBestVariants?: T | CasesBestVariantsSelect<T>;
+        casesVideoTestimonials?: T | CasesVideoTestimonialsSelect<T>;
+        casesMasonry?: T | CasesMasonrySelect<T>;
+        casesProjectsShowcase?: T | CasesProjectsShowcaseSelect<T>;
+        casesIndustryBreakdown?: T | CasesIndustryBreakdownSelect<T>;
+        casesProcessShowcase?: T | CasesProcessShowcaseSelect<T>;
+        casesStartYourStory?: T | CasesStartYourStorySelect<T>;
       };
   seo?:
     | T
@@ -890,6 +1092,184 @@ export interface PagesSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CasesHero_select".
+ */
+export interface CasesHeroSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  titleHighlight?: T;
+  subtitle?: T;
+  ctaPrimary?: T;
+  ctaSecondary?: T;
+  ctaSecondaryHref?: T;
+  stats?:
+    | T
+    | {
+        icon?: T;
+        label?: T;
+        value?: T;
+        suffix?: T;
+        id?: T;
+      };
+  image?: T;
+  imageAlt?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CasesBestVariants_select".
+ */
+export interface CasesBestVariantsSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  featuredBadge?: T;
+  featuredCompany?: T;
+  featuredSubtitle?: T;
+  featuredImage?: T;
+  featuredImageAlt?: T;
+  stats?:
+    | T
+    | {
+        icon?: T;
+        label?: T;
+        from?: T;
+        to?: T;
+        suffix?: T;
+        id?: T;
+      };
+  results?:
+    | T
+    | {
+        icon?: T;
+        text?: T;
+        id?: T;
+      };
+  otherCases?:
+    | T
+    | {
+        company?: T;
+        sector?: T;
+        icon?: T;
+        highlight?: T;
+        bullets?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        image?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CasesVideoTestimonials_select".
+ */
+export interface CasesVideoTestimonialsSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  durationBadge?: T;
+  activeIndicator?: T;
+  sidebarHeader?: T;
+  videos?:
+    | T
+    | {
+        id?: T;
+        company?: T;
+        name?: T;
+        role?: T;
+        thumbnail?: T;
+        videoUrl?: T;
+        quote?: T;
+        highlight?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CasesMasonry_select".
+ */
+export interface CasesMasonrySelect<T extends boolean = true> {
+  kicker?: T;
+  title?: T;
+  subtitle?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CasesProjectsShowcase_select".
+ */
+export interface CasesProjectsShowcaseSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CasesIndustryBreakdown_select".
+ */
+export interface CasesIndustryBreakdownSelect<T extends boolean = true> {
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CasesProcessShowcase_select".
+ */
+export interface CasesProcessShowcaseSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  steps?:
+    | T
+    | {
+        number?: T;
+        title?: T;
+        subtitle?: T;
+        icon?: T;
+        items?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        timeline?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "CasesStartYourStory_select".
+ */
+export interface CasesStartYourStorySelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  titleHighlight?: T;
+  benefits?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  ctaLabel?: T;
+  ctaSubtext?: T;
+  ctaFootnote?: T;
+  id?: T;
+  blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

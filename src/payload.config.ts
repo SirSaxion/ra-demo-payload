@@ -23,13 +23,13 @@ export default buildConfig({
   },
   collections: [Users, Media, Pages],
   editor: lexicalEditor(),
-  secret: process.env.PAYLOAD_SECRET || '',
+  secret: process.env.PAYLOAD_SECRET || 'fallback-secret-for-development-only',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
   db: sqliteAdapter({
     client: {
-      url: process.env.DATABASE_URI || '',
+      url: process.env.DATABASE_URI || 'file:./ra-demo-payload.db',
     },
   }),
   sharp,

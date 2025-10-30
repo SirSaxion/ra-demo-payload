@@ -13,3 +13,13 @@ export { TestimonialsSection } from './TestimonialsSection'
 export { FAQSection } from './FAQSection'
 export { HowItWorksSection } from './HowItWorksSection'
 export { FinalCTA } from './FinalCTA'
+
+// Cases blocks
+export { CasesHero } from './CasesHero'
+export { CasesBestVariants } from './CasesBestVariants'
+export { CasesVideoTestimonials } from './CasesVideoTestimonials'
+export { CasesMasonry } from './CasesMasonry'
+export { CasesProjectsShowcase } from './CasesProjectsShowcase'
+export { CasesIndustryBreakdown } from './CasesIndustryBreakdown'
+export { CasesProcessShowcase } from './CasesProcessShowcase'
+export { CasesStartYourStory } from './CasesStartYourStory'
