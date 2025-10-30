@@ -277,7 +277,7 @@ export default function MarketingMachineSection({
             </div>
 
             <div className="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-3)] p-5">
-              {features[activeIndex].imageSrc && (
+              {features[activeIndex].imageSrc && features[activeIndex].imageSrc !== "" && (
                 <div className="relative mb-4 h-60 w-full overflow-hidden rounded-lg border border-[var(--color-border)] bg-[var(--color-surface-3)]">
                   {/* Loading skeleton - only show if image hasn't loaded */}
                   {!loadedImages.has(activeIndex) && (

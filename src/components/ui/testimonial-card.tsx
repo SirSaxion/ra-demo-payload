@@ -44,7 +44,7 @@ export function TestimonialCard({
       {/* Header with large prominent avatar */}
       <div className="flex justify-center mb-6">
         <Avatar className="h-16 w-16 sm:h-20 sm:w-20">
-          <AvatarImage src={author.avatar} alt={author.name} />
+          <AvatarImage src={author.avatar && author.avatar !== "" ? author.avatar : undefined} alt={author.name} />
         </Avatar>
       </div>
 
@@ -75,7 +75,7 @@ export function TestimonialCard({
       {/* Footer with company logo + name/company side by side */}
       <div className="mt-auto pt-4 border-t border-[var(--color-border)]">
         <div className="flex items-center gap-3">
-          {imageSrc ? (
+          {imageSrc && imageSrc !== "" ? (
             <div className="relative h-8 w-16 sm:h-10 sm:w-20 flex-shrink-0">
               <Image
                 src={imageSrc}

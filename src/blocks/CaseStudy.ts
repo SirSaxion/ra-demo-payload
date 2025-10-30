@@ -51,7 +51,14 @@ export const CaseStudy: Block = {
       type: 'upload',
       relationTo: 'media',
       label: 'Afbeelding',
-      required: true,
+    },
+    {
+      name: 'imageAlt',
+      type: 'text',
+      label: 'Afbeelding alt tekst',
+      admin: {
+        description: 'Beschrijving voor toegankelijkheid',
+      },
     },
     {
       name: 'kpis',

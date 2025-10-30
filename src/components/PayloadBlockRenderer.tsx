@@ -10,7 +10,7 @@ import CaseStudy from '@/components/sections/home/CaseStudy'
 import UniqueApproach from '@/components/sections/home/UniqueApproach'
 import FlowConnector from '@/components/sections/home/FlowConnector'
 import MarketingMachine from '@/components/sections/home/MarketingMachine'
-import TargetGroupsOverview from '@/components/sections/home/TargetGroupsOverview'
+import TargetGroupsOverview, { TargetGroupsOverviewPhotos } from '@/components/sections/home/TargetGroupsOverview'
 import NumbersSection from '@/components/sections/home/NumbersSection'
 import { TestimonialsSection } from '@/components/blocks/testimonials-with-marquee'
 import FAQSection from '@/components/sections/home/FAQSection'
@@ -73,8 +73,8 @@ export default function PayloadBlockRenderer({ blocks }: PayloadBlockRendererPro
             tone={block.tone}
             frameless={block.frameless}
             showBackdropLogo={block.showBackdropLogo}
-            imageSrc={block.image?.url || ''}
-            imageAlt={block.image?.alt || ''}
+            imageSrc={block.image?.url || null}
+            imageAlt={block.imageAlt || block.image?.alt || ''}
             kpis={block.kpis}
             bullets={block.bullets?.map((bullet: any) => bullet.text || bullet) || []}
             ctaPrimary={block.ctaPrimary}
@@ -116,7 +116,7 @@ export default function PayloadBlockRenderer({ blocks }: PayloadBlockRendererPro
             subtitle={block.subtitle}
             features={block.features?.map((feature: any) => ({
               ...feature,
-              imageSrc: feature.image?.url || ''
+              imageSrc: feature.image?.url || null
             })) || []}
           />
         )
@@ -127,6 +127,20 @@ export default function PayloadBlockRenderer({ blocks }: PayloadBlockRendererPro
             key={index}
             title={block.title}
             subtitle={block.subtitle}
+          />
+        )
+        
+      case 'targetGroupsOverviewPhotos':
+        return (
+          <TargetGroupsOverviewPhotos
+            key={index}
+            title={block.title}
+            subtitle={block.subtitle}
+            items={block.items?.map((item: any) => ({
+              ...item,
+              img: item.image?.url || null,
+              alt: item.alt || item.name,
+            })) || []}
           />
         )
         
@@ -148,10 +162,11 @@ export default function PayloadBlockRenderer({ blocks }: PayloadBlockRendererPro
             durationSec={block.durationSec}
             testimonials={block.testimonials?.map((testimonial: any) => ({
               ...testimonial,
-              imageSrc: testimonial.companyLogo?.url || '',
+              imageSrc: testimonial.companyLogo?.url || null,
+              badges: testimonial.badges?.map((badge: any) => badge.text || badge) || [],
               author: {
                 ...testimonial.author,
-                avatar: testimonial.author?.avatar?.url || ''
+                avatar: testimonial.author?.avatar?.url || null
               }
             })) || []}
           />

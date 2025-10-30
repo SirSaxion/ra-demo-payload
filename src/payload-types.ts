@@ -235,7 +235,11 @@ export interface Page {
         tone?: ('light' | 'dark') | null;
         frameless?: boolean | null;
         showBackdropLogo?: boolean | null;
-        image: number | Media;
+        image?: (number | null) | Media;
+        /**
+         * Beschrijving voor toegankelijkheid
+         */
+        imageAlt?: string | null;
         kpis?:
           | {
               label: string;
@@ -327,6 +331,28 @@ export interface Page {
         id?: string | null;
         blockName?: string | null;
         blockType: 'targetGroupsOverview';
+      }
+    | {
+        title: string;
+        subtitle?: string | null;
+        items: {
+          name: string;
+          description: string;
+          image?: (number | null) | Media;
+          /**
+           * Beschrijving voor toegankelijkheid
+           */
+          alt?: string | null;
+          href: string;
+          /**
+           * Unieke identifier voor deze doelgroep
+           */
+          key?: string | null;
+          id?: string | null;
+        }[];
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'targetGroupsOverviewPhotos';
       }
     | {
         title: string;
@@ -627,6 +653,7 @@ export interface PagesSelect<T extends boolean = true> {
               frameless?: T;
               showBackdropLogo?: T;
               image?: T;
+              imageAlt?: T;
               kpis?:
                 | T
                 | {
@@ -718,6 +745,25 @@ export interface PagesSelect<T extends boolean = true> {
                     name?: T;
                     description?: T;
                     image?: T;
+                    href?: T;
+                    key?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        targetGroupsOverviewPhotos?:
+          | T
+          | {
+              title?: T;
+              subtitle?: T;
+              items?:
+                | T
+                | {
+                    name?: T;
+                    description?: T;
+                    image?: T;
+                    alt?: T;
                     href?: T;
                     key?: T;
                     id?: T;

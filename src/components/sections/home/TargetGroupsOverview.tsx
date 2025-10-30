@@ -516,14 +516,16 @@ export function TargetGroupsOverviewPhotos({
               <article className="relative h-[250px] md:h-[320px] overflow-hidden rounded-2xl border border-black/10 bg-black/[0.04] shadow-[0_12px_36px_rgba(0,0,0,.28)] transform-gpu">
                 {/* Photo background */}
                 <div className="absolute inset-0">
-                  <Image
-                    src={item.img}
-                    alt={item.alt}
-                    fill
-                    priority={false}
-                    sizes="(min-width: 1024px) 40vw, 90vw"
-                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                  />
+                  {item.img && item.img !== "" && (
+                    <Image
+                      src={item.img}
+                      alt={item.alt}
+                      fill
+                      priority={false}
+                      sizes="(min-width: 1024px) 40vw, 90vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-transparent [mask-image:linear-gradient(to_top,black_32%,transparent_60%)]" />
                 </div>
 

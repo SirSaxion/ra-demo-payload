@@ -23,6 +23,8 @@ export const MarketingMachine: Block = {
       type: 'array',
       label: 'Features',
       required: true,
+      minRows: 6,
+      maxRows: 6,
       fields: [
         {
           name: 'icon',
