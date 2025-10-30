@@ -235,7 +235,7 @@ export interface Page {
         tone?: ('light' | 'dark') | null;
         frameless?: boolean | null;
         showBackdropLogo?: boolean | null;
-        image?: (number | null) | Media;
+        image: number | Media;
         kpis?:
           | {
               label: string;

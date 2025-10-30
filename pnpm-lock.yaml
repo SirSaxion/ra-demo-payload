@@ -222,6 +222,9 @@ importers:
       tailwindcss:
         specifier: ^4
         version: 4.1.16
+      tsx:
+        specifier: ^4.20.6
+        version: 4.20.6
       tw-animate-css:
         specifier: ^1.4.0
         version: 1.4.0
@@ -11754,7 +11757,7 @@ snapshots:
   tsx@4.20.3:
     dependencies:
       esbuild: 0.25.11
-      get-tsconfig: 4.8.1
+      get-tsconfig: 4.13.0
     optionalDependencies:
       fsevents: 2.3.3
 

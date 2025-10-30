@@ -1,12 +1,6 @@
-/**
- * Complete Homepage Migration Script
- * Migrates all data from old home.ts to Payload CMS
- * 
- * Run with: node scripts/migrate-homepage-full.mjs
- */
-
+import { NextResponse } from 'next/server'
 import { getPayload } from 'payload'
-import config from '../src/payload.config.ts'
+import config from '@/payload.config'
 
 // Full homepage data from old CMS
 const homePageData = {
@@ -190,12 +184,12 @@ const homePageData = {
   ]
 }
 
-async function migrate() {
-  console.log('🚀 Starting homepage migration...\n')
-  
+export async function POST() {
   try {
+    console.log('🚀 Starting homepage migration...')
+    
     const payload = await getPayload({ config })
-    console.log('✅ Payload initialized\n')
+    console.log('✅ Payload initialized')
     
     // Check if homepage exists
     const existing = await payload.find({
@@ -218,35 +212,44 @@ async function migrate() {
       },
     }
     
+    let result
     if (existing.docs.length > 0) {
       console.log('📝 Homepage already exists, updating...')
-      await payload.update({
+      result = await payload.update({
         collection: 'pages',
         id: existing.docs[0].id,
         data: pageData,
       })
-      console.log('✅ Homepage updated!\n')
+      console.log('✅ Homepage updated!')
     } else {
       console.log('📝 Creating new homepage...')
-      await payload.create({
+      result = await payload.create({
         collection: 'pages',
         data: pageData,
       })
-      console.log('✅ Homepage created!\n')
+      console.log('✅ Homepage created!')
     }
     
     console.log('🎉 Migration completed successfully!')
-    console.log('\n📊 Summary:')
-    console.log(`   - Total blocks: ${homePageData.blocks.length}`)
-    console.log(`   - Slug: /`)
-    console.log(`   - Status: published`)
-    console.log('\n👉 Visit http://localhost:3000/admin/collections/pages to view in Payload CMS\n')
+    console.log(`📊 Total blocks: ${homePageData.blocks.length}`)
     
-    process.exit(0)
+    return NextResponse.json({
+      success: true,
+      message: 'Homepage migrated successfully',
+      page: {
+        id: result.id,
+        title: result.title,
+        slug: result.slug,
+        status: result.status,
+        blocksCount: homePageData.blocks.length
+      }
+    })
+    
   } catch (error) {
-    console.error('\n❌ Migration failed:', error)
-    process.exit(1)
+    console.error('❌ Migration failed:', error)
+    return NextResponse.json({
+      success: false,
+      error: error instanceof Error ? error.message : 'Unknown error'
+    }, { status: 500 })
   }
 }
-
-migrate()

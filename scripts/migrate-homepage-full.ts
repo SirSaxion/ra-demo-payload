@@ -2,11 +2,15 @@
  * Complete Homepage Migration Script
  * Migrates all data from old home.ts to Payload CMS
  * 
- * Run with: node scripts/migrate-homepage-full.mjs
+ * Run with: pnpm tsx scripts/migrate-homepage-full.ts
  */
 
+import dotenv from 'dotenv'
 import { getPayload } from 'payload'
-import config from '../src/payload.config.ts'
+import config from '../src/payload.config.js'
+
+// Load environment variables
+dotenv.config({ path: '.env' })
 
 // Full homepage data from old CMS
 const homePageData = {
@@ -178,7 +182,7 @@ const homePageData = {
     {
       blockType: 'finalCTA',
       title: 'Klaar om te groeien?',
-      subtitle: 'Plan een kennismakingsgesprek en ontdek wat we voor jou kunnen betekenen',
+      subtitle: 'Plan een kennismakingsgesprek en ontdek wat we voor jou kunnen betegenen',
       ctaLabel: 'Plan een bakkie',
       ctaHref: 'mailto:info@realaccelerate.nl',
       bullets: [
@@ -194,6 +198,14 @@ async function migrate() {
   console.log('🚀 Starting homepage migration...\n')
   
   try {
+    // Set environment variables if not loaded
+    if (!process.env.PAYLOAD_SECRET) {
+      process.env.PAYLOAD_SECRET = '127578a4bd3ca59fb455680f'
+    }
+    if (!process.env.DATABASE_URI) {
+      process.env.DATABASE_URI = 'file:./ra-demo-payload.db'
+    }
+    
     const payload = await getPayload({ config })
     console.log('✅ Payload initialized\n')
     
@@ -240,7 +252,7 @@ async function migrate() {
     console.log(`   - Total blocks: ${homePageData.blocks.length}`)
     console.log(`   - Slug: /`)
     console.log(`   - Status: published`)
-    console.log('\n👉 Visit http://localhost:3000/admin/collections/pages to view in Payload CMS\n')
+    console.log('\n👉 Visit http://localhost:3001/admin/collections/pages to view in Payload CMS\n')
     
     process.exit(0)
   } catch (error) {
