@@ -129,9 +129,9 @@ const casesPageData = {
           icon: 'Home',
           highlight: '31 afspraken in maand 1',
           bullets: [
-            { text: 'Snelste start' },
-            { text: 'Kwalitatieve leads' },
-            { text: 'Consistente pijplijn' }
+            { item: 'Snelste start' },
+            { item: 'Kwalitatieve leads' },
+            { item: 'Consistente pijplijn' }
           ],
           image: '/images/thoma_thumb.png'
         },
@@ -141,9 +141,9 @@ const casesPageData = {
           icon: 'Globe2',
           highlight: '$8.5M+ verkocht',
           bullets: [
-            { text: 'Nationwide events' },
-            { text: 'IQI Global partner' },
-            { text: 'Snelle doorloop' }
+            { item: 'Nationwide events' },
+            { item: 'IQI Global partner' },
+            { item: 'Snelle doorloop' }
           ],
           image: '/images/dubai_thumb.jpg'
         }

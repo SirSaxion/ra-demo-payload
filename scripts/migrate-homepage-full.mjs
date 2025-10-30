@@ -101,6 +101,44 @@ const homePageData = {
       ]
     },
     {
+      blockType: 'testimonialsSection',
+      title: 'Uitgelichte succesverhalen',
+      description: 'MEER SUCCESVERHALEN',
+      durationSec: 70,
+      testimonials: [
+        {
+          title: 'De Brabant Makelaar',
+          imageSrc: '/images/brabantmakelaar_logo.webp',
+          badges: [
+            { text: '8 makelaars actief' },
+            { text: 'Agenda gevuld' }
+          ],
+          author: {
+            name: 'Amory',
+            handle: 'De Brabant Makelaar',
+            avatar: '/images/brabantmakelaar_avatar.webp'
+          },
+          text: 'De dynamische heren van Real Accelerate zijn erg fijn om mee samen te werken. Proactief en zorgen voor veel resultaten. Aanrader voor iedereen die meer uit online marketing wilt halen!',
+          href: '/cases'
+        },
+        {
+          title: 'Bink & Partners',
+          imageSrc: '/images/binkpartners_logo.webp',
+          badges: [
+            { text: 'Leads boven verwachting' },
+            { text: 'Website complimenten' }
+          ],
+          author: {
+            name: 'Pieter',
+            handle: 'Bink & Partners',
+            avatar: '/images/binkpartners_avatar.webp'
+          },
+          text: 'Real Accelerate is een enthousiaste groep. Mijn nieuwe website levert veel complimenten op. Het vervolgtraject om op de socials leads te genereren is zojuist gestart en loopt prima.',
+          href: '/cases'
+        }
+      ]
+    },
+    {
       blockType: 'faqSection',
       title: 'Veelgestelde vragen',
       subtitle: 'Alles wat je moet weten',

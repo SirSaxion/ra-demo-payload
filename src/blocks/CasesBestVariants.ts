@@ -132,9 +132,9 @@ export const CasesBestVariants: Block = {
           label: 'Bullet points',
           fields: [
             {
-              name: 'text',
+              name: 'item',
               type: 'text',
-              label: 'Tekst',
+              label: 'Bullet point',
             },
           ],
         },

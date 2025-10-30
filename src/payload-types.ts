@@ -371,7 +371,7 @@ export interface Page {
         durationSec?: number | null;
         testimonials: {
           title: string;
-          companyLogo?: (number | null) | Media;
+          imageSrc?: string | null;
           badges?:
             | {
                 text?: string | null;
@@ -381,7 +381,7 @@ export interface Page {
           author: {
             name: string;
             handle?: string | null;
-            avatar?: (number | null) | Media;
+            avatar?: string | null;
           };
           text: string;
           href?: string | null;
@@ -446,6 +446,16 @@ export interface Page {
     | CasesIndustryBreakdown
     | CasesProcessShowcase
     | CasesStartYourStory
+    | OverOnsHeroSection
+    | OverOnsTrustStripSection
+    | OverOnsMissionSection
+    | OverOnsTimelineSection
+    | OverOnsTeamSection
+    | OverOnsCoreValuesSection
+    | OverOnsPartnershipsSection
+    | OverOnsCultureSection
+    | OverOnsOfficeSection
+    | OverOnsCTASection
   )[];
   seo?: {
     /**
@@ -537,7 +547,7 @@ export interface CasesBestVariants {
         highlight?: string | null;
         bullets?:
           | {
-              text?: string | null;
+              item?: string | null;
               id?: string | null;
             }[]
           | null;
@@ -657,6 +667,214 @@ export interface CasesStartYourStory {
   id?: string | null;
   blockName?: string | null;
   blockType: 'casesStartYourStory';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OverOnsHeroSection".
+ */
+export interface OverOnsHeroSection {
+  badge: string;
+  title: string;
+  highlightedWord: string;
+  subtitle: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  stats?:
+    | {
+        icon?: string | null;
+        value?: string | null;
+        label?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'overOnsHeroSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OverOnsTrustStripSection".
+ */
+export interface OverOnsTrustStripSection {
+  items?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'overOnsTrustStripSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OverOnsMissionSection".
+ */
+export interface OverOnsMissionSection {
+  badge: string;
+  title: string;
+  subtitle: string;
+  cards?:
+    | {
+        icon?: string | null;
+        title?: string | null;
+        content?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  tagline: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'overOnsMissionSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OverOnsTimelineSection".
+ */
+export interface OverOnsTimelineSection {
+  title: string;
+  subtitle: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'overOnsTimelineSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OverOnsTeamSection".
+ */
+export interface OverOnsTeamSection {
+  badge: string;
+  title: string;
+  members?:
+    | {
+        name?: string | null;
+        role?: string | null;
+        image?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'overOnsTeamSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OverOnsCoreValuesSection".
+ */
+export interface OverOnsCoreValuesSection {
+  badge: string;
+  title: string;
+  highlightedWord: string;
+  subtitle: string;
+  values?:
+    | {
+        id?: string | null;
+        title?: string | null;
+        description?: string | null;
+        icon?: string | null;
+        color?: string | null;
+        bgGradient?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'overOnsCoreValuesSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OverOnsPartnershipsSection".
+ */
+export interface OverOnsPartnershipsSection {
+  badge: string;
+  title: string;
+  partnerships?:
+    | {
+        title?: string | null;
+        description?: string | null;
+        image?: string | null;
+        features?:
+          | {
+              text?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  quote: string;
+  quoteAuthor: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'overOnsPartnershipsSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OverOnsCultureSection".
+ */
+export interface OverOnsCultureSection {
+  badge: string;
+  title: string;
+  subtitle: string;
+  comparisonRows?:
+    | {
+        aspect?: string | null;
+        aspectIcon?: string | null;
+        other?: string | null;
+        realAccelerate?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  testimonial?: {
+    quote?: string | null;
+    author?: string | null;
+    company?: string | null;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'overOnsCultureSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OverOnsOfficeSection".
+ */
+export interface OverOnsOfficeSection {
+  badge: string;
+  title: string;
+  subtitle: string;
+  latitude: number;
+  longitude: number;
+  address?: {
+    street?: string | null;
+    city?: string | null;
+  };
+  phone: string;
+  email: string;
+  image: string;
+  imageAlt: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'overOnsOfficeSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OverOnsCTASection".
+ */
+export interface OverOnsCTASection {
+  title: string;
+  highlightedWord: string;
+  subtitle: string;
+  benefits?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  ctaLabel: string;
+  ctaSubtext: string;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'overOnsCTASection';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -989,7 +1207,7 @@ export interface PagesSelect<T extends boolean = true> {
                 | T
                 | {
                     title?: T;
-                    companyLogo?: T;
+                    imageSrc?: T;
                     badges?:
                       | T
                       | {
@@ -1072,6 +1290,16 @@ export interface PagesSelect<T extends boolean = true> {
         casesIndustryBreakdown?: T | CasesIndustryBreakdownSelect<T>;
         casesProcessShowcase?: T | CasesProcessShowcaseSelect<T>;
         casesStartYourStory?: T | CasesStartYourStorySelect<T>;
+        overOnsHeroSection?: T | OverOnsHeroSectionSelect<T>;
+        overOnsTrustStripSection?: T | OverOnsTrustStripSectionSelect<T>;
+        overOnsMissionSection?: T | OverOnsMissionSectionSelect<T>;
+        overOnsTimelineSection?: T | OverOnsTimelineSectionSelect<T>;
+        overOnsTeamSection?: T | OverOnsTeamSectionSelect<T>;
+        overOnsCoreValuesSection?: T | OverOnsCoreValuesSectionSelect<T>;
+        overOnsPartnershipsSection?: T | OverOnsPartnershipsSectionSelect<T>;
+        overOnsCultureSection?: T | OverOnsCultureSectionSelect<T>;
+        overOnsOfficeSection?: T | OverOnsOfficeSectionSelect<T>;
+        overOnsCTASection?: T | OverOnsCTASectionSelect<T>;
       };
   seo?:
     | T
@@ -1159,7 +1387,7 @@ export interface CasesBestVariantsSelect<T extends boolean = true> {
         bullets?:
           | T
           | {
-              text?: T;
+              item?: T;
               id?: T;
             };
         image?: T;
@@ -1268,6 +1496,208 @@ export interface CasesStartYourStorySelect<T extends boolean = true> {
   ctaLabel?: T;
   ctaSubtext?: T;
   ctaFootnote?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OverOnsHeroSection_select".
+ */
+export interface OverOnsHeroSectionSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  highlightedWord?: T;
+  subtitle?: T;
+  description?: T;
+  image?: T;
+  imageAlt?: T;
+  stats?:
+    | T
+    | {
+        icon?: T;
+        value?: T;
+        label?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OverOnsTrustStripSection_select".
+ */
+export interface OverOnsTrustStripSectionSelect<T extends boolean = true> {
+  items?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OverOnsMissionSection_select".
+ */
+export interface OverOnsMissionSectionSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  cards?:
+    | T
+    | {
+        icon?: T;
+        title?: T;
+        content?: T;
+        id?: T;
+      };
+  tagline?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OverOnsTimelineSection_select".
+ */
+export interface OverOnsTimelineSectionSelect<T extends boolean = true> {
+  title?: T;
+  subtitle?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OverOnsTeamSection_select".
+ */
+export interface OverOnsTeamSectionSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  members?:
+    | T
+    | {
+        name?: T;
+        role?: T;
+        image?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OverOnsCoreValuesSection_select".
+ */
+export interface OverOnsCoreValuesSectionSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  highlightedWord?: T;
+  subtitle?: T;
+  values?:
+    | T
+    | {
+        id?: T;
+        title?: T;
+        description?: T;
+        icon?: T;
+        color?: T;
+        bgGradient?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OverOnsPartnershipsSection_select".
+ */
+export interface OverOnsPartnershipsSectionSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  partnerships?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+        image?: T;
+        features?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        id?: T;
+      };
+  quote?: T;
+  quoteAuthor?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OverOnsCultureSection_select".
+ */
+export interface OverOnsCultureSectionSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  comparisonRows?:
+    | T
+    | {
+        aspect?: T;
+        aspectIcon?: T;
+        other?: T;
+        realAccelerate?: T;
+        id?: T;
+      };
+  testimonial?:
+    | T
+    | {
+        quote?: T;
+        author?: T;
+        company?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OverOnsOfficeSection_select".
+ */
+export interface OverOnsOfficeSectionSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  latitude?: T;
+  longitude?: T;
+  address?:
+    | T
+    | {
+        street?: T;
+        city?: T;
+      };
+  phone?: T;
+  email?: T;
+  image?: T;
+  imageAlt?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "OverOnsCTASection_select".
+ */
+export interface OverOnsCTASectionSelect<T extends boolean = true> {
+  title?: T;
+  highlightedWord?: T;
+  subtitle?: T;
+  benefits?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  ctaLabel?: T;
+  ctaSubtext?: T;
   id?: T;
   blockName?: T;
 }

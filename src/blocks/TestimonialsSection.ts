@@ -37,10 +37,9 @@ export const TestimonialsSection: Block = {
           required: true,
         },
         {
-          name: 'companyLogo',
-          type: 'upload',
-          relationTo: 'media',
-          label: 'Bedrijfslogo',
+          name: 'imageSrc',
+          type: 'text',
+          label: 'Bedrijfslogo URL',
         },
         {
           name: 'badges',
@@ -72,9 +71,8 @@ export const TestimonialsSection: Block = {
             },
             {
               name: 'avatar',
-              type: 'upload',
-              relationTo: 'media',
-              label: 'Profielfoto',
+              type: 'text',
+              label: 'Profielfoto URL',
             },
           ],
         },

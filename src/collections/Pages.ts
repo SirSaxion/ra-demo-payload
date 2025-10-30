@@ -23,6 +23,17 @@ import {
   CasesIndustryBreakdown,
   CasesProcessShowcase,
   CasesStartYourStory,
+  // Over-ons blocks
+  OverOnsHeroSection,
+  OverOnsTrustStripSection,
+  OverOnsMissionSection,
+  OverOnsTimelineSection,
+  OverOnsTeamSection,
+  OverOnsCoreValuesSection,
+  OverOnsPartnershipsSection,
+  OverOnsCultureSection,
+  OverOnsOfficeSection,
+  OverOnsCTASection,
 } from '../blocks'
 
 export const Pages: CollectionConfig = {
@@ -106,6 +117,17 @@ export const Pages: CollectionConfig = {
                 CasesIndustryBreakdown,
                 CasesProcessShowcase,
                 CasesStartYourStory,
+                // Over-ons blocks
+                OverOnsHeroSection,
+                OverOnsTrustStripSection,
+                OverOnsMissionSection,
+                OverOnsTimelineSection,
+                OverOnsTeamSection,
+                OverOnsCoreValuesSection,
+                OverOnsPartnershipsSection,
+                OverOnsCultureSection,
+                OverOnsOfficeSection,
+                OverOnsCTASection,
               ],
               admin: {
                 description: 'Sleep blokken om de volgorde te wijzigen. Klik op een blok om deze te bewerken.',
