@@ -91,10 +91,12 @@ export interface Config {
   globals: {
     header: Header;
     footer: Footer;
+    seo: Seo;
   };
   globalsSelect: {
     header: HeaderSelect<false> | HeaderSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
+    seo: SeoSelect<false> | SeoSelect<true>;
   };
   locale: null;
   user: User & {
@@ -4277,6 +4279,102 @@ export interface Footer {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "seo".
+ */
+export interface Seo {
+  id: number;
+  siteSettings: {
+    /**
+     * Hoofdtitel van de website (voor meta tags)
+     */
+    siteTitle: string;
+    /**
+     * Standaard meta beschrijving
+     */
+    siteDescription: string;
+    /**
+     * Basis URL van de website (zonder trailing slash)
+     */
+    canonicalUrl: string;
+    /**
+     * Standaard afbeelding voor social media sharing (1200x630px)
+     */
+    defaultOgImage?: (number | null) | Media;
+  };
+  robotsTxt?: {
+    enabled?: boolean | null;
+    /**
+     * Laat leeg voor standaard configuratie
+     */
+    customRobotsTxt?: string | null;
+    /**
+     * Paden die niet geïndexeerd mogen worden
+     */
+    disallowPaths?:
+      | {
+          path: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  sitemap?: {
+    enabled?: boolean | null;
+    /**
+     * Voeg alle gepubliceerde pages automatisch toe
+     */
+    includePages?: boolean | null;
+    /**
+     * Voeg case studies toe aan sitemap
+     */
+    includeCaseStudies?: boolean | null;
+    defaultChangeFrequency?: ('always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never') | null;
+    /**
+     * Waarde tussen 0.0 en 1.0
+     */
+    defaultPriority?: number | null;
+  };
+  structuredData?: {
+    /**
+     * Voegt JSON-LD schema toe voor betere SEO
+     */
+    organizationSchema?: boolean | null;
+    organization?: {
+      name?: string | null;
+      legalName?: string | null;
+      url?: string | null;
+      logo?: (number | null) | Media;
+      description?: string | null;
+      email?: string | null;
+      telephone?: string | null;
+      address?: {
+        streetAddress?: string | null;
+        postalCode?: string | null;
+        addressLocality?: string | null;
+        addressCountry?: string | null;
+      };
+      socialProfiles?:
+        | {
+            url: string;
+            id?: string | null;
+          }[]
+        | null;
+    };
+  };
+  performance?: {
+    /**
+     * Preload kritische resources voor betere performance
+     */
+    enablePreloading?: boolean | null;
+    /**
+     * Lazy load images voor betere initial load time
+     */
+    enableLazyLoading?: boolean | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header_select".
  */
 export interface HeaderSelect<T extends boolean = true> {
@@ -4353,6 +4451,80 @@ export interface FooterSelect<T extends boolean = true> {
         instagram?: T;
       };
   copyrightText?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "seo_select".
+ */
+export interface SeoSelect<T extends boolean = true> {
+  siteSettings?:
+    | T
+    | {
+        siteTitle?: T;
+        siteDescription?: T;
+        canonicalUrl?: T;
+        defaultOgImage?: T;
+      };
+  robotsTxt?:
+    | T
+    | {
+        enabled?: T;
+        customRobotsTxt?: T;
+        disallowPaths?:
+          | T
+          | {
+              path?: T;
+              id?: T;
+            };
+      };
+  sitemap?:
+    | T
+    | {
+        enabled?: T;
+        includePages?: T;
+        includeCaseStudies?: T;
+        defaultChangeFrequency?: T;
+        defaultPriority?: T;
+      };
+  structuredData?:
+    | T
+    | {
+        organizationSchema?: T;
+        organization?:
+          | T
+          | {
+              name?: T;
+              legalName?: T;
+              url?: T;
+              logo?: T;
+              description?: T;
+              email?: T;
+              telephone?: T;
+              address?:
+                | T
+                | {
+                    streetAddress?: T;
+                    postalCode?: T;
+                    addressLocality?: T;
+                    addressCountry?: T;
+                  };
+              socialProfiles?:
+                | T
+                | {
+                    url?: T;
+                    id?: T;
+                  };
+            };
+      };
+  performance?:
+    | T
+    | {
+        enablePreloading?: T;
+        enableLazyLoading?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

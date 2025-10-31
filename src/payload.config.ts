@@ -11,7 +11,7 @@ import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
 import { CaseStudies } from './collections/CaseStudies'
-import { Header, Footer } from './globals'
+import { Header, Footer, SEO } from './globals'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -24,7 +24,7 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, Pages, CaseStudies],
-  globals: [Header, Footer],
+  globals: [Header, Footer, SEO],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || 'fallback-secret-for-development-only',
   typescript: {

@@ -26,6 +26,7 @@
     "migrate:projectontwikkelaars": "npx tsx scripts/migrate-projectontwikkelaars.mjs",
     "migrate:media": "npx tsx scripts/migrate-media.mjs",
     "migrate:case-studies": "npx tsx scripts/migrate-case-studies.mjs",
+    "init:seo": "npx tsx scripts/init-seo-settings.mjs",
     "fix:page-status": "npx tsx scripts/fix-page-status.mjs"
   },
   "dependencies": {
