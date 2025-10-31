@@ -70,6 +70,7 @@ export interface Config {
     users: User;
     media: Media;
     pages: Page;
+    'case-studies': CaseStudy;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -79,6 +80,7 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     pages: PagesSelect<false> | PagesSelect<true>;
+    'case-studies': CaseStudiesSelect<false> | CaseStudiesSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -2060,6 +2062,81 @@ export interface ProjectontwikkelaarsFAQSectionBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "case-studies".
+ */
+export interface CaseStudy {
+  /**
+   * Unieke identifier (bijv. "paul-thijssen")
+   */
+  id: string;
+  title: string;
+  subtitle: string;
+  /**
+   * Uitgebreide beschrijving van het project
+   */
+  description: string;
+  websiteUrl: string;
+  /**
+   * Bijv. "Premium Makelaar", "Moderne Makelaar"
+   */
+  category: string;
+  tags?:
+    | {
+        tag: string;
+        id?: string | null;
+      }[]
+    | null;
+  results?:
+    | {
+        /**
+         * Bijv. "Verkopen", "Lead kwaliteit"
+         */
+        metric: string;
+        /**
+         * Bijv. "€2M+", "+180%"
+         */
+        value: string;
+        description: string;
+        id?: string | null;
+      }[]
+    | null;
+  images: {
+    hero: number | Media;
+    gallery?:
+      | {
+          image: number | Media;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  details?: {
+    /**
+     * Bijv. "3 maanden"
+     */
+    projectDuration?: string | null;
+    location?: string | null;
+    teamSize?: string | null;
+    technologies?:
+      | {
+          tech: string;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  testimonial: {
+    quote: string;
+    author: string;
+    role: string;
+  };
+  seo?: {
+    metaTitle?: string | null;
+    metaDescription?: string | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -2076,6 +2153,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'pages';
         value: number | Page;
+      } | null)
+    | ({
+        relationTo: 'case-studies';
+        value: string | CaseStudy;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -4018,6 +4099,71 @@ export interface ProjectontwikkelaarsFAQSectionBlockSelect<T extends boolean = t
   phoneNumber?: T;
   id?: T;
   blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "case-studies_select".
+ */
+export interface CaseStudiesSelect<T extends boolean = true> {
+  id?: T;
+  title?: T;
+  subtitle?: T;
+  description?: T;
+  websiteUrl?: T;
+  category?: T;
+  tags?:
+    | T
+    | {
+        tag?: T;
+        id?: T;
+      };
+  results?:
+    | T
+    | {
+        metric?: T;
+        value?: T;
+        description?: T;
+        id?: T;
+      };
+  images?:
+    | T
+    | {
+        hero?: T;
+        gallery?:
+          | T
+          | {
+              image?: T;
+              id?: T;
+            };
+      };
+  details?:
+    | T
+    | {
+        projectDuration?: T;
+        location?: T;
+        teamSize?: T;
+        technologies?:
+          | T
+          | {
+              tech?: T;
+              id?: T;
+            };
+      };
+  testimonial?:
+    | T
+    | {
+        quote?: T;
+        author?: T;
+        role?: T;
+      };
+  seo?:
+    | T
+    | {
+        metaTitle?: T;
+        metaDescription?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
