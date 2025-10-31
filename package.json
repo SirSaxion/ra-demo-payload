@@ -18,7 +18,8 @@
     "test:int": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts",
     "migrate:homepage": "npx tsx scripts/migrate-homepage-full.mjs",
     "migrate:cases": "npx tsx scripts/migrate-cases.mjs",
-    "migrate:over-ons": "npx tsx scripts/migrate-over-ons.mjs"
+    "migrate:over-ons": "npx tsx scripts/migrate-over-ons.mjs",
+    "migrate:makelaars": "npx tsx scripts/migrate-makelaars.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",

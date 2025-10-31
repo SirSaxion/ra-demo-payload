@@ -456,6 +456,17 @@ export interface Page {
     | OverOnsCultureSection
     | OverOnsOfficeSection
     | OverOnsCTASection
+    | MakelaarsHero
+    | MakelaarsTrustStrip
+    | MakelaarsProblemSection
+    | MakelaarsMethodologySection
+    | MakelaarsBewezenSysteemSection
+    | MakelaarsResultsBentoGrid
+    | MakelaarsGuaranteesSection
+    | MakelaarsWhatYouGetSection
+    | MakelaarsForWhoIsThisSection
+    | MakelaarsStrategieSessionCTA
+    | MakelaarsFAQSection
   )[];
   seo?: {
     /**
@@ -875,6 +886,281 @@ export interface OverOnsCTASection {
   id?: string | null;
   blockName?: string | null;
   blockType: 'overOnsCTASection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MakelaarsHero".
+ */
+export interface MakelaarsHero {
+  kicker?: string | null;
+  title: string;
+  subtitle: string;
+  ctaPrimary?: {
+    label?: string | null;
+    href?: string | null;
+  };
+  ctaSecondary?: {
+    label?: string | null;
+    href?: string | null;
+  };
+  trustIndicators?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  avatarsTitle?: string | null;
+  avatars?:
+    | {
+        src?: string | null;
+        alt?: string | null;
+        tilt?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  floatingStats?:
+    | {
+        title?: string | null;
+        subtitle?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  testimonialQuote?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'makelaarsHero';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MakelaarsTrustStrip".
+ */
+export interface MakelaarsTrustStrip {
+  trustItems?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'makelaarsTrustStrip';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MakelaarsProblemSection".
+ */
+export interface MakelaarsProblemSection {
+  kicker?: string | null;
+  title: string;
+  subtitle?: string | null;
+  oldWayTitle?: string | null;
+  oldWaySubtitle?: string | null;
+  problems?:
+    | {
+        text?: string | null;
+        icon?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  newWayTitle?: string | null;
+  newWaySubtitle?: string | null;
+  solutions?:
+    | {
+        text?: string | null;
+        icon?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  bottomInsight?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'makelaarsProblemSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MakelaarsMethodologySection".
+ */
+export interface MakelaarsMethodologySection {
+  kicker?: string | null;
+  title: string;
+  subtitle?: string | null;
+  steps?:
+    | {
+        title?: string | null;
+        subtitle?: string | null;
+        description?: string | null;
+        icon?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'makelaarsMethodologySection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MakelaarsBewezenSysteemSection".
+ */
+export interface MakelaarsBewezenSysteemSection {
+  kicker?: string | null;
+  title: string;
+  subtitle?: string | null;
+  imageSrc?: string | null;
+  imageAlt?: string | null;
+  benefitsTitle?: string | null;
+  benefits?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  quote?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'makelaarsBewezenSysteemSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MakelaarsResultsBentoGrid".
+ */
+export interface MakelaarsResultsBentoGrid {
+  kicker?: string | null;
+  title: string;
+  subtitle?: string | null;
+  results?:
+    | {
+        company?: string | null;
+        logo?: string | null;
+        image?: string | null;
+        mainMetric?: string | null;
+        description?: string | null;
+        icon?: string | null;
+        featured?: boolean | null;
+        id?: string | null;
+      }[]
+    | null;
+  bottomInsight?: string | null;
+  ctaLabel?: string | null;
+  ctaHref?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'makelaarsResultsBentoGrid';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MakelaarsGuaranteesSection".
+ */
+export interface MakelaarsGuaranteesSection {
+  kicker?: string | null;
+  title: string;
+  subtitle?: string | null;
+  cards?:
+    | {
+        title?: string | null;
+        subtitle?: string | null;
+        icon?: string | null;
+        items?:
+          | {
+              text?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'makelaarsGuaranteesSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MakelaarsWhatYouGetSection".
+ */
+export interface MakelaarsWhatYouGetSection {
+  kicker?: string | null;
+  title: string;
+  subtitle?: string | null;
+  services?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  bonusTitle?: string | null;
+  bonusDescription?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'makelaarsWhatYouGetSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MakelaarsForWhoIsThisSection".
+ */
+export interface MakelaarsForWhoIsThisSection {
+  kicker?: string | null;
+  title: string;
+  subtitle?: string | null;
+  perfectFor?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  notForTitle?: string | null;
+  notFor?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  bottomInsight?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'makelaarsForWhoIsThisSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MakelaarsStrategieSessionCTA".
+ */
+export interface MakelaarsStrategieSessionCTA {
+  title: string;
+  subtitle?: string | null;
+  benefits?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  ctaLabel?: string | null;
+  ctaSubtext?: string | null;
+  ctaHref?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'makelaarsStrategieSessionCTA';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MakelaarsFAQSection".
+ */
+export interface MakelaarsFAQSection {
+  kicker?: string | null;
+  title: string;
+  subtitle?: string | null;
+  contactLinkText?: string | null;
+  contactLinkHref?: string | null;
+  phoneLabel?: string | null;
+  phoneNumber?: string | null;
+  faqs?:
+    | {
+        question?: string | null;
+        answer?: string | null;
+        icon?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'makelaarsFAQSection';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -1300,6 +1586,17 @@ export interface PagesSelect<T extends boolean = true> {
         overOnsCultureSection?: T | OverOnsCultureSectionSelect<T>;
         overOnsOfficeSection?: T | OverOnsOfficeSectionSelect<T>;
         overOnsCTASection?: T | OverOnsCTASectionSelect<T>;
+        makelaarsHero?: T | MakelaarsHeroSelect<T>;
+        makelaarsTrustStrip?: T | MakelaarsTrustStripSelect<T>;
+        makelaarsProblemSection?: T | MakelaarsProblemSectionSelect<T>;
+        makelaarsMethodologySection?: T | MakelaarsMethodologySectionSelect<T>;
+        makelaarsBewezenSysteemSection?: T | MakelaarsBewezenSysteemSectionSelect<T>;
+        makelaarsResultsBentoGrid?: T | MakelaarsResultsBentoGridSelect<T>;
+        makelaarsGuaranteesSection?: T | MakelaarsGuaranteesSectionSelect<T>;
+        makelaarsWhatYouGetSection?: T | MakelaarsWhatYouGetSectionSelect<T>;
+        makelaarsForWhoIsThisSection?: T | MakelaarsForWhoIsThisSectionSelect<T>;
+        makelaarsStrategieSessionCTA?: T | MakelaarsStrategieSessionCTASelect<T>;
+        makelaarsFAQSection?: T | MakelaarsFAQSectionSelect<T>;
       };
   seo?:
     | T
@@ -1698,6 +1995,274 @@ export interface OverOnsCTASectionSelect<T extends boolean = true> {
       };
   ctaLabel?: T;
   ctaSubtext?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MakelaarsHero_select".
+ */
+export interface MakelaarsHeroSelect<T extends boolean = true> {
+  kicker?: T;
+  title?: T;
+  subtitle?: T;
+  ctaPrimary?:
+    | T
+    | {
+        label?: T;
+        href?: T;
+      };
+  ctaSecondary?:
+    | T
+    | {
+        label?: T;
+        href?: T;
+      };
+  trustIndicators?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  avatarsTitle?: T;
+  avatars?:
+    | T
+    | {
+        src?: T;
+        alt?: T;
+        tilt?: T;
+        id?: T;
+      };
+  floatingStats?:
+    | T
+    | {
+        title?: T;
+        subtitle?: T;
+        id?: T;
+      };
+  testimonialQuote?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MakelaarsTrustStrip_select".
+ */
+export interface MakelaarsTrustStripSelect<T extends boolean = true> {
+  trustItems?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MakelaarsProblemSection_select".
+ */
+export interface MakelaarsProblemSectionSelect<T extends boolean = true> {
+  kicker?: T;
+  title?: T;
+  subtitle?: T;
+  oldWayTitle?: T;
+  oldWaySubtitle?: T;
+  problems?:
+    | T
+    | {
+        text?: T;
+        icon?: T;
+        id?: T;
+      };
+  newWayTitle?: T;
+  newWaySubtitle?: T;
+  solutions?:
+    | T
+    | {
+        text?: T;
+        icon?: T;
+        id?: T;
+      };
+  bottomInsight?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MakelaarsMethodologySection_select".
+ */
+export interface MakelaarsMethodologySectionSelect<T extends boolean = true> {
+  kicker?: T;
+  title?: T;
+  subtitle?: T;
+  steps?:
+    | T
+    | {
+        title?: T;
+        subtitle?: T;
+        description?: T;
+        icon?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MakelaarsBewezenSysteemSection_select".
+ */
+export interface MakelaarsBewezenSysteemSectionSelect<T extends boolean = true> {
+  kicker?: T;
+  title?: T;
+  subtitle?: T;
+  imageSrc?: T;
+  imageAlt?: T;
+  benefitsTitle?: T;
+  benefits?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  quote?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MakelaarsResultsBentoGrid_select".
+ */
+export interface MakelaarsResultsBentoGridSelect<T extends boolean = true> {
+  kicker?: T;
+  title?: T;
+  subtitle?: T;
+  results?:
+    | T
+    | {
+        company?: T;
+        logo?: T;
+        image?: T;
+        mainMetric?: T;
+        description?: T;
+        icon?: T;
+        featured?: T;
+        id?: T;
+      };
+  bottomInsight?: T;
+  ctaLabel?: T;
+  ctaHref?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MakelaarsGuaranteesSection_select".
+ */
+export interface MakelaarsGuaranteesSectionSelect<T extends boolean = true> {
+  kicker?: T;
+  title?: T;
+  subtitle?: T;
+  cards?:
+    | T
+    | {
+        title?: T;
+        subtitle?: T;
+        icon?: T;
+        items?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MakelaarsWhatYouGetSection_select".
+ */
+export interface MakelaarsWhatYouGetSectionSelect<T extends boolean = true> {
+  kicker?: T;
+  title?: T;
+  subtitle?: T;
+  services?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  bonusTitle?: T;
+  bonusDescription?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MakelaarsForWhoIsThisSection_select".
+ */
+export interface MakelaarsForWhoIsThisSectionSelect<T extends boolean = true> {
+  kicker?: T;
+  title?: T;
+  subtitle?: T;
+  perfectFor?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  notForTitle?: T;
+  notFor?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  bottomInsight?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MakelaarsStrategieSessionCTA_select".
+ */
+export interface MakelaarsStrategieSessionCTASelect<T extends boolean = true> {
+  title?: T;
+  subtitle?: T;
+  benefits?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  ctaLabel?: T;
+  ctaSubtext?: T;
+  ctaHref?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MakelaarsFAQSection_select".
+ */
+export interface MakelaarsFAQSectionSelect<T extends boolean = true> {
+  kicker?: T;
+  title?: T;
+  subtitle?: T;
+  contactLinkText?: T;
+  contactLinkHref?: T;
+  phoneLabel?: T;
+  phoneNumber?: T;
+  faqs?:
+    | T
+    | {
+        question?: T;
+        answer?: T;
+        icon?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }

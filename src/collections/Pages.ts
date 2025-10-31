@@ -34,6 +34,18 @@ import {
   OverOnsCultureSection,
   OverOnsOfficeSection,
   OverOnsCTASection,
+  // Makelaars blocks
+  MakelaarsHero,
+  MakelaarsTrustStrip,
+  MakelaarsProblemSection,
+  MakelaarsMethodologySection,
+  MakelaarsBewezenSysteemSection,
+  MakelaarsResultsBentoGrid,
+  MakelaarsGuaranteesSection,
+  MakelaarsWhatYouGetSection,
+  MakelaarsForWhoIsThisSection,
+  MakelaarsStrategieSessionCTA,
+  MakelaarsFAQSection,
 } from '../blocks'
 
 export const Pages: CollectionConfig = {
@@ -128,6 +140,18 @@ export const Pages: CollectionConfig = {
                 OverOnsCultureSection,
                 OverOnsOfficeSection,
                 OverOnsCTASection,
+                // Makelaars blocks
+                MakelaarsHero,
+                MakelaarsTrustStrip,
+                MakelaarsProblemSection,
+                MakelaarsMethodologySection,
+                MakelaarsBewezenSysteemSection,
+                MakelaarsResultsBentoGrid,
+                MakelaarsGuaranteesSection,
+                MakelaarsWhatYouGetSection,
+                MakelaarsForWhoIsThisSection,
+                MakelaarsStrategieSessionCTA,
+                MakelaarsFAQSection,
               ],
               admin: {
                 description: 'Sleep blokken om de volgorde te wijzigen. Klik op een blok om deze te bewerken.',
