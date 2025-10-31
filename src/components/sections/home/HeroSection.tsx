@@ -40,7 +40,7 @@ export default function HeroSection({
         loop
         playsInline
         preload="none"
-        poster="/images/herofootage_first_frame.png"
+        poster="/images/herofootage_first_frame.webp"
         aria-hidden="true"
       />
 

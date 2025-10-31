@@ -69,8 +69,14 @@ export default function RootLayout({
   return (
     <html lang="nl" className="dark">
       <head>
-        {/* Preload critical hero poster image for LCP */}
-        <link rel="preload" href="/images/herofootage_first_frame.png" as="image" fetchPriority="high" />
+        {/* Preload critical hero poster image for LCP with highest priority */}
+        <link 
+          rel="preload" 
+          href="/images/herofootage_first_frame.webp" 
+          as="image" 
+          type="image/webp"
+          fetchPriority="high"
+        />
         
         {/* Preload critical font to reduce render blocking */}
         <link 

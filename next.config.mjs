@@ -36,6 +36,12 @@ const nextConfig = {
   // Experimental features for better performance
   experimental: {
     optimizePackageImports: ['lucide-react', '@radix-ui/react-icons', '@radix-ui/react-accordion', '@radix-ui/react-dialog'],
+    optimizeCss: true,
+  },
+  
+  // Compiler options for better performance
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
   },
   webpack: (webpackConfig) => {
     webpackConfig.resolve.extensionAlias = {
