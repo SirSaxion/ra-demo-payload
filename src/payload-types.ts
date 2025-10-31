@@ -86,8 +86,14 @@ export interface Config {
   db: {
     defaultIDType: number;
   };
-  globals: {};
-  globalsSelect: {};
+  globals: {
+    header: Header;
+    footer: Footer;
+  };
+  globalsSelect: {
+    header: HeaderSelect<false> | HeaderSelect<true>;
+    footer: FooterSelect<false> | FooterSelect<true>;
+  };
   locale: null;
   user: User & {
     collection: 'users';
@@ -4044,6 +4050,166 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
   batch?: T;
   updatedAt?: T;
   createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "header".
+ */
+export interface Header {
+  id: number;
+  logo: number | Media;
+  phone: string;
+  phoneLink: string;
+  email: string;
+  emailLink: string;
+  mainLinks?:
+    | {
+        name: string;
+        href: string;
+        id?: string | null;
+      }[]
+    | null;
+  targetGroups?:
+    | {
+        name: string;
+        href: string;
+        icon: 'Building2' | 'Globe2' | 'PiggyBank' | 'Factory' | 'Users';
+        description: string;
+        highlights?:
+          | {
+              text: string;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer".
+ */
+export interface Footer {
+  id: number;
+  logo: number | Media;
+  companyName: string;
+  tagline: string;
+  showAddress?: boolean | null;
+  address?: {
+    street: string;
+    postalCode: string;
+    city: string;
+  };
+  badge?: string | null;
+  phone: string;
+  email: string;
+  mainLinks?:
+    | {
+        name: string;
+        href: string;
+        id?: string | null;
+      }[]
+    | null;
+  targetGroups?:
+    | {
+        name: string;
+        href: string;
+        id?: string | null;
+      }[]
+    | null;
+  showSocial?: boolean | null;
+  social?: {
+    linkedin?: string | null;
+    facebook?: string | null;
+    instagram?: string | null;
+  };
+  copyrightText?: string | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "header_select".
+ */
+export interface HeaderSelect<T extends boolean = true> {
+  logo?: T;
+  phone?: T;
+  phoneLink?: T;
+  email?: T;
+  emailLink?: T;
+  mainLinks?:
+    | T
+    | {
+        name?: T;
+        href?: T;
+        id?: T;
+      };
+  targetGroups?:
+    | T
+    | {
+        name?: T;
+        href?: T;
+        icon?: T;
+        description?: T;
+        highlights?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer_select".
+ */
+export interface FooterSelect<T extends boolean = true> {
+  logo?: T;
+  companyName?: T;
+  tagline?: T;
+  showAddress?: T;
+  address?:
+    | T
+    | {
+        street?: T;
+        postalCode?: T;
+        city?: T;
+      };
+  badge?: T;
+  phone?: T;
+  email?: T;
+  mainLinks?:
+    | T
+    | {
+        name?: T;
+        href?: T;
+        id?: T;
+      };
+  targetGroups?:
+    | T
+    | {
+        name?: T;
+        href?: T;
+        id?: T;
+      };
+  showSocial?: T;
+  social?:
+    | T
+    | {
+        linkedin?: T;
+        facebook?: T;
+        instagram?: T;
+      };
+  copyrightText?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
