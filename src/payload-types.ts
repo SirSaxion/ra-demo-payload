@@ -467,6 +467,17 @@ export interface Page {
     | MakelaarsForWhoIsThisSection
     | MakelaarsStrategieSessionCTA
     | MakelaarsFAQSection
+    | MakelaarsInternationalHero
+    | MakelaarsInternationalTrustStrip
+    | InternationalPainPointsSection
+    | IQIPartnershipSection
+    | InternationalMethodologySection
+    | InternationalWhatYouGetSection
+    | InternationalForWhoIsThisSection
+    | InternationalCasesSection
+    | InternationalGlobeSection
+    | InternationalStrategySessionCTA
+    | InternationalFAQSection
   )[];
   seo?: {
     /**
@@ -1164,6 +1175,297 @@ export interface MakelaarsFAQSection {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MakelaarsInternationalHero".
+ */
+export interface MakelaarsInternationalHero {
+  badgeText?: string | null;
+  iqiBadgeTitle?: string | null;
+  iqiStats?:
+    | {
+        icon?: string | null;
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  countriesBadge?: string | null;
+  quoteText?: string | null;
+  title: string;
+  subtitle?: string | null;
+  achievements?:
+    | {
+        icon?: string | null;
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  ctaPrimary?: {
+    label?: string | null;
+    action?: string | null;
+  };
+  ctaSecondary?: {
+    label?: string | null;
+    href?: string | null;
+  };
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'makelaarsInternationalHero';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MakelaarsInternationalTrustStrip".
+ */
+export interface MakelaarsInternationalTrustStrip {
+  trustItems?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'makelaarsInternationalTrustStrip';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InternationalPainPointsSection".
+ */
+export interface InternationalPainPointsSection {
+  badge?: string | null;
+  title: string;
+  subtitle?: string | null;
+  painPoints?:
+    | {
+        icon?: string | null;
+        title?: string | null;
+        description?: string | null;
+        image?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  bottomInsightIcon?: string | null;
+  bottomInsightText?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'internationalPainPointsSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "IQIPartnershipSection".
+ */
+export interface IQIPartnershipSection {
+  badge?: string | null;
+  title: string;
+  subtitle?: string | null;
+  quote?: string | null;
+  leftImage?: string | null;
+  leftImageAlt?: string | null;
+  leftTitle?: string | null;
+  leftSubtitle?: string | null;
+  leftItems?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  rightImage?: string | null;
+  rightImageAlt?: string | null;
+  rightTitle?: string | null;
+  rightSubtitle?: string | null;
+  rightItems?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  bottomInsight?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'iqiPartnershipSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InternationalMethodologySection".
+ */
+export interface InternationalMethodologySection {
+  badge?: string | null;
+  title: string;
+  steps?:
+    | {
+        icon?: string | null;
+        title?: string | null;
+        stepLabel?: string | null;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  bottomInsightIcon?: string | null;
+  bottomInsightText?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'internationalMethodologySection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InternationalWhatYouGetSection".
+ */
+export interface InternationalWhatYouGetSection {
+  badge?: string | null;
+  title: string;
+  subtitle?: string | null;
+  services?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  guaranteesTitle?: string | null;
+  guarantees?:
+    | {
+        icon?: string | null;
+        title?: string | null;
+        items?:
+          | {
+              text?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  bonusIcon?: string | null;
+  bonusTitle?: string | null;
+  bonusDescription?: string | null;
+  bonusItems?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'internationalWhatYouGetSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InternationalForWhoIsThisSection".
+ */
+export interface InternationalForWhoIsThisSection {
+  badge?: string | null;
+  title: string;
+  subtitle?: string | null;
+  perfectForTitle?: string | null;
+  perfectForItems?:
+    | {
+        icon?: string | null;
+        title?: string | null;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  notForTitle?: string | null;
+  notForItems?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  bottomInsightIcon?: string | null;
+  bottomInsightText?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'internationalForWhoIsThisSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InternationalCasesSection".
+ */
+export interface InternationalCasesSection {
+  badge?: string | null;
+  title: string;
+  subtitle?: string | null;
+  cases?:
+    | {
+        id?: number | null;
+        name?: string | null;
+        role?: string | null;
+        company?: string | null;
+        story?: string | null;
+        achievement?: string | null;
+        metric?: string | null;
+        avatar?: string | null;
+        rating?: number | null;
+        country?: string | null;
+        projectValue?: string | null;
+        span?: string | null;
+      }[]
+    | null;
+  bottomInsightIcon?: string | null;
+  bottomInsightText?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'internationalCasesSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InternationalGlobeSection".
+ */
+export interface InternationalGlobeSection {
+  badge?: string | null;
+  title: string;
+  subtitle?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'internationalGlobeSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InternationalStrategySessionCTA".
+ */
+export interface InternationalStrategySessionCTA {
+  title: string;
+  highlightText?: string | null;
+  subtitle?: string | null;
+  benefits?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  ctaLabel?: string | null;
+  ctaFooter?: string | null;
+  bonusText?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'internationalStrategySessionCTA';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InternationalFAQSection".
+ */
+export interface InternationalFAQSection {
+  badge?: string | null;
+  title: string;
+  subtitle?: string | null;
+  subtitleSuffix?: string | null;
+  contactLinkText?: string | null;
+  contactLinkHref?: string | null;
+  phoneLabel?: string | null;
+  phoneNumber?: string | null;
+  phonePrefix?: string | null;
+  faqs?:
+    | {
+        id?: string | null;
+        icon?: string | null;
+        question?: string | null;
+        answer?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'internationalFAQSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -1597,6 +1899,17 @@ export interface PagesSelect<T extends boolean = true> {
         makelaarsForWhoIsThisSection?: T | MakelaarsForWhoIsThisSectionSelect<T>;
         makelaarsStrategieSessionCTA?: T | MakelaarsStrategieSessionCTASelect<T>;
         makelaarsFAQSection?: T | MakelaarsFAQSectionSelect<T>;
+        makelaarsInternationalHero?: T | MakelaarsInternationalHeroSelect<T>;
+        makelaarsInternationalTrustStrip?: T | MakelaarsInternationalTrustStripSelect<T>;
+        internationalPainPointsSection?: T | InternationalPainPointsSectionSelect<T>;
+        iqiPartnershipSection?: T | IQIPartnershipSectionSelect<T>;
+        internationalMethodologySection?: T | InternationalMethodologySectionSelect<T>;
+        internationalWhatYouGetSection?: T | InternationalWhatYouGetSectionSelect<T>;
+        internationalForWhoIsThisSection?: T | InternationalForWhoIsThisSectionSelect<T>;
+        internationalCasesSection?: T | InternationalCasesSectionSelect<T>;
+        internationalGlobeSection?: T | InternationalGlobeSectionSelect<T>;
+        internationalStrategySessionCTA?: T | InternationalStrategySessionCTASelect<T>;
+        internationalFAQSection?: T | InternationalFAQSectionSelect<T>;
       };
   seo?:
     | T
@@ -2262,6 +2575,290 @@ export interface MakelaarsFAQSectionSelect<T extends boolean = true> {
         answer?: T;
         icon?: T;
         id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MakelaarsInternationalHero_select".
+ */
+export interface MakelaarsInternationalHeroSelect<T extends boolean = true> {
+  badgeText?: T;
+  iqiBadgeTitle?: T;
+  iqiStats?:
+    | T
+    | {
+        icon?: T;
+        text?: T;
+        id?: T;
+      };
+  countriesBadge?: T;
+  quoteText?: T;
+  title?: T;
+  subtitle?: T;
+  achievements?:
+    | T
+    | {
+        icon?: T;
+        text?: T;
+        id?: T;
+      };
+  ctaPrimary?:
+    | T
+    | {
+        label?: T;
+        action?: T;
+      };
+  ctaSecondary?:
+    | T
+    | {
+        label?: T;
+        href?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MakelaarsInternationalTrustStrip_select".
+ */
+export interface MakelaarsInternationalTrustStripSelect<T extends boolean = true> {
+  trustItems?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InternationalPainPointsSection_select".
+ */
+export interface InternationalPainPointsSectionSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  painPoints?:
+    | T
+    | {
+        icon?: T;
+        title?: T;
+        description?: T;
+        image?: T;
+        id?: T;
+      };
+  bottomInsightIcon?: T;
+  bottomInsightText?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "IQIPartnershipSection_select".
+ */
+export interface IQIPartnershipSectionSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  quote?: T;
+  leftImage?: T;
+  leftImageAlt?: T;
+  leftTitle?: T;
+  leftSubtitle?: T;
+  leftItems?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  rightImage?: T;
+  rightImageAlt?: T;
+  rightTitle?: T;
+  rightSubtitle?: T;
+  rightItems?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  bottomInsight?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InternationalMethodologySection_select".
+ */
+export interface InternationalMethodologySectionSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  steps?:
+    | T
+    | {
+        icon?: T;
+        title?: T;
+        stepLabel?: T;
+        description?: T;
+        id?: T;
+      };
+  bottomInsightIcon?: T;
+  bottomInsightText?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InternationalWhatYouGetSection_select".
+ */
+export interface InternationalWhatYouGetSectionSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  services?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  guaranteesTitle?: T;
+  guarantees?:
+    | T
+    | {
+        icon?: T;
+        title?: T;
+        items?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        id?: T;
+      };
+  bonusIcon?: T;
+  bonusTitle?: T;
+  bonusDescription?: T;
+  bonusItems?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InternationalForWhoIsThisSection_select".
+ */
+export interface InternationalForWhoIsThisSectionSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  perfectForTitle?: T;
+  perfectForItems?:
+    | T
+    | {
+        icon?: T;
+        title?: T;
+        description?: T;
+        id?: T;
+      };
+  notForTitle?: T;
+  notForItems?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  bottomInsightIcon?: T;
+  bottomInsightText?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InternationalCasesSection_select".
+ */
+export interface InternationalCasesSectionSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  cases?:
+    | T
+    | {
+        id?: T;
+        name?: T;
+        role?: T;
+        company?: T;
+        story?: T;
+        achievement?: T;
+        metric?: T;
+        avatar?: T;
+        rating?: T;
+        country?: T;
+        projectValue?: T;
+        span?: T;
+      };
+  bottomInsightIcon?: T;
+  bottomInsightText?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InternationalGlobeSection_select".
+ */
+export interface InternationalGlobeSectionSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InternationalStrategySessionCTA_select".
+ */
+export interface InternationalStrategySessionCTASelect<T extends boolean = true> {
+  title?: T;
+  highlightText?: T;
+  subtitle?: T;
+  benefits?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  ctaLabel?: T;
+  ctaFooter?: T;
+  bonusText?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "InternationalFAQSection_select".
+ */
+export interface InternationalFAQSectionSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  subtitleSuffix?: T;
+  contactLinkText?: T;
+  contactLinkHref?: T;
+  phoneLabel?: T;
+  phoneNumber?: T;
+  phonePrefix?: T;
+  faqs?:
+    | T
+    | {
+        id?: T;
+        icon?: T;
+        question?: T;
+        answer?: T;
       };
   id?: T;
   blockName?: T;

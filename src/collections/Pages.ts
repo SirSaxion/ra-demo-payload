@@ -46,6 +46,18 @@ import {
   MakelaarsForWhoIsThisSection,
   MakelaarsStrategieSessionCTA,
   MakelaarsFAQSection,
+  // International/Makelaars-buitenland blocks
+  MakelaarsInternationalHero,
+  MakelaarsInternationalTrustStrip,
+  InternationalPainPointsSection,
+  IQIPartnershipSection,
+  InternationalMethodologySection,
+  InternationalWhatYouGetSection,
+  InternationalForWhoIsThisSection,
+  InternationalCasesSection,
+  InternationalGlobeSection,
+  InternationalStrategySessionCTA,
+  InternationalFAQSection,
 } from '../blocks'
 
 export const Pages: CollectionConfig = {
@@ -152,6 +164,18 @@ export const Pages: CollectionConfig = {
                 MakelaarsForWhoIsThisSection,
                 MakelaarsStrategieSessionCTA,
                 MakelaarsFAQSection,
+                // International/Makelaars-buitenland blocks
+                MakelaarsInternationalHero,
+                MakelaarsInternationalTrustStrip,
+                InternationalPainPointsSection,
+                IQIPartnershipSection,
+                InternationalMethodologySection,
+                InternationalWhatYouGetSection,
+                InternationalForWhoIsThisSection,
+                InternationalCasesSection,
+                InternationalGlobeSection,
+                InternationalStrategySessionCTA,
+                InternationalFAQSection,
               ],
               admin: {
                 description: 'Sleep blokken om de volgorde te wijzigen. Klik op een blok om deze te bewerken.',
