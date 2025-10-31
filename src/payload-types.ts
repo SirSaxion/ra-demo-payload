@@ -478,6 +478,17 @@ export interface Page {
     | InternationalGlobeSection
     | InternationalStrategySessionCTA
     | InternationalFAQSection
+    | HypotheekadviseursHero
+    | HypotheekadviseursTrustStrip
+    | HypotheekadviseursPainPointsSection
+    | HypotheekadviseursEditBVPartnershipSection
+    | HypotheekadviseursMethodologySection
+    | HypotheekadviseursVoorWieIsDitSection
+    | HypotheekadviseursBewezenResultatenSection
+    | HypotheekadviseursWatJeKrijgtSection
+    | HypotheekadviseursBewezenAanpakSection
+    | HypotheekadviseursStrategieSessionCTA
+    | HypotheekadviseursFAQSection
   )[];
   seo?: {
     /**
@@ -1466,6 +1477,258 @@ export interface InternationalFAQSection {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HypotheekadviseursHero".
+ */
+export interface HypotheekadviseursHero {
+  kicker?: string | null;
+  title: string;
+  subtitle: string;
+  ctaPrimary?: {
+    label?: string | null;
+    href?: string | null;
+  };
+  ctaSecondary?: {
+    label?: string | null;
+    href?: string | null;
+  };
+  editBVImage?: string | null;
+  editBVTitle?: string | null;
+  editBVSubtitle?: string | null;
+  editBVStats?:
+    | {
+        icon?: string | null;
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  floatingStat?: {
+    value?: string | null;
+    label?: string | null;
+  };
+  quote?: string | null;
+  usps?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hypotheekadviseursHero';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HypotheekadviseursTrustStrip".
+ */
+export interface HypotheekadviseursTrustStrip {
+  trustItems?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hypotheekadviseursTrustStrip';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HypotheekadviseursPainPointsSection".
+ */
+export interface HypotheekadviseursPainPointsSection {
+  badge?: string | null;
+  title: string;
+  subtitle?: string | null;
+  challenges?:
+    | {
+        icon?: string | null;
+        title?: string | null;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  ctaIcon?: string | null;
+  ctaTitle?: string | null;
+  ctaDescription?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hypotheekadviseursPainPointsSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HypotheekadviseursEditBVPartnershipSection".
+ */
+export interface HypotheekadviseursEditBVPartnershipSection {
+  kicker?: string | null;
+  title: string;
+  subtitle?: string | null;
+  benefits?:
+    | {
+        icon?: string | null;
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  oldWayTitle?: string | null;
+  newWayTitle?: string | null;
+  newWaySubtitle?: string | null;
+  bottomInsight?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hypotheekadviseursEditBVPartnershipSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HypotheekadviseursMethodologySection".
+ */
+export interface HypotheekadviseursMethodologySection {
+  kicker?: string | null;
+  title: string;
+  subtitle?: string | null;
+  steps?:
+    | {
+        number?: string | null;
+        icon?: string | null;
+        title?: string | null;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hypotheekadviseursMethodologySection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HypotheekadviseursVoorWieIsDitSection".
+ */
+export interface HypotheekadviseursVoorWieIsDitSection {
+  kicker?: string | null;
+  title: string;
+  subtitle?: string | null;
+  perfectForTitle?: string | null;
+  perfectForItems?:
+    | {
+        icon?: string | null;
+        title?: string | null;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  notForTitle?: string | null;
+  notForItems?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hypotheekadviseursVoorWieIsDitSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HypotheekadviseursBewezenResultatenSection".
+ */
+export interface HypotheekadviseursBewezenResultatenSection {
+  kicker?: string | null;
+  title: string;
+  subtitle?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hypotheekadviseursBewezenResultatenSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HypotheekadviseursWatJeKrijgtSection".
+ */
+export interface HypotheekadviseursWatJeKrijgtSection {
+  kicker?: string | null;
+  title: string;
+  subtitle?: string | null;
+  services?:
+    | {
+        icon?: string | null;
+        title?: string | null;
+        description?: string | null;
+        items?:
+          | {
+              text?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hypotheekadviseursWatJeKrijgtSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HypotheekadviseursBewezenAanpakSection".
+ */
+export interface HypotheekadviseursBewezenAanpakSection {
+  kicker?: string | null;
+  title: string;
+  subtitle?: string | null;
+  points?:
+    | {
+        icon?: string | null;
+        title?: string | null;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hypotheekadviseursBewezenAanpakSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HypotheekadviseursStrategieSessionCTA".
+ */
+export interface HypotheekadviseursStrategieSessionCTA {
+  kicker?: string | null;
+  title: string;
+  subtitle?: string | null;
+  benefits?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  ctaLabel?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hypotheekadviseursStrategieSessionCTA';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HypotheekadviseursFAQSection".
+ */
+export interface HypotheekadviseursFAQSection {
+  kicker?: string | null;
+  title: string;
+  subtitle?: string | null;
+  contactLinkText?: string | null;
+  contactLinkHref?: string | null;
+  phoneLabel?: string | null;
+  phoneNumber?: string | null;
+  faqs?:
+    | {
+        icon?: string | null;
+        question?: string | null;
+        answer?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hypotheekadviseursFAQSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -1910,6 +2173,17 @@ export interface PagesSelect<T extends boolean = true> {
         internationalGlobeSection?: T | InternationalGlobeSectionSelect<T>;
         internationalStrategySessionCTA?: T | InternationalStrategySessionCTASelect<T>;
         internationalFAQSection?: T | InternationalFAQSectionSelect<T>;
+        hypotheekadviseursHero?: T | HypotheekadviseursHeroSelect<T>;
+        hypotheekadviseursTrustStrip?: T | HypotheekadviseursTrustStripSelect<T>;
+        hypotheekadviseursPainPointsSection?: T | HypotheekadviseursPainPointsSectionSelect<T>;
+        hypotheekadviseursEditBVPartnershipSection?: T | HypotheekadviseursEditBVPartnershipSectionSelect<T>;
+        hypotheekadviseursMethodologySection?: T | HypotheekadviseursMethodologySectionSelect<T>;
+        hypotheekadviseursVoorWieIsDitSection?: T | HypotheekadviseursVoorWieIsDitSectionSelect<T>;
+        hypotheekadviseursBewezenResultatenSection?: T | HypotheekadviseursBewezenResultatenSectionSelect<T>;
+        hypotheekadviseursWatJeKrijgtSection?: T | HypotheekadviseursWatJeKrijgtSectionSelect<T>;
+        hypotheekadviseursBewezenAanpakSection?: T | HypotheekadviseursBewezenAanpakSectionSelect<T>;
+        hypotheekadviseursStrategieSessionCTA?: T | HypotheekadviseursStrategieSessionCTASelect<T>;
+        hypotheekadviseursFAQSection?: T | HypotheekadviseursFAQSectionSelect<T>;
       };
   seo?:
     | T
@@ -2859,6 +3133,253 @@ export interface InternationalFAQSectionSelect<T extends boolean = true> {
         icon?: T;
         question?: T;
         answer?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HypotheekadviseursHero_select".
+ */
+export interface HypotheekadviseursHeroSelect<T extends boolean = true> {
+  kicker?: T;
+  title?: T;
+  subtitle?: T;
+  ctaPrimary?:
+    | T
+    | {
+        label?: T;
+        href?: T;
+      };
+  ctaSecondary?:
+    | T
+    | {
+        label?: T;
+        href?: T;
+      };
+  editBVImage?: T;
+  editBVTitle?: T;
+  editBVSubtitle?: T;
+  editBVStats?:
+    | T
+    | {
+        icon?: T;
+        text?: T;
+        id?: T;
+      };
+  floatingStat?:
+    | T
+    | {
+        value?: T;
+        label?: T;
+      };
+  quote?: T;
+  usps?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HypotheekadviseursTrustStrip_select".
+ */
+export interface HypotheekadviseursTrustStripSelect<T extends boolean = true> {
+  trustItems?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HypotheekadviseursPainPointsSection_select".
+ */
+export interface HypotheekadviseursPainPointsSectionSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  challenges?:
+    | T
+    | {
+        icon?: T;
+        title?: T;
+        description?: T;
+        id?: T;
+      };
+  ctaIcon?: T;
+  ctaTitle?: T;
+  ctaDescription?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HypotheekadviseursEditBVPartnershipSection_select".
+ */
+export interface HypotheekadviseursEditBVPartnershipSectionSelect<T extends boolean = true> {
+  kicker?: T;
+  title?: T;
+  subtitle?: T;
+  benefits?:
+    | T
+    | {
+        icon?: T;
+        text?: T;
+        id?: T;
+      };
+  oldWayTitle?: T;
+  newWayTitle?: T;
+  newWaySubtitle?: T;
+  bottomInsight?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HypotheekadviseursMethodologySection_select".
+ */
+export interface HypotheekadviseursMethodologySectionSelect<T extends boolean = true> {
+  kicker?: T;
+  title?: T;
+  subtitle?: T;
+  steps?:
+    | T
+    | {
+        number?: T;
+        icon?: T;
+        title?: T;
+        description?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HypotheekadviseursVoorWieIsDitSection_select".
+ */
+export interface HypotheekadviseursVoorWieIsDitSectionSelect<T extends boolean = true> {
+  kicker?: T;
+  title?: T;
+  subtitle?: T;
+  perfectForTitle?: T;
+  perfectForItems?:
+    | T
+    | {
+        icon?: T;
+        title?: T;
+        description?: T;
+        id?: T;
+      };
+  notForTitle?: T;
+  notForItems?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HypotheekadviseursBewezenResultatenSection_select".
+ */
+export interface HypotheekadviseursBewezenResultatenSectionSelect<T extends boolean = true> {
+  kicker?: T;
+  title?: T;
+  subtitle?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HypotheekadviseursWatJeKrijgtSection_select".
+ */
+export interface HypotheekadviseursWatJeKrijgtSectionSelect<T extends boolean = true> {
+  kicker?: T;
+  title?: T;
+  subtitle?: T;
+  services?:
+    | T
+    | {
+        icon?: T;
+        title?: T;
+        description?: T;
+        items?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HypotheekadviseursBewezenAanpakSection_select".
+ */
+export interface HypotheekadviseursBewezenAanpakSectionSelect<T extends boolean = true> {
+  kicker?: T;
+  title?: T;
+  subtitle?: T;
+  points?:
+    | T
+    | {
+        icon?: T;
+        title?: T;
+        description?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HypotheekadviseursStrategieSessionCTA_select".
+ */
+export interface HypotheekadviseursStrategieSessionCTASelect<T extends boolean = true> {
+  kicker?: T;
+  title?: T;
+  subtitle?: T;
+  benefits?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  ctaLabel?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HypotheekadviseursFAQSection_select".
+ */
+export interface HypotheekadviseursFAQSectionSelect<T extends boolean = true> {
+  kicker?: T;
+  title?: T;
+  subtitle?: T;
+  contactLinkText?: T;
+  contactLinkHref?: T;
+  phoneLabel?: T;
+  phoneNumber?: T;
+  faqs?:
+    | T
+    | {
+        icon?: T;
+        question?: T;
+        answer?: T;
+        id?: T;
       };
   id?: T;
   blockName?: T;

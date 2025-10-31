@@ -58,6 +58,18 @@ import {
   InternationalGlobeSection,
   InternationalStrategySessionCTA,
   InternationalFAQSection,
+  // Hypotheekadviseurs blocks
+  HypotheekadviseursHero,
+  HypotheekadviseursTrustStrip,
+  HypotheekadviseursPainPointsSection,
+  HypotheekadviseursEditBVPartnershipSection,
+  HypotheekadviseursMethodologySection,
+  HypotheekadviseursVoorWieIsDitSection,
+  HypotheekadviseursBewezenResultatenSection,
+  HypotheekadviseursWatJeKrijgtSection,
+  HypotheekadviseursBewezenAanpakSection,
+  HypotheekadviseursStrategieSessionCTA,
+  HypotheekadviseursFAQSection,
 } from '../blocks'
 
 export const Pages: CollectionConfig = {
@@ -176,6 +188,18 @@ export const Pages: CollectionConfig = {
                 InternationalGlobeSection,
                 InternationalStrategySessionCTA,
                 InternationalFAQSection,
+                // Hypotheekadviseurs blocks
+                HypotheekadviseursHero,
+                HypotheekadviseursTrustStrip,
+                HypotheekadviseursPainPointsSection,
+                HypotheekadviseursEditBVPartnershipSection,
+                HypotheekadviseursMethodologySection,
+                HypotheekadviseursVoorWieIsDitSection,
+                HypotheekadviseursBewezenResultatenSection,
+                HypotheekadviseursWatJeKrijgtSection,
+                HypotheekadviseursBewezenAanpakSection,
+                HypotheekadviseursStrategieSessionCTA,
+                HypotheekadviseursFAQSection,
               ],
               admin: {
                 description: 'Sleep blokken om de volgorde te wijzigen. Klik op een blok om deze te bewerken.',
