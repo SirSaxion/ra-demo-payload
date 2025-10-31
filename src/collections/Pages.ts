@@ -99,7 +99,7 @@ export const Pages: CollectionConfig = {
   slug: 'pages',
   admin: {
     useAsTitle: 'title',
-    defaultColumns: ['title', 'slug', 'status', 'updatedAt'],
+    defaultColumns: ['title', 'slug', '_status', 'updatedAt'],
     group: 'Content',
   },
   access: {
@@ -125,22 +125,6 @@ export const Pages: CollectionConfig = {
         description: 'De URL van deze pagina (bijv. "makelaars" of "/" voor homepage)',
       },
     },
-    {
-      name: 'status',
-      type: 'select',
-      required: true,
-      defaultValue: 'draft',
-      options: [
-        {
-          label: 'Draft',
-          value: 'draft',
-        },
-        {
-          label: 'Published',
-          value: 'published',
-        },
-      ],
-    },
     // SEO Section
     {
       type: 'tabs',
@@ -151,7 +135,7 @@ export const Pages: CollectionConfig = {
             {
               name: 'blocks',
               type: 'blocks',
-              required: true,
+              required: false,
               blocks: [
                 HeroSection,
                 TrustStrip,

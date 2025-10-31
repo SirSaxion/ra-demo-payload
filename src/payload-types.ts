@@ -175,348 +175,349 @@ export interface Page {
    * De URL van deze pagina (bijv. "makelaars" of "/" voor homepage)
    */
   slug: string;
-  status: 'draft' | 'published';
   /**
    * Sleep blokken om de volgorde te wijzigen. Klik op een blok om deze te bewerken.
    */
-  blocks: (
-    | {
-        kicker?: string | null;
-        title: string;
-        subtitle?: string | null;
-        ctaPrimary: {
-          label: string;
-          href: string;
-        };
-        ctaSecondary?: {
-          label?: string | null;
-          href?: string | null;
-        };
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'heroSection';
-      }
-    | {
-        items: {
-          text: string;
-          id?: string | null;
-        }[];
-        ariaLabel?: string | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'trustStrip';
-      }
-    | {
-        kicker?: string | null;
-        title: string;
-        subtitle?: string | null;
-        oldSituation?: {
-          title?: string | null;
-          items?:
-            | {
-                icon: string;
-                text: string;
-                id?: string | null;
-              }[]
-            | null;
-        };
-        newSituation?: {
-          title?: string | null;
-          items?:
-            | {
-                icon: string;
-                text: string;
-                id?: string | null;
-              }[]
-            | null;
-        };
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'problemSection';
-      }
-    | {
-        kicker?: string | null;
-        title: string;
-        subtitle?: string | null;
-        tone?: ('light' | 'dark') | null;
-        frameless?: boolean | null;
-        showBackdropLogo?: boolean | null;
-        image?: (number | null) | Media;
-        /**
-         * Beschrijving voor toegankelijkheid
-         */
-        imageAlt?: string | null;
-        kpis?:
-          | {
+  blocks?:
+    | (
+        | {
+            kicker?: string | null;
+            title: string;
+            subtitle?: string | null;
+            ctaPrimary: {
               label: string;
-              from: number;
-              to: number;
-              unit?: ('eur' | 'percentage' | 'number') | null;
-              sublabel?: string | null;
-              span?: number | null;
-              id?: string | null;
-            }[]
-          | null;
-        bullets?:
-          | {
+              href: string;
+            };
+            ctaSecondary?: {
+              label?: string | null;
+              href?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'heroSection';
+          }
+        | {
+            items: {
               text: string;
               id?: string | null;
-            }[]
-          | null;
-        ctaPrimary?: {
-          label?: string | null;
-          href?: string | null;
-        };
-        ctaSecondary?: {
-          label?: string | null;
-          href?: string | null;
-        };
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'caseStudy';
-      }
-    | {
-        kicker?: string | null;
-        title: string;
-        subtitle?: string | null;
-        metricValue?: string | null;
-        metricLabel?: string | null;
-        card1Title?: string | null;
-        card1Description?: string | null;
-        card2Title?: string | null;
-        card2Description?: string | null;
-        card3Title?: string | null;
-        card3Description?: string | null;
-        card4Title?: string | null;
-        card4Description?: string | null;
-        ctaText?: string | null;
-        ctaButtonLabel?: string | null;
-        ctaButtonHref?: string | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'uniqueApproach';
-      }
-    | {
-        /**
-         * Dit block heeft geen configureerbare opties - het is puur visueel
-         */
-        note?: string | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'flowConnector';
-      }
-    | {
-        title: string;
-        subtitle?: string | null;
-        features: {
-          icon: string;
-          name: string;
-          description: string;
-          href?: string | null;
-          cta?: string | null;
-          image?: (number | null) | Media;
-          id?: string | null;
-        }[];
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'marketingMachine';
-      }
-    | {
-        title: string;
-        subtitle?: string | null;
-        items?:
-          | {
+            }[];
+            ariaLabel?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'trustStrip';
+          }
+        | {
+            kicker?: string | null;
+            title: string;
+            subtitle?: string | null;
+            oldSituation?: {
+              title?: string | null;
+              items?:
+                | {
+                    icon: string;
+                    text: string;
+                    id?: string | null;
+                  }[]
+                | null;
+            };
+            newSituation?: {
+              title?: string | null;
+              items?:
+                | {
+                    icon: string;
+                    text: string;
+                    id?: string | null;
+                  }[]
+                | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'problemSection';
+          }
+        | {
+            kicker?: string | null;
+            title: string;
+            subtitle?: string | null;
+            tone?: ('light' | 'dark') | null;
+            frameless?: boolean | null;
+            showBackdropLogo?: boolean | null;
+            image?: (number | null) | Media;
+            /**
+             * Beschrijving voor toegankelijkheid
+             */
+            imageAlt?: string | null;
+            kpis?:
+              | {
+                  label: string;
+                  from: number;
+                  to: number;
+                  unit?: ('eur' | 'percentage' | 'number') | null;
+                  sublabel?: string | null;
+                  span?: number | null;
+                  id?: string | null;
+                }[]
+              | null;
+            bullets?:
+              | {
+                  text: string;
+                  id?: string | null;
+                }[]
+              | null;
+            ctaPrimary?: {
+              label?: string | null;
+              href?: string | null;
+            };
+            ctaSecondary?: {
+              label?: string | null;
+              href?: string | null;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'caseStudy';
+          }
+        | {
+            kicker?: string | null;
+            title: string;
+            subtitle?: string | null;
+            metricValue?: string | null;
+            metricLabel?: string | null;
+            card1Title?: string | null;
+            card1Description?: string | null;
+            card2Title?: string | null;
+            card2Description?: string | null;
+            card3Title?: string | null;
+            card3Description?: string | null;
+            card4Title?: string | null;
+            card4Description?: string | null;
+            ctaText?: string | null;
+            ctaButtonLabel?: string | null;
+            ctaButtonHref?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'uniqueApproach';
+          }
+        | {
+            /**
+             * Dit block heeft geen configureerbare opties - het is puur visueel
+             */
+            note?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'flowConnector';
+          }
+        | {
+            title: string;
+            subtitle?: string | null;
+            features: {
+              icon: string;
+              name: string;
+              description: string;
+              href?: string | null;
+              cta?: string | null;
+              image?: (number | null) | Media;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'marketingMachine';
+          }
+        | {
+            title: string;
+            subtitle?: string | null;
+            items?:
+              | {
+                  name: string;
+                  description: string;
+                  image?: (number | null) | Media;
+                  href?: string | null;
+                  key?: string | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'targetGroupsOverview';
+          }
+        | {
+            title: string;
+            subtitle?: string | null;
+            items: {
               name: string;
               description: string;
               image?: (number | null) | Media;
-              href?: string | null;
+              /**
+               * Beschrijving voor toegankelijkheid
+               */
+              alt?: string | null;
+              href: string;
+              /**
+               * Unieke identifier voor deze doelgroep
+               */
               key?: string | null;
               id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'targetGroupsOverview';
-      }
-    | {
-        title: string;
-        subtitle?: string | null;
-        items: {
-          name: string;
-          description: string;
-          image?: (number | null) | Media;
-          /**
-           * Beschrijving voor toegankelijkheid
-           */
-          alt?: string | null;
-          href: string;
-          /**
-           * Unieke identifier voor deze doelgroep
-           */
-          key?: string | null;
-          id?: string | null;
-        }[];
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'targetGroupsOverviewPhotos';
-      }
-    | {
-        title: string;
-        stats: {
-          value: string;
-          label: string;
-          id?: string | null;
-        }[];
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'numbersSection';
-      }
-    | {
-        title: string;
-        description?: string | null;
-        durationSec?: number | null;
-        testimonials: {
-          title: string;
-          imageSrc?: string | null;
-          badges?:
-            | {
-                text?: string | null;
-                id?: string | null;
-              }[]
-            | null;
-          author: {
-            name: string;
-            handle?: string | null;
-            avatar?: string | null;
-          };
-          text: string;
-          href?: string | null;
-          id?: string | null;
-        }[];
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'testimonialsSection';
-      }
-    | {
-        title: string;
-        subtitle?: string | null;
-        items: {
-          icon?: string | null;
-          question: string;
-          answer: string;
-          id?: string | null;
-        }[];
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'faqSection';
-      }
-    | {
-        title: string;
-        subtitle?: string | null;
-        steps: {
-          title: string;
-          subtitle?: string | null;
-          icon: string;
-          bullets?:
-            | {
-                text: string;
-                id?: string | null;
-              }[]
-            | null;
-          id?: string | null;
-        }[];
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'howItWorksSection';
-      }
-    | {
-        title: string;
-        subtitle?: string | null;
-        ctaLabel: string;
-        ctaHref: string;
-        bullets?:
-          | {
-              text: string;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'targetGroupsOverviewPhotos';
+          }
+        | {
+            title: string;
+            stats: {
+              value: string;
+              label: string;
               id?: string | null;
-            }[]
-          | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'finalCTA';
-      }
-    | CasesHero
-    | CasesBestVariants
-    | CasesVideoTestimonials
-    | CasesMasonry
-    | CasesProjectsShowcase
-    | CasesIndustryBreakdown
-    | CasesProcessShowcase
-    | CasesStartYourStory
-    | OverOnsHeroSection
-    | OverOnsTrustStripSection
-    | OverOnsMissionSection
-    | OverOnsTimelineSection
-    | OverOnsTeamSection
-    | OverOnsCoreValuesSection
-    | OverOnsPartnershipsSection
-    | OverOnsCultureSection
-    | OverOnsOfficeSection
-    | OverOnsCTASection
-    | MakelaarsHero
-    | MakelaarsTrustStrip
-    | MakelaarsProblemSection
-    | MakelaarsMethodologySection
-    | MakelaarsBewezenSysteemSection
-    | MakelaarsResultsBentoGrid
-    | MakelaarsGuaranteesSection
-    | MakelaarsWhatYouGetSection
-    | MakelaarsForWhoIsThisSection
-    | MakelaarsStrategieSessionCTA
-    | MakelaarsFAQSection
-    | MakelaarsInternationalHero
-    | MakelaarsInternationalTrustStrip
-    | InternationalPainPointsSection
-    | IQIPartnershipSection
-    | InternationalMethodologySection
-    | InternationalWhatYouGetSection
-    | InternationalForWhoIsThisSection
-    | InternationalCasesSection
-    | InternationalGlobeSection
-    | InternationalStrategySessionCTA
-    | InternationalFAQSection
-    | HypotheekadviseursHero
-    | HypotheekadviseursTrustStrip
-    | HypotheekadviseursPainPointsSection
-    | HypotheekadviseursEditBVPartnershipSection
-    | HypotheekadviseursMethodologySection
-    | HypotheekadviseursVoorWieIsDitSection
-    | HypotheekadviseursBewezenResultatenSection
-    | HypotheekadviseursWatJeKrijgtSection
-    | HypotheekadviseursBewezenAanpakSection
-    | HypotheekadviseursStrategieSessionCTA
-    | HypotheekadviseursFAQSection
-    | HrRecruitmentHeroBlock
-    | HrRecruitmentTrustStripBlock
-    | HrRecruitmentPainPointsBlock
-    | HrRecruitmentTransformationBlock
-    | HrRecruitmentMethodologyBlock
-    | HrRecruitmentResultatenBentoGridBlock
-    | HrRecruitmentWatJeKrijgtBlock
-    | HrRecruitmentVoorWieIsDitBlock
-    | HrRecruitmentStrategieSessionCTABlock
-    | HrRecruitmentFAQBlock
-    | ProjectontwikkelaarsHeroBlock
-    | ProjectontwikkelaarsTrustStripBlock
-    | ProjectontwikkelaarsPainPointsSectionBlock
-    | ProjectontwikkelaarsDubaiSuccessStorySectionBlock
-    | ProjectontwikkelaarsMethodologySectionBlock
-    | ProjectontwikkelaarsBewezenAanpakSectionBlock
-    | ProjectontwikkelaarsResultatenBentoGridBlock
-    | ProjectontwikkelaarsWatJeKrijgtSectionBlock
-    | ProjectontwikkelaarsVoorWieIsDitSectionBlock
-    | ProjectontwikkelaarsStrategieSessionCTABlock
-    | ProjectontwikkelaarsFAQSectionBlock
-  )[];
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'numbersSection';
+          }
+        | {
+            title: string;
+            description?: string | null;
+            durationSec?: number | null;
+            testimonials: {
+              title: string;
+              imageSrc?: string | null;
+              badges?:
+                | {
+                    text?: string | null;
+                    id?: string | null;
+                  }[]
+                | null;
+              author: {
+                name: string;
+                handle?: string | null;
+                avatar?: string | null;
+              };
+              text: string;
+              href?: string | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'testimonialsSection';
+          }
+        | {
+            title: string;
+            subtitle?: string | null;
+            items: {
+              icon?: string | null;
+              question: string;
+              answer: string;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'faqSection';
+          }
+        | {
+            title: string;
+            subtitle?: string | null;
+            steps: {
+              title: string;
+              subtitle?: string | null;
+              icon: string;
+              bullets?:
+                | {
+                    text: string;
+                    id?: string | null;
+                  }[]
+                | null;
+              id?: string | null;
+            }[];
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'howItWorksSection';
+          }
+        | {
+            title: string;
+            subtitle?: string | null;
+            ctaLabel: string;
+            ctaHref: string;
+            bullets?:
+              | {
+                  text: string;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'finalCTA';
+          }
+        | CasesHero
+        | CasesBestVariants
+        | CasesVideoTestimonials
+        | CasesMasonry
+        | CasesProjectsShowcase
+        | CasesIndustryBreakdown
+        | CasesProcessShowcase
+        | CasesStartYourStory
+        | OverOnsHeroSection
+        | OverOnsTrustStripSection
+        | OverOnsMissionSection
+        | OverOnsTimelineSection
+        | OverOnsTeamSection
+        | OverOnsCoreValuesSection
+        | OverOnsPartnershipsSection
+        | OverOnsCultureSection
+        | OverOnsOfficeSection
+        | OverOnsCTASection
+        | MakelaarsHero
+        | MakelaarsTrustStrip
+        | MakelaarsProblemSection
+        | MakelaarsMethodologySection
+        | MakelaarsBewezenSysteemSection
+        | MakelaarsResultsBentoGrid
+        | MakelaarsGuaranteesSection
+        | MakelaarsWhatYouGetSection
+        | MakelaarsForWhoIsThisSection
+        | MakelaarsStrategieSessionCTA
+        | MakelaarsFAQSection
+        | MakelaarsInternationalHero
+        | MakelaarsInternationalTrustStrip
+        | InternationalPainPointsSection
+        | IQIPartnershipSection
+        | InternationalMethodologySection
+        | InternationalWhatYouGetSection
+        | InternationalForWhoIsThisSection
+        | InternationalCasesSection
+        | InternationalGlobeSection
+        | InternationalStrategySessionCTA
+        | InternationalFAQSection
+        | HypotheekadviseursHero
+        | HypotheekadviseursTrustStrip
+        | HypotheekadviseursPainPointsSection
+        | HypotheekadviseursEditBVPartnershipSection
+        | HypotheekadviseursMethodologySection
+        | HypotheekadviseursVoorWieIsDitSection
+        | HypotheekadviseursBewezenResultatenSection
+        | HypotheekadviseursWatJeKrijgtSection
+        | HypotheekadviseursBewezenAanpakSection
+        | HypotheekadviseursStrategieSessionCTA
+        | HypotheekadviseursFAQSection
+        | HrRecruitmentHeroBlock
+        | HrRecruitmentTrustStripBlock
+        | HrRecruitmentPainPointsBlock
+        | HrRecruitmentTransformationBlock
+        | HrRecruitmentMethodologyBlock
+        | HrRecruitmentResultatenBentoGridBlock
+        | HrRecruitmentWatJeKrijgtBlock
+        | HrRecruitmentVoorWieIsDitBlock
+        | HrRecruitmentStrategieSessionCTABlock
+        | HrRecruitmentFAQBlock
+        | ProjectontwikkelaarsHeroBlock
+        | ProjectontwikkelaarsTrustStripBlock
+        | ProjectontwikkelaarsPainPointsSectionBlock
+        | ProjectontwikkelaarsDubaiSuccessStorySectionBlock
+        | ProjectontwikkelaarsMethodologySectionBlock
+        | ProjectontwikkelaarsBewezenAanpakSectionBlock
+        | ProjectontwikkelaarsResultatenBentoGridBlock
+        | ProjectontwikkelaarsWatJeKrijgtSectionBlock
+        | ProjectontwikkelaarsVoorWieIsDitSectionBlock
+        | ProjectontwikkelaarsStrategieSessionCTABlock
+        | ProjectontwikkelaarsFAQSectionBlock
+      )[]
+    | null;
   seo?: {
     /**
      * Verschijnt in Google zoekresulataten (max 60 karakters)
@@ -2165,7 +2166,6 @@ export interface MediaSelect<T extends boolean = true> {
 export interface PagesSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
-  status?: T;
   blocks?:
     | T
     | {

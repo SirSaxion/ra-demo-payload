@@ -1,22 +1,30 @@
 import type { Metadata } from "next";
 import PayloadBlockRenderer from "@/components/PayloadBlockRenderer";
+import { getPayload } from 'payload'
+import config from '@/payload.config'
 
 // Make this page dynamic to fetch from Payload
 export const dynamic = 'force-dynamic'
 
 async function getPageData() {
   try {
-    const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3001'
-    const res = await fetch(`${baseUrl}/api/page/home`, {
-      cache: 'no-store', // Always get fresh data
+    const payload = await getPayload({ config })
+    
+    const pages = await payload.find({
+      collection: 'pages',
+      where: {
+        slug: {
+          equals: '/',
+        },
+      },
+      limit: 1,
     })
     
-    if (!res.ok) {
-      throw new Error('Failed to fetch page data')
+    if (pages.docs.length === 0) {
+      return null
     }
     
-    const page = await res.json()
-    return page
+    return pages.docs[0]
   } catch (error) {
     console.error('Error fetching page data:', error)
     return null
@@ -91,7 +99,7 @@ export default async function HomePage() {
       />
       
       <div className="min-h-screen bg-background font-sans">
-        <PayloadBlockRenderer blocks={page.blocks} />
+        <PayloadBlockRenderer blocks={page.blocks || []} />
       </div>
     </>
   );
