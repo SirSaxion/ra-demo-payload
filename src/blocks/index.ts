@@ -74,3 +74,15 @@ export { HypotheekadviseursWatJeKrijgtSection } from './HypotheekadviseursWatJeK
 export { HypotheekadviseursBewezenAanpakSection } from './HypotheekadviseursBewezenAanpakSection'
 export { HypotheekadviseursStrategieSessionCTA } from './HypotheekadviseursStrategieSessionCTA'
 export { HypotheekadviseursFAQSection } from './HypotheekadviseursFAQSection'
+
+// HR Recruitment blocks
+export { HrRecruitmentHero } from './HrRecruitmentHero'
+export { HrRecruitmentTrustStrip } from './HrRecruitmentTrustStrip'
+export { HrRecruitmentPainPoints } from './HrRecruitmentPainPoints'
+export { HrRecruitmentTransformation } from './HrRecruitmentTransformation'
+export { HrRecruitmentMethodology } from './HrRecruitmentMethodology'
+export { HrRecruitmentResultatenBentoGrid } from './HrRecruitmentResultatenBentoGrid'
+export { HrRecruitmentWatJeKrijgt } from './HrRecruitmentWatJeKrijgt'
+export { HrRecruitmentVoorWieIsDit } from './HrRecruitmentVoorWieIsDit'
+export { HrRecruitmentStrategieSessionCTA } from './HrRecruitmentStrategieSessionCTA'
+export { HrRecruitmentFAQ } from './HrRecruitmentFAQ'

@@ -21,7 +21,8 @@
     "migrate:over-ons": "npx tsx scripts/migrate-over-ons.mjs",
     "migrate:makelaars": "npx tsx scripts/migrate-makelaars.mjs",
     "migrate:makelaars-buitenland": "npx tsx scripts/migrate-makelaars-buitenland.mjs",
-    "migrate:hypotheekadviseurs": "npx tsx scripts/migrate-hypotheekadviseurs.mjs"
+    "migrate:hypotheekadviseurs": "npx tsx scripts/migrate-hypotheekadviseurs.mjs",
+    "migrate:hr-recruitment": "npx tsx scripts/migrate-hr-recruitment.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.1.1",

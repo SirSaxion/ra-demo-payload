@@ -70,6 +70,17 @@ import {
   HypotheekadviseursBewezenAanpakSection,
   HypotheekadviseursStrategieSessionCTA,
   HypotheekadviseursFAQSection,
+  // HR Recruitment blocks
+  HrRecruitmentHero,
+  HrRecruitmentTrustStrip,
+  HrRecruitmentPainPoints,
+  HrRecruitmentTransformation,
+  HrRecruitmentMethodology,
+  HrRecruitmentResultatenBentoGrid,
+  HrRecruitmentWatJeKrijgt,
+  HrRecruitmentVoorWieIsDit,
+  HrRecruitmentStrategieSessionCTA,
+  HrRecruitmentFAQ,
 } from '../blocks'
 
 export const Pages: CollectionConfig = {
@@ -200,6 +211,17 @@ export const Pages: CollectionConfig = {
                 HypotheekadviseursBewezenAanpakSection,
                 HypotheekadviseursStrategieSessionCTA,
                 HypotheekadviseursFAQSection,
+                // HR Recruitment blocks
+                HrRecruitmentHero,
+                HrRecruitmentTrustStrip,
+                HrRecruitmentPainPoints,
+                HrRecruitmentTransformation,
+                HrRecruitmentMethodology,
+                HrRecruitmentResultatenBentoGrid,
+                HrRecruitmentWatJeKrijgt,
+                HrRecruitmentVoorWieIsDit,
+                HrRecruitmentStrategieSessionCTA,
+                HrRecruitmentFAQ,
               ],
               admin: {
                 description: 'Sleep blokken om de volgorde te wijzigen. Klik op een blok om deze te bewerken.',

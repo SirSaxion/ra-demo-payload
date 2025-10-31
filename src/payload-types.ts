@@ -489,6 +489,16 @@ export interface Page {
     | HypotheekadviseursBewezenAanpakSection
     | HypotheekadviseursStrategieSessionCTA
     | HypotheekadviseursFAQSection
+    | HrRecruitmentHeroBlock
+    | HrRecruitmentTrustStripBlock
+    | HrRecruitmentPainPointsBlock
+    | HrRecruitmentTransformationBlock
+    | HrRecruitmentMethodologyBlock
+    | HrRecruitmentResultatenBentoGridBlock
+    | HrRecruitmentWatJeKrijgtBlock
+    | HrRecruitmentVoorWieIsDitBlock
+    | HrRecruitmentStrategieSessionCTABlock
+    | HrRecruitmentFAQBlock
   )[];
   seo?: {
     /**
@@ -1729,6 +1739,131 @@ export interface HypotheekadviseursFAQSection {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HrRecruitmentHeroBlock".
+ */
+export interface HrRecruitmentHeroBlock {
+  badge?: string | null;
+  titleBefore?: string | null;
+  titleHighlight?: string | null;
+  /**
+   * Supports HTML for bold text
+   */
+  subtitle?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hrRecruitmentHero';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HrRecruitmentTrustStripBlock".
+ */
+export interface HrRecruitmentTrustStripBlock {
+  items?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  ariaLabel?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hrRecruitmentTrustStrip';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HrRecruitmentPainPointsBlock".
+ */
+export interface HrRecruitmentPainPointsBlock {
+  badge?: string | null;
+  title?: string | null;
+  subtitle?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hrRecruitmentPainPoints';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HrRecruitmentTransformationBlock".
+ */
+export interface HrRecruitmentTransformationBlock {
+  badge?: string | null;
+  title?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hrRecruitmentTransformation';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HrRecruitmentMethodologyBlock".
+ */
+export interface HrRecruitmentMethodologyBlock {
+  badge?: string | null;
+  title?: string | null;
+  subtitle?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hrRecruitmentMethodology';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HrRecruitmentResultatenBentoGridBlock".
+ */
+export interface HrRecruitmentResultatenBentoGridBlock {
+  badge?: string | null;
+  title?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hrRecruitmentResultatenBentoGrid';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HrRecruitmentWatJeKrijgtBlock".
+ */
+export interface HrRecruitmentWatJeKrijgtBlock {
+  badge?: string | null;
+  title?: string | null;
+  subtitle?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hrRecruitmentWatJeKrijgt';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HrRecruitmentVoorWieIsDitBlock".
+ */
+export interface HrRecruitmentVoorWieIsDitBlock {
+  badge?: string | null;
+  title?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hrRecruitmentVoorWieIsDit';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HrRecruitmentStrategieSessionCTABlock".
+ */
+export interface HrRecruitmentStrategieSessionCTABlock {
+  title?: string | null;
+  subtitle?: string | null;
+  ctaLabel?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hrRecruitmentStrategieSessionCTA';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HrRecruitmentFAQBlock".
+ */
+export interface HrRecruitmentFAQBlock {
+  badge?: string | null;
+  title?: string | null;
+  subtitle?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'hrRecruitmentFAQ';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -2184,6 +2319,16 @@ export interface PagesSelect<T extends boolean = true> {
         hypotheekadviseursBewezenAanpakSection?: T | HypotheekadviseursBewezenAanpakSectionSelect<T>;
         hypotheekadviseursStrategieSessionCTA?: T | HypotheekadviseursStrategieSessionCTASelect<T>;
         hypotheekadviseursFAQSection?: T | HypotheekadviseursFAQSectionSelect<T>;
+        hrRecruitmentHero?: T | HrRecruitmentHeroBlockSelect<T>;
+        hrRecruitmentTrustStrip?: T | HrRecruitmentTrustStripBlockSelect<T>;
+        hrRecruitmentPainPoints?: T | HrRecruitmentPainPointsBlockSelect<T>;
+        hrRecruitmentTransformation?: T | HrRecruitmentTransformationBlockSelect<T>;
+        hrRecruitmentMethodology?: T | HrRecruitmentMethodologyBlockSelect<T>;
+        hrRecruitmentResultatenBentoGrid?: T | HrRecruitmentResultatenBentoGridBlockSelect<T>;
+        hrRecruitmentWatJeKrijgt?: T | HrRecruitmentWatJeKrijgtBlockSelect<T>;
+        hrRecruitmentVoorWieIsDit?: T | HrRecruitmentVoorWieIsDitBlockSelect<T>;
+        hrRecruitmentStrategieSessionCTA?: T | HrRecruitmentStrategieSessionCTABlockSelect<T>;
+        hrRecruitmentFAQ?: T | HrRecruitmentFAQBlockSelect<T>;
       };
   seo?:
     | T
@@ -3381,6 +3526,118 @@ export interface HypotheekadviseursFAQSectionSelect<T extends boolean = true> {
         answer?: T;
         id?: T;
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HrRecruitmentHeroBlock_select".
+ */
+export interface HrRecruitmentHeroBlockSelect<T extends boolean = true> {
+  badge?: T;
+  titleBefore?: T;
+  titleHighlight?: T;
+  subtitle?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HrRecruitmentTrustStripBlock_select".
+ */
+export interface HrRecruitmentTrustStripBlockSelect<T extends boolean = true> {
+  items?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  ariaLabel?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HrRecruitmentPainPointsBlock_select".
+ */
+export interface HrRecruitmentPainPointsBlockSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HrRecruitmentTransformationBlock_select".
+ */
+export interface HrRecruitmentTransformationBlockSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HrRecruitmentMethodologyBlock_select".
+ */
+export interface HrRecruitmentMethodologyBlockSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HrRecruitmentResultatenBentoGridBlock_select".
+ */
+export interface HrRecruitmentResultatenBentoGridBlockSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HrRecruitmentWatJeKrijgtBlock_select".
+ */
+export interface HrRecruitmentWatJeKrijgtBlockSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HrRecruitmentVoorWieIsDitBlock_select".
+ */
+export interface HrRecruitmentVoorWieIsDitBlockSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HrRecruitmentStrategieSessionCTABlock_select".
+ */
+export interface HrRecruitmentStrategieSessionCTABlockSelect<T extends boolean = true> {
+  title?: T;
+  subtitle?: T;
+  ctaLabel?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "HrRecruitmentFAQBlock_select".
+ */
+export interface HrRecruitmentFAQBlockSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
   id?: T;
   blockName?: T;
 }
