@@ -499,6 +499,17 @@ export interface Page {
     | HrRecruitmentVoorWieIsDitBlock
     | HrRecruitmentStrategieSessionCTABlock
     | HrRecruitmentFAQBlock
+    | ProjectontwikkelaarsHeroBlock
+    | ProjectontwikkelaarsTrustStripBlock
+    | ProjectontwikkelaarsPainPointsSectionBlock
+    | ProjectontwikkelaarsDubaiSuccessStorySectionBlock
+    | ProjectontwikkelaarsMethodologySectionBlock
+    | ProjectontwikkelaarsBewezenAanpakSectionBlock
+    | ProjectontwikkelaarsResultatenBentoGridBlock
+    | ProjectontwikkelaarsWatJeKrijgtSectionBlock
+    | ProjectontwikkelaarsVoorWieIsDitSectionBlock
+    | ProjectontwikkelaarsStrategieSessionCTABlock
+    | ProjectontwikkelaarsFAQSectionBlock
   )[];
   seo?: {
     /**
@@ -1864,6 +1875,184 @@ export interface HrRecruitmentFAQBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectontwikkelaarsHeroBlock".
+ */
+export interface ProjectontwikkelaarsHeroBlock {
+  badge?: string | null;
+  title?: string | null;
+  titleHighlight?: string | null;
+  /**
+   * Supports HTML for bold text
+   */
+  subtitle?: string | null;
+  bullets?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  ctaPrimary?: {
+    label?: string | null;
+  };
+  ctaSecondary?: {
+    label?: string | null;
+    href?: string | null;
+  };
+  showcaseImage?: string | null;
+  showcaseImageAlt?: string | null;
+  showcaseIcon?: string | null;
+  showcaseTitle?: string | null;
+  showcaseSubtitle?: string | null;
+  showcaseStats?:
+    | {
+        icon?: string | null;
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  floatingStat?: {
+    value?: string | null;
+    label?: string | null;
+  };
+  showcaseNote?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'projectontwikkelaarsHero';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectontwikkelaarsTrustStripBlock".
+ */
+export interface ProjectontwikkelaarsTrustStripBlock {
+  trustItems?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'projectontwikkelaarsTrustStrip';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectontwikkelaarsPainPointsSectionBlock".
+ */
+export interface ProjectontwikkelaarsPainPointsSectionBlock {
+  badge?: string | null;
+  title?: string | null;
+  subtitle?: string | null;
+  ctaIcon?: string | null;
+  ctaTitle?: string | null;
+  ctaDescription?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'projectontwikkelaarsPainPointsSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectontwikkelaarsDubaiSuccessStorySectionBlock".
+ */
+export interface ProjectontwikkelaarsDubaiSuccessStorySectionBlock {
+  badge?: string | null;
+  title?: string | null;
+  subtitle?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'projectontwikkelaarsDubaiSuccessStorySection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectontwikkelaarsMethodologySectionBlock".
+ */
+export interface ProjectontwikkelaarsMethodologySectionBlock {
+  badge?: string | null;
+  title?: string | null;
+  subtitle?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'projectontwikkelaarsMethodologySection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectontwikkelaarsBewezenAanpakSectionBlock".
+ */
+export interface ProjectontwikkelaarsBewezenAanpakSectionBlock {
+  badge?: string | null;
+  title?: string | null;
+  subtitle?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'projectontwikkelaarsBewezenAanpakSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectontwikkelaarsResultatenBentoGridBlock".
+ */
+export interface ProjectontwikkelaarsResultatenBentoGridBlock {
+  badge?: string | null;
+  title?: string | null;
+  subtitle?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'projectontwikkelaarsResultatenBentoGrid';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectontwikkelaarsWatJeKrijgtSectionBlock".
+ */
+export interface ProjectontwikkelaarsWatJeKrijgtSectionBlock {
+  badge?: string | null;
+  title?: string | null;
+  subtitle?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'projectontwikkelaarsWatJeKrijgtSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectontwikkelaarsVoorWieIsDitSectionBlock".
+ */
+export interface ProjectontwikkelaarsVoorWieIsDitSectionBlock {
+  badge?: string | null;
+  title?: string | null;
+  subtitle?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'projectontwikkelaarsVoorWieIsDitSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectontwikkelaarsStrategieSessionCTABlock".
+ */
+export interface ProjectontwikkelaarsStrategieSessionCTABlock {
+  title?: string | null;
+  titleHighlight?: string | null;
+  subtitle?: string | null;
+  ctaLabel?: string | null;
+  ctaSubtext?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'projectontwikkelaarsStrategieSessionCTA';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectontwikkelaarsFAQSectionBlock".
+ */
+export interface ProjectontwikkelaarsFAQSectionBlock {
+  kicker?: string | null;
+  title?: string | null;
+  subtitle?: string | null;
+  contactLinkText?: string | null;
+  contactLinkHref?: string | null;
+  phoneLabel?: string | null;
+  phoneNumber?: string | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'projectontwikkelaarsFAQSection';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -2329,6 +2518,19 @@ export interface PagesSelect<T extends boolean = true> {
         hrRecruitmentVoorWieIsDit?: T | HrRecruitmentVoorWieIsDitBlockSelect<T>;
         hrRecruitmentStrategieSessionCTA?: T | HrRecruitmentStrategieSessionCTABlockSelect<T>;
         hrRecruitmentFAQ?: T | HrRecruitmentFAQBlockSelect<T>;
+        projectontwikkelaarsHero?: T | ProjectontwikkelaarsHeroBlockSelect<T>;
+        projectontwikkelaarsTrustStrip?: T | ProjectontwikkelaarsTrustStripBlockSelect<T>;
+        projectontwikkelaarsPainPointsSection?: T | ProjectontwikkelaarsPainPointsSectionBlockSelect<T>;
+        projectontwikkelaarsDubaiSuccessStorySection?:
+          | T
+          | ProjectontwikkelaarsDubaiSuccessStorySectionBlockSelect;
+        projectontwikkelaarsMethodologySection?: T | ProjectontwikkelaarsMethodologySectionBlockSelect<T>;
+        projectontwikkelaarsBewezenAanpakSection?: T | ProjectontwikkelaarsBewezenAanpakSectionBlockSelect<T>;
+        projectontwikkelaarsResultatenBentoGrid?: T | ProjectontwikkelaarsResultatenBentoGridBlockSelect<T>;
+        projectontwikkelaarsWatJeKrijgtSection?: T | ProjectontwikkelaarsWatJeKrijgtSectionBlockSelect<T>;
+        projectontwikkelaarsVoorWieIsDitSection?: T | ProjectontwikkelaarsVoorWieIsDitSectionBlockSelect<T>;
+        projectontwikkelaarsStrategieSessionCTA?: T | ProjectontwikkelaarsStrategieSessionCTABlockSelect<T>;
+        projectontwikkelaarsFAQSection?: T | ProjectontwikkelaarsFAQSectionBlockSelect<T>;
       };
   seo?:
     | T
@@ -3638,6 +3840,176 @@ export interface HrRecruitmentFAQBlockSelect<T extends boolean = true> {
   badge?: T;
   title?: T;
   subtitle?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectontwikkelaarsHeroBlock_select".
+ */
+export interface ProjectontwikkelaarsHeroBlockSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  titleHighlight?: T;
+  subtitle?: T;
+  bullets?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  ctaPrimary?:
+    | T
+    | {
+        label?: T;
+      };
+  ctaSecondary?:
+    | T
+    | {
+        label?: T;
+        href?: T;
+      };
+  showcaseImage?: T;
+  showcaseImageAlt?: T;
+  showcaseIcon?: T;
+  showcaseTitle?: T;
+  showcaseSubtitle?: T;
+  showcaseStats?:
+    | T
+    | {
+        icon?: T;
+        text?: T;
+        id?: T;
+      };
+  floatingStat?:
+    | T
+    | {
+        value?: T;
+        label?: T;
+      };
+  showcaseNote?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectontwikkelaarsTrustStripBlock_select".
+ */
+export interface ProjectontwikkelaarsTrustStripBlockSelect<T extends boolean = true> {
+  trustItems?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectontwikkelaarsPainPointsSectionBlock_select".
+ */
+export interface ProjectontwikkelaarsPainPointsSectionBlockSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  ctaIcon?: T;
+  ctaTitle?: T;
+  ctaDescription?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectontwikkelaarsDubaiSuccessStorySectionBlock_select".
+ */
+export interface ProjectontwikkelaarsDubaiSuccessStorySectionBlockSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectontwikkelaarsMethodologySectionBlock_select".
+ */
+export interface ProjectontwikkelaarsMethodologySectionBlockSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectontwikkelaarsBewezenAanpakSectionBlock_select".
+ */
+export interface ProjectontwikkelaarsBewezenAanpakSectionBlockSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectontwikkelaarsResultatenBentoGridBlock_select".
+ */
+export interface ProjectontwikkelaarsResultatenBentoGridBlockSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectontwikkelaarsWatJeKrijgtSectionBlock_select".
+ */
+export interface ProjectontwikkelaarsWatJeKrijgtSectionBlockSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectontwikkelaarsVoorWieIsDitSectionBlock_select".
+ */
+export interface ProjectontwikkelaarsVoorWieIsDitSectionBlockSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectontwikkelaarsStrategieSessionCTABlock_select".
+ */
+export interface ProjectontwikkelaarsStrategieSessionCTABlockSelect<T extends boolean = true> {
+  title?: T;
+  titleHighlight?: T;
+  subtitle?: T;
+  ctaLabel?: T;
+  ctaSubtext?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ProjectontwikkelaarsFAQSectionBlock_select".
+ */
+export interface ProjectontwikkelaarsFAQSectionBlockSelect<T extends boolean = true> {
+  kicker?: T;
+  title?: T;
+  subtitle?: T;
+  contactLinkText?: T;
+  contactLinkHref?: T;
+  phoneLabel?: T;
+  phoneNumber?: T;
   id?: T;
   blockName?: T;
 }

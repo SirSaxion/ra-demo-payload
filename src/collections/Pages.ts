@@ -81,6 +81,18 @@ import {
   HrRecruitmentVoorWieIsDit,
   HrRecruitmentStrategieSessionCTA,
   HrRecruitmentFAQ,
+  // Projectontwikkelaars blocks
+  ProjectontwikkelaarsHero,
+  ProjectontwikkelaarsTrustStrip,
+  ProjectontwikkelaarsPainPointsSection,
+  ProjectontwikkelaarsDubaiSuccessStorySection,
+  ProjectontwikkelaarsMethodologySection,
+  ProjectontwikkelaarsBewezenAanpakSection,
+  ProjectontwikkelaarsResultatenBentoGrid,
+  ProjectontwikkelaarsWatJeKrijgtSection,
+  ProjectontwikkelaarsVoorWieIsDitSection,
+  ProjectontwikkelaarsStrategieSessionCTA,
+  ProjectontwikkelaarsFAQSection,
 } from '../blocks'
 
 export const Pages: CollectionConfig = {
@@ -222,6 +234,18 @@ export const Pages: CollectionConfig = {
                 HrRecruitmentVoorWieIsDit,
                 HrRecruitmentStrategieSessionCTA,
                 HrRecruitmentFAQ,
+                // Projectontwikkelaars blocks
+                ProjectontwikkelaarsHero,
+                ProjectontwikkelaarsTrustStrip,
+                ProjectontwikkelaarsPainPointsSection,
+                ProjectontwikkelaarsDubaiSuccessStorySection,
+                ProjectontwikkelaarsMethodologySection,
+                ProjectontwikkelaarsBewezenAanpakSection,
+                ProjectontwikkelaarsResultatenBentoGrid,
+                ProjectontwikkelaarsWatJeKrijgtSection,
+                ProjectontwikkelaarsVoorWieIsDitSection,
+                ProjectontwikkelaarsStrategieSessionCTA,
+                ProjectontwikkelaarsFAQSection,
               ],
               admin: {
                 description: 'Sleep blokken om de volgorde te wijzigen. Klik op een blok om deze te bewerken.',
