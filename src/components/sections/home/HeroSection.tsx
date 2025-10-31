@@ -39,7 +39,7 @@ export default function HeroSection({
         muted
         loop
         playsInline
-        preload="auto"
+        preload="none"
         poster="/images/herofootage_first_frame.png"
         aria-hidden="true"
       />
