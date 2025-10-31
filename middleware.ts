@@ -28,33 +28,12 @@ export function middleware(request: NextRequest) {
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
   )
 
-  // If no locale in pathname, check Accept-Language header or use default
-  if (!pathnameHasLocale) {
-    const acceptLanguage = request.headers.get('accept-language')
-    let preferredLocale = defaultLocale
-
-    // Try to detect preferred locale from Accept-Language header
-    if (acceptLanguage) {
-      const languages = acceptLanguage.split(',').map((lang) => {
-        const [code] = lang.split(';')
-        return code.trim().toLowerCase().split('-')[0]
-      })
-
-      preferredLocale =
-        languages.find((lang) => locales.includes(lang)) || defaultLocale
-    }
-
-    // For default locale (nl), don't redirect, just rewrite
-    if (preferredLocale === defaultLocale) {
-      return NextResponse.next()
-    }
-
-    // For non-default locales, redirect to localized URL
-    const url = request.nextUrl.clone()
-    url.pathname = `/${preferredLocale}${pathname}`
-    return NextResponse.redirect(url)
+  // If pathname already has locale, just pass through
+  if (pathnameHasLocale) {
+    return NextResponse.next()
   }
 
+  // For paths without locale, serve default (nl) content
   return NextResponse.next()
 }
 

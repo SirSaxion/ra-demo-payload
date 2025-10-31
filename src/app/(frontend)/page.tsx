@@ -17,6 +17,7 @@ async function getPageData() {
           equals: '/',
         },
       },
+      locale: 'nl', // Default to Dutch
       limit: 1,
     })
     
