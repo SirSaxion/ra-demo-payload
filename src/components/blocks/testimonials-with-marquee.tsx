@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils"
 import { TestimonialCard, TestimonialAuthor } from "@/components/ui/testimonial-card"
-import { Badge } from "@/components/ui/badge"
 
 interface TestimonialsSectionProps {
   title: string
@@ -40,10 +39,10 @@ export function TestimonialsSection({
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-3xl text-center">
           <div className="flex justify-center">
-            <Badge variant="kicker">
+            <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm md:text-base font-mono tracking-wider uppercase text-[var(--brand-400)]">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--brand-500)]" />
               {description}
-            </Badge>
+            </span>
           </div>
           <h2 className="mt-6 type-h2 text-foreground">
             {title}

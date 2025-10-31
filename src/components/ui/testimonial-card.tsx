@@ -1,7 +1,6 @@
 import { cn } from "@/lib/utils"
 import { Avatar, AvatarImage } from "@/components/ui/avatar"
 import Image from "next/image"
-import { Badge } from "@/components/ui/badge"
 
 export interface TestimonialAuthor {
   name: string
@@ -59,10 +58,9 @@ export function TestimonialCard({
       {badges && badges.length > 0 ? (
         <div className="mb-3 flex flex-wrap gap-2">
           {badges.slice(0, 3).map((b, i) => (
-            <Badge key={i} variant="kicker">
-              <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--brand-500)]" />
+            <span key={i} className="inline-flex items-center gap-1.5 rounded-full border border-[var(--color-border)] bg-[var(--color-surface-2)] px-3 py-1 text-xs font-medium text-[var(--color-text-secondary)]">
               {b}
-            </Badge>
+            </span>
           ))}
         </div>
       ) : null}

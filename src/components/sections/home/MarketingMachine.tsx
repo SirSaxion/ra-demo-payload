@@ -177,10 +177,10 @@ export default function MarketingMachineSection({
           <div ref={orbitRef} className="relative mx-auto aspect-square w-full max-w-[520px] overflow-visible">
             {/* Sticker above circle (does not affect layout) */}
             <div className="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-10 md:-top-12 z-10">
-              <div className="relative inline-flex items-center gap-3 rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-3)] px-4 py-2.5 shadow-[0_8px_26px_rgba(0,0,0,0.38)] -rotate-3">
-                <Sparkles className="h-5 w-5 text-[var(--brand-500)]" />
-                <span className="type-kicker text-[0.95rem] font-medium text-[var(--color-text-secondary)]">Onze eigen methode</span>
-                <span className="pointer-events-none absolute -right-3 -top-3 h-5 w-5 rotate-45 rounded-[3px] bg-[var(--color-surface-3)] border border-[var(--color-border)]" />
+              <div className="relative inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 shadow-[0_8px_26px_rgba(0,0,0,0.38)] -rotate-3 text-sm font-mono tracking-wider uppercase text-[var(--brand-400)]">
+                <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--brand-500)]" />
+                <span>Onze eigen methode</span>
+                <span className="pointer-events-none absolute -right-3 -top-3 h-5 w-5 rotate-45 rounded-[3px] bg-white/5 border border-white/10" />
               </div>
             </div>
             {/* Orbit content wrapper shifted down a bit to avoid overlap */}

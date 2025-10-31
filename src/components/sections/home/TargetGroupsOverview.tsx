@@ -370,10 +370,10 @@ export default function TargetGroupsOverview({
       <div className="mx-auto max-w-7xl px-6 pt-10 md:pt-14 pb-16 md:pb-20">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center text-black">
-          <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-black/[0.04] px-3 py-1 type-kicker font-medium text-black">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-black" />
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm md:text-base font-mono tracking-wider uppercase text-[var(--brand-400)]">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--brand-500)]" />
             {kicker}
-          </div>
+          </span>
           <h2 className="mt-4 type-h2">{title}</h2>
           <p className="mt-3 type-body text-black/70">
             {subtitle}
@@ -499,10 +499,10 @@ export function TargetGroupsOverviewPhotos({
       <div className="mx-auto max-w-7xl px-6 pt-[84px] md:pt-[120px] pb-[96px] md:pb-[132px]">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center text-black">
-          <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-black/[0.04] px-3 py-1 type-kicker font-medium text-black">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-black" />
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm md:text-base font-mono tracking-wider uppercase text-[var(--brand-400)]">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--brand-500)]" />
             {kicker}
-          </div>
+          </span>
           <h2 className="mt-4 type-h2">{title}</h2>
           <p className="mt-3 type-body text-black/70">
             {subtitle}
@@ -582,9 +582,10 @@ export function StrategySessionCTA() {
       <div className="mx-auto max-w-7xl px-6">
         {/* Section header */}
         <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--color-surface-2)] px-4 py-2 type-kicker font-medium text-[var(--color-text-secondary)]">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm md:text-base font-mono tracking-wider uppercase text-[var(--brand-400)]">
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--brand-500)]" />
             HOE WE BEGINNEN
-          </div>
+          </span>
         </div>
 
         {/* Main content frame */}

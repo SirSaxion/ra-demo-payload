@@ -245,7 +245,14 @@ export interface Page {
             tone?: ('light' | 'dark') | null;
             frameless?: boolean | null;
             showBackdropLogo?: boolean | null;
+            /**
+             * Upload afbeelding vanuit media library
+             */
             image?: (number | null) | Media;
+            /**
+             * Of gebruik een directe URL zoals /images/foto.webp
+             */
+            imageSrc?: string | null;
             /**
              * Beschrijving voor toegankelijkheid
              */
@@ -318,7 +325,14 @@ export interface Page {
               description: string;
               href?: string | null;
               cta?: string | null;
+              /**
+               * Upload afbeelding vanuit media library
+               */
               image?: (number | null) | Media;
+              /**
+               * Of gebruik een directe URL zoals /images/foto.webp
+               */
+              imageSrc?: string | null;
               id?: string | null;
             }[];
             id?: string | null;
@@ -348,7 +362,14 @@ export interface Page {
             items: {
               name: string;
               description: string;
+              /**
+               * Upload afbeelding vanuit media library
+               */
               image?: (number | null) | Media;
+              /**
+               * Of gebruik een directe URL zoals /images/foto.jpg
+               */
+              img?: string | null;
               /**
                * Beschrijving voor toegankelijkheid
                */
@@ -2329,6 +2350,7 @@ export interface PagesSelect<T extends boolean = true> {
               frameless?: T;
               showBackdropLogo?: T;
               image?: T;
+              imageSrc?: T;
               imageAlt?: T;
               kpis?:
                 | T
@@ -2405,6 +2427,7 @@ export interface PagesSelect<T extends boolean = true> {
                     href?: T;
                     cta?: T;
                     image?: T;
+                    imageSrc?: T;
                     id?: T;
                   };
               id?: T;
@@ -2439,6 +2462,7 @@ export interface PagesSelect<T extends boolean = true> {
                     name?: T;
                     description?: T;
                     image?: T;
+                    img?: T;
                     alt?: T;
                     href?: T;
                     key?: T;

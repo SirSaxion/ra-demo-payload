@@ -73,7 +73,7 @@ export default function PayloadBlockRenderer({ blocks }: PayloadBlockRendererPro
             tone={block.tone}
             frameless={block.frameless}
             showBackdropLogo={block.showBackdropLogo}
-            imageSrc={block.image?.url || null}
+            imageSrc={block.imageSrc || block.image?.url || null}
             imageAlt={block.imageAlt || block.image?.alt || ''}
             kpis={block.kpis}
             bullets={block.bullets?.map((bullet: any) => bullet.text || bullet) || []}
@@ -116,7 +116,7 @@ export default function PayloadBlockRenderer({ blocks }: PayloadBlockRendererPro
             subtitle={block.subtitle}
             features={block.features?.map((feature: any) => ({
               ...feature,
-              imageSrc: feature.image?.url || null
+              imageSrc: feature.imageSrc || feature.image?.url || null
             })) || []}
           />
         )
@@ -138,7 +138,7 @@ export default function PayloadBlockRenderer({ blocks }: PayloadBlockRendererPro
             subtitle={block.subtitle}
             items={block.items?.map((item: any) => ({
               ...item,
-              img: item.image?.url || null,
+              img: item.img || item.image?.url || null,
               alt: item.alt || item.name,
             })) || []}
           />
@@ -162,11 +162,11 @@ export default function PayloadBlockRenderer({ blocks }: PayloadBlockRendererPro
             durationSec={block.durationSec}
             testimonials={block.testimonials?.map((testimonial: any) => ({
               ...testimonial,
-              imageSrc: testimonial.companyLogo?.url || null,
+              imageSrc: testimonial.imageSrc || testimonial.companyLogo?.url || null,
               badges: testimonial.badges?.map((badge: any) => badge.text || badge) || [],
               author: {
                 ...testimonial.author,
-                avatar: testimonial.author?.avatar?.url || null
+                avatar: testimonial.author?.avatar || testimonial.author?.avatar?.url || null
               }
             })) || []}
           />

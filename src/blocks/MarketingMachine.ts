@@ -58,7 +58,18 @@ export const MarketingMachine: Block = {
           name: 'image',
           type: 'upload',
           relationTo: 'media',
-          label: 'Afbeelding',
+          label: 'Afbeelding (upload)',
+          admin: {
+            description: 'Upload afbeelding vanuit media library',
+          },
+        },
+        {
+          name: 'imageSrc',
+          type: 'text',
+          label: 'Afbeelding URL (alternatief)',
+          admin: {
+            description: 'Of gebruik een directe URL zoals /images/foto.webp',
+          },
         },
       ],
     },
