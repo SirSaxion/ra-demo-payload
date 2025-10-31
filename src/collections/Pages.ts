@@ -114,6 +114,7 @@ export const Pages: CollectionConfig = {
       type: 'text',
       required: true,
       label: 'Pagina Titel',
+      localized: true,
     },
     {
       name: 'slug',
@@ -136,6 +137,7 @@ export const Pages: CollectionConfig = {
               name: 'blocks',
               type: 'blocks',
               required: false,
+              localized: true,
               blocks: [
                 HeroSection,
                 TrustStrip,
@@ -248,6 +250,7 @@ export const Pages: CollectionConfig = {
                   name: 'metaTitle',
                   type: 'text',
                   label: 'Meta Titel',
+                  localized: true,
                   admin: {
                     description: 'Verschijnt in Google zoekresulataten (max 60 karakters)',
                   },
@@ -256,6 +259,7 @@ export const Pages: CollectionConfig = {
                   name: 'metaDescription',
                   type: 'textarea',
                   label: 'Meta Beschrijving',
+                  localized: true,
                   admin: {
                     description: 'Verschijnt in Google zoekresulataten (max 160 karakters)',
                   },

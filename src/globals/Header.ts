@@ -46,6 +46,7 @@ export const Header: GlobalConfig = {
       name: 'mainLinks',
       type: 'array',
       label: 'Hoofdnavigatie',
+      localized: true,
       minRows: 1,
       fields: [
         {
@@ -72,6 +73,7 @@ export const Header: GlobalConfig = {
       name: 'targetGroups',
       type: 'array',
       label: 'Doelgroepen ("Voor wie?" menu)',
+      localized: true,
       minRows: 1,
       fields: [
         {

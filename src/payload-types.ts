@@ -98,7 +98,7 @@ export interface Config {
     footer: FooterSelect<false> | FooterSelect<true>;
     seo: SeoSelect<false> | SeoSelect<true>;
   };
-  locale: null;
+  locale: 'nl' | 'en';
   user: User & {
     collection: 'users';
   };

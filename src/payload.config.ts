@@ -26,6 +26,20 @@ export default buildConfig({
   collections: [Users, Media, Pages, CaseStudies],
   globals: [Header, Footer, SEO],
   editor: lexicalEditor(),
+  localization: {
+    locales: [
+      {
+        label: 'Nederlands',
+        code: 'nl',
+      },
+      {
+        label: 'English',
+        code: 'en',
+      },
+    ],
+    defaultLocale: 'nl',
+    fallback: true,
+  },
   secret: process.env.PAYLOAD_SECRET || 'fallback-secret-for-development-only',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),

@@ -26,6 +26,7 @@ export const Footer: GlobalConfig = {
       type: 'text',
       label: 'Tagline',
       required: true,
+      localized: true,
       defaultValue: 'Voorspelbare groei voor makelaars en vastgoedteams.',
     },
     {
@@ -69,6 +70,7 @@ export const Footer: GlobalConfig = {
       name: 'badge',
       type: 'text',
       label: 'Badge tekst (bijv. "IQI Global Partner")',
+      localized: true,
       defaultValue: 'IQI Global Partner',
     },
     {
@@ -89,6 +91,7 @@ export const Footer: GlobalConfig = {
       name: 'mainLinks',
       type: 'array',
       label: 'Pagina links',
+      localized: true,
       minRows: 1,
       fields: [
         {
@@ -114,6 +117,7 @@ export const Footer: GlobalConfig = {
       name: 'targetGroups',
       type: 'array',
       label: 'Doelgroep links ("Voor wie?")',
+      localized: true,
       minRows: 1,
       fields: [
         {
@@ -174,6 +178,7 @@ export const Footer: GlobalConfig = {
       name: 'copyrightText',
       type: 'text',
       label: 'Copyright tekst (gebruik {year} voor huidige jaar)',
+      localized: true,
       defaultValue: '© {year} Real Accelerate. Alle rechten voorbehouden.',
     },
   ],

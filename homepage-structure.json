@@ -1,0 +1,18 @@
+{
+  "id": 1,
+  "slug": "/",
+  "seo": {
+    "ogImage": null
+  },
+  "organizationSchema": {
+    "enabled": false,
+    "name": null,
+    "description": null,
+    "contactEmail": null,
+    "contactPhone": null
+  },
+  "updatedAt": "2025-10-31T05:02:00.506Z",
+  "createdAt": "2025-10-31T05:02:00.503Z",
+  "_status": "draft",
+  "blocks": []
+}

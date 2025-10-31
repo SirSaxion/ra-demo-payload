@@ -29,18 +29,21 @@ export const CaseStudies: CollectionConfig = {
       type: 'text',
       label: 'Titel',
       required: true,
+      localized: true,
     },
     {
       name: 'subtitle',
       type: 'text',
       label: 'Ondertitel',
       required: true,
+      localized: true,
     },
     {
       name: 'description',
       type: 'textarea',
       label: 'Beschrijving',
       required: true,
+      localized: true,
       admin: {
         description: 'Uitgebreide beschrijving van het project',
       },
@@ -56,6 +59,7 @@ export const CaseStudies: CollectionConfig = {
       type: 'text',
       label: 'Categorie',
       required: true,
+      localized: true,
       admin: {
         description: 'Bijv. "Premium Makelaar", "Moderne Makelaar"',
       },
@@ -78,6 +82,7 @@ export const CaseStudies: CollectionConfig = {
       name: 'results',
       type: 'array',
       label: 'Resultaten',
+      localized: true,
       minRows: 1,
       maxRows: 4,
       fields: [
@@ -179,6 +184,7 @@ export const CaseStudies: CollectionConfig = {
       name: 'testimonial',
       type: 'group',
       label: 'Testimonial',
+      localized: true,
       fields: [
         {
           name: 'quote',

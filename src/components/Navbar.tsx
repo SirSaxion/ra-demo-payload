@@ -6,7 +6,7 @@ import { usePathname, useRouter } from "next/navigation"
 import { useEffect, useRef, useState } from "react"
 import type { ElementType, CSSProperties } from "react"
 import { cn } from "@/lib/utils"
-import { Menu, Building2, Globe2, PiggyBank, Factory, Users, CheckCircle2, ChevronRight, type LucideIcon } from "lucide-react"
+import { Menu, Building2, Globe2, PiggyBank, Factory, Users, CheckCircle2, ChevronRight, Languages, type LucideIcon } from "lucide-react"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import {
   Sheet,
@@ -148,6 +148,35 @@ export default function Navbar({
   const pathname = usePathname()
   const router = useRouter()
   const [voorWieOpen, setVoorWieOpen] = useState(false)
+  const [currentLocale, setCurrentLocale] = useState('nl')
+  
+  // Detect current locale from URL
+  useEffect(() => {
+    const path = pathname
+    if (path.startsWith('/en')) {
+      setCurrentLocale('en')
+    } else {
+      setCurrentLocale('nl')
+    }
+  }, [pathname])
+  
+  const switchLocale = (newLocale: string) => {
+    let newPath = pathname
+    
+    // Remove current locale prefix if exists
+    if (pathname.startsWith('/nl')) {
+      newPath = pathname.substring(3) || '/'
+    } else if (pathname.startsWith('/en')) {
+      newPath = pathname.substring(3) || '/'
+    }
+    
+    // Add new locale prefix (except for nl which is default)
+    if (newLocale === 'en') {
+      router.push(`/en${newPath}`)
+    } else {
+      router.push(newPath)
+    }
+  }
   
   // Convert targetGroups to groups format
   const groups: NavItem[] = targetGroups.length > 0 
@@ -503,6 +532,17 @@ export default function Navbar({
               ))}
           </nav>
           <div className="ml-2 flex items-center gap-3">
+            {/* Language Selector */}
+            <div className="relative">
+              <button
+                onClick={() => switchLocale(currentLocale === 'nl' ? 'en' : 'nl')}
+                className="flex items-center gap-2 rounded-[var(--radius-md)] border border-[color-mix(in_oklab,var(--brand-500)_25%,transparent)] px-3 py-2 text-[15px] font-medium text-foreground/90 transition-colors hover:bg-[color-mix(in_oklab,var(--brand-500)_10%,transparent)]"
+                title={currentLocale === 'nl' ? 'Switch to English' : 'Schakel naar Nederlands'}
+              >
+                <Languages className="size-4" />
+                <span className="uppercase">{currentLocale}</span>
+              </button>
+            </div>
             <a
               href={phoneLink}
               className="rounded-[var(--radius-md)] border border-[color-mix(in_oklab,var(--brand-500)_35%,transparent)] px-4 py-2 text-[16px] font-semibold text-foreground/90 hover:bg-transparent"
@@ -604,6 +644,21 @@ export default function Navbar({
                     Contact
                   </Link>
                 </SheetClose>
+                
+                {/* Language Selector Mobile */}
+                <div className="mt-4 border-t border-border pt-4">
+                  <button
+                    onClick={() => {
+                      switchLocale(currentLocale === 'nl' ? 'en' : 'nl')
+                      setMobileOpen(false)
+                    }}
+                    className="flex w-full items-center gap-2 rounded-[var(--radius-md)] border border-[color-mix(in_oklab,var(--brand-500)_25%,transparent)] px-3 py-2 text-[16px] font-medium"
+                  >
+                    <Languages className="size-5" />
+                    <span>{currentLocale === 'nl' ? 'Switch to English' : 'Schakel naar Nederlands'}</span>
+                  </button>
+                </div>
+                
                 <SheetClose asChild>
                   <a
                     href={phoneLink}

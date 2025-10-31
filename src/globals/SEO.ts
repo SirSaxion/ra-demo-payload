@@ -18,6 +18,7 @@ export const SEO: GlobalConfig = {
           type: 'text',
           label: 'Site titel',
           required: true,
+          localized: true,
           defaultValue: 'Real Accelerate',
           admin: {
             description: 'Hoofdtitel van de website (voor meta tags)',
@@ -28,6 +29,7 @@ export const SEO: GlobalConfig = {
           type: 'textarea',
           label: 'Site beschrijving',
           required: true,
+          localized: true,
           defaultValue: 'Voorspelbare groei voor makelaars en vastgoedteams',
           admin: {
             description: 'Standaard meta beschrijving',
