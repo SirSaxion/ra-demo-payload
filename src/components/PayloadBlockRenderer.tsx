@@ -17,6 +17,18 @@ import FAQSection from '@/components/sections/home/FAQSection'
 import HowItWorksSection from '@/components/sections/home/HowItWorksSection'
 import FinalCTA from '@/components/sections/home/FinalCTA'
 
+// Over-ons blocks
+import OverOnsHeroSection from '@/components/sections/over-ons/HeroSection'
+import OverOnsTrustStripSection from '@/components/sections/over-ons/TrustStripSection'
+import OverOnsMissionSection from '@/components/sections/over-ons/MissionSection'
+import OverOnsTimelineSection from '@/components/sections/over-ons/TimelineSection'
+import OverOnsTeamSection from '@/components/sections/over-ons/TeamSection'
+import OverOnsCoreValuesSection from '@/components/sections/over-ons/CoreValuesSection'
+import OverOnsPartnershipsSection from '@/components/sections/over-ons/PartnershipsSection'
+import OverOnsCultureSection from '@/components/sections/over-ons/CultureSection'
+import OverOnsOfficeSection from '@/components/sections/over-ons/OfficeSection'
+import OverOnsCTASection from '@/components/sections/over-ons/CTASection'
+
 interface PayloadBlockRendererProps {
   blocks: any[]
 }
@@ -204,6 +216,142 @@ export default function PayloadBlockRenderer({ blocks }: PayloadBlockRendererPro
             ctaLabel={block.ctaLabel}
             ctaHref={block.ctaHref}
             bullets={block.bullets?.map((bullet: any) => bullet.text || bullet) || []}
+          />
+        )
+        
+      // Over-ons blocks
+      case 'overOnsHeroSection':
+        return (
+          <OverOnsHeroSection
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            highlightedWord={block.highlightedWord}
+            subtitle={block.subtitle}
+            description={block.description}
+            image={block.image}
+            imageAlt={block.imageAlt}
+            stats={block.stats}
+          />
+        )
+        
+      case 'overOnsTrustStripSection':
+        return (
+          <OverOnsTrustStripSection
+            key={index}
+            items={block.items?.map((item: any) => item.text || item) || []}
+          />
+        )
+        
+      case 'overOnsMissionSection':
+        return (
+          <OverOnsMissionSection
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            subtitle={block.subtitle}
+            cards={block.cards}
+            tagline={block.tagline}
+          />
+        )
+        
+      case 'overOnsTimelineSection':
+        return (
+          <OverOnsTimelineSection
+            key={index}
+            title={block.title}
+            subtitle={block.subtitle}
+            items={block.items?.map((item: any) => ({
+              ...item,
+              bullets: item.bullets?.map((b: any) => b.text || b) || []
+            })) || []}
+          />
+        )
+        
+      case 'overOnsTeamSection':
+        return (
+          <OverOnsTeamSection
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            members={block.members}
+          />
+        )
+        
+      case 'overOnsCoreValuesSection':
+        return (
+          <OverOnsCoreValuesSection
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            highlightedWord={block.highlightedWord}
+            subtitle={block.subtitle}
+            values={block.values}
+          />
+        )
+        
+      case 'overOnsPartnershipsSection':
+        return (
+          <OverOnsPartnershipsSection
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            partnerships={block.partnerships?.map((p: any) => ({
+              ...p,
+              features: p.features?.map((f: any) => f.text || f) || []
+            })) || []}
+            quote={block.quote}
+            quoteAuthor={block.quoteAuthor}
+            featuresLabel={block.featuresLabel}
+          />
+        )
+        
+      case 'overOnsCultureSection':
+        return (
+          <OverOnsCultureSection
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            subtitle={block.subtitle}
+            comparisonRows={block.comparisonRows}
+            testimonial={block.testimonial}
+            tableHeaderAspect={block.tableHeaderAspect}
+            tableHeaderOthers={block.tableHeaderOthers}
+            tableHeaderRealAccelerate={block.tableHeaderRealAccelerate}
+            testimonialLabel={block.testimonialLabel}
+          />
+        )
+        
+      case 'overOnsOfficeSection':
+        return (
+          <OverOnsOfficeSection
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            subtitle={block.subtitle}
+            latitude={block.latitude}
+            longitude={block.longitude}
+            address={block.address}
+            phone={block.phone}
+            email={block.email}
+            image={block.image}
+            imageAlt={block.imageAlt}
+            openInMapsLabel={block.openInMapsLabel}
+            locationBadge={block.locationBadge}
+            addressHeading={block.addressHeading}
+          />
+        )
+        
+      case 'overOnsCTASection':
+        return (
+          <OverOnsCTASection
+            key={index}
+            title={block.title}
+            highlightedWord={block.highlightedWord}
+            subtitle={block.subtitle}
+            benefits={block.benefits?.map((b: any) => b.text || b) || []}
+            ctaLabel={block.ctaLabel}
+            ctaSubtext={block.ctaSubtext}
           />
         )
         

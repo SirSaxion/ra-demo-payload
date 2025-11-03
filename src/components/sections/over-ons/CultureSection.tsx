@@ -24,6 +24,10 @@ interface CultureSectionProps {
   subtitle?: string;
   comparisonRows?: ComparisonRow[];
   testimonial?: TestimonialData;
+  tableHeaderAspect?: string;
+  tableHeaderOthers?: string;
+  tableHeaderRealAccelerate?: string;
+  testimonialLabel?: string;
   className?: string;
 }
 
@@ -40,6 +44,10 @@ const CultureSection: React.FC<CultureSectionProps> = ({
   badge = "ONZE PERSOONLIJKHEID",
   title = "VAN VASTGOEDONDERNEMERS",
   subtitle = "Hoe wij werken:",
+  tableHeaderAspect = "Aspect",
+  tableHeaderOthers = "Andere bureaus",
+  tableHeaderRealAccelerate = "Real Accelerate",
+  testimonialLabel = "💬 Testimonial",
   comparisonRows = [
     {
       aspect: "Kennis & Ervaring",
@@ -122,11 +130,11 @@ const CultureSection: React.FC<CultureSectionProps> = ({
             <Table className="w-full text-[16px] md:text-[17px]">
               <TableHeader className="sticky top-0 z-10 bg-black/60 backdrop-blur-sm text-foreground">
                 <TableRow className="border-b border-white/20">
-                  <TableHead className="py-4 md:py-5 px-2 md:px-3 whitespace-nowrap text-foreground">Aspect</TableHead>
+                  <TableHead className="py-4 md:py-5 px-2 md:px-3 whitespace-nowrap text-foreground">{tableHeaderAspect}</TableHead>
                   <TableHead className="py-4 md:py-5 px-2 md:px-3 whitespace-nowrap">
                     <div className="inline-flex items-center gap-2 rounded-lg bg-destructive px-3 py-1.5 text-white">
                       <XCircle className="w-4 h-4" />
-                      <span>Andere bureaus</span>
+                      <span>{tableHeaderOthers}</span>
                     </div>
                   </TableHead>
                   <TableHead className="py-4 md:py-5 px-2 md:px-3 whitespace-nowrap">
@@ -177,7 +185,7 @@ const CultureSection: React.FC<CultureSectionProps> = ({
                 <div className="flex items-center gap-2 mb-1">
                   <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-mono tracking-wider uppercase text-[var(--brand-400)]">
                     <span className="inline-block h-1 w-1 rounded-full bg-[var(--brand-500)]" />
-                    💬 Testimonial
+                    {testimonialLabel}
                   </span>
                 </div>
                 <blockquote className="italic leading-relaxed text-foreground">

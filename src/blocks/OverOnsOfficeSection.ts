@@ -75,5 +75,26 @@ export const OverOnsOfficeSection: Block = {
       label: 'Afbeelding alt tekst',
       required: true,
     },
+    {
+      name: 'openInMapsLabel',
+      type: 'text',
+      label: 'Open in Maps Button Label',
+      defaultValue: 'Openen in Google Maps',
+      localized: true,
+    },
+    {
+      name: 'locationBadge',
+      type: 'text',
+      label: 'Location Badge Text',
+      defaultValue: 'LOCATIE',
+      localized: true,
+    },
+    {
+      name: 'addressHeading',
+      type: 'text',
+      label: 'Address Heading',
+      defaultValue: 'Bezoekadres',
+      localized: true,
+    },
   ],
 }

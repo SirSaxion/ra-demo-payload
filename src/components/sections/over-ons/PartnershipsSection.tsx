@@ -18,12 +18,14 @@ export interface PartnershipsSectionProps {
   partnerships?: PartnershipData[];
   quote?: string;
   quoteAuthor?: string;
+  featuresLabel?: string;
   className?: string;
 }
 
 export default function PartnershipsSection({
   badge = "Partnerships",
   title = "Onze Partnerships",
+  featuresLabel = "Key Areas",
   partnerships = [
     {
       title: "IQI Global",
@@ -142,7 +144,7 @@ export default function PartnershipsSection({
                 </p>
 
                 <div className="space-y-4">
-                  <h4 className="type-h4 text-black">Key Areas</h4>
+                  <h4 className="type-h4 text-black">{featuresLabel}</h4>
                   <div className="grid grid-cols-2 gap-2">
                     {partnership.features.map((feature, featureIndex) => (
                       <motion.div

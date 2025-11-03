@@ -1,15 +1,37 @@
 import EnhancedTimeline, { type TimelineEntry } from "@/components/sections/EnhancedTimeline";
 
+interface TimelineItem {
+  year: string;
+  title: string;
+  bullets: Array<{ text: string }> | string[];
+}
+
 interface TimelineSectionProps {
   title?: string;
   subtitle?: string;
-  entries?: TimelineEntry[];
+  items?: TimelineItem[];
 }
 
 export default function TimelineSection({
-  title = "Bedrijf Timeline",
-  subtitle = "Onze reis tot nu toe",
-  entries = [
+  title = "Company Timeline",
+  subtitle = "Our journey so far",
+  items = [],
+}: TimelineSectionProps) {
+  
+  // Convert Payload items to EnhancedTimeline format
+  const convertedEntries: TimelineEntry[] = items.length > 0 ? items.map((item) => ({
+    title: `${item.year} — ${item.title}`,
+    content: (
+      <div>
+        <ul className="list-disc pl-5">
+          {Array.isArray(item.bullets) ? item.bullets.map((bullet, idx) => (
+            <li key={idx}>{typeof bullet === 'string' ? bullet : bullet.text}</li>
+          )) : null}
+        </ul>
+      </div>
+    ),
+  })) : [
+    // Default fallback timeline
     {
       title: "2021 — 🏗️ OPRICHTING",
       content: (
@@ -74,11 +96,11 @@ export default function TimelineSection({
         </div>
       ),
     },
-  ],
-}: TimelineSectionProps = {}) {
+  ];
+
   return (
     <EnhancedTimeline
-      data={entries}
+      data={convertedEntries}
       title={title}
       subtitle={subtitle}
     />

@@ -71,5 +71,33 @@ export const OverOnsCultureSection: Block = {
         },
       ],
     },
+    {
+      name: 'tableHeaderAspect',
+      type: 'text',
+      label: 'Table Header - Aspect Column',
+      defaultValue: 'Aspect',
+      localized: true,
+    },
+    {
+      name: 'tableHeaderOthers',
+      type: 'text',
+      label: 'Table Header - Others Column',
+      defaultValue: 'Andere bureaus',
+      localized: true,
+    },
+    {
+      name: 'tableHeaderRealAccelerate',
+      type: 'text',
+      label: 'Table Header - Real Accelerate Column',
+      defaultValue: 'Real Accelerate',
+      localized: true,
+    },
+    {
+      name: 'testimonialLabel',
+      type: 'text',
+      label: 'Testimonial Section Label',
+      defaultValue: '💬 Testimonial',
+      localized: true,
+    },
   ],
 }

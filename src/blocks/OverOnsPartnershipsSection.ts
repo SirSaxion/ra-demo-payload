@@ -63,5 +63,12 @@ export const OverOnsPartnershipsSection: Block = {
       label: 'Quote Author',
       required: true,
     },
+    {
+      name: 'featuresLabel',
+      type: 'text',
+      label: 'Features Label',
+      defaultValue: 'Key Areas',
+      localized: true,
+    },
   ],
 }

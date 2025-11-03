@@ -821,6 +821,19 @@ export interface OverOnsMissionSection {
 export interface OverOnsTimelineSection {
   title: string;
   subtitle: string;
+  items?:
+    | {
+        year: string;
+        title: string;
+        bullets?:
+          | {
+              text?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'overOnsTimelineSection';
@@ -890,6 +903,7 @@ export interface OverOnsPartnershipsSection {
     | null;
   quote: string;
   quoteAuthor: string;
+  featuresLabel?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'overOnsPartnershipsSection';
@@ -916,6 +930,10 @@ export interface OverOnsCultureSection {
     author?: string | null;
     company?: string | null;
   };
+  tableHeaderAspect?: string | null;
+  tableHeaderOthers?: string | null;
+  tableHeaderRealAccelerate?: string | null;
+  testimonialLabel?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'overOnsCultureSection';
@@ -938,6 +956,9 @@ export interface OverOnsOfficeSection {
   email: string;
   image: string;
   imageAlt: string;
+  openInMapsLabel?: string | null;
+  locationBadge?: string | null;
+  addressHeading?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'overOnsOfficeSection';
@@ -2907,6 +2928,19 @@ export interface OverOnsMissionSectionSelect<T extends boolean = true> {
 export interface OverOnsTimelineSectionSelect<T extends boolean = true> {
   title?: T;
   subtitle?: T;
+  items?:
+    | T
+    | {
+        year?: T;
+        title?: T;
+        bullets?:
+          | T
+          | {
+              text?: T;
+              id?: T;
+            };
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
@@ -2973,6 +3007,7 @@ export interface OverOnsPartnershipsSectionSelect<T extends boolean = true> {
       };
   quote?: T;
   quoteAuthor?: T;
+  featuresLabel?: T;
   id?: T;
   blockName?: T;
 }
@@ -3000,6 +3035,10 @@ export interface OverOnsCultureSectionSelect<T extends boolean = true> {
         author?: T;
         company?: T;
       };
+  tableHeaderAspect?: T;
+  tableHeaderOthers?: T;
+  tableHeaderRealAccelerate?: T;
+  testimonialLabel?: T;
   id?: T;
   blockName?: T;
 }
@@ -3023,6 +3062,9 @@ export interface OverOnsOfficeSectionSelect<T extends boolean = true> {
   email?: T;
   image?: T;
   imageAlt?: T;
+  openInMapsLabel?: T;
+  locationBadge?: T;
+  addressHeading?: T;
   id?: T;
   blockName?: T;
 }

@@ -19,6 +19,9 @@ interface OfficeSectionProps {
   email?: string;
   image?: string;
   imageAlt?: string;
+  openInMapsLabel?: string;
+  locationBadge?: string;
+  addressHeading?: string;
   className?: string;
 }
 
@@ -33,6 +36,9 @@ const OfficeSection: React.FC<OfficeSectionProps> = ({
     city: "1103 AD Amsterdam",
   },
   phone = "085 060 2989",
+  openInMapsLabel = "Openen in Google Maps",
+  locationBadge = "LOCATIE",
+  addressHeading = "Bezoekadres",
   email = "info@realaccelerate.nl",
   image = "/images/joep-koffie.png",
   imageAlt = "Joep",
@@ -100,7 +106,7 @@ const OfficeSection: React.FC<OfficeSectionProps> = ({
                         <div className="text-white/70 text-xs leading-tight">{address.city}</div>
                         <div className="mt-2 flex gap-2 text-xs">
                           <a className="rounded-full bg-white/10 px-2.5 py-1 ring-1 ring-white/15 hover:bg-white/15 transition" href={GMAPS_LINK} target="_blank" rel="noreferrer">
-                            Openen in Google Maps
+                            {openInMapsLabel}
                           </a>
                         </div>
                       </div>
@@ -129,9 +135,9 @@ const OfficeSection: React.FC<OfficeSectionProps> = ({
                 <div className="mb-2">
                   <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[11px] font-mono tracking-wider text-[var(--brand-600)]">
                     <MapPin className="h-3.5 w-3.5 text-[var(--brand-500)]" />
-                    LOCATIE
+                    {locationBadge}
                   </span>
-                  <h3 className="mt-3 text-3xl font-bold md:text-4xl">Bezoekadres</h3>
+                  <h3 className="mt-3 text-3xl font-bold md:text-4xl">{addressHeading}</h3>
                 </div>
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
