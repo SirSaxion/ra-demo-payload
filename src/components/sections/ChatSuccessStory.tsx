@@ -3,7 +3,41 @@
 import { cn } from "@/lib/utils";
 import { Check, CheckCheck } from "lucide-react";
 
-export default function ChatSuccessStory() {
+interface ChatMessage {
+  type: 'incoming' | 'outgoing'
+  text: string
+  time: string
+}
+
+interface ChatSuccessStoryProps {
+  badge?: string
+  title?: string
+  subtitle?: string
+  chatHeader?: string
+  chatStatus?: string
+  messages?: ChatMessage[]
+  inputPlaceholder?: string
+  indicator1?: string
+  indicator2?: string
+  indicator3?: string
+  footerText?: string
+  footerAttribution?: string
+}
+
+export default function ChatSuccessStory({
+  badge = "Live Reactie",
+  title = "💬 Zo reageren onze klanten",
+  subtitle = "Echte berichten van makelaars die nieuwe leads en deals binnenhalen",
+  chatHeader = "Real Accelerate",
+  chatStatus = "online",
+  messages = [],
+  inputPlaceholder = "Typ een bericht...",
+  indicator1 = "+8",
+  indicator2 = "🎯 3 afspraken",
+  indicator3 = "💰 ROI 6x",
+  footerText = "Dit is hoe onze klanten reageren als hun agenda vol loopt met kwalitatieve afspraken",
+  footerAttribution = "— Gesprek met klant"
+}: ChatSuccessStoryProps) {
   return (
     <section className="relative isolate overflow-hidden bg-section">
       {/* Grid background */}
@@ -22,11 +56,11 @@ export default function ChatSuccessStory() {
         <div className="mx-auto mb-8 max-w-3xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm md:text-base font-mono tracking-wider uppercase text-[var(--brand-400)]">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--brand-500)]" />
-            Live Reactie
+            {badge}
           </span>
-          <h2 className="mt-4 type-h2 text-foreground">💬 Zo reageren onze klanten</h2>
+          <h2 className="mt-4 type-h2 text-foreground">{title}</h2>
           <p className="mt-2 type-body text-[var(--color-text-secondary)]">
-            Echte berichten van makelaars die nieuwe leads en deals binnenhalen
+            {subtitle}
           </p>
         </div>
 
@@ -55,90 +89,43 @@ export default function ChatSuccessStory() {
                     RA
                   </div>
                   <div className="flex-1">
-                    <div className="text-white font-semibold">Real Accelerate</div>
+                    <div className="text-white font-semibold">{chatHeader}</div>
                     <div className="text-green-400 text-xs flex items-center gap-1">
                       <div className="w-2 h-2 bg-green-400 rounded-full" />
-                      online
+                      {chatStatus}
                     </div>
                   </div>
                 </div>
 
                 {/* Chat messages */}
                 <div className="bg-[#0a0a0a] px-4 py-6 space-y-4 min-h-[400px]">
-                  {/* Incoming message */}
-                  <div className="flex items-start gap-2">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[var(--brand-400)] to-[var(--brand-600)] flex items-center justify-center text-black font-bold text-sm flex-shrink-0">
-                      RA
-                    </div>
-                    <div className="flex-1">
-                      <div className="bg-[#1a1a1a] text-white rounded-2xl rounded-tl-md px-4 py-3 max-w-[85%]">
-                        <p className="text-sm">Hoi! Hoe gaat het met de nieuwe leads? 🚀</p>
+                  {messages.map((message, index) => (
+                    message.type === 'incoming' ? (
+                      <div key={index} className="flex items-start gap-2">
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[var(--brand-400)] to-[var(--brand-600)] flex items-center justify-center text-black font-bold text-sm flex-shrink-0">
+                          RA
+                        </div>
+                        <div className="flex-1">
+                          <div className="bg-[#1a1a1a] text-white rounded-2xl rounded-tl-md px-4 py-3 max-w-[85%]">
+                            <p className="text-sm">{message.text}</p>
+                          </div>
+                          <div className="text-xs text-gray-500 mt-1 ml-2">{message.time}</div>
+                        </div>
                       </div>
-                      <div className="text-xs text-gray-500 mt-1 ml-2">14:32</div>
-                    </div>
-                  </div>
-
-                  {/* Outgoing messages */}
-                  <div className="flex justify-end">
-                    <div className="max-w-[85%]">
-                      <div className="bg-[var(--brand-500)] text-black rounded-2xl rounded-tr-md px-4 py-3">
-                        <p className="text-sm font-medium">Wauw! Ik kan het bijna niet geloven! 🤩</p>
+                    ) : (
+                      <div key={index} className="flex justify-end">
+                        <div className="max-w-[85%]">
+                          <div className="bg-[var(--brand-500)] text-black rounded-2xl rounded-tr-md px-4 py-3">
+                            <p className="text-sm font-medium">{message.text}</p>
+                          </div>
+                          <div className="text-xs text-gray-500 mt-1 mr-2 text-right flex items-center justify-end gap-1">
+                            {message.time}
+                            <CheckCheck className="w-3 h-3 text-[var(--brand-500)]" />
+                          </div>
+                        </div>
                       </div>
-                      <div className="text-xs text-gray-500 mt-1 mr-2 text-right flex items-center justify-end gap-1">
-                        14:33
-                        <CheckCheck className="w-3 h-3 text-[var(--brand-500)]" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex justify-end">
-                    <div className="max-w-[85%]">
-                      <div className="bg-[var(--brand-500)] text-black rounded-2xl rounded-tr-md px-4 py-3">
-                        <p className="text-sm font-medium">Vandaag al 8 nieuwe leads binnen! 📈</p>
-                      </div>
-                      <div className="text-xs text-gray-500 mt-1 mr-2 text-right flex items-center justify-end gap-1">
-                        14:33
-                        <CheckCheck className="w-3 h-3 text-[var(--brand-500)]" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="flex justify-end">
-                    <div className="max-w-[85%]">
-                      <div className="bg-[var(--brand-500)] text-black rounded-2xl rounded-tr-md px-4 py-3">
-                        <p className="text-sm font-medium">En 3 afspraken voor morgen ingepland! 🎯</p>
-                      </div>
-                      <div className="text-xs text-gray-500 mt-1 mr-2 text-right flex items-center justify-end gap-1">
-                        14:34
-                        <CheckCheck className="w-3 h-3 text-[var(--brand-500)]" />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Incoming response */}
-                  <div className="flex items-start gap-2">
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[var(--brand-400)] to-[var(--brand-600)] flex items-center justify-center text-black font-bold text-sm flex-shrink-0">
-                      RA
-                    </div>
-                    <div className="flex-1">
-                      <div className="bg-[#1a1a1a] text-white rounded-2xl rounded-tl-md px-4 py-3 max-w-[85%]">
-                        <p className="text-sm">Fantastisch! 🔥 Zo zien we dat graag!</p>
-                      </div>
-                      <div className="text-xs text-gray-500 mt-1 ml-2">14:35</div>
-                    </div>
-                  </div>
-
-                  <div className="flex justify-end">
-                    <div className="max-w-[85%]">
-                      <div className="bg-[var(--brand-500)] text-black rounded-2xl rounded-tr-md px-4 py-3">
-                        <p className="text-sm font-medium">Jullie systeem werkt echt perfect! 💪</p>
-                      </div>
-                      <div className="text-xs text-gray-500 mt-1 mr-2 text-right flex items-center justify-end gap-1">
-                        14:35
-                        <CheckCheck className="w-3 h-3 text-[var(--brand-500)]" />
-                      </div>
-                    </div>
-                  </div>
+                    )
+                  ))}
 
                   {/* Typing indicator */}
                   <div className="flex items-start gap-2">
@@ -159,7 +146,7 @@ export default function ChatSuccessStory() {
                 <div className="bg-[#1a1a1a] px-4 py-3 border-t border-[#2a2a2a]">
                   <div className="flex items-center gap-3">
                     <div className="flex-1 bg-[#2a2a2a] rounded-full px-4 py-2">
-                      <span className="text-gray-500 text-sm">Typ een bericht...</span>
+                      <span className="text-gray-500 text-sm">{inputPlaceholder}</span>
                     </div>
                     <div className="w-8 h-8 bg-[var(--brand-500)] rounded-full flex items-center justify-center">
                       <svg className="w-4 h-4 text-black" fill="currentColor" viewBox="0 0 24 24">
@@ -173,13 +160,13 @@ export default function ChatSuccessStory() {
 
             {/* Floating success indicators */}
             <div className="absolute -top-4 -right-4 bg-green-500 text-white rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold animate-pulse">
-              +8
+              {indicator1}
             </div>
             <div className="absolute top-1/3 -left-6 bg-[var(--brand-500)] text-black rounded-full px-3 py-1 text-xs font-bold shadow-lg">
-              🎯 3 afspraken
+              {indicator2}
             </div>
             <div className="absolute bottom-1/4 -right-8 bg-blue-500 text-white rounded-full px-3 py-1 text-xs font-bold shadow-lg">
-              💰 ROI 6x
+              {indicator3}
             </div>
           </div>
         </div>
@@ -187,10 +174,10 @@ export default function ChatSuccessStory() {
         {/* Bottom text */}
         <div className="text-center mt-8 space-y-2">
           <p className="type-small text-[var(--color-text-secondary)]">
-            Dit is hoe onze klanten reageren als hun agenda vol loopt met kwalitatieve afspraken
+            {footerText}
           </p>
           <p className="text-xs text-[var(--color-text-secondary)]/60 italic">
-            — Gesprek met klant
+            {footerAttribution}
           </p>
         </div>
       </div>

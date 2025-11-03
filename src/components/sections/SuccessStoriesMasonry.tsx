@@ -32,6 +32,9 @@ interface SuccessStoriesMasonryProps {
   showHeader?: boolean
   embedded?: boolean
   className?: string
+  filterAllLabel?: string
+  resultLabel?: string
+  categories?: Array<{ key: string; label: string }>
 }
 
 const getCategoryIcon = (category: string) => {
@@ -58,10 +61,17 @@ export const SuccessStoriesMasonry: React.FC<SuccessStoriesMasonryProps> = ({
   showHeader = true,
   embedded = false,
   className,
+  filterAllLabel = "Alle verhalen",
+  resultLabel = "Resultaat",
+  categories: customCategories,
 }) => {
   const [filter, setFilter] = useState<string>("all")
 
-  const categories = ["all", ...Array.from(new Set(stories.map((story) => story.category)))]
+  // Use custom categories if provided, otherwise extract from stories
+  const categoryKeys = customCategories && customCategories.length > 0
+    ? customCategories.map(c => c.key)
+    : Array.from(new Set(stories.map((story) => story.category)))
+  const categories = ["all", ...categoryKeys]
   const filteredStories = filter === "all" ? stories : stories.filter((story) => story.category === filter)
 
   const baseContainer = "container mx-auto px-4 py-12 max-w-6xl md:max-w-7xl"
@@ -109,7 +119,10 @@ export const SuccessStoriesMasonry: React.FC<SuccessStoriesMasonryProps> = ({
               }`}
             >
               {category !== "all" && getCategoryIcon(category)}
-              {category === "all" ? "Alle verhalen" : category === "makelaars" ? "Makelaars" : category === "buitenland" ? "Buitenland / IQI" : category === "hypotheekadviseurs" ? "Hypotheekadviseurs" : "Projectontwikkelaars"}
+              {category === "all" 
+                ? filterAllLabel 
+                : (customCategories && customCategories.find(c => c.key === category)?.label) 
+                  || (category === "makelaars" ? "Makelaars" : category === "buitenland" ? "Buitenland / IQI" : category === "hypotheekadviseurs" ? "Hypotheekadviseurs" : "Projectontwikkelaars")}
             </button>
           ))}
         </div>
@@ -199,7 +212,7 @@ export const SuccessStoriesMasonry: React.FC<SuccessStoriesMasonryProps> = ({
 
                   <div className="rounded-2xl p-5 bg-[radial-gradient(60%_60%_at_30%_30%,color-mix(in_oklab,var(--brand-300)_15%,transparent),transparent_70%),radial-gradient(60%_60%_at_80%_70%,color-mix(in_oklab,var(--brand-600)_10%,transparent),transparent_70%)] border border-[var(--brand-400)]/25 relative overflow-hidden">
                     <div className="relative z-10">
-                      <div className="text-xs text-muted-foreground mb-2 font-semibold uppercase tracking-wide">Resultaat</div>
+                      <div className="text-xs text-muted-foreground mb-2 font-semibold uppercase tracking-wide">{resultLabel}</div>
                       <div className="font-bold text-sm text-foreground mb-2">{story.achievement}</div>
                       <div className="text-2xl font-extrabold text-foreground">{story.metric}</div>
                     </div>

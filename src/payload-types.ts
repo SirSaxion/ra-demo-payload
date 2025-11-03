@@ -680,6 +680,58 @@ export interface CasesMasonry {
   kicker: string;
   title: string;
   subtitle: string;
+  /**
+   * Label for the "All stories" filter button (e.g. "Alle verhalen" or "All stories")
+   */
+  filterAllLabel: string;
+  /**
+   * Label for the result section (e.g. "Resultaat" or "Result")
+   */
+  resultLabel: string;
+  categories: {
+    /**
+     * Internal category key (e.g. "makelaars", "buitenland")
+     */
+    key: string;
+    /**
+     * Display label for this category
+     */
+    label: string;
+    id?: string | null;
+  }[];
+  stories: {
+    /**
+     * Unique ID for this story. Use different IDs per locale (e.g. NL: 1-6, EN: 101-106)
+     */
+    id: number;
+    name: string;
+    role: string;
+    company: string;
+    /**
+     * The customer's testimonial or success story
+     */
+    story: string;
+    /**
+     * Short description of achievement (e.g. "Verkopen verviervoudigd")
+     */
+    achievement: string;
+    /**
+     * Key metric or number (e.g. "400% meer deals")
+     */
+    metric: string;
+    /**
+     * URL to avatar image
+     */
+    avatar: string;
+    /**
+     * Star rating (1-5)
+     */
+    rating: number;
+    /**
+     * Category key that matches one of the categories above
+     */
+    category: string;
+  }[];
   id?: string | null;
   blockName?: string | null;
   blockType: 'casesMasonry';
@@ -701,6 +753,53 @@ export interface CasesProjectsShowcase {
  * via the `definition` "CasesIndustryBreakdown".
  */
 export interface CasesIndustryBreakdown {
+  /**
+   * Badge text (e.g. "Live Reactie" or "Live Reaction")
+   */
+  badge: string;
+  title: string;
+  subtitle: string;
+  /**
+   * Name shown in chat header
+   */
+  chatHeader: string;
+  /**
+   * Status text (e.g. "online" or "online")
+   */
+  chatStatus: string;
+  messages: {
+    type: 'incoming' | 'outgoing';
+    text: string;
+    /**
+     * Time format like "14:32"
+     */
+    time: string;
+    id?: string | null;
+  }[];
+  /**
+   * Placeholder text for message input (e.g. "Typ een bericht..." or "Type a message...")
+   */
+  inputPlaceholder: string;
+  /**
+   * Green pulse indicator (e.g. "+8")
+   */
+  indicator1: string;
+  /**
+   * Left floating indicator (e.g. "🎯 3 afspraken")
+   */
+  indicator2: string;
+  /**
+   * Right floating indicator (e.g. "💰 ROI 6x")
+   */
+  indicator3: string;
+  /**
+   * Text below the chat interface
+   */
+  footerText: string;
+  /**
+   * Attribution line (e.g. "— Gesprek met klant")
+   */
+  footerAttribution: string;
   id?: string | null;
   blockName?: string | null;
   blockType: 'casesIndustryBreakdown';
@@ -2795,6 +2894,29 @@ export interface CasesMasonrySelect<T extends boolean = true> {
   kicker?: T;
   title?: T;
   subtitle?: T;
+  filterAllLabel?: T;
+  resultLabel?: T;
+  categories?:
+    | T
+    | {
+        key?: T;
+        label?: T;
+        id?: T;
+      };
+  stories?:
+    | T
+    | {
+        id?: T;
+        name?: T;
+        role?: T;
+        company?: T;
+        story?: T;
+        achievement?: T;
+        metric?: T;
+        avatar?: T;
+        rating?: T;
+        category?: T;
+      };
   id?: T;
   blockName?: T;
 }
@@ -2814,6 +2936,25 @@ export interface CasesProjectsShowcaseSelect<T extends boolean = true> {
  * via the `definition` "CasesIndustryBreakdown_select".
  */
 export interface CasesIndustryBreakdownSelect<T extends boolean = true> {
+  badge?: T;
+  title?: T;
+  subtitle?: T;
+  chatHeader?: T;
+  chatStatus?: T;
+  messages?:
+    | T
+    | {
+        type?: T;
+        text?: T;
+        time?: T;
+        id?: T;
+      };
+  inputPlaceholder?: T;
+  indicator1?: T;
+  indicator2?: T;
+  indicator3?: T;
+  footerText?: T;
+  footerAttribution?: T;
   id?: T;
   blockName?: T;
 }

@@ -425,6 +425,10 @@ export default function PayloadBlockRenderer({ blocks }: PayloadBlockRendererPro
             kicker={block.kicker}
             title={block.title}
             subtitle={block.subtitle}
+            filterAllLabel={block.filterAllLabel}
+            resultLabel={block.resultLabel}
+            categories={block.categories}
+            stories={block.stories}
           />
         )
         
@@ -439,7 +443,23 @@ export default function PayloadBlockRenderer({ blocks }: PayloadBlockRendererPro
         )
         
       case 'casesIndustryBreakdown':
-        return <CasesIndustryBreakdown key={index} />
+        return (
+          <CasesIndustryBreakdown
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            subtitle={block.subtitle}
+            chatHeader={block.chatHeader}
+            chatStatus={block.chatStatus}
+            messages={block.messages}
+            inputPlaceholder={block.inputPlaceholder}
+            indicator1={block.indicator1}
+            indicator2={block.indicator2}
+            indicator3={block.indicator3}
+            footerText={block.footerText}
+            footerAttribution={block.footerAttribution}
+          />
+        )
         
       case 'casesProcessShowcase':
         return (
