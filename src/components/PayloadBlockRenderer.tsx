@@ -29,6 +29,16 @@ import OverOnsCultureSection from '@/components/sections/over-ons/CultureSection
 import OverOnsOfficeSection from '@/components/sections/over-ons/OfficeSection'
 import OverOnsCTASection from '@/components/sections/over-ons/CTASection'
 
+// Cases blocks
+import CasesHero from '@/components/sections/cases/Hero'
+import CasesBestVariants from '@/components/sections/cases/BestVariants'
+import CasesVideoTestimonials from '@/components/sections/cases/VideoTestimonials'
+import CasesMasonry from '@/components/sections/cases/Masonry'
+import CasesProjectsShowcase from '@/components/sections/cases/ProjectsShowcase'
+import CasesIndustryBreakdown from '@/components/sections/cases/IndustryBreakdown'
+import CasesProcessShowcase from '@/components/sections/cases/ProcessShowcase'
+import CasesStartYourStory from '@/components/sections/cases/StartYourStory'
+
 interface PayloadBlockRendererProps {
   blocks: any[]
 }
@@ -352,6 +362,110 @@ export default function PayloadBlockRenderer({ blocks }: PayloadBlockRendererPro
             benefits={block.benefits?.map((b: any) => b.text || b) || []}
             ctaLabel={block.ctaLabel}
             ctaSubtext={block.ctaSubtext}
+          />
+        )
+        
+      // Cases blocks
+      case 'casesHero':
+        return (
+          <CasesHero
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            titleHighlight={block.titleHighlight}
+            subtitle={block.subtitle}
+            ctaPrimary={block.ctaPrimary}
+            ctaSecondary={block.ctaSecondary}
+            ctaSecondaryHref={block.ctaSecondaryHref}
+            stats={block.stats}
+            image={block.image}
+            imageAlt={block.imageAlt}
+          />
+        )
+        
+      case 'casesBestVariants':
+        return (
+          <CasesBestVariants
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            subtitle={block.subtitle}
+            featuredBadge={block.featuredBadge}
+            featuredCompany={block.featuredCompany}
+            featuredSubtitle={block.featuredSubtitle}
+            featuredImage={block.featuredImage}
+            featuredImageAlt={block.featuredImageAlt}
+            stats={block.stats}
+            results={block.results}
+            otherCases={block.otherCases?.map((c: any) => ({
+              ...c,
+              bullets: c.bullets?.map((b: any) => b.item || b) || []
+            })) || []}
+          />
+        )
+        
+      case 'casesVideoTestimonials':
+        return (
+          <CasesVideoTestimonials
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            subtitle={block.subtitle}
+            durationBadge={block.durationBadge}
+            activeIndicator={block.activeIndicator}
+            sidebarHeader={block.sidebarHeader}
+            videos={block.videos}
+          />
+        )
+        
+      case 'casesMasonry':
+        return (
+          <CasesMasonry
+            key={index}
+            kicker={block.kicker}
+            title={block.title}
+            subtitle={block.subtitle}
+          />
+        )
+        
+      case 'casesProjectsShowcase':
+        return (
+          <CasesProjectsShowcase
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            subtitle={block.subtitle}
+          />
+        )
+        
+      case 'casesIndustryBreakdown':
+        return <CasesIndustryBreakdown key={index} />
+        
+      case 'casesProcessShowcase':
+        return (
+          <CasesProcessShowcase
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            subtitle={block.subtitle}
+            steps={block.steps?.map((step: any) => ({
+              ...step,
+              items: step.items?.map((item: any) => item.text || item) || []
+            })) || []}
+          />
+        )
+        
+      case 'casesStartYourStory':
+        return (
+          <CasesStartYourStory
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            titleHighlight={block.titleHighlight}
+            benefits={block.benefits?.map((b: any) => b.text || b) || []}
+            ctaLabel={block.ctaLabel}
+            ctaSubtext={block.ctaSubtext}
+            ctaFootnote={block.ctaFootnote}
           />
         )
         
