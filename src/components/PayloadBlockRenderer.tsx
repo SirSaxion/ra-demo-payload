@@ -39,6 +39,19 @@ import CasesIndustryBreakdown from '@/components/sections/cases/IndustryBreakdow
 import CasesProcessShowcase from '@/components/sections/cases/ProcessShowcase'
 import CasesStartYourStory from '@/components/sections/cases/StartYourStory'
 
+// Makelaars blocks
+import MakelaarsHero from '@/components/sections/makelaars/Hero'
+import MakelaarsTrustStrip from '@/components/sections/makelaars/TrustStrip'
+import MakelaarsProblemSection from '@/components/sections/makelaars/ProblemSection'
+import MakelaarsMethodologySection from '@/components/sections/makelaars/MethodologySection'
+import MakelaarsBewezenSysteemSection from '@/components/sections/makelaars/BewezenSysteemSection'
+import MakelaarsResultsBentoGrid from '@/components/sections/makelaars/ResultsBentoGrid'
+import MakelaarsGuaranteesSection from '@/components/sections/makelaars/GuaranteesSection'
+import MakelaarsWhatYouGetSection from '@/components/sections/makelaars/WhatYouGetSection'
+import MakelaarsForWhoIsThisSection from '@/components/sections/makelaars/ForWhoIsThisSection'
+import MakelaarsStrategieSessionCTA from '@/components/sections/makelaars/StrategieSessionCTA'
+import MakelaarsFAQSection from '@/components/sections/makelaars/FAQSection'
+
 interface PayloadBlockRendererProps {
   blocks: any[]
 }
@@ -488,6 +501,87 @@ export default function PayloadBlockRenderer({ blocks }: PayloadBlockRendererPro
             ctaFootnote={block.ctaFootnote}
           />
         )
+      
+      // Makelaars blocks
+      case 'makelaarsHero':
+        return <MakelaarsHero key={index} {...block} />
+        
+      case 'makelaarsTrustStrip':
+        return (
+          <MakelaarsTrustStrip
+            key={index}
+            trustItems={block.trustItems?.map((item: any) => item.text || item) || []}
+          />
+        )
+        
+      case 'makelaarsProblemSection':
+        return <MakelaarsProblemSection key={index} {...block} />
+        
+      case 'makelaarsMethodologySection':
+        return <MakelaarsMethodologySection key={index} {...block} />
+        
+      case 'makelaarsBewezenSysteemSection':
+        return <MakelaarsBewezenSysteemSection key={index} {...block} />
+        
+      case 'makelaarsResultsBentoGrid':
+        return <MakelaarsResultsBentoGrid key={index} {...block} />
+        
+      case 'makelaarsGuaranteesSection':
+        return (
+          <MakelaarsGuaranteesSection
+            key={index}
+            kicker={block.kicker}
+            title={block.title}
+            subtitle={block.subtitle}
+            cards={block.cards?.map((card: any) => ({
+              ...card,
+              items: card.items?.map((item: any) => item.text || item) || []
+            })) || []}
+          />
+        )
+        
+      case 'makelaarsWhatYouGetSection':
+        return (
+          <MakelaarsWhatYouGetSection
+            key={index}
+            kicker={block.kicker}
+            title={block.title}
+            subtitle={block.subtitle}
+            services={block.services?.map((s: any) => s.text || s) || []}
+            bonusTitle={block.bonusTitle}
+            bonusDescription={block.bonusDescription}
+          />
+        )
+        
+      case 'makelaarsForWhoIsThisSection':
+        return (
+          <MakelaarsForWhoIsThisSection
+            key={index}
+            kicker={block.kicker}
+            title={block.title}
+            subtitle={block.subtitle}
+            perfectFor={block.perfectFor?.map((item: any) => item.text || item) || []}
+            notForTitle={block.notForTitle}
+            notFor={block.notFor?.map((item: any) => item.text || item) || []}
+            bottomInsight={block.bottomInsight}
+          />
+        )
+        
+      case 'makelaarsStrategieSessionCTA':
+        return (
+          <MakelaarsStrategieSessionCTA
+            key={index}
+            title={block.title}
+            subtitle={block.subtitle}
+            benefits={block.benefits?.map((b: any) => b.text || b) || []}
+            ctaLabel={block.ctaLabel}
+            ctaSubtext={block.ctaSubtext}
+            ctaHref={block.ctaHref}
+          />
+        )
+        
+      case 'makelaarsFAQSection':
+        return <MakelaarsFAQSection key={index} {...block} />
         
       default:
         console.warn(`Unknown block type: ${blockType}`)
