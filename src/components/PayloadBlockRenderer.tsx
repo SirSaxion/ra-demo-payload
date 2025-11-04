@@ -52,6 +52,18 @@ import MakelaarsForWhoIsThisSection from '@/components/sections/makelaars/ForWho
 import MakelaarsStrategieSessionCTA from '@/components/sections/makelaars/StrategieSessionCTA'
 import MakelaarsFAQSection from '@/components/sections/makelaars/FAQSection'
 
+// International/Buitenland blocks
+import MakelaarsInternationalHero from '@/components/sections/makelaars-buitenland/MakelaarsInternationalHero'
+import MakelaarsInternationalTrustStrip from '@/components/sections/makelaars-buitenland/MakelaarsInternationalTrustStrip'
+import InternationalPainPointsSection from '@/components/sections/makelaars-buitenland/InternationalPainPointsSection'
+import InternationalMethodologySection from '@/components/sections/makelaars-buitenland/InternationalMethodologySection'
+import InternationalCasesSection from '@/components/sections/makelaars-buitenland/InternationalCasesSection'
+import InternationalGlobeSection from '@/components/sections/makelaars-buitenland/InternationalGlobeSection'
+import InternationalWhatYouGetSection from '@/components/sections/makelaars-buitenland/InternationalWhatYouGetSection'
+import InternationalForWhoIsThisSection from '@/components/sections/makelaars-buitenland/InternationalForWhoIsThisSection'
+import InternationalStrategySessionCTA from '@/components/sections/makelaars-buitenland/InternationalStrategySessionCTA'
+import InternationalFAQSection from '@/components/sections/makelaars-buitenland/InternationalFAQSection'
+
 interface PayloadBlockRendererProps {
   blocks: any[]
 }
@@ -582,6 +594,81 @@ export default function PayloadBlockRenderer({ blocks }: PayloadBlockRendererPro
         
       case 'makelaarsFAQSection':
         return <MakelaarsFAQSection key={index} {...block} />
+      
+      // International/Buitenland blocks
+      case 'makelaarsInternationalHero':
+        return <MakelaarsInternationalHero key={index} {...block} />
+        
+      case 'makelaarsInternationalTrustStrip':
+        return (
+          <MakelaarsInternationalTrustStrip
+            key={index}
+            trustItems={block.trustItems?.map((item: any) => item.text || item) || []}
+          />
+        )
+        
+      case 'internationalPainPointsSection':
+        return <InternationalPainPointsSection key={index} {...block} />
+        
+      case 'internationalMethodologySection':
+        return <InternationalMethodologySection key={index} {...block} />
+        
+      case 'internationalCasesSection':
+        return <InternationalCasesSection key={index} {...block} />
+        
+      case 'internationalGlobeSection':
+        return <InternationalGlobeSection key={index} {...block} />
+        
+      case 'internationalWhatYouGetSection':
+        return (
+          <InternationalWhatYouGetSection
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            subtitle={block.subtitle}
+            services={block.services?.map((s: any) => s.text || s) || []}
+            guaranteesTitle={block.guaranteesTitle}
+            guarantees={block.guarantees?.map((g: any) => ({
+              ...g,
+              items: g.items?.map((item: any) => item.text || item) || []
+            })) || []}
+            bonusIcon={block.bonusIcon}
+            bonusTitle={block.bonusTitle}
+            bonusDescription={block.bonusDescription}
+            bonusItems={block.bonusItems?.map((item: any) => item.text || item) || []}
+          />
+        )
+        
+      case 'internationalForWhoIsThisSection':
+        return (
+          <InternationalForWhoIsThisSection
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            subtitle={block.subtitle}
+            perfectForTitle={block.perfectForTitle}
+            perfectForItems={block.perfectForItems || []}
+            notForTitle={block.notForTitle}
+            notForItems={block.notForItems?.map((item: any) => item.text || item) || []}
+            bottomInsightIcon={block.bottomInsightIcon}
+            bottomInsightText={block.bottomInsightText}
+          />
+        )
+        
+      case 'internationalStrategySessionCTA':
+        return (
+          <InternationalStrategySessionCTA
+            key={index}
+            title={block.title}
+            subtitle={block.subtitle}
+            benefits={block.benefits?.map((b: any) => b.text || b) || []}
+            ctaLabel={block.ctaLabel}
+            ctaFooter={block.ctaSubtext}
+          />
+        )
+        
+      case 'internationalFAQSection':
+        return <InternationalFAQSection key={index} {...block} />
         
       default:
         console.warn(`Unknown block type: ${blockType}`)
