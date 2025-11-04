@@ -25,6 +25,23 @@ export const ProjectontwikkelaarsFAQSection: Block = {
       label: 'Subtitle',
     },
     {
+      name: 'questions',
+      type: 'array',
+      label: 'Questions',
+      fields: [
+        {
+          name: 'question',
+          type: 'text',
+          label: 'Question',
+        },
+        {
+          name: 'answer',
+          type: 'textarea',
+          label: 'Answer',
+        },
+      ],
+    },
+    {
       name: 'contactLinkText',
       type: 'text',
       label: 'Contact Link Text',

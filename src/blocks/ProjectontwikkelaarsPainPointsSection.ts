@@ -25,6 +25,28 @@ export const ProjectontwikkelaarsPainPointsSection: Block = {
       label: 'Subtitle',
     },
     {
+      name: 'challenges',
+      type: 'array',
+      label: 'Challenges',
+      fields: [
+        {
+          name: 'icon',
+          type: 'text',
+          label: 'Icon',
+        },
+        {
+          name: 'title',
+          type: 'text',
+          label: 'Title',
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+          label: 'Description',
+        },
+      ],
+    },
+    {
       name: 'ctaIcon',
       type: 'text',
       label: 'CTA Icon',

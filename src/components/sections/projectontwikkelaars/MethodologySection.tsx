@@ -86,7 +86,7 @@ export default function MethodologySection({
                 <div key={idx} className="relative group">
                   <div className="bg-[var(--color-surface-3)] border border-[var(--color-border)] rounded-xl p-6 md:p-8 h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_color-mix(in_oklab,var(--neutral-900)_15%,transparent)] hover:border-[var(--brand-400)]/30">
                     <span className="pointer-events-none absolute -right-2 -top-2 z-10 rotate-[-10deg] select-none rounded-md border px-2.5 py-1 text-sm font-extrabold shadow-md bg-[var(--brand-500)] text-[var(--color-accent-contrast)] border-[color-mix(in_oklab,var(--brand-700)_45%,transparent)]">
-                      Stap {idx + 1}
+                      {idx + 1}
                     </span>
                     <div className="text-center mb-4">
                       <div className="flex-shrink-0 w-12 h-12 bg-[var(--color-surface-2)] rounded-xl flex items-center justify-center mx-auto mb-4">
@@ -110,8 +110,8 @@ export default function MethodologySection({
             <div className="flex-shrink-0 w-10 h-10 bg-[var(--brand-400)]/10 rounded-full flex items-center justify-center">
               <Rocket className="h-5 w-5 text-[var(--brand-500)]" />
             </div>
-            <p className="text-sm font-medium text-[var(--color-text-secondary)]">
-              <strong className="text-foreground">Het resultaat:</strong> {bottomText}
+            <p className="text-sm font-medium text-foreground">
+              {bottomText}
             </p>
           </div>
         </div>

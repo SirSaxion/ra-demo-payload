@@ -77,6 +77,19 @@ import HypotheekadviseursBewezenAanpakSection from '@/components/sections/hypoth
 import HypotheekadviseursStrategieSessionCTA from '@/components/sections/hypotheekadviseurs/StrategieSessionCTA'
 import HypotheekadviseursFAQSection from '@/components/sections/hypotheekadviseurs/FAQSection'
 
+// Projectontwikkelaars blocks
+import ProjectontwikkelaarsHero from '@/components/sections/projectontwikkelaars/Hero'
+import ProjectontwikkelaarsTrustStrip from '@/components/sections/projectontwikkelaars/TrustStrip'
+import ProjectontwikkelaarsPainPointsSection from '@/components/sections/projectontwikkelaars/PainPointsSection'
+import ProjectontwikkelaarsMethodologySection from '@/components/sections/projectontwikkelaars/MethodologySection'
+import ProjectontwikkelaarsBewezenAanpakSection from '@/components/sections/projectontwikkelaars/BewezenAanpakSection'
+import ProjectontwikkelaarsResultatenBentoGrid from '@/components/sections/projectontwikkelaars/ResultatenBentoGrid'
+import ProjectontwikkelaarsDubaiSuccessStorySection from '@/components/sections/projectontwikkelaars/DubaiSuccessStorySection'
+import ProjectontwikkelaarsWatJeKrijgtSection from '@/components/sections/projectontwikkelaars/WatJeKrijgtSection'
+import ProjectontwikkelaarsVoorWieIsDitSection from '@/components/sections/projectontwikkelaars/VoorWieIsDitSection'
+import ProjectontwikkelaarsStrategieSessionCTA from '@/components/sections/projectontwikkelaars/StrategieSessionCTA'
+import ProjectontwikkelaarsFAQSection from '@/components/sections/projectontwikkelaars/FAQSection'
+
 interface PayloadBlockRendererProps {
   blocks: any[]
 }
@@ -874,6 +887,151 @@ export default function PayloadBlockRenderer({ blocks }: PayloadBlockRendererPro
               question: f.question,
               answer: f.answer
             })) || []}
+          />
+        )
+
+      // Projectontwikkelaars blocks
+      case 'projectontwikkelaarsHero':
+        return (
+          <ProjectontwikkelaarsHero
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            titleHighlight={block.titleHighlight}
+            subtitle={block.subtitle}
+            bullets={block.bullets?.map((b: any) => b.text || b) || []}
+            ctaPrimary={block.ctaPrimary}
+            ctaSecondary={block.ctaSecondary}
+            showcaseImage={block.showcaseImage}
+            showcaseImageAlt={block.showcaseImageAlt}
+            showcaseIcon={block.showcaseIcon}
+            showcaseTitle={block.showcaseTitle}
+            showcaseSubtitle={block.showcaseSubtitle}
+            showcaseStats={block.showcaseStats || []}
+            floatingStat={block.floatingStat}
+            showcaseNote={block.showcaseNote}
+          />
+        )
+
+      case 'projectontwikkelaarsTrustStrip':
+        return (
+          <ProjectontwikkelaarsTrustStrip
+            key={index}
+            trustItems={block.trustItems?.map((t: any) => t.text || t) || []}
+          />
+        )
+
+      case 'projectontwikkelaarsPainPointsSection':
+        return (
+          <ProjectontwikkelaarsPainPointsSection
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            subtitle={block.subtitle}
+            challenges={block.challenges || []}
+            ctaIcon={block.ctaIcon}
+            ctaTitle={block.ctaTitle}
+            ctaDescription={block.ctaDescription}
+          />
+        )
+
+      case 'projectontwikkelaarsMethodologySection':
+        return (
+          <ProjectontwikkelaarsMethodologySection
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            subtitle={block.subtitle}
+            steps={block.steps || []}
+            bottomText={block.bottomText}
+          />
+        )
+
+      case 'projectontwikkelaarsBewezenAanpakSection':
+        return (
+          <ProjectontwikkelaarsBewezenAanpakSection
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            subtitle={block.subtitle}
+            image={block.image}
+            imageAlt={block.imageAlt}
+            practiceTitle={block.practiceTitle}
+            practicePoints={block.practicePoints || []}
+            missionStatement={block.missionStatement}
+          />
+        )
+
+      case 'projectontwikkelaarsResultatenBentoGrid':
+        return (
+          <ProjectontwikkelaarsResultatenBentoGrid
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            subtitle={block.subtitle}
+          />
+        )
+
+      case 'projectontwikkelaarsDubaiSuccessStorySection':
+        return (
+          <ProjectontwikkelaarsDubaiSuccessStorySection
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            subtitle={block.subtitle}
+            benefits={block.benefits || []}
+          />
+        )
+
+      case 'projectontwikkelaarsWatJeKrijgtSection':
+        return (
+          <ProjectontwikkelaarsWatJeKrijgtSection
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            subtitle={block.subtitle}
+          />
+        )
+
+      case 'projectontwikkelaarsVoorWieIsDitSection':
+        return (
+          <ProjectontwikkelaarsVoorWieIsDitSection
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            subtitle={block.subtitle}
+            perfectTitle={block.perfectTitle}
+            perfectFor={block.perfectFor || []}
+            notSuitableTitle={block.notSuitableTitle}
+            notSuitableFor={block.notSuitableFor || []}
+            bottomText={block.bottomText}
+          />
+        )
+
+      case 'projectontwikkelaarsStrategieSessionCTA':
+        return (
+          <ProjectontwikkelaarsStrategieSessionCTA
+            key={index}
+            title={block.title}
+            titleHighlight={block.titleHighlight}
+            subtitle={block.subtitle}
+            bullets={block.bullets?.map((b: any) => b.text || b) || []}
+            ctaLabel={block.ctaLabel}
+            ctaSubtext={block.ctaSubtext}
+          />
+        )
+
+      case 'projectontwikkelaarsFAQSection':
+        return (
+          <ProjectontwikkelaarsFAQSection
+            key={index}
+            kicker={block.kicker}
+            title={block.title}
+            subtitle={block.subtitle}
+            contactLinkText={block.contactLinkText}
+            contactLinkHref={block.contactLinkHref}
+            phoneLabel={block.phoneLabel}
+            phoneNumber={block.phoneNumber}
           />
         )
         

@@ -21,8 +21,40 @@ export const ProjectontwikkelaarsBewezenAanpakSection: Block = {
     },
     {
       name: 'subtitle',
-      type: 'text',
+      type: 'textarea',
       label: 'Subtitle',
+    },
+    {
+      name: 'image',
+      type: 'text',
+      label: 'Image',
+    },
+    {
+      name: 'imageAlt',
+      type: 'text',
+      label: 'Image Alt',
+    },
+    {
+      name: 'practiceTitle',
+      type: 'text',
+      label: 'Practice Title',
+    },
+    {
+      name: 'practicePoints',
+      type: 'array',
+      label: 'Practice Points',
+      fields: [
+        {
+          name: 'text',
+          type: 'textarea',
+          label: 'Text',
+        },
+      ],
+    },
+    {
+      name: 'missionStatement',
+      type: 'text',
+      label: 'Mission Statement',
     },
   ],
 }

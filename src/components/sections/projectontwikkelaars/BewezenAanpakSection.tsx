@@ -11,7 +11,7 @@ export interface BewezenAanpakSectionProps {
   image?: string;
   imageAlt?: string;
   practiceTitle?: string;
-  practicePoints?: string[];
+  practicePoints?: Array<{ text: string }> | string[];
   missionStatement?: string;
 }
 
@@ -97,14 +97,17 @@ export default function BewezenAanpakSection({
             </div>
 
             <div className="space-y-4 mb-8">
-              {practicePoints.map((point, idx) => (
-                <div key={idx} className="flex items-start gap-3">
-                  <div className="flex-shrink-0 w-6 h-6 bg-[var(--brand-500)] rounded-full flex items-center justify-center mt-0.5">
-                    <CheckCircle className="w-4 h-4 text-[var(--color-accent-contrast)]" />
+              {practicePoints.map((item, idx) => {
+                const text = typeof item === 'string' ? item : item.text;
+                return (
+                  <div key={idx} className="flex items-start gap-3">
+                    <div className="flex-shrink-0 w-6 h-6 bg-[var(--brand-500)] rounded-full flex items-center justify-center mt-0.5">
+                      <CheckCircle className="w-4 h-4 text-[var(--color-accent-contrast)]" />
+                    </div>
+                    <p className="text-[var(--color-text-secondary)] leading-relaxed" dangerouslySetInnerHTML={{ __html: text }} />
                   </div>
-                  <p className="text-[var(--color-text-secondary)] leading-relaxed" dangerouslySetInnerHTML={{ __html: point }} />
-                </div>
-              ))}
+                );
+              })}
             </div>
 
             {/* Mission Statement */}

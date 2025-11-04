@@ -25,6 +25,18 @@ export const ProjectontwikkelaarsStrategieSessionCTA: Block = {
       label: 'Subtitle',
     },
     {
+      name: 'bullets',
+      type: 'array',
+      label: 'Bullets',
+      fields: [
+        {
+          name: 'text',
+          type: 'text',
+          label: 'Text',
+        },
+      ],
+    },
+    {
       name: 'ctaLabel',
       type: 'text',
       label: 'CTA Label',

@@ -54,6 +54,14 @@ pnpm tsx scripts/migrate-hypotheekadviseurs.ts
 - **Blocks:** 11 (NL) + 11 (EN)
 - **Status:** ✅ Actief
 
+### 7. Projectontwikkelaars
+```bash
+pnpm tsx scripts/migrate-projectontwikkelaars.ts
+```
+- **Slug:** `/projectontwikkelaars`
+- **Blocks:** 11 (NL) + 11 (EN)
+- **Status:** ✅ Actief
+
 ## 🔄 Alle Pagina's Migreren
 
 Run alle migraties in één keer:
@@ -64,7 +72,8 @@ pnpm tsx scripts/migrate-over-ons.ts && \
 pnpm tsx scripts/migrate-cases.ts && \
 pnpm tsx scripts/migrate-makelaars.ts && \
 pnpm tsx scripts/migrate-buitenland.ts && \
-pnpm tsx scripts/migrate-hypotheekadviseurs.ts
+pnpm tsx scripts/migrate-hypotheekadviseurs.ts && \
+pnpm tsx scripts/migrate-projectontwikkelaars.ts
 ```
 
 ## 📁 Folder Structuur
@@ -79,6 +88,7 @@ scripts/
 ├── migrate-makelaars.ts           # ✅ Makelaars migratie
 ├── migrate-buitenland.ts          # ✅ Buitenland migratie
 ├── migrate-hypotheekadviseurs.ts  # ✅ Hypotheekadviseurs migratie
+├── migrate-projectontwikkelaars.ts # ✅ Projectontwikkelaars migratie
 └── archive/                       # 📦 Oude/tijdelijke scripts
 ```
 

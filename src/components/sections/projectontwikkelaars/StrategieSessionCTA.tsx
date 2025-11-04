@@ -9,7 +9,7 @@ export interface StrategieSessionCTAProps {
   title?: string;
   titleHighlight?: string;
   subtitle?: string;
-  bullets?: string[];
+  bullets?: Array<{ text: string }> | string[];
   ctaLabel?: string;
   ctaSubtext?: string;
 }
@@ -80,12 +80,15 @@ export default function StrategieSessionCTA({
 
           <div className="grid gap-6">
             <ul className="mx-auto max-w-2xl space-y-3 type-body text-[var(--color-text-secondary)]">
-              {bullets.map((text) => (
-                <li key={text} className="flex items-start gap-3">
-                  <Check className="mt-1 h-5 w-5 text-[var(--brand-500)]" />
-                  <span>{text}</span>
-                </li>
-              ))}
+              {bullets.map((item, idx) => {
+                const text = typeof item === 'string' ? item : item.text;
+                return (
+                  <li key={idx} className="flex items-start gap-3">
+                    <Check className="mt-1 h-5 w-5 text-[var(--brand-500)]" />
+                    <span>{text}</span>
+                  </li>
+                );
+              })}
             </ul>
 
             {/* CTA Button */}

@@ -2094,6 +2094,14 @@ export interface ProjectontwikkelaarsPainPointsSectionBlock {
   badge?: string | null;
   title?: string | null;
   subtitle?: string | null;
+  challenges?:
+    | {
+        icon?: string | null;
+        title?: string | null;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   ctaIcon?: string | null;
   ctaTitle?: string | null;
   ctaDescription?: string | null;
@@ -2109,6 +2117,14 @@ export interface ProjectontwikkelaarsDubaiSuccessStorySectionBlock {
   badge?: string | null;
   title?: string | null;
   subtitle?: string | null;
+  benefits?:
+    | {
+        icon?: string | null;
+        title?: string | null;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'projectontwikkelaarsDubaiSuccessStorySection';
@@ -2121,6 +2137,15 @@ export interface ProjectontwikkelaarsMethodologySectionBlock {
   badge?: string | null;
   title?: string | null;
   subtitle?: string | null;
+  steps?:
+    | {
+        icon?: string | null;
+        title?: string | null;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  bottomText?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'projectontwikkelaarsMethodologySection';
@@ -2133,6 +2158,16 @@ export interface ProjectontwikkelaarsBewezenAanpakSectionBlock {
   badge?: string | null;
   title?: string | null;
   subtitle?: string | null;
+  image?: string | null;
+  imageAlt?: string | null;
+  practiceTitle?: string | null;
+  practicePoints?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  missionStatement?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'projectontwikkelaarsBewezenAanpakSection';
@@ -2169,6 +2204,23 @@ export interface ProjectontwikkelaarsVoorWieIsDitSectionBlock {
   badge?: string | null;
   title?: string | null;
   subtitle?: string | null;
+  perfectTitle?: string | null;
+  perfectFor?:
+    | {
+        icon?: string | null;
+        title?: string | null;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  notSuitableTitle?: string | null;
+  notSuitableFor?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  bottomText?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'projectontwikkelaarsVoorWieIsDitSection';
@@ -2181,6 +2233,12 @@ export interface ProjectontwikkelaarsStrategieSessionCTABlock {
   title?: string | null;
   titleHighlight?: string | null;
   subtitle?: string | null;
+  bullets?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   ctaLabel?: string | null;
   ctaSubtext?: string | null;
   id?: string | null;
@@ -2195,6 +2253,13 @@ export interface ProjectontwikkelaarsFAQSectionBlock {
   kicker?: string | null;
   title?: string | null;
   subtitle?: string | null;
+  questions?:
+    | {
+        question?: string | null;
+        answer?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   contactLinkText?: string | null;
   contactLinkHref?: string | null;
   phoneLabel?: string | null;
@@ -4209,6 +4274,14 @@ export interface ProjectontwikkelaarsPainPointsSectionBlockSelect<T extends bool
   badge?: T;
   title?: T;
   subtitle?: T;
+  challenges?:
+    | T
+    | {
+        icon?: T;
+        title?: T;
+        description?: T;
+        id?: T;
+      };
   ctaIcon?: T;
   ctaTitle?: T;
   ctaDescription?: T;
@@ -4223,6 +4296,14 @@ export interface ProjectontwikkelaarsDubaiSuccessStorySectionBlockSelect<T exten
   badge?: T;
   title?: T;
   subtitle?: T;
+  benefits?:
+    | T
+    | {
+        icon?: T;
+        title?: T;
+        description?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
@@ -4234,6 +4315,15 @@ export interface ProjectontwikkelaarsMethodologySectionBlockSelect<T extends boo
   badge?: T;
   title?: T;
   subtitle?: T;
+  steps?:
+    | T
+    | {
+        icon?: T;
+        title?: T;
+        description?: T;
+        id?: T;
+      };
+  bottomText?: T;
   id?: T;
   blockName?: T;
 }
@@ -4245,6 +4335,16 @@ export interface ProjectontwikkelaarsBewezenAanpakSectionBlockSelect<T extends b
   badge?: T;
   title?: T;
   subtitle?: T;
+  image?: T;
+  imageAlt?: T;
+  practiceTitle?: T;
+  practicePoints?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  missionStatement?: T;
   id?: T;
   blockName?: T;
 }
@@ -4278,6 +4378,23 @@ export interface ProjectontwikkelaarsVoorWieIsDitSectionBlockSelect<T extends bo
   badge?: T;
   title?: T;
   subtitle?: T;
+  perfectTitle?: T;
+  perfectFor?:
+    | T
+    | {
+        icon?: T;
+        title?: T;
+        description?: T;
+        id?: T;
+      };
+  notSuitableTitle?: T;
+  notSuitableFor?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  bottomText?: T;
   id?: T;
   blockName?: T;
 }
@@ -4289,6 +4406,12 @@ export interface ProjectontwikkelaarsStrategieSessionCTABlockSelect<T extends bo
   title?: T;
   titleHighlight?: T;
   subtitle?: T;
+  bullets?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
   ctaLabel?: T;
   ctaSubtext?: T;
   id?: T;
@@ -4302,6 +4425,13 @@ export interface ProjectontwikkelaarsFAQSectionBlockSelect<T extends boolean = t
   kicker?: T;
   title?: T;
   subtitle?: T;
+  questions?:
+    | T
+    | {
+        question?: T;
+        answer?: T;
+        id?: T;
+      };
   contactLinkText?: T;
   contactLinkHref?: T;
   phoneLabel?: T;

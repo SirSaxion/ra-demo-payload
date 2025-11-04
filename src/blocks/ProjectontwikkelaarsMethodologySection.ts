@@ -24,5 +24,32 @@ export const ProjectontwikkelaarsMethodologySection: Block = {
       type: 'text',
       label: 'Subtitle',
     },
+    {
+      name: 'steps',
+      type: 'array',
+      label: 'Steps',
+      fields: [
+        {
+          name: 'icon',
+          type: 'text',
+          label: 'Icon',
+        },
+        {
+          name: 'title',
+          type: 'text',
+          label: 'Title',
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+          label: 'Description',
+        },
+      ],
+    },
+    {
+      name: 'bottomText',
+      type: 'text',
+      label: 'Bottom Text',
+    },
   ],
 }

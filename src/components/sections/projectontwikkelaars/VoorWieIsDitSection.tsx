@@ -9,7 +9,7 @@ export interface VoorWieIsDitSectionProps {
   perfectTitle?: string;
   perfectFor?: Array<{ icon: string; title: string; description: string }>;
   notSuitableTitle?: string;
-  notSuitableFor?: string[];
+  notSuitableFor?: Array<{ text: string }> | string[];
   bottomText?: string;
 }
 
@@ -151,14 +151,17 @@ export default function VoorWieIsDitSection({
               </div>
 
               <div className="space-y-4">
-                {notSuitableFor.map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-3">
-                    <X className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
-                    <p className="text-black/70 text-sm leading-relaxed">
-                      {item}
-                    </p>
-                  </div>
-                ))}
+                {notSuitableFor.map((item, idx) => {
+                  const text = typeof item === 'string' ? item : item.text;
+                  return (
+                    <div key={idx} className="flex items-start gap-3">
+                      <X className="h-5 w-5 text-red-500 mt-0.5 flex-shrink-0" />
+                      <p className="text-black/70 text-sm leading-relaxed">
+                        {text}
+                      </p>
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
