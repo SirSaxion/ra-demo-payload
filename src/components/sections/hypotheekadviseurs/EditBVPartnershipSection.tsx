@@ -11,8 +11,12 @@ export interface EditBVPartnershipSectionProps {
   subtitle?: string
   benefits?: Array<{ icon: string; text: string }>
   oldWayTitle?: string
+  oldWaySubtitle?: string
+  oldWayItems?: string[]
+  transformLabel?: string
   newWayTitle?: string
   newWaySubtitle?: string
+  newWayItems?: string[]
   bottomInsight?: string
 }
 
@@ -27,8 +31,22 @@ export default function EditBVPartnershipSection({
     { icon: 'Users', text: 'Complete systemen, begeleiding en community' }
   ],
   oldWayTitle = 'TRADITIONELE HYPOTHEEK ADVISERING',
+  oldWaySubtitle = 'De oude manier',
+  oldWayItems = [
+    'Alleen hypotheken',
+    'Prijs focus',
+    'Commoditisering',
+    'Lage marges'
+  ],
+  transformLabel = 'WORDT',
   newWayTitle = 'EDIT BV PARTNERSHIP',
   newWaySubtitle = 'Duurzaamheid + hypotheek expertise',
+  newWayItems = [
+    '<strong>46 afspraken</strong> uit 1.300 contacten',
+    'Duurzaamheid als toegevoegde waarde',
+    'Nieuwe business via innovatie',
+    'Bewezen campagne resultaten'
+  ],
   bottomInsight = '<strong>Het verschil:</strong> Van pure hypotheekadvisering naar waardevolle duurzaamheidsexpertise'
 }: EditBVPartnershipSectionProps) {
   const { openDialog } = useStrategyDialog();
@@ -97,26 +115,16 @@ export default function EditBVPartnershipSection({
                 <h3 className="text-xl md:text-2xl font-extrabold text-black tracking-tight">
                   {oldWayTitle}
                 </h3>
-                <p className="text-sm text-black/60 mt-2">De oude manier</p>
+                <p className="text-sm text-black/60 mt-2">{oldWaySubtitle}</p>
               </div>
 
               <ul className="space-y-3 text-base text-black/70">
-                <li className="flex items-start gap-3">
-                  <X className="mt-0.5 h-5 w-5 flex-shrink-0 text-gray-500" />
-                  Alleen hypotheken
-                </li>
-                <li className="flex items-start gap-3">
-                  <X className="mt-0.5 h-5 w-5 flex-shrink-0 text-gray-500" />
-                  Prijs focus
-                </li>
-                <li className="flex items-start gap-3">
-                  <X className="mt-0.5 h-5 w-5 flex-shrink-0 text-gray-500" />
-                  Commoditisering
-                </li>
-                <li className="flex items-start gap-3">
-                  <X className="mt-0.5 h-5 w-5 flex-shrink-0 text-gray-500" />
-                  Lage marges
-                </li>
+                {oldWayItems.map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3">
+                    <X className="mt-0.5 h-5 w-5 flex-shrink-0 text-gray-500" />
+                    <span dangerouslySetInnerHTML={{ __html: item }} />
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -128,7 +136,7 @@ export default function EditBVPartnershipSection({
                   <ArrowRight className="w-8 h-8 text-black" />
                 </div>
                 <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-sm font-bold text-black whitespace-nowrap">
-                  WORDT
+                  {transformLabel}
                 </div>
               </div>
             </div>
@@ -150,22 +158,16 @@ export default function EditBVPartnershipSection({
               </div>
 
               <ul className="space-y-3 text-base text-black/70">
-                <li className="flex items-start gap-3">
-                  <TrendingUp className="mt-0.5 h-5 w-5 flex-shrink-0 text-black" />
-                  <span><strong>46 afspraken</strong> uit 1.300 contacten</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <Users className="mt-0.5 h-5 w-5 flex-shrink-0 text-black" />
-                  Duurzaamheid als toegevoegde waarde
-                </li>
-                <li className="flex items-start gap-3">
-                  <Target className="mt-0.5 h-5 w-5 flex-shrink-0 text-black" />
-                  Nieuwe business via innovatie
-                </li>
-                <li className="flex items-start gap-3">
-                  <Award className="mt-0.5 h-5 w-5 flex-shrink-0 text-black" />
-                  Bewezen campagne resultaten
-                </li>
+                {newWayItems.map((item, idx) => {
+                  const icons = [TrendingUp, Users, Target, Award];
+                  const Icon = icons[idx] || TrendingUp;
+                  return (
+                    <li key={idx} className="flex items-start gap-3">
+                      <Icon className="mt-0.5 h-5 w-5 flex-shrink-0 text-black" />
+                      <span dangerouslySetInnerHTML={{ __html: item }} />
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </div>

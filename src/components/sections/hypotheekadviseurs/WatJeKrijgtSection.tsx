@@ -7,6 +7,13 @@ export interface WatJeKrijgtSectionProps {
   title?: string
   subtitle?: string
   services?: Array<{ icon: string; title: string; description: string; items: string[] }>
+  supportTitle?: string
+  supportSubtitle?: string
+  supportItems?: Array<{ icon: string; title: string; description: string }>
+  bonusIcon?: string
+  bonusTitle?: string
+  bonusDescription?: string
+  bonusItems?: string[]
 }
 
 export default function WatJeKrijgtSection({
@@ -16,6 +23,22 @@ export default function WatJeKrijgtSection({
   services = [
     { icon: 'Award', title: 'Edit BV Partnership', description: 'Toegang tot duurzaamheidsexpertise', items: ['Duurzaamheidsconsulten', 'Expert netwerk', 'Certificering'] },
     { icon: 'Target', title: 'Marketing Campagnes', description: 'Bewezen funnels en strategieën', items: ['Lead generation', 'Email campagnes', 'Social media'] }
+  ],
+  supportTitle = 'Persoonlijke Ondersteuning',
+  supportSubtitle = 'Je krijgt niet alleen tools, maar ook de begeleiding om ze succesvol in te zetten',
+  supportItems = [
+    { icon: 'Calendar', title: 'Maandelijkse Hypotheek Bijeenkomsten', description: 'Sector-specifieke sessions met andere hypotheekadviseurs en experts' },
+    { icon: 'MessageSquare', title: 'Wekelijkse Q&A Sessies', description: 'Live Zoom sessies met hypotheek marketing experts voor al je vragen' },
+    { icon: 'Zap', title: 'Customer Success Manager', description: 'Persoonlijke begeleider met financiële sector ervaring voor jouw succes' },
+    { icon: 'Target', title: 'Implementatie Ondersteuning', description: 'Hands-on hulp bij het opzetten van alle systemen en processen' }
+  ],
+  bonusIcon = 'Gem',
+  bonusTitle = 'Bonus: Complete Transformatie',
+  bonusDescription = 'Dit is niet alleen marketing - het is een complete business transformatie van transactionele leads naar relationele klanten die je expertise waarderen.',
+  bonusItems = [
+    'Geen Independer meer',
+    'Betere marges',
+    'Gewaardeerde expertise'
   ]
 }: WatJeKrijgtSectionProps) {
   const iconMap: Record<string, any> = { CheckCircle2, Users, Target, Zap, BookOpen, Calendar, MessageSquare, Award, Leaf, TrendingUp, Gem, Handshake };
@@ -98,57 +121,28 @@ export default function WatJeKrijgtSection({
                 <div className="w-12 h-12 rounded-full bg-[var(--brand-400)]/10 flex items-center justify-center">
                   <Handshake className="h-6 w-6 text-[var(--brand-500)]" />
                 </div>
-                <h3 className="text-2xl font-bold text-foreground">Persoonlijke Ondersteuning</h3>
+                <h3 className="text-2xl font-bold text-foreground">{supportTitle}</h3>
               </div>
               <p className="text-[var(--color-text-secondary)]">
-                Je krijgt niet alleen tools, maar ook de begeleiding om ze succesvol in te zetten
+                {supportSubtitle}
               </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <Calendar className="h-5 w-5 text-[var(--brand-500)] mt-0.5 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">Maandelijkse Hypotheek Bijeenkomsten</h4>
-                    <p className="text-[var(--color-text-secondary)] text-sm">
-                      Sector-specifieke sessions met andere hypotheekadviseurs en experts
-                    </p>
+              {supportItems.map((item, idx) => {
+                const Icon = iconMap[item.icon] || Target;
+                return (
+                  <div key={idx} className="flex items-start gap-3">
+                    <Icon className="h-5 w-5 text-[var(--brand-500)] mt-0.5 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-semibold text-foreground mb-1">{item.title}</h4>
+                      <p className="text-[var(--color-text-secondary)] text-sm">
+                        {item.description}
+                      </p>
+                    </div>
                   </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <MessageSquare className="h-5 w-5 text-[var(--brand-500)] mt-0.5 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">Wekelijkse Q&A Sessies</h4>
-                    <p className="text-[var(--color-text-secondary)] text-sm">
-                      Live Zoom sessies met hypotheek marketing experts voor al je vragen
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <Zap className="h-5 w-5 text-[var(--brand-500)] mt-0.5 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">Customer Success Manager</h4>
-                    <p className="text-[var(--color-text-secondary)] text-sm">
-                      Persoonlijke begeleider met financiële sector ervaring voor jouw succes
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <Target className="h-5 w-5 text-[var(--brand-500)] mt-0.5 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">Implementatie Ondersteuning</h4>
-                    <p className="text-[var(--color-text-secondary)] text-sm">
-                      Hands-on hulp bij het opzetten van alle systemen en processen
-                    </p>
-                  </div>
-                </div>
-              </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -157,26 +151,23 @@ export default function WatJeKrijgtSection({
         <div className="mx-auto max-w-4xl">
           <div className="bg-[var(--brand-400)]/5 border border-[var(--brand-400)]/20 rounded-xl p-8 text-center">
             <div className="flex-shrink-0 w-12 h-12 bg-[var(--brand-400)]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Gem className="h-6 w-6 text-[var(--brand-500)]" />
+              {(() => {
+                const BonusIcon = iconMap[bonusIcon] || Gem;
+                return <BonusIcon className="h-6 w-6 text-[var(--brand-500)]" />;
+              })()}
             </div>
-            <h3 className="text-2xl font-bold text-foreground mb-4">Bonus: Complete Transformatie</h3>
+            <h3 className="text-2xl font-bold text-foreground mb-4">{bonusTitle}</h3>
             <p className="text-[var(--color-text-secondary)] leading-relaxed mb-6">
-              Dit is niet alleen marketing - het is een complete business transformatie van transactionele leads naar relationele klanten die je expertise waarderen.
+              {bonusDescription}
             </p>
 
             <div className="grid md:grid-cols-3 gap-4 text-sm">
-              <div className="flex items-center gap-2 justify-center">
-                <CheckCircle2 className="h-4 w-4 text-[var(--brand-500)]" />
-                <span>Geen Independer meer</span>
-              </div>
-              <div className="flex items-center gap-2 justify-center">
-                <CheckCircle2 className="h-4 w-4 text-[var(--brand-500)]" />
-                <span>Betere marges</span>
-              </div>
-              <div className="flex items-center gap-2 justify-center">
-                <CheckCircle2 className="h-4 w-4 text-[var(--brand-500)]" />
-                <span>Gewaardeerde expertise</span>
-              </div>
+              {bonusItems.map((item, idx) => (
+                <div key={idx} className="flex items-center gap-2 justify-center">
+                  <CheckCircle2 className="h-4 w-4 text-[var(--brand-500)]" />
+                  <span>{item}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>

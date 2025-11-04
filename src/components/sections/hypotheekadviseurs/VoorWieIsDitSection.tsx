@@ -10,6 +10,7 @@ export interface VoorWieIsDitSectionProps {
   perfectForItems?: Array<{ icon: string; title: string; description: string }>
   notForTitle?: string
   notForItems?: string[]
+  bottomInsightText?: string
 }
 
 export default function VoorWieIsDitSection({
@@ -23,7 +24,8 @@ export default function VoorWieIsDitSection({
     { icon: 'Leaf', title: 'Innovatie', description: 'Duurzaamheid als differentiator willen inzetten' }
   ],
   notForTitle = 'Niet geschikt voor:',
-  notForItems = ['Adviseurs die tevreden zijn met status quo', 'Geen tijd hebben voor verandering', 'Alleen op prijs willen concurreren']
+  notForItems = ['Adviseurs die tevreden zijn met status quo', 'Geen tijd hebben voor verandering', 'Alleen op prijs willen concurreren'],
+  bottomInsightText = '<strong>Herken je jezelf?</strong> Dan ben je klaar voor de volgende stap naar onafhankelijkheid'
 }: VoorWieIsDitSectionProps) {
   const iconMap: Record<string, any> = { Target, TrendingUp, Leaf, CheckCircle, XCircle };
   return (
@@ -127,9 +129,7 @@ export default function VoorWieIsDitSection({
         <div className="text-center mt-12 md:mt-16">
           <div className="inline-flex items-center gap-3 bg-[var(--color-surface-3)] backdrop-blur-sm border border-[var(--color-border)] rounded-xl px-6 py-4 shadow-sm">
             <Target className="h-6 w-6 text-[var(--brand-500)]" />
-            <p className="text-sm font-medium text-[var(--color-text-secondary)]">
-              <strong className="text-foreground">Herken je jezelf?</strong> Dan ben je klaar voor de volgende stap naar onafhankelijkheid
-            </p>
+            <p className="text-sm font-medium text-[var(--color-text-secondary)]" dangerouslySetInnerHTML={{ __html: bottomInsightText }} />
           </div>
         </div>
       </div>

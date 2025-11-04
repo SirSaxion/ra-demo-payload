@@ -46,6 +46,14 @@ pnpm tsx scripts/migrate-buitenland.ts
 - **Blocks:** 10 (NL) + 10 (EN)
 - **Status:** ✅ Actief
 
+### 6. Hypotheekadviseurs
+```bash
+pnpm tsx scripts/migrate-hypotheekadviseurs.ts
+```
+- **Slug:** `/hypotheekadviseurs`
+- **Blocks:** 11 (NL) + 11 (EN)
+- **Status:** ✅ Actief
+
 ## 🔄 Alle Pagina's Migreren
 
 Run alle migraties in één keer:
@@ -55,21 +63,23 @@ pnpm tsx scripts/migrate-homepage.ts && \
 pnpm tsx scripts/migrate-over-ons.ts && \
 pnpm tsx scripts/migrate-cases.ts && \
 pnpm tsx scripts/migrate-makelaars.ts && \
-pnpm tsx scripts/migrate-buitenland.ts
+pnpm tsx scripts/migrate-buitenland.ts && \
+pnpm tsx scripts/migrate-hypotheekadviseurs.ts
 ```
 
 ## 📁 Folder Structuur
 
 ```
 scripts/
-├── README.md                    # Deze file
-├── TEMPLATE-migrate-page.ts     # Template voor nieuwe migraties
-├── migrate-homepage.ts          # ✅ Homepage migratie
-├── migrate-over-ons.ts          # ✅ Over Ons migratie
-├── migrate-cases.ts             # ✅ Cases migratie
-├── migrate-makelaars.ts         # ✅ Makelaars migratie
-├── migrate-buitenland.ts        # ✅ Buitenland migratie
-└── archive/                     # 📦 Oude/tijdelijke scripts
+├── README.md                      # Deze file
+├── TEMPLATE-migrate-page.ts       # Template voor nieuwe migraties
+├── migrate-homepage.ts            # ✅ Homepage migratie
+├── migrate-over-ons.ts            # ✅ Over Ons migratie
+├── migrate-cases.ts               # ✅ Cases migratie
+├── migrate-makelaars.ts           # ✅ Makelaars migratie
+├── migrate-buitenland.ts          # ✅ Buitenland migratie
+├── migrate-hypotheekadviseurs.ts  # ✅ Hypotheekadviseurs migratie
+└── archive/                       # 📦 Oude/tijdelijke scripts
 ```
 
 ## 🎯 Payload CMS Admin

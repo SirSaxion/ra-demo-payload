@@ -1,0 +1,50 @@
+import dotenv from 'dotenv'
+import { getPayload } from 'payload'
+import config from '../src/payload.config.js'
+
+dotenv.config({ path: '.env' })
+
+const pageData = {
+  nl: {
+    title: 'Hypotheekadviseurs',
+    seo: {
+      metaTitle: 'Real Accelerate | Hypotheekadviseur marketing | Onafhankelijk van offerte-sites',
+      metaDescription: 'Word onafhankelijk van offerte-sites. Bouw een voorspelbare klantenstroom met bewezen campagnes en duurzaamheid als toegevoegde waarde.',
+    },
+    blocks: [
+      {
+        blockType: 'hypotheekadviseursHero',
+        kicker: 'Voor hypotheekadviseurs',
+        title: 'Bewezen campagnes voor hypotheekadviseurs',
+        subtitle: 'Word onafhankelijk van offerte-sites en bouw een voorspelbare klantenstroom met <strong>bewezen campagnes</strong> en duurzaamheid als toegevoegde waarde.',
+        ctaPrimary: { label: 'Plan een gratis strategiegesprek', href: '/contact' },
+        ctaSecondary: { label: 'Bekijk Edit BV resultaten', href: '#hypotheek-cases' },
+        editBVImage: '/images/editbv.jpg',
+        editBVTitle: 'Edit BV Partnership',
+        editBVSubtitle: 'Zwolle • Duurzaamheid expertise',
+        editBVStats: [
+          { id: 1, icon: 'TrendingUp', text: '46 afspraken uit 1.300 contacten' },
+          { id: 2, icon: 'Users', text: 'Duurzaamheid consulten als differentiator' },
+          { id: 3, icon: 'Award', text: 'Bewezen campagne resultaten' }
+        ],
+        floatingStat: { value: '3.5%', label: 'Conversie ratio' },
+        quote: 'Van offerte-site afhankelijkheid naar voorspelbare groei',
+        usps: [
+          { id: 1, text: 'Stop met dure, slechte leads van Independer/Priva' },
+          { id: 2, text: 'Word gewaardeerd voor je expertise, niet je prijs' },
+          { id: 3, text: 'Klanten die <strong>jou al willen</strong> in plaats van leads' }
+        ]
+      },
+      {
+        blockType: 'hypotheekadviseursTrustStrip',
+        trustItems: [
+          { id: 1, text: 'Edit BV partnership Zwolle' },
+          { id: 2, text: '46 afspraken uit 1.300 contacten' },
+          { id: 3, text: '3.5% conversie ratio bewezen' },
+          { id: 4, text: 'Duurzaamheid expertise' },
+          { id: 5, text: 'Onafhankelijk van offerte-sites' },
+          { id: 6, text: 'Geen Independer/Priva meer' },
+          { id: 7, text: 'Relationele klanten focus' },
+          { id: 8, text: 'Bewezen hypotheek campagnes' }
+        ]
+      },

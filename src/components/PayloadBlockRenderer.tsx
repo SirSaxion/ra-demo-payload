@@ -64,6 +64,19 @@ import InternationalForWhoIsThisSection from '@/components/sections/makelaars-bu
 import InternationalStrategySessionCTA from '@/components/sections/makelaars-buitenland/InternationalStrategySessionCTA'
 import InternationalFAQSection from '@/components/sections/makelaars-buitenland/InternationalFAQSection'
 
+// Hypotheekadviseurs blocks
+import HypotheekadviseursHero from '@/components/sections/hypotheekadviseurs/Hero'
+import HypotheekadviseursTrustStrip from '@/components/sections/hypotheekadviseurs/TrustStrip'
+import HypotheekadviseursPainPointsSection from '@/components/sections/hypotheekadviseurs/PainPointsSection'
+import HypotheekadviseursEditBVPartnershipSection from '@/components/sections/hypotheekadviseurs/EditBVPartnershipSection'
+import HypotheekadviseursMethodologySection from '@/components/sections/hypotheekadviseurs/MethodologySection'
+import HypotheekadviseursVoorWieIsDitSection from '@/components/sections/hypotheekadviseurs/VoorWieIsDitSection'
+import HypotheekadviseursBewezenResultatenSection from '@/components/sections/hypotheekadviseurs/BewezenResultatenSection'
+import HypotheekadviseursWatJeKrijgtSection from '@/components/sections/hypotheekadviseurs/WatJeKrijgtSection'
+import HypotheekadviseursBewezenAanpakSection from '@/components/sections/hypotheekadviseurs/BewezenAanpakSection'
+import HypotheekadviseursStrategieSessionCTA from '@/components/sections/hypotheekadviseurs/StrategieSessionCTA'
+import HypotheekadviseursFAQSection from '@/components/sections/hypotheekadviseurs/FAQSection'
+
 interface PayloadBlockRendererProps {
   blocks: any[]
 }
@@ -669,6 +682,200 @@ export default function PayloadBlockRenderer({ blocks }: PayloadBlockRendererPro
         
       case 'internationalFAQSection':
         return <InternationalFAQSection key={index} {...block} />
+      
+      // Hypotheekadviseurs blocks
+      case 'hypotheekadviseursHero':
+        return (
+          <HypotheekadviseursHero
+            key={index}
+            kicker={block.kicker}
+            title={block.title}
+            subtitle={block.subtitle}
+            ctaPrimary={block.ctaPrimary}
+            ctaSecondary={block.ctaSecondary}
+            editBVImage={block.editBVImage}
+            editBVTitle={block.editBVTitle}
+            editBVSubtitle={block.editBVSubtitle}
+            editBVStats={block.editBVStats?.map((stat: any) => ({
+              icon: stat.icon,
+              text: stat.text
+            })) || []}
+            floatingStat={block.floatingStat}
+            quote={block.quote}
+            usps={block.usps?.map((usp: any) => ({
+              text: usp.text
+            })) || []}
+          />
+        )
+        
+      case 'hypotheekadviseursTrustStrip':
+        return (
+          <HypotheekadviseursTrustStrip
+            key={index}
+            trustItems={block.trustItems?.map((item: any) => item.text || item) || []}
+          />
+        )
+        
+      case 'hypotheekadviseursPainPointsSection':
+        return (
+          <HypotheekadviseursPainPointsSection
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            subtitle={block.subtitle}
+            challenges={block.challenges?.map((c: any) => ({
+              icon: c.icon,
+              title: c.title,
+              description: c.description
+            })) || []}
+            ctaIcon={block.ctaIcon}
+            ctaTitle={block.ctaTitle}
+            ctaDescription={block.ctaDescription}
+          />
+        )
+        
+      case 'hypotheekadviseursEditBVPartnershipSection':
+        return (
+          <HypotheekadviseursEditBVPartnershipSection
+            key={index}
+            kicker={block.kicker}
+            title={block.title}
+            subtitle={block.subtitle}
+            benefits={block.benefits?.map((b: any) => ({
+              icon: b.icon,
+              text: b.text
+            })) || []}
+            oldWayTitle={block.oldWayTitle}
+            oldWaySubtitle={block.oldWaySubtitle}
+            oldWayItems={block.oldWayItems || []}
+            transformLabel={block.transformLabel}
+            newWayTitle={block.newWayTitle}
+            newWaySubtitle={block.newWaySubtitle}
+            newWayItems={block.newWayItems || []}
+            bottomInsight={block.bottomInsight}
+          />
+        )
+        
+      case 'hypotheekadviseursMethodologySection':
+        return (
+          <HypotheekadviseursMethodologySection
+            key={index}
+            kicker={block.kicker}
+            title={block.title}
+            subtitle={block.subtitle}
+            steps={block.steps?.map((s: any) => ({
+              number: s.number,
+              icon: s.icon,
+              title: s.title,
+              description: s.description
+            })) || []}
+          />
+        )
+        
+      case 'hypotheekadviseursVoorWieIsDitSection':
+        return (
+          <HypotheekadviseursVoorWieIsDitSection
+            key={index}
+            kicker={block.kicker}
+            title={block.title}
+            subtitle={block.subtitle}
+            perfectForTitle={block.perfectForTitle}
+            perfectForItems={block.perfectForItems?.map((i: any) => ({
+              icon: i.icon,
+              title: i.title,
+              description: i.description
+            })) || []}
+            notForTitle={block.notForTitle}
+            notForItems={block.notForItems?.map((i: any) => i.text || i) || []}
+            bottomInsightText={block.bottomInsightText}
+          />
+        )
+        
+      case 'hypotheekadviseursBewezenResultatenSection':
+        return (
+          <HypotheekadviseursBewezenResultatenSection
+            key={index}
+            kicker={block.kicker}
+            title={block.title}
+            subtitle={block.subtitle}
+          />
+        )
+        
+      case 'hypotheekadviseursWatJeKrijgtSection':
+        return (
+          <HypotheekadviseursWatJeKrijgtSection
+            key={index}
+            kicker={block.kicker}
+            title={block.title}
+            subtitle={block.subtitle}
+            services={block.services?.map((s: any) => ({
+              icon: s.icon,
+              title: s.title,
+              description: s.description,
+              items: s.items?.map((i: any) => i.text || i) || []
+            })) || []}
+            supportTitle={block.supportTitle}
+            supportSubtitle={block.supportSubtitle}
+            supportItems={block.supportItems?.map((i: any) => ({
+              icon: i.icon,
+              title: i.title,
+              description: i.description
+            })) || []}
+            bonusIcon={block.bonusIcon}
+            bonusTitle={block.bonusTitle}
+            bonusDescription={block.bonusDescription}
+            bonusItems={block.bonusItems?.map((i: any) => i.text || i) || []}
+          />
+        )
+        
+      case 'hypotheekadviseursBewezenAanpakSection':
+        return (
+          <HypotheekadviseursBewezenAanpakSection
+            key={index}
+            kicker={block.kicker}
+            title={block.title}
+            subtitle={block.subtitle}
+            visualTitle={block.visualTitle}
+            visualDescription={block.visualDescription}
+            detailsTitle={block.detailsTitle}
+            points={block.points?.map((p: any) => ({
+              icon: p.icon,
+              title: p.title,
+              description: p.description
+            })) || []}
+            quote={block.quote}
+          />
+        )
+        
+      case 'hypotheekadviseursStrategieSessionCTA':
+        return (
+          <HypotheekadviseursStrategieSessionCTA
+            key={index}
+            title={block.title}
+            subtitle={block.subtitle}
+            benefits={block.benefits?.map((b: any) => b.text || b) || []}
+            ctaLabel={block.ctaLabel}
+          />
+        )
+        
+      case 'hypotheekadviseursFAQSection':
+        return (
+          <HypotheekadviseursFAQSection
+            key={index}
+            kicker={block.kicker}
+            title={block.title}
+            subtitle={block.subtitle}
+            contactLinkText={block.contactLinkText}
+            contactLinkHref={block.contactLinkHref}
+            phoneLabel={block.phoneLabel}
+            phoneNumber={block.phoneNumber}
+            faqs={block.faqs?.map((f: any) => ({
+              icon: f.icon,
+              question: f.question,
+              answer: f.answer
+            })) || []}
+          />
+        )
         
       default:
         console.warn(`Unknown block type: ${blockType}`)
