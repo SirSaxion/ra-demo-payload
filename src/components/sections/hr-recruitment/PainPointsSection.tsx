@@ -1,18 +1,36 @@
 "use client";
 
 import { UserX, XCircle, FileQuestion, AlertTriangle } from "lucide-react";
+import * as LucideIcons from "lucide-react";
 import Image from "next/image";
+
+interface PainPoint {
+  icon: string;
+  title: string;
+  description: string;
+  imageAlt?: string;
+}
 
 interface PainPointsSectionProps {
   badge?: string;
   title?: string;
   subtitle?: string;
+  painPoints?: PainPoint[];
+  bottomText?: string;
 }
 
+const iconMap: Record<string, any> = {
+  UserX: UserX,
+  XCircle: XCircle,
+  FileQuestion: FileQuestion,
+};
+
 export default function PainPointsSection({
-  badge = "De 3 grootste frustraties",
-  title = "Herken je dit?",
-  subtitle = "Als HR-professional loop je vast in dezelfde patronen",
+  badge,
+  title,
+  subtitle,
+  painPoints = [],
+  bottomText,
 }: PainPointsSectionProps = {}) {
   return (
     <section id="solution" className="relative overflow-hidden bg-section text-foreground py-16 md:py-24">
@@ -45,100 +63,51 @@ export default function PainPointsSection({
 
         {/* Pain Points Grid with Images */}
         <div className="grid md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
-          {/* Pain Point 1 */}
-          <div className="relative overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface-3)] rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-            <div className="relative h-48 overflow-hidden">
-              <Image
-                src="/images/placeholder.jpg"
-                alt="Sollicitaties blijven uit"
-                width={400}
-                height={300}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-surface-3)] to-transparent" />
-            </div>
-
-            <div className="p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-red-500/10 rounded-full flex items-center justify-center">
-                  <UserX className="h-6 w-6 text-red-500" />
+          {painPoints.map((painPoint, index) => {
+            const IconComponent = iconMap[painPoint.icon] || UserX;
+            
+            return (
+              <div key={index} className="relative overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface-3)] rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+                <div className="relative h-48 overflow-hidden">
+                  <Image
+                    src="/images/placeholder.jpg"
+                    alt={painPoint.imageAlt || painPoint.title}
+                    width={400}
+                    height={300}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-surface-3)] to-transparent" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground">
-                  Sollicitaties blijven uit
-                </h3>
-              </div>
-              <p className="text-[var(--color-text-secondary)] leading-relaxed">
-                Je vacatures staan online, maar de kwaliteitskandidaten reageren niet. Je bereik is te klein en je werkgeversmerk niet sterk genoeg.
-              </p>
-            </div>
-          </div>
 
-          {/* Pain Point 2 */}
-          <div className="relative overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface-3)] rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-            <div className="relative h-48 overflow-hidden">
-              <Image
-                src="/images/placeholder.jpg"
-                alt="Kandidaten haken af"
-                width={400}
-                height={300}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-surface-3)] to-transparent" />
-            </div>
-
-            <div className="p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-red-500/10 rounded-full flex items-center justify-center">
-                  <XCircle className="h-6 w-6 text-red-500" />
+                <div className="p-6">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-red-500/10 rounded-full flex items-center justify-center">
+                      <IconComponent className="h-6 w-6 text-red-500" />
+                    </div>
+                    <h3 className="text-xl font-bold text-foreground">
+                      {painPoint.title}
+                    </h3>
+                  </div>
+                  <p className="text-[var(--color-text-secondary)] leading-relaxed">
+                    {painPoint.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold text-foreground">
-                  Kandidaten haken af
-                </h3>
               </div>
-              <p className="text-[var(--color-text-secondary)] leading-relaxed">
-                Je komt ver in het proces, maar op het laatste moment kiezen kandidaten toch voor de concurrent. Je employee value proposition is niet overtuigend genoeg.
-              </p>
-            </div>
-          </div>
-
-          {/* Pain Point 3 */}
-          <div className="relative overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface-3)] rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-            <div className="relative h-48 overflow-hidden">
-              <Image
-                src="/images/placeholder.jpg"
-                alt="Kwaliteit sluit niet aan"
-                width={400}
-                height={300}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-surface-3)] to-transparent" />
-            </div>
-
-            <div className="p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="flex-shrink-0 w-12 h-12 bg-red-500/10 rounded-full flex items-center justify-center">
-                  <FileQuestion className="h-6 w-6 text-red-500" />
-                </div>
-                <h3 className="text-xl font-bold text-foreground">
-                  Kwaliteit sluit niet aan
-                </h3>
-              </div>
-              <p className="text-[var(--color-text-secondary)] leading-relaxed">
-                Je krijgt sollicitaties, maar de kandidaten matchen niet met je eisen. Je screening proces is inefficiënt en kost te veel tijd.
-              </p>
-            </div>
-          </div>
+            );
+          })}
         </div>
 
         {/* Bottom insight */}
-        <div className="text-center mt-12 md:mt-16">
-          <div className="inline-flex items-center gap-3 bg-[var(--color-surface-3)] backdrop-blur-sm border border-[var(--color-border)] rounded-xl px-6 py-4 shadow-sm">
-            <AlertTriangle className="h-6 w-6 text-[var(--brand-400)]" />
-            <p className="text-sm font-medium text-[var(--color-text-secondary)]">
-              <strong className="text-foreground">Het gevolg:</strong> Vacatures blijven maandenlang open, teams raken overbelast en groei stagneert
-            </p>
+        {bottomText && (
+          <div className="text-center mt-12 md:mt-16">
+            <div className="inline-flex items-center gap-3 bg-[var(--color-surface-3)] backdrop-blur-sm border border-[var(--color-border)] rounded-xl px-6 py-4 shadow-sm">
+              <AlertTriangle className="h-6 w-6 text-[var(--brand-400)]" />
+              <p className="text-sm font-medium text-[var(--color-text-secondary)]">
+                {bottomText}
+              </p>
+            </div>
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

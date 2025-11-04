@@ -24,6 +24,7 @@ export const MakelaarsGuaranteesSection: Block = {
       name: 'cards',
       type: 'array',
       label: 'Cards',
+      dbName: 'guar_cards',
       fields: [
         {
           name: 'title',
@@ -44,6 +45,7 @@ export const MakelaarsGuaranteesSection: Block = {
           name: 'items',
           type: 'array',
           label: 'Items',
+          dbName: 'card_items',
           fields: [
             {
               name: 'text',

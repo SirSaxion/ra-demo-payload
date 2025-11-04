@@ -6,11 +6,23 @@ import Image from "next/image";
 interface TransformationSectionProps {
   badge?: string;
   title?: string;
+  oldWayTitle?: string;
+  oldWaySubtitle?: string;
+  oldWayItems?: Array<{ text: string }>;
+  newWayTitle?: string;
+  newWaySubtitle?: string;
+  newWayItems?: Array<{ text: string }>;
 }
 
 export default function TransformationSection({
-  badge = "Van reactief naar proactief",
-  title = "De transformatie",
+  badge,
+  title,
+  oldWayTitle,
+  oldWaySubtitle,
+  oldWayItems = [],
+  newWayTitle,
+  newWaySubtitle,
+  newWayItems = [],
 }: TransformationSectionProps = {}) {
   return (
     <section className="relative overflow-hidden bg-section text-foreground py-16 md:py-24">
@@ -46,32 +58,22 @@ export default function TransformationSection({
                         <FrownIcon className="h-5 w-5 text-red-400" />
                       </div>
                       <h3 className="text-2xl font-extrabold text-white tracking-tight">
-                        TRADITIONELE AANPAK
+                        {oldWayTitle}
                       </h3>
                     </div>
-                    <p className="text-sm text-white/80">De oude manier</p>
+                    <p className="text-sm text-white/80">{oldWaySubtitle}</p>
                   </div>
                 </div>
               </div>
 
               <div className="bg-[var(--color-surface-3)] border border-[var(--color-border)] rounded-xl p-6">
                 <ul className="space-y-3 text-base text-[var(--color-text-secondary)]">
-                  <li className="flex items-start gap-3">
-                    <X className="mt-0.5 h-5 w-5 flex-shrink-0 text-red-500" />
-                    Vacatures plaatsen en wachten
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <X className="mt-0.5 h-5 w-5 flex-shrink-0 text-red-500" />
-                    Dure jobbboards zonder resultaat
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <X className="mt-0.5 h-5 w-5 flex-shrink-0 text-red-500" />
-                    Onderkwalificeerde sollicitanten
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <X className="mt-0.5 h-5 w-5 flex-shrink-0 text-red-500" />
-                    Lange time-to-hire
-                  </li>
+                  {oldWayItems.map((item, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <X className="mt-0.5 h-5 w-5 flex-shrink-0 text-red-500" />
+                      {item.text}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -105,32 +107,22 @@ export default function TransformationSection({
                         <Target className="h-5 w-5 text-[var(--brand-400)]" />
                       </div>
                       <h3 className="text-2xl font-extrabold text-white tracking-tight">
-                        REAL ACCELERATE HR
+                        {newWayTitle}
                       </h3>
                     </div>
-                    <p className="text-sm text-white/80">Onze methode</p>
+                    <p className="text-sm text-white/80">{newWaySubtitle}</p>
                   </div>
                 </div>
               </div>
 
               <div className="bg-[var(--color-surface-3)] border border-[var(--color-border)] rounded-xl p-6">
                 <ul className="space-y-3 text-base text-[var(--color-text-secondary)]">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-[var(--brand-500)]" />
-                    Proactief talent pipeline opbouwen
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-[var(--brand-500)]" />
-                    Sterk werkgeversmerk neerzetten
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-[var(--brand-500)]" />
-                    Gekwalificeerde kandidaten aantrekken
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-[var(--brand-500)]" />
-                    3x sneller vacatures vullen
-                  </li>
+                  {newWayItems.map((item, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-[var(--brand-500)]" />
+                      {item.text}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>

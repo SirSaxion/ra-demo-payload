@@ -35,23 +35,23 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({
-  badge = "Voor HR-professionals",
-  titleBefore = "Stop met jagen op",
-  titleHighlight = "kandidaten",
-  subtitle = "Krijg een wachtrij van <strong>gekwalificeerde kandidaten</strong> die bij jouw organisatie passen",
+  badge,
+  titleBefore,
+  titleHighlight,
+  subtitle,
   image = "/images/placeholder.jpg",
-  imageAlt = "HR team aan het werk",
+  imageAlt = "HR team at work",
   floatingStats = [
-    { value: "73%", label: "Sollicitaties missen", position: "top-left", rotation: "-rotate-2" },
-    { value: "3x", label: "Sneller vacatures vullen", position: "bottom-right", rotation: "rotate-3" },
+    { value: "73%", label: "More applications", position: "top-left", rotation: "-rotate-2" },
+    { value: "3x", label: "Faster hiring", position: "bottom-right", rotation: "rotate-3" },
     { value: "Top talent", label: "", position: "middle-right", rotation: "rotate-2" },
   ],
-  ctaPrimary = { label: "Start met gratis analyse", href: "/contact" },
-  ctaSecondary = { label: "Bekijk succesverhalen", href: "/cases" },
+  ctaPrimary = { label: "Start free analysis", href: "/contact" },
+  ctaSecondary = { label: "View success stories", href: "/cases" },
   trustIndicators = [
-    { text: "30 minuten (waarde €1000)" },
-    { text: "Vrijblijvend" },
-    { text: "Bewezen resultaten" },
+    { text: "30 minutes (worth €1000)" },
+    { text: "Non-binding" },
+    { text: "Proven results" },
   ],
 }: HeroSectionProps = {}) {
   const getPositionClasses = (position: string) => {

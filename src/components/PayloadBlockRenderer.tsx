@@ -90,6 +90,18 @@ import ProjectontwikkelaarsVoorWieIsDitSection from '@/components/sections/proje
 import ProjectontwikkelaarsStrategieSessionCTA from '@/components/sections/projectontwikkelaars/StrategieSessionCTA'
 import ProjectontwikkelaarsFAQSection from '@/components/sections/projectontwikkelaars/FAQSection'
 
+// HR Recruitment blocks
+import HrRecruitmentHeroSection from '@/components/sections/hr-recruitment/HeroSection'
+import HrRecruitmentTrustStripSection from '@/components/sections/hr-recruitment/TrustStripSection'
+import HrRecruitmentPainPointsSection from '@/components/sections/hr-recruitment/PainPointsSection'
+import HrRecruitmentTransformationSection from '@/components/sections/hr-recruitment/TransformationSection'
+import HrRecruitmentMethodologySection from '@/components/sections/hr-recruitment/MethodologySection'
+import HrRecruitmentResultatenBentoGrid from '@/components/sections/hr-recruitment/ResultatenBentoGrid'
+import HrRecruitmentWatJeKrijgtSection from '@/components/sections/hr-recruitment/WatJeKrijgtSection'
+import HrRecruitmentVoorWieIsDitSection from '@/components/sections/hr-recruitment/VoorWieIsDitSection'
+import HrRecruitmentStrategieSessionCTA from '@/components/sections/hr-recruitment/StrategieSessionCTA'
+import HrRecruitmentFAQSection from '@/components/sections/hr-recruitment/FAQSection'
+
 interface PayloadBlockRendererProps {
   blocks: any[]
 }
@@ -1032,6 +1044,125 @@ export default function PayloadBlockRenderer({ blocks }: PayloadBlockRendererPro
             contactLinkHref={block.contactLinkHref}
             phoneLabel={block.phoneLabel}
             phoneNumber={block.phoneNumber}
+          />
+        )
+
+      // HR Recruitment blocks
+      case 'hrRecruitmentHero':
+        return (
+          <HrRecruitmentHeroSection
+            key={index}
+            badge={block.badge}
+            titleBefore={block.titleBefore}
+            titleHighlight={block.titleHighlight}
+            subtitle={block.subtitle}
+          />
+        )
+
+      case 'hrRecruitmentTrustStrip':
+        return (
+          <HrRecruitmentTrustStripSection
+            key={index}
+            items={block.items?.map((item: any) => item.text || item) || []}
+            ariaLabel={block.ariaLabel}
+          />
+        )
+
+      case 'hrRecruitmentPainPoints':
+        return (
+          <HrRecruitmentPainPointsSection
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            subtitle={block.subtitle}
+            painPoints={block.painPoints || []}
+            bottomText={block.bottomText}
+          />
+        )
+
+      case 'hrRecruitmentTransformation':
+        return (
+          <HrRecruitmentTransformationSection
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            oldWayTitle={block.oldWayTitle}
+            oldWaySubtitle={block.oldWaySubtitle}
+            oldWayItems={block.oldWayItems || []}
+            newWayTitle={block.newWayTitle}
+            newWaySubtitle={block.newWaySubtitle}
+            newWayItems={block.newWayItems || []}
+          />
+        )
+
+      case 'hrRecruitmentMethodology':
+        return (
+          <HrRecruitmentMethodologySection
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            subtitle={block.subtitle}
+            steps={block.steps || []}
+            bottomText={block.bottomText}
+          />
+        )
+
+      case 'hrRecruitmentResultatenBentoGrid':
+        return (
+          <HrRecruitmentResultatenBentoGrid
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            results={block.results || []}
+          />
+        )
+
+      case 'hrRecruitmentWatJeKrijgt':
+        return (
+          <HrRecruitmentWatJeKrijgtSection
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            subtitle={block.subtitle}
+            features={block.features || []}
+            bonusTitle={block.bonusTitle}
+            bonusItems={block.bonusItems || []}
+          />
+        )
+
+      case 'hrRecruitmentVoorWieIsDit':
+        return (
+          <HrRecruitmentVoorWieIsDitSection
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            perfectForTitle={block.perfectForTitle}
+            perfectForItems={block.perfectForItems || []}
+            notSuitableTitle={block.notSuitableTitle}
+            notSuitableItems={block.notSuitableItems || []}
+          />
+        )
+
+      case 'hrRecruitmentStrategieSessionCTA':
+        return (
+          <HrRecruitmentStrategieSessionCTA
+            key={index}
+            title={block.title}
+            subtitle={block.subtitle}
+            ctaLabel={block.ctaLabel}
+          />
+        )
+
+      case 'hrRecruitmentFAQ':
+        return (
+          <HrRecruitmentFAQSection
+            key={index}
+            badge={block.badge}
+            title={block.title}
+            subtitle={block.subtitle}
+            faqs={block.faqs || []}
+            contactText={block.contactText}
+            phoneLabel={block.phoneLabel}
           />
         )
         

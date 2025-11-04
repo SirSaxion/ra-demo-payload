@@ -20,5 +20,26 @@ export const HrRecruitmentResultatenBentoGrid: Block = {
       label: 'Title',
       defaultValue: 'Wat onze klanten bereiken',
     },
+    {
+      name: 'results',
+      type: 'array',
+      label: 'Results',
+      minRows: 4,
+      maxRows: 4,
+      fields: [
+        {
+          name: 'metric',
+          type: 'text',
+          label: 'Metric',
+          required: true,
+        },
+        {
+          name: 'description',
+          type: 'text',
+          label: 'Description',
+          required: true,
+        },
+      ],
+    },
   ],
 }

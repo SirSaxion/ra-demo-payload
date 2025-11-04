@@ -62,6 +62,14 @@ pnpm tsx scripts/migrate-projectontwikkelaars.ts
 - **Blocks:** 11 (NL) + 11 (EN)
 - **Status:** ✅ Actief
 
+### 8. HR Recruitment
+```bash
+pnpm tsx scripts/migrate-hr-recruitment.ts
+```
+- **Slug:** `/hr-recruitment`
+- **Blocks:** 10 (NL) + 10 (EN)
+- **Status:** ✅ Actief
+
 ## 🔄 Alle Pagina's Migreren
 
 Run alle migraties in één keer:
@@ -73,7 +81,8 @@ pnpm tsx scripts/migrate-cases.ts && \
 pnpm tsx scripts/migrate-makelaars.ts && \
 pnpm tsx scripts/migrate-buitenland.ts && \
 pnpm tsx scripts/migrate-hypotheekadviseurs.ts && \
-pnpm tsx scripts/migrate-projectontwikkelaars.ts
+pnpm tsx scripts/migrate-projectontwikkelaars.ts && \
+pnpm tsx scripts/migrate-hr-recruitment.ts
 ```
 
 ## 📁 Folder Structuur
@@ -89,6 +98,7 @@ scripts/
 ├── migrate-buitenland.ts          # ✅ Buitenland migratie
 ├── migrate-hypotheekadviseurs.ts  # ✅ Hypotheekadviseurs migratie
 ├── migrate-projectontwikkelaars.ts # ✅ Projectontwikkelaars migratie
+├── migrate-hr-recruitment.ts      # ✅ HR Recruitment migratie
 └── archive/                       # 📦 Oude/tijdelijke scripts
 ```
 

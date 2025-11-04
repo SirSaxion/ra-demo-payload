@@ -11,9 +11,9 @@ interface StrategieSessionCTAProps {
 }
 
 export default function StrategieSessionCTA({
-  title = "Klaar voor meer sollicitaties?",
-  subtitle = "Plan een gratis recruitment analyse",
-  ctaLabel = "Plan gratis analyse",
+  title,
+  subtitle,
+  ctaLabel,
 }: StrategieSessionCTAProps = {}) {
   return (
     <section className="relative isolate overflow-hidden py-16 md:py-24 bg-section">

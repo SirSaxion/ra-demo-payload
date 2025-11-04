@@ -12,18 +12,53 @@ export const HrRecruitmentMethodology: Block = {
       name: 'badge',
       type: 'text',
       label: 'Badge',
-      defaultValue: 'Onze bewezen aanpak',
     },
     {
       name: 'title',
       type: 'text',
       label: 'Title',
-      defaultValue: 'Hoe we dit aanpakken',
     },
     {
       name: 'subtitle',
       type: 'text',
       label: 'Subtitle',
+    },
+    {
+      name: 'steps',
+      type: 'array',
+      label: 'Methodology Steps',
+      minRows: 4,
+      maxRows: 4,
+      fields: [
+        {
+          name: 'icon',
+          type: 'text',
+          label: 'Icon Name (Lucide)',
+        },
+        {
+          name: 'title',
+          type: 'text',
+          label: 'Title',
+          required: true,
+        },
+        {
+          name: 'subtitle',
+          type: 'text',
+          label: 'Subtitle',
+          required: true,
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+          label: 'Description',
+          required: true,
+        },
+      ],
+    },
+    {
+      name: 'bottomText',
+      type: 'text',
+      label: 'Bottom Text',
     },
   ],
 }

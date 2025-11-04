@@ -1940,6 +1940,16 @@ export interface HrRecruitmentPainPointsBlock {
   badge?: string | null;
   title?: string | null;
   subtitle?: string | null;
+  painPoints?:
+    | {
+        icon?: string | null;
+        title: string;
+        description: string;
+        imageAlt?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  bottomText?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'hrRecruitmentPainPoints';
@@ -1951,6 +1961,22 @@ export interface HrRecruitmentPainPointsBlock {
 export interface HrRecruitmentTransformationBlock {
   badge?: string | null;
   title?: string | null;
+  oldWayTitle?: string | null;
+  oldWaySubtitle?: string | null;
+  oldWayItems?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  newWayTitle?: string | null;
+  newWaySubtitle?: string | null;
+  newWayItems?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'hrRecruitmentTransformation';
@@ -1963,6 +1989,16 @@ export interface HrRecruitmentMethodologyBlock {
   badge?: string | null;
   title?: string | null;
   subtitle?: string | null;
+  steps?:
+    | {
+        icon?: string | null;
+        title: string;
+        subtitle: string;
+        description: string;
+        id?: string | null;
+      }[]
+    | null;
+  bottomText?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'hrRecruitmentMethodology';
@@ -1974,6 +2010,13 @@ export interface HrRecruitmentMethodologyBlock {
 export interface HrRecruitmentResultatenBentoGridBlock {
   badge?: string | null;
   title?: string | null;
+  results?:
+    | {
+        metric: string;
+        description: string;
+        id?: string | null;
+      }[]
+    | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'hrRecruitmentResultatenBentoGrid';
@@ -1986,6 +2029,21 @@ export interface HrRecruitmentWatJeKrijgtBlock {
   badge?: string | null;
   title?: string | null;
   subtitle?: string | null;
+  features?:
+    | {
+        icon?: string | null;
+        title: string;
+        description: string;
+        id?: string | null;
+      }[]
+    | null;
+  bonusTitle?: string | null;
+  bonusItems?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'hrRecruitmentWatJeKrijgt';
@@ -1997,6 +2055,20 @@ export interface HrRecruitmentWatJeKrijgtBlock {
 export interface HrRecruitmentVoorWieIsDitBlock {
   badge?: string | null;
   title?: string | null;
+  perfectForTitle?: string | null;
+  perfectForItems?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
+  notSuitableTitle?: string | null;
+  notSuitableItems?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'hrRecruitmentVoorWieIsDit';
@@ -2021,6 +2093,16 @@ export interface HrRecruitmentFAQBlock {
   badge?: string | null;
   title?: string | null;
   subtitle?: string | null;
+  faqs?:
+    | {
+        icon?: string | null;
+        question: string;
+        answer: string;
+        id?: string | null;
+      }[]
+    | null;
+  contactText?: string | null;
+  phoneLabel?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'hrRecruitmentFAQ';
@@ -4127,6 +4209,16 @@ export interface HrRecruitmentPainPointsBlockSelect<T extends boolean = true> {
   badge?: T;
   title?: T;
   subtitle?: T;
+  painPoints?:
+    | T
+    | {
+        icon?: T;
+        title?: T;
+        description?: T;
+        imageAlt?: T;
+        id?: T;
+      };
+  bottomText?: T;
   id?: T;
   blockName?: T;
 }
@@ -4137,6 +4229,22 @@ export interface HrRecruitmentPainPointsBlockSelect<T extends boolean = true> {
 export interface HrRecruitmentTransformationBlockSelect<T extends boolean = true> {
   badge?: T;
   title?: T;
+  oldWayTitle?: T;
+  oldWaySubtitle?: T;
+  oldWayItems?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  newWayTitle?: T;
+  newWaySubtitle?: T;
+  newWayItems?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
@@ -4148,6 +4256,16 @@ export interface HrRecruitmentMethodologyBlockSelect<T extends boolean = true> {
   badge?: T;
   title?: T;
   subtitle?: T;
+  steps?:
+    | T
+    | {
+        icon?: T;
+        title?: T;
+        subtitle?: T;
+        description?: T;
+        id?: T;
+      };
+  bottomText?: T;
   id?: T;
   blockName?: T;
 }
@@ -4158,6 +4276,13 @@ export interface HrRecruitmentMethodologyBlockSelect<T extends boolean = true> {
 export interface HrRecruitmentResultatenBentoGridBlockSelect<T extends boolean = true> {
   badge?: T;
   title?: T;
+  results?:
+    | T
+    | {
+        metric?: T;
+        description?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
@@ -4169,6 +4294,21 @@ export interface HrRecruitmentWatJeKrijgtBlockSelect<T extends boolean = true> {
   badge?: T;
   title?: T;
   subtitle?: T;
+  features?:
+    | T
+    | {
+        icon?: T;
+        title?: T;
+        description?: T;
+        id?: T;
+      };
+  bonusTitle?: T;
+  bonusItems?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
@@ -4179,6 +4319,20 @@ export interface HrRecruitmentWatJeKrijgtBlockSelect<T extends boolean = true> {
 export interface HrRecruitmentVoorWieIsDitBlockSelect<T extends boolean = true> {
   badge?: T;
   title?: T;
+  perfectForTitle?: T;
+  perfectForItems?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  notSuitableTitle?: T;
+  notSuitableItems?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
@@ -4201,6 +4355,16 @@ export interface HrRecruitmentFAQBlockSelect<T extends boolean = true> {
   badge?: T;
   title?: T;
   subtitle?: T;
+  faqs?:
+    | T
+    | {
+        icon?: T;
+        question?: T;
+        answer?: T;
+        id?: T;
+      };
+  contactText?: T;
+  phoneLabel?: T;
   id?: T;
   blockName?: T;
 }

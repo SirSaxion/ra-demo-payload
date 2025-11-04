@@ -12,18 +12,58 @@ export const HrRecruitmentWatJeKrijgt: Block = {
       name: 'badge',
       type: 'text',
       label: 'Badge',
-      defaultValue: 'Wat je krijgt',
     },
     {
       name: 'title',
       type: 'text',
       label: 'Title',
-      defaultValue: 'Complete HR recruitment transformatie',
     },
     {
       name: 'subtitle',
       type: 'text',
       label: 'Subtitle',
+    },
+    {
+      name: 'features',
+      type: 'array',
+      label: 'Main Features',
+      fields: [
+        {
+          name: 'icon',
+          type: 'text',
+          label: 'Icon Name (Lucide)',
+        },
+        {
+          name: 'title',
+          type: 'text',
+          label: 'Title',
+          required: true,
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+          label: 'Description',
+          required: true,
+        },
+      ],
+    },
+    {
+      name: 'bonusTitle',
+      type: 'text',
+      label: 'Bonus Section Title',
+    },
+    {
+      name: 'bonusItems',
+      type: 'array',
+      label: 'Bonus Items',
+      fields: [
+        {
+          name: 'text',
+          type: 'text',
+          label: 'Text',
+          required: true,
+        },
+      ],
     },
   ],
 }

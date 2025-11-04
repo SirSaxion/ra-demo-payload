@@ -12,13 +12,57 @@ export const HrRecruitmentTransformation: Block = {
       name: 'badge',
       type: 'text',
       label: 'Badge',
-      defaultValue: 'Van reactief naar proactief',
     },
     {
       name: 'title',
       type: 'text',
       label: 'Title',
-      defaultValue: 'De transformatie',
+    },
+    {
+      name: 'oldWayTitle',
+      type: 'text',
+      label: 'Old Way Title',
+    },
+    {
+      name: 'oldWaySubtitle',
+      type: 'text',
+      label: 'Old Way Subtitle',
+    },
+    {
+      name: 'oldWayItems',
+      type: 'array',
+      label: 'Old Way Items',
+      fields: [
+        {
+          name: 'text',
+          type: 'text',
+          label: 'Text',
+          required: true,
+        },
+      ],
+    },
+    {
+      name: 'newWayTitle',
+      type: 'text',
+      label: 'New Way Title',
+    },
+    {
+      name: 'newWaySubtitle',
+      type: 'text',
+      label: 'New Way Subtitle',
+    },
+    {
+      name: 'newWayItems',
+      type: 'array',
+      label: 'New Way Items',
+      fields: [
+        {
+          name: 'text',
+          type: 'text',
+          label: 'Text',
+          required: true,
+        },
+      ],
     },
   ],
 }

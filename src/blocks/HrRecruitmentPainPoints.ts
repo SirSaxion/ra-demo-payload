@@ -12,18 +12,53 @@ export const HrRecruitmentPainPoints: Block = {
       name: 'badge',
       type: 'text',
       label: 'Badge',
-      defaultValue: 'De 3 grootste frustraties',
     },
     {
       name: 'title',
       type: 'text',
       label: 'Title',
-      defaultValue: 'Herken je dit?',
     },
     {
       name: 'subtitle',
       type: 'text',
       label: 'Subtitle',
+    },
+    {
+      name: 'painPoints',
+      type: 'array',
+      label: 'Pain Points',
+      minRows: 3,
+      maxRows: 3,
+      fields: [
+        {
+          name: 'icon',
+          type: 'text',
+          label: 'Icon Name (Lucide)',
+          defaultValue: 'UserX',
+        },
+        {
+          name: 'title',
+          type: 'text',
+          label: 'Title',
+          required: true,
+        },
+        {
+          name: 'description',
+          type: 'textarea',
+          label: 'Description',
+          required: true,
+        },
+        {
+          name: 'imageAlt',
+          type: 'text',
+          label: 'Image Alt Text',
+        },
+      ],
+    },
+    {
+      name: 'bottomText',
+      type: 'text',
+      label: 'Bottom Insight Text',
     },
   ],
 }
