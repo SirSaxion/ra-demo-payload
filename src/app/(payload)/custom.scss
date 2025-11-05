@@ -1,0 +1,31 @@
+// Custom Payload Admin Styling
+// Deze styles zijn specifiek voor het Payload CMS admin panel
+// en hebben GEEN invloed op de frontend website
+
+// ALLEEN de achtergrond van login/register pagina's wit maken
+// Alle andere elementen (tekst, buttons, etc.) behouden hun standaard styling
+
+// Target de body achtergrond alleen op login/unauthorized routes
+body.template-default,
+body.template-minimal {
+  background-color: #ffffff !important;
+}
+
+// Template wrapper achtergrond
+.template-default,
+.template-minimal {
+  background-color: #ffffff !important;
+  
+  &::before,
+  &::after {
+    background-color: #ffffff !important;
+  }
+}
+
+// Main app wrapper op login pagina's
+.app {
+  .template-default &,
+  .template-minimal & {
+    background-color: #ffffff !important;
+  }
+}

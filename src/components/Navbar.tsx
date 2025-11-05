@@ -407,13 +407,13 @@ export default function Navbar({
           />
         </Link>
         {/* Desktop nav */}
-        <div className="hidden items-center gap-4 md:flex">
-          <nav className="flex items-center gap-2">
+        <div className="hidden items-center gap-2 md:flex md:gap-3 lg:gap-4">
+          <nav className="flex items-center gap-1 md:gap-1.5 lg:gap-2">
             {/* Home */}
             <Link
               href={getLocalizedHref('/')}
               className={cn(
-                "rounded-[var(--radius-md)] px-4 py-2 text-[16px] font-medium text-foreground/90 transition-colors hover:bg-[color-mix(in_oklab,var(--brand-500)_10%,transparent)]",
+                "rounded-[var(--radius-md)] px-2 py-2 text-[14px] font-medium text-foreground/90 transition-colors hover:bg-[color-mix(in_oklab,var(--brand-500)_10%,transparent)] md:px-3 lg:px-4 lg:text-[16px]",
                 pathname === "/" && "bg-accent/20 text-foreground",
               )}
             >
@@ -431,7 +431,7 @@ export default function Navbar({
               <button
                 onClick={() => setVoorWieOpen((v) => !v)}
                 aria-expanded={voorWieOpen}
-                className="rounded-[var(--radius-md)] px-4 py-2 text-[16px] font-medium text-foreground/90 transition-colors hover:bg-[color-mix(in_oklab,var(--brand-500)_10%,transparent)]"
+                className="rounded-[var(--radius-md)] px-2 py-2 text-[14px] font-medium text-foreground/90 transition-colors hover:bg-[color-mix(in_oklab,var(--brand-500)_10%,transparent)] md:px-3 lg:px-4 lg:text-[16px]"
                 ref={triggerBtnRef}
               >
                 {t.forWho}
@@ -557,7 +557,7 @@ export default function Navbar({
                   key={l.link ?? l.href}
                   href={getLocalizedHref(l.link ?? l.href ?? '/')}
                   className={cn(
-                    "rounded-[var(--radius-md)] px-4 py-2 text-[16px] font-medium text-foreground/90 transition-colors hover:bg-[color-mix(in_oklab,var(--brand-500)_10%,transparent)]",
+                    "rounded-[var(--radius-md)] px-2 py-2 text-[14px] font-medium text-foreground/90 transition-colors hover:bg-[color-mix(in_oklab,var(--brand-500)_10%,transparent)] md:px-3 lg:px-4 lg:text-[16px]",
                     pathname === (l.link ?? l.href) && "bg-accent/20 text-foreground",
                   )}
                 >
@@ -565,12 +565,12 @@ export default function Navbar({
                 </Link>
               ))}
           </nav>
-          <div className="ml-2 flex items-center gap-3">
+          <div className="ml-1 flex items-center gap-1.5 md:ml-2 md:gap-2 lg:gap-3">
             {/* Language Selector */}
             <div className="relative">
               <button
                 onClick={() => switchLocale(currentLocale === 'nl' ? 'en' : 'nl')}
-                className="flex items-center gap-2 rounded-[var(--radius-md)] border border-[color-mix(in_oklab,var(--brand-500)_25%,transparent)] px-3 py-2 text-[15px] font-medium text-foreground/90 transition-colors hover:bg-[color-mix(in_oklab,var(--brand-500)_10%,transparent)]"
+                className="flex items-center gap-1.5 rounded-[var(--radius-md)] border border-[color-mix(in_oklab,var(--brand-500)_25%,transparent)] px-2 py-2 text-[13px] font-medium text-foreground/90 transition-colors hover:bg-[color-mix(in_oklab,var(--brand-500)_10%,transparent)] lg:px-3 lg:text-[15px]"
                 title={currentLocale === 'nl' ? 'Switch to English' : 'Schakel naar Nederlands'}
               >
                 <Languages className="size-4" />
@@ -579,13 +579,13 @@ export default function Navbar({
             </div>
             <a
               href={phoneLink}
-              className="rounded-[var(--radius-md)] border border-[color-mix(in_oklab,var(--brand-500)_35%,transparent)] px-4 py-2 text-[16px] font-semibold text-foreground/90 hover:bg-transparent"
+              className="rounded-[var(--radius-md)] border border-[color-mix(in_oklab,var(--brand-500)_35%,transparent)] px-2 py-2 text-[13px] font-semibold text-foreground/90 hover:bg-transparent md:px-3 lg:px-4 lg:text-[16px]"
             >
               {phone}
             </a>
             <a
               href={emailLink}
-              className="rounded-[var(--radius-md)] bg-[var(--primary)] px-4 py-2 text-[16px] font-semibold text-[var(--primary-foreground)] hover:brightness-95"
+              className="rounded-[var(--radius-md)] bg-[var(--primary)] px-2 py-2 text-[13px] font-semibold text-[var(--primary-foreground)] hover:brightness-95 md:px-3 lg:px-4 lg:text-[16px]"
             >
               {t.contactCta}
             </a>

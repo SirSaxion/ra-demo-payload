@@ -146,7 +146,7 @@ export default function Hero({
             {kicker}
           </span>
           
-          <h1 className="mt-5 md:mt-6 max-w-[24ch] text-5xl font-extrabold leading-[1.05] tracking-[-0.025em] md:text-6xl lg:text-5xl xl:text-6xl">
+          <h1 className="mt-5 md:mt-6 text-left text-4xl font-extrabold leading-[1.1] tracking-[-0.025em] sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
             {title}
           </h1>
           
