@@ -55,15 +55,11 @@ COPY --from=builder /app/public ./public
 RUN mkdir .next
 RUN chown nextjs:nodejs .next
 
-# Automatically leverage output traces to reduce image size
-# https://nextjs.org/docs/advanced-features/output-file-tracing
+# Copy everything needed for Payload CMS with SQLite
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-
-# Copy the complete src folder (needed for Payload CMS)
+COPY --from=builder --chown=nextjs:nodejs /app/node_modules ./node_modules
 COPY --from=builder --chown=nextjs:nodejs /app/src ./src
-
-# Copy the database file
 COPY --from=builder --chown=nextjs:nodejs /app/ra-demo-payload.db ./ra-demo-payload.db
 
 USER nextjs
