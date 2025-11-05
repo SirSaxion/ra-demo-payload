@@ -12,7 +12,7 @@ export const Header: GlobalConfig = {
       type: 'upload',
       relationTo: 'media',
       label: 'Logo',
-      required: true,
+      required: false,
     },
     {
       name: 'phone',

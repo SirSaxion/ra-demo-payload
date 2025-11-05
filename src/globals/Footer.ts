@@ -12,7 +12,7 @@ export const Footer: GlobalConfig = {
       type: 'upload',
       relationTo: 'media',
       label: 'Logo',
-      required: true,
+      required: false,
     },
     {
       name: 'companyName',

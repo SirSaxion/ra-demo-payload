@@ -11,7 +11,7 @@ import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Pages } from './collections/Pages'
 import { CaseStudies } from './collections/CaseStudies'
-import { Header, Footer, SEO } from './globals'
+import { SEO, Footer, Header } from './globals'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -24,7 +24,7 @@ export default buildConfig({
     },
   },
   collections: [Users, Media, Pages, CaseStudies],
-  globals: [Header, Footer, SEO],
+  globals: [SEO, Footer, Header],
   editor: lexicalEditor(),
   localization: {
     locales: [

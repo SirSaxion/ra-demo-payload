@@ -28,6 +28,21 @@ interface FooterProps {
   copyrightText?: string;
   showAddress?: boolean;
   showSocial?: boolean;
+  locale?: 'nl' | 'en';
+}
+
+// Localized section labels
+const sectionLabels = {
+  nl: {
+    pages: "Pagina's",
+    forWho: "Voor wie?",
+    contact: "Contact",
+  },
+  en: {
+    pages: "Pages",
+    forWho: "For who?",
+    contact: "Contact",
+  },
 }
 
 export default function Footer({
@@ -61,7 +76,9 @@ export default function Footer({
   copyrightText = '© {year} Real Accelerate. Alle rechten voorbehouden.',
   showAddress = true,
   showSocial = true,
+  locale = 'nl',
 }: FooterProps = {}) {
+  const t = sectionLabels[locale]
   return (
     <footer className="relative isolate overflow-hidden border-t border-[var(--color-border)] bg-[var(--color-surface-3)] text-foreground">
 
@@ -89,7 +106,7 @@ export default function Footer({
             <div>
               <div className="mb-2 inline-flex items-center gap-2 text-sm font-semibold">
                 <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--brand-500)]" />
-                Pagina's
+                {t.pages}
               </div>
               <ul className="space-y-2 text-sm text-[var(--color-text-secondary)]">
                 {mainLinks.map((link) => (
@@ -104,7 +121,7 @@ export default function Footer({
             <div>
               <div className="mb-2 inline-flex items-center gap-2 text-sm font-semibold">
                 <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--brand-500)]" />
-                Voor wie?
+                {t.forWho}
               </div>
               <ul className="space-y-2 text-sm text-[var(--color-text-secondary)]">
                 {targetGroups.map((group) => (
@@ -122,7 +139,7 @@ export default function Footer({
           <div>
             <div className="mb-2 inline-flex items-center gap-2 text-sm font-semibold">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--brand-500)]" />
-              Contact
+              {t.contact}
             </div>
             <div className="space-y-1 text-sm text-[var(--color-text-secondary)]">
               <div>{phone}</div>
