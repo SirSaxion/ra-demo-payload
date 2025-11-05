@@ -10,11 +10,11 @@ import Link from "next/link";
 import Image from "next/image";
 
 type Step = {
-  id: number;
+  id?: number;
   title: string;
   subtitle: string;
   icon: string;
-  bullets: string[];
+  bullets: Array<string | { text: string }>;
 };
 
 interface HowItWorksSectionProps {
@@ -268,7 +268,7 @@ export default function HowItWorksSection({
                         active === idx ? "text-black" : "text-black/70",
                       )}
                     >
-                      Stap {step.id}
+                      Stap {idx + 1}
                     </span>
                     <span className="hidden type-caption text-[var(--color-text-muted)] sm:inline">•</span>
                     <span className="truncate type-body font-medium text-foreground">{step.title}</span>
@@ -310,12 +310,15 @@ export default function HowItWorksSection({
             <div className="mb-2 h-px w-full bg-black/10" />
 
             <ul className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
-              {steps[active].bullets.map((b, i) => (
-                <li key={i} className="flex items-start gap-3 type-body text-foreground">
-                  <CheckCircle2 aria-hidden className="mt-0.5 h-5 w-5 flex-shrink-0 text-[var(--brand-600)] drop-shadow-[0_1px_0_rgba(0,0,0,0.15)]" />
-                  <span className="leading-relaxed">{b}</span>
-                </li>
-              ))}
+              {steps[active].bullets.map((b, i) => {
+                const bulletText = typeof b === 'string' ? b : b.text;
+                return (
+                  <li key={i} className="flex items-start gap-3 type-body text-foreground">
+                    <CheckCircle2 aria-hidden className="mt-0.5 h-5 w-5 flex-shrink-0 text-[var(--brand-600)] drop-shadow-[0_1px_0_rgba(0,0,0,0.15)]" />
+                    <span className="leading-relaxed">{bulletText}</span>
+                  </li>
+                );
+              })}
             </ul>
 
             <div className="mt-6 flex flex-wrap items-center gap-5">

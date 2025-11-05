@@ -442,6 +442,10 @@ export interface Page {
             blockType: 'faqSection';
           }
         | {
+            /**
+             * Badge tekst bovenaan (bijv. "HOE HET WERKT")
+             */
+            kicker?: string | null;
             title: string;
             subtitle?: string | null;
             steps: {
@@ -2885,6 +2889,7 @@ export interface PagesSelect<T extends boolean = true> {
         howItWorksSection?:
           | T
           | {
+              kicker?: T;
               title?: T;
               subtitle?: T;
               steps?:

@@ -8,6 +8,14 @@ export const HowItWorksSection: Block = {
   },
   fields: [
     {
+      name: 'kicker',
+      type: 'text',
+      label: 'Kicker',
+      admin: {
+        description: 'Badge tekst bovenaan (bijv. "HOE HET WERKT")',
+      },
+    },
+    {
       name: 'title',
       type: 'text',
       label: 'Titel',

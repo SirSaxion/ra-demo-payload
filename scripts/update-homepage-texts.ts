@@ -357,7 +357,6 @@ const homePageData = {
       subtitle: 'Drie heldere stappen. Precies wat je van ons kan verwachten.',
       steps: [
         {
-          id: 1,
           title: 'Strategische Analyse',
           subtitle: 'Huidige situatie & doelen in kaart',
           icon: 'Lightbulb',
@@ -369,7 +368,6 @@ const homePageData = {
           ]
         },
         {
-          id: 2,
           title: 'Custom Marketing Systeem',
           subtitle: 'Jouw ideale klanten bereiken',
           icon: 'ClipboardCheck',
@@ -381,7 +379,6 @@ const homePageData = {
           ]
         },
         {
-          id: 3,
           title: 'Resultaten & Optimalisatie',
           subtitle: 'Meetbare resultaten en groei',
           icon: 'LineChart',
