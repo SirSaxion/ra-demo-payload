@@ -15,19 +15,17 @@ git clone https://github.com/SirSaxion/ra-demo-payload.git
 cd ra-demo-payload
 ```
 
-### 2. Maak een .env.production bestand
+### 2. Update de environment variabelen in docker-compose.prod.yml
+Bewerk `docker-compose.prod.yml` en pas `NEXT_PUBLIC_SERVER_URL` aan naar je VPS IP/domein.
+
+### 3. Zet database permissions
 ```bash
-cat > .env.production << EOF
-DATABASE_URI=file:./ra-demo-payload.db
-PAYLOAD_SECRET=127578a4bd3ca59fb455680f
-NEXT_PUBLIC_SERVER_URL=http://je-vps-ip:3000
-NODE_ENV=production
-EOF
+chmod 666 ra-demo-payload.db
 ```
 
-### 3. Start de applicatie
+### 4. Start de applicatie
 ```bash
-docker-compose -f docker-compose.prod.yml --env-file .env.production up -d --build
+docker compose -f docker-compose.prod.yml up -d --build
 ```
 
 ### 4. Check de logs
@@ -45,7 +43,7 @@ docker-compose -f docker-compose.prod.yml down
 ```bash
 cd /opt/ra-demo-payload
 git pull
-docker-compose -f docker-compose.prod.yml --env-file .env.production up -d --build
+docker compose -f docker-compose.prod.yml up -d --build
 ```
 
 ## Met Nginx reverse proxy
@@ -68,4 +66,4 @@ server {
 }
 ```
 
-Dan update je `NEXT_PUBLIC_SERVER_URL=https://je-domein.nl` in `.env.production`.
+Dan update je `NEXT_PUBLIC_SERVER_URL: "https://je-domein.nl"` in `docker-compose.prod.yml`.
