@@ -90,11 +90,13 @@ export interface Config {
   };
   globals: {
     seo: Seo;
+    'site-settings': SiteSetting;
     footer: Footer;
     header: Header;
   };
   globalsSelect: {
     seo: SeoSelect<false> | SeoSelect<true>;
+    'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
     header: HeaderSelect<false> | HeaderSelect<true>;
   };
@@ -4798,6 +4800,44 @@ export interface Seo {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-settings".
+ */
+export interface SiteSetting {
+  id: number;
+  companyName: string;
+  tagline: string;
+  logo?: (number | null) | Media;
+  badge?: string | null;
+  address: {
+    street: string;
+    postalCode: string;
+    city: string;
+    country?: string | null;
+  };
+  /**
+   * Format: 085 060 2989 (NL) or +31 85 060 2989 (EN)
+   */
+  phone: string;
+  /**
+   * Format: tel:+31850602989 (same for all languages)
+   */
+  phoneLink: string;
+  email: string;
+  /**
+   * Format: mailto:info@realaccelerate.nl
+   */
+  emailLink: string;
+  social?: {
+    linkedin?: string | null;
+    facebook?: string | null;
+    instagram?: string | null;
+    twitter?: string | null;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "footer".
  */
 export interface Footer {
@@ -4943,6 +4983,39 @@ export interface SeoSelect<T extends boolean = true> {
     | {
         enablePreloading?: T;
         enableLazyLoading?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "site-settings_select".
+ */
+export interface SiteSettingsSelect<T extends boolean = true> {
+  companyName?: T;
+  tagline?: T;
+  logo?: T;
+  badge?: T;
+  address?:
+    | T
+    | {
+        street?: T;
+        postalCode?: T;
+        city?: T;
+        country?: T;
+      };
+  phone?: T;
+  phoneLink?: T;
+  email?: T;
+  emailLink?: T;
+  social?:
+    | T
+    | {
+        linkedin?: T;
+        facebook?: T;
+        instagram?: T;
+        twitter?: T;
       };
   updatedAt?: T;
   createdAt?: T;

@@ -17,6 +17,7 @@ interface FAQSectionProps {
   faqs?: FAQ[];
   contactText?: string;
   phoneLabel?: string;
+  phoneLink?: string;
 }
 
 const iconMap: Record<string, any> = {
@@ -37,6 +38,7 @@ export default function FAQSection({
   faqs = [],
   contactText,
   phoneLabel,
+  phoneLink,
 }: FAQSectionProps = {}) {
   return (
     <section className="py-20 bg-section">
@@ -64,7 +66,7 @@ export default function FAQSection({
                   <div>
                     <p className="text-sm font-medium text-foreground">{contactText}</p>
                     <p className="text-sm text-muted-foreground">
-                      <a href={`tel:${phoneLabel.replace(/\s/g, '')}`} className="text-brand-500 font-medium hover:underline transition-colors">
+                      <a href={phoneLink || `tel:${phoneLabel?.replace(/\s/g, '')}`} className="text-brand-500 font-medium hover:underline transition-colors">
                         {phoneLabel}
                       </a>
                     </p>

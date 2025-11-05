@@ -12,6 +12,7 @@ interface FinalCTAProps {
   ctaLabel?: string;
   ctaHref?: string;
   bullets?: string[];
+  phone?: string;
 }
 
 export default function FinalCTA({
@@ -24,6 +25,7 @@ export default function FinalCTA({
     "Identificatie knelpunten die jou tegenhouden",
     "Concreet plan om doelstellingen te behalen",
   ],
+  phone = "085 060 2989",
 }: FinalCTAProps = {}) {
   const { openDialog } = useStrategyDialog() ?? { openDialog: () => {} };
 
@@ -113,7 +115,7 @@ export default function FinalCTA({
                 </a>
               </Button>
               <p className="mt-3 text-center type-caption text-[var(--color-text-muted)]">
-                Bel direct: 085 060 2989 • Vrijblijvend
+                Bel direct: {phone} • Vrijblijvend
               </p>
             </div>
           </div>

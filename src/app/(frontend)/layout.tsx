@@ -76,11 +76,13 @@ export default async function FrontendLayout({
   children,
   params,
 }: Readonly<FrontendLayoutProps>) {
-  // Fetch header and footer data for BOTH locales
+  // Fetch site settings, header and footer data for BOTH locales
   // The client-side SiteLayout will choose which to display based on pathname
   const payload = await getPayload({ config })
   
-  const [headerNL, footerNL, headerEN, footerEN] = await Promise.all([
+  const [siteSettingsNL, siteSettingsEN, headerNL, footerNL, headerEN, footerEN] = await Promise.all([
+    payload.findGlobal({ slug: 'site-settings', locale: 'nl' }).catch(() => null),
+    payload.findGlobal({ slug: 'site-settings', locale: 'en' }).catch(() => null),
     payload.findGlobal({ slug: 'header', locale: 'nl' }).catch(() => null),
     payload.findGlobal({ slug: 'footer', locale: 'nl' }).catch(() => null),
     payload.findGlobal({ slug: 'header', locale: 'en' }).catch(() => null),
@@ -88,60 +90,65 @@ export default async function FrontendLayout({
   ])
 
   // Transform both locales to SiteLayout config format
-  const createConfig = (headerData: any, footerData: any) => (!headerData || !footerData) ? null : {
-    company: {
-      name: footerData.companyName || 'Real Accelerate',
-      tagline: footerData.tagline || 'Online marketing voor vastgoedprofessionals',
-      logo: '/images/logorealaccelerate.webp',
-      badge: footerData.badge || 'IQI Global Partner',
-      address: footerData.address || {
-        street: 'Daalwijkdreef 47',
-        postalCode: '1103 AD',
-        city: 'Amsterdam',
+  // Now using SiteSettings for company/contact/social data
+  const createConfig = (siteSettings: any, headerData: any, footerData: any) => {
+    if (!siteSettings || !headerData || !footerData) return null
+    
+    return {
+      company: {
+        name: siteSettings.companyName || 'Real Accelerate',
+        tagline: siteSettings.tagline || 'Online marketing voor vastgoedprofessionals',
+        logo: '/images/logorealaccelerate.webp',
+        badge: siteSettings.badge || 'IQI Global Partner',
+        address: siteSettings.address || {
+          street: 'Daalwijkdreef 47',
+          postalCode: '1103 AD',
+          city: 'Amsterdam',
+        },
       },
-    },
-    contact: {
-      phone: headerData.phone || '085 060 2989',
-      phoneLink: headerData.phoneLink || 'tel:+31850602989',
-      email: headerData.email || 'info@realaccelerate.nl',
-      emailLink: headerData.emailLink || 'mailto:info@realaccelerate.nl',
-    },
-    navigation: {
-      mainLinks: (headerData.mainLinks || []).map((link: any) => ({
-        name: link.name,
-        href: link.href,
-      })),
-      targetGroups: (headerData.targetGroups || []).map((group: any) => ({
-        name: group.name,
-        href: group.href,
-        icon: group.icon,
-        description: group.description,
-        highlights: group.highlights?.map((h: any) => h.text) || [],
-      })),
-    },
-    social: {
-      linkedin: footerData.social?.linkedin ?? 'https://www.linkedin.com/company/realaccelerate',
-      facebook: footerData.social?.facebook ?? 'https://www.facebook.com/realaccelerate',
-      instagram: footerData.social?.instagram ?? undefined,
-    },
-    footer: {
-      mainLinks: (footerData.mainLinks || []).map((link: any) => ({
-        name: link.name,
-        href: link.href,
-      })),
-      targetGroups: (footerData.targetGroups || []).map((group: any) => ({
-        name: group.name,
-        href: group.href,
-      })),
-      copyrightText:
-        footerData.copyrightText || '© {year} Real Accelerate. Alle rechten voorbehouden.',
-      showAddress: footerData.showAddress ?? true,
-      showSocial: footerData.showSocial ?? true,
-    },
+      contact: {
+        phone: siteSettings.phone || '085 060 2989',
+        phoneLink: siteSettings.phoneLink || 'tel:+31850602989',
+        email: siteSettings.email || 'info@realaccelerate.nl',
+        emailLink: siteSettings.emailLink || 'mailto:info@realaccelerate.nl',
+      },
+      navigation: {
+        mainLinks: (headerData.mainLinks || []).map((link: any) => ({
+          name: link.name,
+          href: link.href,
+        })),
+        targetGroups: (headerData.targetGroups || []).map((group: any) => ({
+          name: group.name,
+          href: group.href,
+          icon: group.icon,
+          description: group.description,
+          highlights: group.highlights?.map((h: any) => h.text) || [],
+        })),
+      },
+      social: {
+        linkedin: siteSettings.social?.linkedin ?? 'https://www.linkedin.com/company/realaccelerate',
+        facebook: siteSettings.social?.facebook ?? 'https://www.facebook.com/realaccelerate',
+        instagram: siteSettings.social?.instagram ?? undefined,
+      },
+      footer: {
+        mainLinks: (footerData.mainLinks || []).map((link: any) => ({
+          name: link.name,
+          href: link.href,
+        })),
+        targetGroups: (footerData.targetGroups || []).map((group: any) => ({
+          name: group.name,
+          href: group.href,
+        })),
+        copyrightText:
+          footerData.copyrightText || '© {year} Real Accelerate. Alle rechten voorbehouden.',
+        showAddress: footerData.showAddress ?? true,
+        showSocial: footerData.showSocial ?? true,
+      },
+    }
   }
   
-  const siteConfigNL = createConfig(headerNL, footerNL)
-  const siteConfigEN = createConfig(headerEN, footerEN)
+  const siteConfigNL = createConfig(siteSettingsNL, headerNL, footerNL)
+  const siteConfigEN = createConfig(siteSettingsEN, headerEN, footerEN)
   
   return (
     <StrategySessionDialogProvider>

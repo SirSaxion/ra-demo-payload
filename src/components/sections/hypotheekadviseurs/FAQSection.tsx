@@ -12,6 +12,7 @@ export interface FAQSectionProps {
   contactLinkHref?: string
   phoneLabel?: string
   phoneNumber?: string
+  phoneLink?: string
   faqs?: Array<{ icon: string; question: string; answer: string }>
 }
 
@@ -23,6 +24,7 @@ export default function FAQSection({
   contactLinkHref = '/contact',
   phoneLabel = 'Andere vraag?',
   phoneNumber = '+31850602989',
+  phoneLink,
   faqs = [
     { icon: 'Clock', question: 'Hoe snel zie ik resultaat?', answer: 'De eerste leads kunnen binnen 2-4 weken binnenkomen. Structurele groei zie je na 3-6 maanden.' },
     { icon: 'DollarSign', question: 'Wat kost het?', answer: 'We werken op maat. Investering hangt af van je doelen en huidige situatie.' },
@@ -63,7 +65,7 @@ export default function FAQSection({
                   <p className="text-sm font-medium text-foreground">{phoneLabel}</p>
                   <p className="text-sm text-muted-foreground">
                     Bel direct:{' '}
-                    <a href={`tel:${phoneNumber}`} className="text-brand-500 font-medium hover:underline transition-colors">
+                    <a href={phoneLink || `tel:${phoneNumber}`} className="text-brand-500 font-medium hover:underline transition-colors">
                       {phoneNumber}
                     </a>
                   </p>

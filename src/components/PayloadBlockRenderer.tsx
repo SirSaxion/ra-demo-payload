@@ -104,9 +104,10 @@ import HrRecruitmentFAQSection from '@/components/sections/hr-recruitment/FAQSec
 
 interface PayloadBlockRendererProps {
   blocks: any[]
+  siteSettings?: any
 }
 
-export default function PayloadBlockRenderer({ blocks }: PayloadBlockRendererProps) {
+export default function PayloadBlockRenderer({ blocks, siteSettings }: PayloadBlockRendererProps) {
   if (!blocks || blocks.length === 0) {
     return null
   }
@@ -264,6 +265,8 @@ export default function PayloadBlockRenderer({ blocks }: PayloadBlockRendererPro
             title={block.title}
             subtitle={block.subtitle}
             items={block.items}
+            phone={siteSettings?.phone}
+            phoneLink={siteSettings?.phoneLink}
           />
         )
         
@@ -289,6 +292,7 @@ export default function PayloadBlockRenderer({ blocks }: PayloadBlockRendererPro
             ctaLabel={block.ctaLabel}
             ctaHref={block.ctaHref}
             bullets={block.bullets?.map((bullet: any) => bullet.text || bullet) || []}
+            phone={siteSettings?.phone}
           />
         )
         
@@ -404,9 +408,9 @@ export default function PayloadBlockRenderer({ blocks }: PayloadBlockRendererPro
             subtitle={block.subtitle}
             latitude={block.latitude}
             longitude={block.longitude}
-            address={block.address}
-            phone={block.phone}
-            email={block.email}
+            address={block.address || siteSettings?.address}
+            phone={block.phone || siteSettings?.phone}
+            email={block.email || siteSettings?.email}
             image={block.image}
             imageAlt={block.imageAlt}
             openInMapsLabel={block.openInMapsLabel}
@@ -631,7 +635,7 @@ export default function PayloadBlockRenderer({ blocks }: PayloadBlockRendererPro
         )
         
       case 'makelaarsFAQSection':
-        return <MakelaarsFAQSection key={index} {...block} />
+        return <MakelaarsFAQSection key={index} {...block} phoneNumber={block.phoneNumber || siteSettings?.phone} phoneLink={siteSettings?.phoneLink} />
       
       // International/Buitenland blocks
       case 'makelaarsInternationalHero':
@@ -706,7 +710,7 @@ export default function PayloadBlockRenderer({ blocks }: PayloadBlockRendererPro
         )
         
       case 'internationalFAQSection':
-        return <InternationalFAQSection key={index} {...block} />
+        return <InternationalFAQSection key={index} {...block} phoneNumber={block.phoneNumber || siteSettings?.phone} phoneLink={siteSettings?.phoneLink} />
       
       // Hypotheekadviseurs blocks
       case 'hypotheekadviseursHero':
@@ -893,7 +897,8 @@ export default function PayloadBlockRenderer({ blocks }: PayloadBlockRendererPro
             contactLinkText={block.contactLinkText}
             contactLinkHref={block.contactLinkHref}
             phoneLabel={block.phoneLabel}
-            phoneNumber={block.phoneNumber}
+            phoneNumber={block.phoneNumber || siteSettings?.phone}
+            phoneLink={siteSettings?.phoneLink}
             faqs={block.faqs?.map((f: any) => ({
               icon: f.icon,
               question: f.question,
@@ -1043,7 +1048,7 @@ export default function PayloadBlockRenderer({ blocks }: PayloadBlockRendererPro
             contactLinkText={block.contactLinkText}
             contactLinkHref={block.contactLinkHref}
             phoneLabel={block.phoneLabel}
-            phoneNumber={block.phoneNumber}
+            phoneNumber={block.phoneNumber || siteSettings?.phone}
           />
         )
 
@@ -1162,7 +1167,8 @@ export default function PayloadBlockRenderer({ blocks }: PayloadBlockRendererPro
             subtitle={block.subtitle}
             faqs={block.faqs || []}
             contactText={block.contactText}
-            phoneLabel={block.phoneLabel}
+            phoneLabel={block.phoneLabel || siteSettings?.phone}
+            phoneLink={siteSettings?.phoneLink}
           />
         )
         

@@ -20,6 +20,7 @@ export interface InternationalFAQSectionProps {
     contactLinkHref?: string
     phoneLabel?: string
     phoneNumber?: string
+    phoneLink?: string
     phonePrefix?: string
     faqs?: FAQItem[]
 }
@@ -33,6 +34,7 @@ export default function InternationalFAQSection({
     contactLinkHref = '/contact',
     phoneLabel = 'Internationale vraag?',
     phoneNumber = '+31850602989',
+    phoneLink,
     phonePrefix = 'Bel direct:',
     faqs = [
         {
@@ -107,7 +109,7 @@ export default function InternationalFAQSection({
                                     <p className="text-sm font-medium text-foreground">{phoneLabel}</p>
                                     <p className="text-sm text-muted-foreground">
                                         {phonePrefix}{' '}
-                                        <a href={`tel:${phoneNumber}`} className="text-brand-500 font-medium hover:underline transition-colors">
+                                        <a href={phoneLink || `tel:${phoneNumber}`} className="text-brand-500 font-medium hover:underline transition-colors">
                                             {phoneNumber}
                                         </a>
                                     </p>

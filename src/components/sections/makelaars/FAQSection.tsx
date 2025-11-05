@@ -20,6 +20,7 @@ export interface FAQSectionProps {
   contactLinkHref?: string;
   phoneLabel?: string;
   phoneNumber?: string;
+  phoneLink?: string;
   faqs?: FAQItem[];
 }
 
@@ -31,6 +32,7 @@ export default function FAQSection({
   contactLinkHref = "/contact",
   phoneLabel = "Andere vraag?",
   phoneNumber = "+31850602989",
+  phoneLink,
   faqs = [
     {
       question: "Hoe snel zie ik resultaat?",
@@ -97,7 +99,7 @@ export default function FAQSection({
                   <p className="text-sm font-medium text-foreground">{phoneLabel}</p>
                   <p className="text-sm text-muted-foreground">
                     Bel direct:{' '}
-                    <a href={`tel:${phoneNumber}`} className="text-brand-500 font-medium hover:underline transition-colors">
+                    <a href={phoneLink || `tel:${phoneNumber}`} className="text-brand-500 font-medium hover:underline transition-colors">
                       {phoneNumber.replace('+31', '0').replace(/(.{3})/, '$1 ')}
                     </a>
                   </p>

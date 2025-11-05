@@ -16,6 +16,8 @@ interface FAQSectionProps {
     subtitle?: string
     kicker?: string
     items?: FAQItem[]
+    phone?: string
+    phoneLink?: string
 }
 
 // Icon mapping for CMS compatibility
@@ -34,6 +36,8 @@ export default function FAQSection({
     subtitle = "Alles wat je moet weten",
     kicker = "VEELGESTELDE VRAGEN",
     items,
+    phone = "085 060 2989",
+    phoneLink = "tel:+31850602989",
 }: FAQSectionProps) {
     // Default FAQ items if not provided via props
     const defaultFaqItems: FAQItem[] = [
@@ -105,8 +109,8 @@ export default function FAQSection({
                                     <p className="text-sm font-medium text-foreground">Andere vraag?</p>
                                     <p className="text-sm text-muted-foreground">
                                         Bel direct:{' '}
-                                        <a href="tel:+31850602989" className="text-brand-500 font-medium hover:underline transition-colors">
-                                            085 060 2989
+                                        <a href={phoneLink} className="text-brand-500 font-medium hover:underline transition-colors">
+                                            {phone}
                                         </a>
                                     </p>
                                 </div>

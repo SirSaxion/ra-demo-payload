@@ -36,6 +36,16 @@ async function getPageData(locale: Locale) {
   }
 }
 
+async function getSiteSettings(locale: Locale) {
+  try {
+    const payload = await getPayload({ config })
+    return await payload.findGlobal({ slug: 'site-settings', locale })
+  } catch (error) {
+    console.error('Error fetching site settings:', error)
+    return null
+  }
+}
+
 export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
   const locale = params.locale as Locale
   
@@ -74,7 +84,10 @@ export default async function LocaleHomePage({ params }: { params: { locale: str
     notFound()
   }
   
-  const page = await getPageData(locale)
+  const [page, siteSettings] = await Promise.all([
+    getPageData(locale),
+    getSiteSettings(locale),
+  ])
   
   if (!page) {
     return (
@@ -127,7 +140,7 @@ export default async function LocaleHomePage({ params }: { params: { locale: str
       />
       
       <div className="min-h-screen bg-background font-sans">
-        <PayloadBlockRenderer blocks={page.blocks || []} />
+        <PayloadBlockRenderer blocks={page.blocks || []} siteSettings={siteSettings} />
       </div>
     </>
   );

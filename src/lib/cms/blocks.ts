@@ -823,19 +823,13 @@ export const BLOCK_REGISTRY: Record<string, BlockDefinition> = {
   'Over-ons-OfficeSection': {
     name: 'Over-ons - Office section',
     category: 'Over-ons',
-    description: 'Over-ons - Office section',
+    description: 'Over-ons - Office section - Contact info from SiteSettings',
     defaultProps: {
           "badge": "Office & Werkwijze",
           "title": "Waarom samenwerken met ons?",
           "subtitle": "🏢 Bezoek ons in Amsterdam",
           "latitude": 52.3239602,
           "longitude": 4.9586448,
-          "address": {
-                "street": "Daalwijkdreef 47",
-                "city": "1103 AD Amsterdam"
-          },
-          "phone": "085 060 2989",
-          "email": "info@realaccelerate.nl",
           "image": "/images/joep-koffie.png",
           "imageAlt": "Joep"
     },
