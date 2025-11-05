@@ -93,12 +93,14 @@ export interface Config {
     'site-settings': SiteSetting;
     footer: Footer;
     header: Header;
+    'not-found-page': NotFoundPage;
   };
   globalsSelect: {
     seo: SeoSelect<false> | SeoSelect<true>;
     'site-settings': SiteSettingsSelect<false> | SiteSettingsSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
     header: HeaderSelect<false> | HeaderSelect<true>;
+    'not-found-page': NotFoundPageSelect<false> | NotFoundPageSelect<true>;
   };
   locale: 'nl' | 'en';
   user: User & {
@@ -5079,6 +5081,41 @@ export interface Header {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "not-found-page".
+ */
+export interface NotFoundPage {
+  id: number;
+  /**
+   * Main heading on the 404 page
+   */
+  title: string;
+  /**
+   * Text below the title
+   */
+  description: string;
+  /**
+   * Text above contact info (e.g., "Need help? Contact us directly:")
+   */
+  helpText: string;
+  primaryButton: {
+    text: string;
+    /**
+     * URL to navigate to (e.g., /)
+     */
+    href: string;
+  };
+  secondaryButton: {
+    text: string;
+    /**
+     * URL to navigate to (e.g., /cases)
+     */
+    href: string;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "seo_select".
  */
 export interface SeoSelect<T extends boolean = true> {
@@ -5255,6 +5292,30 @@ export interface HeaderSelect<T extends boolean = true> {
               id?: T;
             };
         id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "not-found-page_select".
+ */
+export interface NotFoundPageSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  helpText?: T;
+  primaryButton?:
+    | T
+    | {
+        text?: T;
+        href?: T;
+      };
+  secondaryButton?:
+    | T
+    | {
+        text?: T;
+        href?: T;
       };
   updatedAt?: T;
   createdAt?: T;

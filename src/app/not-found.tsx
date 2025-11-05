@@ -1,8 +1,39 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Home, Search } from 'lucide-react';
+import { getPayload } from 'payload';
+import config from '@/payload.config';
+import { headers } from 'next/headers';
 
-export default function NotFound() {
+export default async function NotFound() {
+  // Fetch 404 page content and site settings
+  const payload = await getPayload({ config });
+  
+  // Determine locale from headers
+  const headersList = await headers();
+  const pathname = headersList.get('x-pathname') || '';
+  const locale = pathname.startsWith('/en') ? 'en' : 'nl';
+  
+  const [notFoundData, siteSettings] = await Promise.all([
+    payload.findGlobal({ slug: 'not-found-page', locale }).catch(() => null),
+    payload.findGlobal({ slug: 'site-settings', locale }).catch(() => null),
+  ]);
+
+  // Fallback data if fetch fails
+  const title = notFoundData?.title || (locale === 'en' ? 'Page not found' : 'Pagina niet gevonden');
+  const description = notFoundData?.description || (locale === 'en' 
+    ? "The page you are looking for does not exist or has been moved. Don't worry, we're happy to help you!"
+    : 'De pagina die je zoekt bestaat niet of is verplaatst. Geen zorgen, we helpen je graag verder!');
+  const helpText = notFoundData?.helpText || (locale === 'en' ? 'Need help? Contact us directly:' : 'Hulp nodig? Neem direct contact op:');
+  const primaryButton = notFoundData?.primaryButton || { text: locale === 'en' ? 'Go to homepage' : 'Naar homepage', href: '/' };
+  const secondaryButton = notFoundData?.secondaryButton || { text: locale === 'en' ? 'View cases' : 'Bekijk cases', href: '/cases' };
+  
+  // Get contact info from site settings
+  const phone = siteSettings?.phone || '085 060 2989';
+  const phoneLink = siteSettings?.phoneLink || 'tel:+31850602989';
+  const email = siteSettings?.email || 'info@realaccelerate.nl';
+  const emailLink = siteSettings?.emailLink || 'mailto:info@realaccelerate.nl';
+
   return (
     <div className="relative isolate min-h-[100svh] overflow-hidden bg-hero text-foreground">
           {/* Background pattern */}
@@ -35,13 +66,12 @@ export default function NotFound() {
 
               {/* Title */}
               <h2 className="mb-4 text-3xl md:text-4xl font-bold text-foreground">
-                Pagina niet gevonden
+                {title}
               </h2>
 
               {/* Description */}
               <p className="mb-8 text-lg text-foreground/80 leading-relaxed">
-                De pagina die je zoekt bestaat niet of is verplaatst. 
-                Geen zorgen, we helpen je graag verder!
+                {description}
               </p>
 
               {/* Action buttons */}
@@ -51,9 +81,9 @@ export default function NotFound() {
                   size="lg"
                   className="rounded-lg bg-[#ffd700] px-6 py-3 text-[16px] font-semibold text-black shadow-lg transition-all hover:brightness-95 hover:shadow-xl"
                 >
-                  <Link href="/">
+                  <Link href={primaryButton.href}>
                     <Home className="mr-2 h-4 w-4" />
-                    Naar homepage
+                    {primaryButton.text}
                   </Link>
                 </Button>
 
@@ -63,9 +93,9 @@ export default function NotFound() {
                   size="lg"
                   className="rounded-lg px-6 py-3 text-[16px] font-medium text-foreground/90"
                 >
-                  <Link href="/cases">
+                  <Link href={secondaryButton.href}>
                     <Search className="mr-2 h-4 w-4" />
-                    Bekijk cases
+                    {secondaryButton.text}
                   </Link>
                 </Button>
               </div>
@@ -73,21 +103,21 @@ export default function NotFound() {
               {/* Contact info */}
               <div className="mt-12 pt-8 border-t border-foreground/10">
                 <p className="text-sm text-foreground/60 mb-4">
-                  Hulp nodig? Neem direct contact op:
+                  {helpText}
                 </p>
                 <div className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm">
                   <a 
-                    href="tel:+31850602989" 
+                    href={phoneLink}
                     className="text-[#ffd700] hover:text-[#ffed4e] font-medium transition-colors"
                   >
-                    085 060 2989
+                    {phone}
                   </a>
                   <span className="hidden sm:inline text-foreground/40">•</span>
                   <a 
-                    href="mailto:info@realaccelerate.nl" 
+                    href={emailLink}
                     className="text-[#ffd700] hover:text-[#ffed4e] font-medium transition-colors"
                   >
-                    info@realaccelerate.nl
+                    {email}
                   </a>
                 </div>
               </div>
