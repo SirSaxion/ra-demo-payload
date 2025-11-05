@@ -1048,8 +1048,11 @@ export default function PayloadBlockRenderer({ blocks, siteSettings }: PayloadBl
             subtitle={block.subtitle}
             contactLinkText={block.contactLinkText}
             contactLinkHref={block.contactLinkHref}
+            contactCtaText={block.contactCtaText}
             phoneLabel={block.phoneLabel}
             phoneNumber={block.phoneNumber || siteSettings?.phone}
+            phoneCallText={block.phoneCallText}
+            questions={block.questions}
           />
         )
 

@@ -2395,6 +2395,7 @@ export interface ProjectontwikkelaarsFAQSectionBlock {
   subtitle?: string | null;
   questions?:
     | {
+        icon?: string | null;
         question?: string | null;
         answer?: string | null;
         id?: string | null;
@@ -2402,8 +2403,10 @@ export interface ProjectontwikkelaarsFAQSectionBlock {
     | null;
   contactLinkText?: string | null;
   contactLinkHref?: string | null;
+  contactCtaText?: string | null;
   phoneLabel?: string | null;
   phoneNumber?: string | null;
+  phoneCallText?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'projectontwikkelaarsFAQSection';
@@ -4706,14 +4709,17 @@ export interface ProjectontwikkelaarsFAQSectionBlockSelect<T extends boolean = t
   questions?:
     | T
     | {
+        icon?: T;
         question?: T;
         answer?: T;
         id?: T;
       };
   contactLinkText?: T;
   contactLinkHref?: T;
+  contactCtaText?: T;
   phoneLabel?: T;
   phoneNumber?: T;
+  phoneCallText?: T;
   id?: T;
   blockName?: T;
 }
