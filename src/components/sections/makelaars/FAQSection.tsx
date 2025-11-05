@@ -19,6 +19,8 @@ export interface FAQSectionProps {
   contactLinkText?: string;
   contactLinkHref?: string;
   phoneLabel?: string;
+  phonePrefix?: string;
+  ctaText?: string;
   phoneNumber?: string;
   phoneLink?: string;
   faqs?: FAQItem[];
@@ -31,6 +33,8 @@ export default function FAQSection({
   contactLinkText = "support team",
   contactLinkHref = "/contact",
   phoneLabel = "Andere vraag?",
+  phonePrefix = "Bel direct:",
+  ctaText = "of plan een gratis strategiesessie in.",
   phoneNumber = "+31850602989",
   phoneLink,
   faqs = [
@@ -87,7 +91,7 @@ export default function FAQSection({
                   className="text-brand-500 font-medium hover:underline transition-colors">
                   {contactLinkText}
                 </Link>{' '}
-                of plan een gratis strategiesessie in.
+                {ctaText}
               </p>
               <div className="flex items-center gap-3 p-4 rounded-lg bg-neutral-800/30 border border-neutral-700/30">
                 <div className="flex size-8 items-center justify-center rounded-full bg-brand-500/10">
@@ -98,7 +102,7 @@ export default function FAQSection({
                 <div>
                   <p className="text-sm font-medium text-foreground">{phoneLabel}</p>
                   <p className="text-sm text-muted-foreground">
-                    Bel direct:{' '}
+                    {phonePrefix}{' '}
                     <a href={phoneLink || `tel:${phoneNumber}`} className="text-brand-500 font-medium hover:underline transition-colors">
                       {phoneNumber.replace('+31', '0').replace(/(.{3})/, '$1 ')}
                     </a>

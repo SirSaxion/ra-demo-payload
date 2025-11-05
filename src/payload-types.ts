@@ -1346,11 +1346,13 @@ export interface MakelaarsFAQSection {
   contactLinkText?: string | null;
   contactLinkHref?: string | null;
   phoneLabel?: string | null;
+  phonePrefix?: string | null;
+  ctaText?: string | null;
   phoneNumber?: string | null;
   faqs?:
     | {
-        question?: string | null;
-        answer?: string | null;
+        question: string;
+        answer: string;
         icon?: string | null;
         id?: string | null;
       }[]
@@ -3633,6 +3635,8 @@ export interface MakelaarsFAQSectionSelect<T extends boolean = true> {
   contactLinkText?: T;
   contactLinkHref?: T;
   phoneLabel?: T;
+  phonePrefix?: T;
+  ctaText?: T;
   phoneNumber?: T;
   faqs?:
     | T
