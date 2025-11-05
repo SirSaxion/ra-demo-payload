@@ -13,21 +13,25 @@ export const ProjectontwikkelaarsHero: Block = {
       name: 'badge',
       type: 'text',
       label: 'Badge',
+      localized: true,
     },
     {
       name: 'title',
       type: 'text',
       label: 'Title',
+      localized: true,
     },
     {
       name: 'titleHighlight',
       type: 'text',
       label: 'Title Highlight',
+      localized: true,
     },
     {
       name: 'subtitle',
       type: 'textarea',
       label: 'Subtitle',
+      localized: true,
       admin: {
         description: 'Supports HTML for bold text',
       },
@@ -36,6 +40,7 @@ export const ProjectontwikkelaarsHero: Block = {
       name: 'bullets',
       type: 'array',
       label: 'Bullets',
+      localized: true,
       fields: [
         {
           name: 'text',
@@ -53,6 +58,7 @@ export const ProjectontwikkelaarsHero: Block = {
           name: 'label',
           type: 'text',
           label: 'Label',
+          localized: true,
         },
       ],
     },
@@ -65,6 +71,7 @@ export const ProjectontwikkelaarsHero: Block = {
           name: 'label',
           type: 'text',
           label: 'Label',
+          localized: true,
         },
         {
           name: 'href',
@@ -82,6 +89,7 @@ export const ProjectontwikkelaarsHero: Block = {
       name: 'showcaseImageAlt',
       type: 'text',
       label: 'Showcase Image Alt',
+      localized: true,
     },
     {
       name: 'showcaseIcon',
@@ -92,16 +100,19 @@ export const ProjectontwikkelaarsHero: Block = {
       name: 'showcaseTitle',
       type: 'text',
       label: 'Showcase Title',
+      localized: true,
     },
     {
       name: 'showcaseSubtitle',
       type: 'text',
       label: 'Showcase Subtitle',
+      localized: true,
     },
     {
       name: 'showcaseStats',
       type: 'array',
       label: 'Showcase Stats',
+      localized: true,
       fields: [
         {
           name: 'icon',
@@ -124,11 +135,13 @@ export const ProjectontwikkelaarsHero: Block = {
           name: 'value',
           type: 'text',
           label: 'Value',
+          localized: true,
         },
         {
           name: 'label',
           type: 'text',
           label: 'Label',
+          localized: true,
         },
       ],
     },
@@ -136,6 +149,7 @@ export const ProjectontwikkelaarsHero: Block = {
       name: 'showcaseNote',
       type: 'text',
       label: 'Showcase Note',
+      localized: true,
     },
   ],
 }

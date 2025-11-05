@@ -2316,6 +2316,22 @@ export interface ProjectontwikkelaarsWatJeKrijgtSectionBlock {
   badge?: string | null;
   title?: string | null;
   subtitle?: string | null;
+  tabs?:
+    | {
+        label: string;
+        title?: string | null;
+        description?: string | null;
+        features?:
+          | {
+              icon?: string | null;
+              title?: string | null;
+              description?: string | null;
+              id?: string | null;
+            }[]
+          | null;
+        id?: string | null;
+      }[]
+    | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'projectontwikkelaarsWatJeKrijgtSection';
@@ -4613,6 +4629,22 @@ export interface ProjectontwikkelaarsWatJeKrijgtSectionBlockSelect<T extends boo
   badge?: T;
   title?: T;
   subtitle?: T;
+  tabs?:
+    | T
+    | {
+        label?: T;
+        title?: T;
+        description?: T;
+        features?:
+          | T
+          | {
+              icon?: T;
+              title?: T;
+              description?: T;
+              id?: T;
+            };
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }

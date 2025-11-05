@@ -13,16 +13,19 @@ export const ProjectontwikkelaarsResultatenBentoGrid: Block = {
       name: 'badge',
       type: 'text',
       label: 'Badge',
+      localized: true,
     },
     {
       name: 'title',
       type: 'text',
       label: 'Title',
+      localized: true,
     },
     {
       name: 'subtitle',
       type: 'text',
       label: 'Subtitle',
+      localized: true,
     },
   ],
 }

@@ -13,21 +13,25 @@ export const ProjectontwikkelaarsDubaiSuccessStorySection: Block = {
       name: 'badge',
       type: 'text',
       label: 'Badge',
+      localized: true,
     },
     {
       name: 'title',
       type: 'text',
       label: 'Title',
+      localized: true,
     },
     {
       name: 'subtitle',
       type: 'textarea',
       label: 'Subtitle',
+      localized: true,
     },
     {
       name: 'benefits',
       type: 'array',
       label: 'Benefits',
+      localized: true,
       fields: [
         {
           name: 'icon',

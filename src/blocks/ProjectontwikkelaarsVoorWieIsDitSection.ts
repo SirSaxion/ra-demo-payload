@@ -13,26 +13,31 @@ export const ProjectontwikkelaarsVoorWieIsDitSection: Block = {
       name: 'badge',
       type: 'text',
       label: 'Badge',
+      localized: true,
     },
     {
       name: 'title',
       type: 'text',
       label: 'Title',
+      localized: true,
     },
     {
       name: 'subtitle',
       type: 'text',
       label: 'Subtitle',
+      localized: true,
     },
     {
       name: 'perfectTitle',
       type: 'text',
       label: 'Perfect Title',
+      localized: true,
     },
     {
       name: 'perfectFor',
       type: 'array',
       label: 'Perfect For',
+      localized: true,
       fields: [
         {
           name: 'icon',
@@ -55,11 +60,13 @@ export const ProjectontwikkelaarsVoorWieIsDitSection: Block = {
       name: 'notSuitableTitle',
       type: 'text',
       label: 'Not Suitable Title',
+      localized: true,
     },
     {
       name: 'notSuitableFor',
       type: 'array',
       label: 'Not Suitable For',
+      localized: true,
       fields: [
         {
           name: 'text',
@@ -72,6 +79,7 @@ export const ProjectontwikkelaarsVoorWieIsDitSection: Block = {
       name: 'bottomText',
       type: 'text',
       label: 'Bottom Text',
+      localized: true,
     },
   ],
 }

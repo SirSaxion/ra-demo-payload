@@ -271,14 +271,7 @@ const pageData = {
         ],
         missionStatement: 'What we do for our clients, we also do for ourselves. That\'s why we know it works.'
       },
-      // 6. Resultaten Bento Grid
-      {
-        blockType: 'projectontwikkelaarsResultatenBentoGrid',
-        badge: 'Project results bento grid',
-        title: 'Results from practice',
-        subtitle: 'With our proven approach, real estate developers see their projects sell faster and enter the market more effectively'
-      },
-      // 7. Dubai Success Story (Why Us)
+      // 6. Dubai Success Story (Why Us)
       {
         blockType: 'projectontwikkelaarsDubaiSuccessStorySection',
         badge: 'Why us',

@@ -13,21 +13,25 @@ export const ProjectontwikkelaarsFAQSection: Block = {
       name: 'kicker',
       type: 'text',
       label: 'Kicker',
+      localized: true,
     },
     {
       name: 'title',
       type: 'text',
       label: 'Title',
+      localized: true,
     },
     {
       name: 'subtitle',
       type: 'text',
       label: 'Subtitle',
+      localized: true,
     },
     {
       name: 'questions',
       type: 'array',
       label: 'Questions',
+      localized: true,
       fields: [
         {
           name: 'question',
@@ -45,6 +49,7 @@ export const ProjectontwikkelaarsFAQSection: Block = {
       name: 'contactLinkText',
       type: 'text',
       label: 'Contact Link Text',
+      localized: true,
     },
     {
       name: 'contactLinkHref',
@@ -55,6 +60,7 @@ export const ProjectontwikkelaarsFAQSection: Block = {
       name: 'phoneLabel',
       type: 'text',
       label: 'Phone Label',
+      localized: true,
     },
     {
       name: 'phoneNumber',

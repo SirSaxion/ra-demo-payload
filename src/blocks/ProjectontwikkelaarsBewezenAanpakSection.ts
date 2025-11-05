@@ -13,16 +13,19 @@ export const ProjectontwikkelaarsBewezenAanpakSection: Block = {
       name: 'badge',
       type: 'text',
       label: 'Badge',
+      localized: true,
     },
     {
       name: 'title',
       type: 'text',
       label: 'Title',
+      localized: true,
     },
     {
       name: 'subtitle',
       type: 'textarea',
       label: 'Subtitle',
+      localized: true,
     },
     {
       name: 'image',
@@ -33,16 +36,19 @@ export const ProjectontwikkelaarsBewezenAanpakSection: Block = {
       name: 'imageAlt',
       type: 'text',
       label: 'Image Alt',
+      localized: true,
     },
     {
       name: 'practiceTitle',
       type: 'text',
       label: 'Practice Title',
+      localized: true,
     },
     {
       name: 'practicePoints',
       type: 'array',
       label: 'Practice Points',
+      localized: true,
       fields: [
         {
           name: 'text',
@@ -55,6 +61,7 @@ export const ProjectontwikkelaarsBewezenAanpakSection: Block = {
       name: 'missionStatement',
       type: 'text',
       label: 'Mission Statement',
+      localized: true,
     },
   ],
 }

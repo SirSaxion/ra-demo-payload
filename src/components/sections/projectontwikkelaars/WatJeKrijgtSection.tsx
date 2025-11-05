@@ -1,20 +1,47 @@
 "use client";
 
-import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Calendar, Sparkles, Users, Trophy, Check, Zap, Target, Gem } from "lucide-react";
+import * as LucideIcons from "lucide-react";
+import { Check } from "lucide-react";
+
+interface Feature {
+  icon?: string;
+  title?: string;
+  description?: string;
+}
+
+interface Tab {
+  label?: string;
+  title?: string;
+  description?: string;
+  features?: Feature[];
+}
 
 export interface WatJeKrijgtSectionProps {
   badge?: string;
   title?: string;
   subtitle?: string;
+  tabs?: Tab[];
 }
 
 export default function WatJeKrijgtSection({
   badge = "Jouw complete pakket",
   title = "Van uitverkocht project naar volgende deal",
-  subtitle = "Alles onder één dak: events, marketing, leads en support om jouw projecten razendsnel te verkopen."
+  subtitle = "Alles onder één dak: events, marketing, leads en support om jouw projecten razendsnel te verkopen.",
+  tabs = []
 }: WatJeKrijgtSectionProps) {
+  // Get icon component from icon name
+  const getIcon = (iconName?: string, className: string = "h-5 w-5") => {
+    if (!iconName) return null;
+    const Icon = (LucideIcons as any)[iconName];
+    return Icon ? <Icon className={className} /> : null;
+  };
+
+  // If no tabs provided, return null
+  if (!tabs || tabs.length === 0) {
+    return null;
+  }
+
   return (
     <section className="relative overflow-hidden bg-section text-foreground py-16 md:py-24">
       {/* Background grid pattern */}
@@ -49,294 +76,57 @@ export default function WatJeKrijgtSection({
 
         {/* Tabs Interface */}
         <div className="mx-auto max-w-6xl">
-          <Tabs defaultValue="events" className="w-full">
-            <TabsList className="grid w-full grid-cols-2 lg:grid-cols-4 gap-2 bg-transparent h-auto p-0 mb-8">
-              <TabsTrigger
-                value="events"
-                className="data-[state=active]:bg-[var(--brand-500)] data-[state=active]:text-black bg-[var(--color-surface-3)] border border-[var(--color-border)] rounded-xl p-4 flex flex-col items-center gap-2 hover:bg-[var(--color-surface-3)]/80 transition-all data-[state=active]:shadow-lg"
-              >
-                <Calendar className="h-5 w-5" />
-                <span className="font-semibold text-sm">Event Organisatie</span>
-              </TabsTrigger>
-              <TabsTrigger
-                value="marketing"
-                className="data-[state=active]:bg-[var(--brand-500)] data-[state=active]:text-black bg-[var(--color-surface-3)] border border-[var(--color-border)] rounded-xl p-4 flex flex-col items-center gap-2 hover:bg-[var(--color-surface-3)]/80 transition-all data-[state=active]:shadow-lg"
-              >
-                <Zap className="h-5 w-5" />
-                <span className="font-semibold text-sm">Marketing Power</span>
-              </TabsTrigger>
-              <TabsTrigger
-                value="support"
-                className="data-[state=active]:bg-[var(--brand-500)] data-[state=active]:text-black bg-[var(--color-surface-3)] border border-[var(--color-border)] rounded-xl p-4 flex flex-col items-center gap-2 hover:bg-[var(--color-surface-3)]/80 transition-all data-[state=active]:shadow-lg"
-              >
-                <Users className="h-5 w-5" />
-                <span className="font-semibold text-sm">Expert Support</span>
-              </TabsTrigger>
-              <TabsTrigger
-                value="guarantee"
-                className="data-[state=active]:bg-[var(--brand-500)] data-[state=active]:text-black bg-[var(--color-surface-3)] border border-[var(--color-border)] rounded-xl p-4 flex flex-col items-center gap-2 hover:bg-[var(--color-surface-3)]/80 transition-all data-[state=active]:shadow-lg"
-              >
-                <Trophy className="h-5 w-5" />
-                <span className="font-semibold text-sm">Garanties</span>
-              </TabsTrigger>
+          <Tabs defaultValue="tab-0" className="w-full">
+            <TabsList className={`grid w-full ${tabs.length === 4 ? 'grid-cols-2 lg:grid-cols-4' : `grid-cols-${Math.min(tabs.length, 4)}`} gap-2 bg-transparent h-auto p-0 mb-8`}>
+              {tabs.map((tab, index) => {
+                const firstFeature = tab.features?.[0];
+                return (
+                  <TabsTrigger
+                    key={index}
+                    value={`tab-${index}`}
+                    className="data-[state=active]:bg-[var(--brand-500)] data-[state=active]:text-black bg-[var(--color-surface-3)] border border-[var(--color-border)] rounded-xl p-4 flex flex-col items-center gap-2 hover:bg-[var(--color-surface-3)]/80 transition-all data-[state=active]:shadow-lg"
+                  >
+                    {getIcon(firstFeature?.icon)}
+                    <span className="font-semibold text-sm">{tab.label}</span>
+                  </TabsTrigger>
+                );
+              })}
             </TabsList>
 
-            {/* Event Organisatie Content */}
-            <TabsContent value="events" className="mt-0">
-              <div className="bg-[var(--color-surface-3)] border border-[var(--color-border)] rounded-xl p-8 md:p-12">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="flex-shrink-0 w-16 h-16 bg-[var(--brand-400)]/10 rounded-xl flex items-center justify-center">
-                    <Calendar className="h-8 w-8 text-[var(--brand-500)]" />
+            {/* Dynamic Tab Content */}
+            {tabs.map((tab, tabIndex) => (
+              <TabsContent key={tabIndex} value={`tab-${tabIndex}`} className="mt-0">
+                <div className="bg-[var(--color-surface-3)] border border-[var(--color-border)] rounded-xl p-8 md:p-12">
+                  {/* Tab Header */}
+                  <div className="flex items-start gap-4 mb-6">
+                    <div className="flex-shrink-0 w-16 h-16 bg-[var(--brand-400)]/10 rounded-xl flex items-center justify-center">
+                      {getIcon(tab.features?.[0]?.icon, "h-8 w-8 text-[var(--brand-500)]")}
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-foreground mb-2">{tab.title}</h3>
+                      <p className="text-[var(--color-text-secondary)]">
+                        {tab.description}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-foreground mb-2">Evenementen door heel Nederland</h3>
-                    <p className="text-[var(--color-text-secondary)]">
-                      Wij organiseren professionele evenementen voor jouw projecten - van concept tot uitvoering
-                    </p>
-                  </div>
+
+                  {/* Features Grid */}
+                  {tab.features && tab.features.length > 0 && (
+                    <div className="grid md:grid-cols-2 gap-6 mt-8">
+                      {tab.features.map((feature, featureIndex) => (
+                        <div key={featureIndex} className="flex items-start gap-3">
+                          <Check className="h-5 w-5 text-[var(--brand-500)] mt-0.5 flex-shrink-0" />
+                          <div>
+                            <h4 className="font-semibold text-foreground mb-1">{feature.title}</h4>
+                            <p className="text-[var(--color-text-secondary)] text-sm">{feature.description}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
-
-                <div className="grid md:grid-cols-2 gap-6 mt-8">
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-[var(--brand-500)] mt-0.5 flex-shrink-0" />
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-1">Complete Event Planning</h4>
-                        <p className="text-[var(--color-text-secondary)] text-sm">Locatie, catering, presentaties - alles geregeld</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-[var(--brand-500)] mt-0.5 flex-shrink-0" />
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-1">Landelijk Netwerk</h4>
-                        <p className="text-[var(--color-text-secondary)] text-sm">Events in Amsterdam, Rotterdam, Utrecht en meer</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-[var(--brand-500)] mt-0.5 flex-shrink-0" />
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-1">Bewezen Track Record</h4>
-                        <p className="text-[var(--color-text-secondary)] text-sm">Dubai projecten uitverkocht via events</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-[var(--brand-500)] mt-0.5 flex-shrink-0" />
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-1">Lead Capture Systemen</h4>
-                        <p className="text-[var(--color-text-secondary)] text-sm">Moderne tools om bezoekers direct te converteren</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-[var(--brand-500)] mt-0.5 flex-shrink-0" />
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-1">Follow-up Management</h4>
-                        <p className="text-[var(--color-text-secondary)] text-sm">Geautomatiseerde opvolging na het event</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-[var(--brand-500)] mt-0.5 flex-shrink-0" />
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-1">Event Marketing Campagnes</h4>
-                        <p className="text-[var(--color-text-secondary)] text-sm">Marketing om bezoekers te trekken</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </TabsContent>
-
-            {/* Marketing Power Content */}
-            <TabsContent value="marketing" className="mt-0">
-              <div className="bg-[var(--color-surface-3)] border border-[var(--color-border)] rounded-xl p-8 md:p-12">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="flex-shrink-0 w-16 h-16 bg-[var(--brand-400)]/10 rounded-xl flex items-center justify-center">
-                    <Zap className="h-8 w-8 text-[var(--brand-500)]" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-foreground mb-2">Bewezen Marketing Strategieën</h3>
-                    <p className="text-[var(--color-text-secondary)]">
-                      Van maanden naar weken verkoop met onze getest marketing machine
-                    </p>
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6 mt-8">
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-[var(--brand-500)] mt-0.5 flex-shrink-0" />
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-1">Dubai-property.nl Strategieën</h4>
-                        <p className="text-[var(--color-text-secondary)] text-sm">Bewezen aanpak voor snelle projectverkoop</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-[var(--brand-500)] mt-0.5 flex-shrink-0" />
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-1">Multi-Channel Campagnes</h4>
-                        <p className="text-[var(--color-text-secondary)] text-sm">Online + offline voor maximale bereik</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-[var(--brand-500)] mt-0.5 flex-shrink-0" />
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-1">Doelgroep Targeting</h4>
-                        <p className="text-[var(--color-text-secondary)] text-sm">Bereik exact de juiste kopers voor jouw project</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-[var(--brand-500)] mt-0.5 flex-shrink-0" />
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-1">Content Creatie</h4>
-                        <p className="text-[var(--color-text-secondary)] text-sm">Video's, foto's en copy die verkopen</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-[var(--brand-500)] mt-0.5 flex-shrink-0" />
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-1">ROI Tracking</h4>
-                        <p className="text-[var(--color-text-secondary)] text-sm">Real-time inzicht in campagne prestaties</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-[var(--brand-500)] mt-0.5 flex-shrink-0" />
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-1">Internationale Expertise</h4>
-                        <p className="text-[var(--color-text-secondary)] text-sm">Ervaring met Dubai, Spanje, Bali projecten</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </TabsContent>
-
-            {/* Expert Support Content */}
-            <TabsContent value="support" className="mt-0">
-              <div className="bg-[var(--color-surface-3)] border border-[var(--color-border)] rounded-xl p-8 md:p-12">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="flex-shrink-0 w-16 h-16 bg-[var(--brand-400)]/10 rounded-xl flex items-center justify-center">
-                    <Users className="h-8 w-8 text-[var(--brand-500)]" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-foreground mb-2">Persoonlijke Begeleiding & Community</h3>
-                    <p className="text-[var(--color-text-secondary)]">
-                      Je staat er niet alleen voor - ons team en community staan voor je klaar
-                    </p>
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6 mt-8">
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-[var(--brand-500)] mt-0.5 flex-shrink-0" />
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-1">Customer Success Manager</h4>
-                        <p className="text-[var(--color-text-secondary)] text-sm">Dedicated contact persoon met vastgoed ervaring</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-[var(--brand-500)] mt-0.5 flex-shrink-0" />
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-1">Wekelijkse Q&A Sessies</h4>
-                        <p className="text-[var(--color-text-secondary)] text-sm">Live Zoom calls met project marketing experts</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-[var(--brand-500)] mt-0.5 flex-shrink-0" />
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-1">Online Trainingsportaal</h4>
-                        <p className="text-[var(--color-text-secondary)] text-sm">Toegang tot alle Real Accelerate modules</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="space-y-4">
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-[var(--brand-500)] mt-0.5 flex-shrink-0" />
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-1">Maandelijkse Bijeenkomsten</h4>
-                        <p className="text-[var(--color-text-secondary)] text-sm">Netwerk events met andere ontwikkelaars</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-[var(--brand-500)] mt-0.5 flex-shrink-0" />
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-1">Exclusieve Community</h4>
-                        <p className="text-[var(--color-text-secondary)] text-sm">Kennisdeling met succesvolle ontwikkelaars</p>
-                      </div>
-                    </div>
-                    <div className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-[var(--brand-500)] mt-0.5 flex-shrink-0" />
-                      <div>
-                        <h4 className="font-semibold text-foreground mb-1">Implementatie Support</h4>
-                        <p className="text-[var(--color-text-secondary)] text-sm">Hands-on hulp bij opzetten van systemen</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </TabsContent>
-
-            {/* Garanties Content */}
-            <TabsContent value="guarantee" className="mt-0">
-              <div className="bg-gradient-to-br from-[var(--brand-400)]/10 via-[var(--brand-500)]/5 to-[var(--brand-600)]/10 border-2 border-[var(--brand-400)]/30 rounded-xl p-8 md:p-12">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="flex-shrink-0 w-16 h-16 bg-[var(--brand-500)] rounded-xl flex items-center justify-center">
-                    <Trophy className="h-8 w-8 text-black" />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl font-bold text-foreground mb-2">Risk-Free Samenwerking</h3>
-                    <p className="text-[var(--color-text-secondary)]">
-                      We staan zo achter onze aanpak dat we garanties bieden - iets wat geen traditioneel bureau doet
-                    </p>
-                  </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-8 mt-8">
-                  <div className="bg-[var(--color-surface-3)] border border-[var(--brand-400)]/20 rounded-xl p-6">
-                    <div className="flex-shrink-0 w-12 h-12 bg-[var(--brand-400)]/10 rounded-full flex items-center justify-center mb-4">
-                      <Target className="h-6 w-6 text-[var(--brand-500)]" />
-                    </div>
-                    <h4 className="text-xl font-bold text-foreground mb-3">Resultaatgarantie</h4>
-                    <ul className="space-y-2 text-[var(--color-text-secondary)] text-sm">
-                      <li>✓ Gegarandeerde leadgeneratie</li>
-                      <li>✓ Geen resultaat = geen betaling</li>
-                      <li>✓ Afspraken garanderen we</li>
-                      <li>✓ Transparante KPI's</li>
-                    </ul>
-                  </div>
-
-                  <div className="bg-[var(--color-surface-3)] border border-[var(--brand-400)]/20 rounded-xl p-6">
-                    <div className="flex-shrink-0 w-12 h-12 bg-[var(--brand-400)]/10 rounded-full flex items-center justify-center mb-4">
-                      <Zap className="h-6 w-6 text-[var(--brand-500)]" />
-                    </div>
-                    <h4 className="text-xl font-bold text-foreground mb-3">Snelheidsgarantie</h4>
-                    <ul className="space-y-2 text-[var(--color-text-secondary)] text-sm">
-                      <li>✓ Eerste event binnen 4-6 weken</li>
-                      <li>✓ Leads vanaf dag 1 van campagne</li>
-                      <li>✓ Van maanden naar weken verkoop</li>
-                      <li>✓ Snelle ROI realisatie</li>
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="mt-8 bg-[var(--brand-500)] rounded-xl p-6">
-                  <div className="flex items-center justify-center gap-3">
-                    <div className="flex-shrink-0 w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                      <Gem className="h-5 w-5 text-black" />
-                    </div>
-                    <p className="text-black font-bold text-lg">
-                      BONUS: Dubai-property.nl strategieën voor internationale projecten
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </TabsContent>
+              </TabsContent>
+            ))}
           </Tabs>
         </div>
       </div>

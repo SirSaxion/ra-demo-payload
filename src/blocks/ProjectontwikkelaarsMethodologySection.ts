@@ -13,21 +13,25 @@ export const ProjectontwikkelaarsMethodologySection: Block = {
       name: 'badge',
       type: 'text',
       label: 'Badge',
+      localized: true,
     },
     {
       name: 'title',
       type: 'text',
       label: 'Title',
+      localized: true,
     },
     {
       name: 'subtitle',
       type: 'text',
       label: 'Subtitle',
+      localized: true,
     },
     {
       name: 'steps',
       type: 'array',
       label: 'Steps',
+      localized: true,
       fields: [
         {
           name: 'icon',
@@ -50,6 +54,7 @@ export const ProjectontwikkelaarsMethodologySection: Block = {
       name: 'bottomText',
       type: 'text',
       label: 'Bottom Text',
+      localized: true,
     },
   ],
 }

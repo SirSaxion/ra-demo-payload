@@ -13,6 +13,7 @@ export const ProjectontwikkelaarsTrustStrip: Block = {
       name: 'trustItems',
       type: 'array',
       label: 'Trust Items',
+      localized: true,
       fields: [
         {
           name: 'text',

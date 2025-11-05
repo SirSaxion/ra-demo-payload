@@ -13,21 +13,25 @@ export const ProjectontwikkelaarsPainPointsSection: Block = {
       name: 'badge',
       type: 'text',
       label: 'Badge',
+      localized: true,
     },
     {
       name: 'title',
       type: 'text',
       label: 'Title',
+      localized: true,
     },
     {
       name: 'subtitle',
       type: 'text',
       label: 'Subtitle',
+      localized: true,
     },
     {
       name: 'challenges',
       type: 'array',
       label: 'Challenges',
+      localized: true,
       fields: [
         {
           name: 'icon',
@@ -55,11 +59,13 @@ export const ProjectontwikkelaarsPainPointsSection: Block = {
       name: 'ctaTitle',
       type: 'text',
       label: 'CTA Title',
+      localized: true,
     },
     {
       name: 'ctaDescription',
       type: 'text',
       label: 'CTA Description',
+      localized: true,
     },
   ],
 }
