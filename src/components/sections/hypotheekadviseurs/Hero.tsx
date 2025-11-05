@@ -61,7 +61,7 @@ export default function Hero({
           {/* Left: Edit BV Partnership Showcase */}
           <div className="relative">
             {/* Partnership showcase container */}
-            <div className="relative mb-8">
+            <div className="relative mb-8 mt-12 md:mt-8 lg:mt-0">
               {/* Edit BV partnership badge */}
               <div className="rounded-2xl bg-[var(--bg-hero)]/90 backdrop-blur-sm border border-[var(--color-border)] overflow-hidden shadow-lg">
                 {/* Edit BV Image Thumbnail */}

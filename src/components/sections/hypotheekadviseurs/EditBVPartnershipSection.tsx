@@ -12,11 +12,11 @@ export interface EditBVPartnershipSectionProps {
   benefits?: Array<{ icon: string; text: string }>
   oldWayTitle?: string
   oldWaySubtitle?: string
-  oldWayItems?: string[]
+  oldWayItems?: Array<{ text: string } | string>
   transformLabel?: string
   newWayTitle?: string
   newWaySubtitle?: string
-  newWayItems?: string[]
+  newWayItems?: Array<{ text: string } | string>
   bottomInsight?: string
 }
 
@@ -119,12 +119,15 @@ export default function EditBVPartnershipSection({
               </div>
 
               <ul className="space-y-3 text-base text-black/70">
-                {oldWayItems.map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <X className="mt-0.5 h-5 w-5 flex-shrink-0 text-gray-500" />
-                    <span dangerouslySetInnerHTML={{ __html: item }} />
-                  </li>
-                ))}
+                {oldWayItems.map((item, idx) => {
+                  const text = typeof item === 'object' ? item.text : item;
+                  return (
+                    <li key={idx} className="flex items-start gap-3">
+                      <X className="mt-0.5 h-5 w-5 flex-shrink-0 text-gray-500" />
+                      <span dangerouslySetInnerHTML={{ __html: text }} />
+                    </li>
+                  );
+                })}
               </ul>
             </div>
 
@@ -161,10 +164,11 @@ export default function EditBVPartnershipSection({
                 {newWayItems.map((item, idx) => {
                   const icons = [TrendingUp, Users, Target, Award];
                   const Icon = icons[idx] || TrendingUp;
+                  const text = typeof item === 'object' ? item.text : item;
                   return (
                     <li key={idx} className="flex items-start gap-3">
                       <Icon className="mt-0.5 h-5 w-5 flex-shrink-0 text-black" />
-                      <span dangerouslySetInnerHTML={{ __html: item }} />
+                      <span dangerouslySetInnerHTML={{ __html: text }} />
                     </li>
                   );
                 })}

@@ -111,8 +111,6 @@ async function migrate() {
             ...block,
             oldWaySubtitle: fixesEN.hypotheekadviseursEditBVPartnershipSection.oldWaySubtitle,
             transformLabel: fixesEN.hypotheekadviseursEditBVPartnershipSection.transformLabel,
-            oldWayItems: block.oldWayItems || [],
-            newWayItems: block.newWayItems || [],
           }
         
         case 'hypotheekadviseursVoorWieIsDitSection':

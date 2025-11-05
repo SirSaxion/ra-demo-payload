@@ -116,17 +116,6 @@ export default function InternationalMethodologySection({
             );
           })}
         </div>
-
-        {/* Bottom CTA insight */}
-        <div className="text-center mt-12 md:mt-16">
-          <div className="inline-flex items-center gap-3 bg-[var(--color-surface-3)] backdrop-blur-sm border border-[var(--color-border)] rounded-xl px-6 py-4 shadow-sm">
-            {(() => {
-              const BottomIcon = iconMap[bottomInsightIcon] || Rocket;
-              return <BottomIcon className="h-6 w-6 text-[var(--brand-500)]" />;
-            })()}
-            <p className="text-sm font-medium text-[var(--color-text-secondary)]" dangerouslySetInnerHTML={{ __html: bottomInsightText }} />
-          </div>
-        </div>
       </div>
     </section>
   );

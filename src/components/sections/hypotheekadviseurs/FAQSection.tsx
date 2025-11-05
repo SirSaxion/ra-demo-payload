@@ -28,7 +28,7 @@ export default function FAQSection({
   faqs = [
     { icon: 'Clock', question: 'Hoe snel zie ik resultaat?', answer: 'De eerste leads kunnen binnen 2-4 weken binnenkomen. Structurele groei zie je na 3-6 maanden.' },
     { icon: 'DollarSign', question: 'Wat kost het?', answer: 'We werken op maat. Investering hangt af van je doelen en huidige situatie.' },
-    { icon: 'Target', question: 'Voor wie is dit geschikt?', answer: 'Voor hypotheekadviseurs die willen groeien en onafhankelijk willen worden van offerte-sites.' }
+    { icon: 'Target', question: 'Voor wie is dit geschikt?', answer: 'Voor adviseurs die willen groeien en onafhankelijk willen worden van offerte-sites.' }
   ]
 }: FAQSectionProps) {
   const iconMap: Record<string, any> = { AlertTriangle, Target, Clock, Home, Users, TrendingUp, DollarSign, Shield };
@@ -86,11 +86,11 @@ export default function FAQSection({
                     value={`item-${idx + 1}`}
                     className="bg-neutral-800/50 border border-neutral-700/50 rounded-lg px-6 shadow-sm hover:shadow-md hover:bg-neutral-800/70 transition-all duration-200">
                     <AccordionTrigger className="cursor-pointer items-center py-6 hover:no-underline">
-                      <div className="flex items-center gap-4">
-                        <div className="flex size-8 items-center justify-center rounded-full bg-brand-500/10">
+                      <div className="flex items-start gap-4 flex-1 min-w-0">
+                        <div className="flex size-8 items-center justify-center rounded-full bg-brand-500/10 flex-shrink-0">
                           <Icon className="size-4 text-brand-500" />
                         </div>
-                        <span className="text-left font-semibold text-foreground">
+                        <span className="text-left font-semibold text-foreground break-all flex-1">
                           {faq.question}
                         </span>
                       </div>

@@ -190,9 +190,7 @@ export const pageData = {
                 "stepLabel": "Resultaat",
                 "description": "Wij koppelen leads direct aan jou of lokale verkoopteams, inclusief ROI-tracking en opvolgtools."
               }
-            ],
-            "bottomInsightIcon": "Rocket",
-            "bottomInsightText": "<strong>Het resultaat:</strong> Van aandacht naar concrete verkopen in 5 bewezen stappen"
+            ]
           }
         },
         {

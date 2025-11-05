@@ -209,7 +209,7 @@ const pageData = {
       {
         blockType: 'hypotheekadviseursFAQSection',
         kicker: 'Veelgestelde vragen',
-        title: 'Vragen van hypotheekadviseurs',
+        title: 'Vragen van adviseurs',
         subtitle: 'Heeft u nog andere vragen? Neem contact op',
         contactLinkText: 'support team',
         contactLinkHref: '/contact',
@@ -434,7 +434,7 @@ const pageData = {
         faqs: [
           { id: '101', icon: 'Clock', question: 'How quickly will I see results?', answer: 'The first leads can come in within 2-4 weeks. Structural growth you see after 3-6 months.' },
           { id: '102', icon: 'DollarSign', question: 'What does it cost?', answer: 'We work customized. Investment depends on your goals and current situation.' },
-          { id: '103', icon: 'Target', question: 'Who is this suitable for?', answer: 'For mortgage advisors who want to grow and become independent from quote sites.' }
+          { id: '103', icon: 'Target', question: 'Who is this suitable for?', answer: 'For advisors who want to grow and become independent from quote sites.' }
         ]
       }
     ]
