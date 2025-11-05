@@ -3,6 +3,9 @@ import path from 'path'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Docker standalone output
+  output: 'standalone',
+  
   // Production optimizations
   productionBrowserSourceMaps: false,
   compress: true,
