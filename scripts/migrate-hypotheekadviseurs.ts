@@ -214,7 +214,7 @@ const pageData = {
         contactLinkText: 'support team',
         contactLinkHref: '/contact',
         phoneLabel: 'Andere vraag?',
-        phoneNumber: '+31850602989',
+        // phoneNumber wordt automatisch uit Site Settings gehaald
         faqs: [
           { id: 1, icon: 'Clock', question: 'Hoe snel zie ik resultaat?', answer: 'De eerste leads kunnen binnen 2-4 weken binnenkomen. Structurele groei zie je na 3-6 maanden.' },
           { id: 2, icon: 'DollarSign', question: 'Wat kost het?', answer: 'We werken op maat. Investering hangt af van je doelen en huidige situatie.' },
@@ -430,7 +430,7 @@ const pageData = {
         contactLinkText: 'support team',
         contactLinkHref: '/contact',
         phoneLabel: 'Other question?',
-        phoneNumber: '+31850602989',
+        // phoneNumber wordt automatisch uit Site Settings gehaald
         faqs: [
           { id: '101', icon: 'Clock', question: 'How quickly will I see results?', answer: 'The first leads can come in within 2-4 weeks. Structural growth you see after 3-6 months.' },
           { id: '102', icon: 'DollarSign', question: 'What does it cost?', answer: 'We work customized. Investment depends on your goals and current situation.' },

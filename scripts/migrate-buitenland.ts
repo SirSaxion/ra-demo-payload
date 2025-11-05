@@ -240,7 +240,7 @@ const pageData = {
         contactLinkText: 'support team',
         contactLinkHref: '/contact',
         phoneLabel: 'Of bel ons direct',
-        phoneNumber: '+31850602989',
+        // phoneNumber wordt automatisch uit Site Settings gehaald
         faqs: [
           { id: 1, icon: 'Globe', question: 'Werkt dit echt voor mijn specifieke land?', answer: 'Ja. We hebben bewezen ervaring in Bali, Spanje, Oostenrijk, Portugal, Dubai en meer. Elke markt krijgt een op maat gemaakte aanpak.' },
           { id: 2, icon: 'DollarSign', question: 'Wat kost internationale marketing?', answer: 'Dit hangt af van jouw project, doelmarkten en budget. We werken transparant en op resultaat. Plan een gesprek voor een offerte op maat.' },
@@ -470,7 +470,7 @@ const pageData = {
         contactLinkText: 'support team',
         contactLinkHref: '/contact',
         phoneLabel: 'Or call us directly',
-        phoneNumber: '+31850602989',
+        // phoneNumber wordt automatisch uit Site Settings gehaald
         faqs: [
           { id: 101, icon: 'Globe', question: 'Does this really work for my specific country?', answer: 'Yes. We have proven experience in Bali, Spain, Austria, Portugal, Dubai and more. Each market gets a customized approach.' },
           { id: 102, icon: 'DollarSign', question: 'What does international marketing cost?', answer: 'This depends on your project, target markets and budget. We work transparently and results-based. Schedule a call for a custom quote.' },

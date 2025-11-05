@@ -269,7 +269,7 @@ const pageData = {
         contactLinkText: 'support team',
         contactLinkHref: '/contact',
         phoneLabel: 'Andere vraag?',
-        phoneNumber: '+31850602989',
+        // phoneNumber wordt automatisch uit Site Settings gehaald
         faqs: [
           {
             question: 'Hoe snel zie ik resultaat?',
@@ -553,7 +553,7 @@ const pageData = {
         contactLinkText: 'support team',
         contactLinkHref: '/contact',
         phoneLabel: 'Other question?',
-        phoneNumber: '+31850602989',
+        // phoneNumber wordt automatisch uit Site Settings gehaald
         faqs: [
           {
             question: 'How quickly do I see results?',

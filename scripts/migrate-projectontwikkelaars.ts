@@ -252,8 +252,8 @@ const pageData = {
         subtitle: 'Heeft u nog andere vragen? Neem contact op met ons',
         contactLinkText: 'support team',
         contactLinkHref: '/contact',
-        phoneLabel: 'Andere vraag?',
-        phoneNumber: '085 060 2989'
+        phoneLabel: 'Andere vraag?'
+        // phoneNumber wordt automatisch uit Site Settings gehaald
       }
     ]
   },
@@ -502,8 +502,8 @@ const pageData = {
         subtitle: 'Do you have other questions? Contact our',
         contactLinkText: 'support team',
         contactLinkHref: '/contact',
-        phoneLabel: 'Other question?',
-        phoneNumber: '085 060 2989'
+        phoneLabel: 'Other question?'
+        // phoneNumber wordt automatisch uit Site Settings gehaald
       }
     ]
   }
