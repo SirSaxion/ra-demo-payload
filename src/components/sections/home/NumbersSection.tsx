@@ -24,7 +24,7 @@ interface NumbersSectionProps {
 
 export default function NumbersSection({
   title = "Resultaten in cijfers",
-  kicker = "WAAR WE TROTS OP ZIJN",
+  kicker = "WHAT WE'RE PROUD OF",
   stats = [
     { value: "30+", label: "jaar marketing ervaring team" },
     { value: "40+", label: "jaar vastgoed ervaring team" },

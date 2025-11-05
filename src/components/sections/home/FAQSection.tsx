@@ -32,9 +32,9 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 }
 
 export default function FAQSection({
-    title = "Veelgestelde vragen",
-    subtitle = "Alles wat je moet weten",
-    kicker = "VEELGESTELDE VRAGEN",
+    title = "Frequently asked questions",
+    subtitle = "Everything you need to know",
+    kicker = "FREQUENTLY ASKED QUESTIONS",
     items,
     phone = "085 060 2989",
     phoneLink = "tel:+31850602989",
@@ -106,7 +106,7 @@ export default function FAQSection({
                                     </svg>
                                 </div>
                                 <div>
-                                    <p className="text-sm font-medium text-foreground">Andere vraag?</p>
+                                    <p className="text-sm font-medium text-foreground">Other question?</p>
                                     <p className="text-sm text-muted-foreground">
                                         Bel direct:{' '}
                                         <a href={phoneLink} className="text-brand-500 font-medium hover:underline transition-colors">

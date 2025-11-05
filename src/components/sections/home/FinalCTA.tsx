@@ -115,7 +115,7 @@ export default function FinalCTA({
                 </a>
               </Button>
               <p className="mt-3 text-center type-caption text-[var(--color-text-muted)]">
-                Bel direct: {phone} • Vrijblijvend
+                Call directly: {phone} • No obligation
               </p>
             </div>
           </div>

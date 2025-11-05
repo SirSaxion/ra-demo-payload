@@ -649,7 +649,7 @@ export function StrategySessionCTA() {
               
               <div className="mt-4 text-center space-y-2">
                 <p className="type-body font-medium text-[var(--color-text)]">
-                  30 min • Gratis • Vrijblijvend • Waarde €1000
+                  30 min • Free • No obligation • Value €1000
                 </p>
                 <p className="type-caption text-[var(--color-text-muted)] flex items-center justify-center gap-1">
                   📅 "Beperkte plaatsen beschikbaar - alleen voor serieuze groeiers"

@@ -67,7 +67,7 @@ function RudySticker() {
 export default function HowItWorksSection({
   title = "Van intake naar voorspelbare groei",
   subtitle = "Drie heldere stappen. Precies wat je van ons kan verwachten.",
-  kicker = "HOE HET WERKT",
+  kicker = "HOW IT WORKS",
   steps: propSteps,
 }: HowItWorksSectionProps = {}) {
   const { openDialog } = useStrategyDialog();
@@ -322,10 +322,10 @@ export default function HowItWorksSection({
               <a
                 href="mailto:info@realaccelerate.nl"
                 className="inline-flex h-12 items-center gap-2 rounded-xl bg-[var(--brand-500)] px-6 text-base font-bold text-[var(--color-accent-contrast)] shadow-[var(--shadow-brand)] transition-colors hover:bg-[var(--brand-600)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-500)] focus-visible:ring-offset-2"
-                aria-label="Plan een bakje koffie via email"
+                aria-label="Schedule a coffee via email"
               >
                 <Coffee className="h-5 w-5" />
-                Plan een bakje koffie
+                Schedule a coffee
               </a>
               {/* Temporarily commented out - bekijk cases */}
               {/* <Button asChild variant="ghost" className="h-12 rounded-xl px-5 text-base text-[var(--neutral-900)] hover:bg-black/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[var(--brand-500)]">

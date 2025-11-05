@@ -326,7 +326,7 @@ export default function UniqueApproachSection({
             <a
               href={ctaButtonHref}
               className="inline-flex items-center gap-2 rounded-xl bg-[var(--brand-500)] px-5 py-5 text-sm font-bold text-[var(--color-accent-contrast)] shadow-[var(--shadow-brand)] transition-transform hover:-translate-y-0.5 hover:bg-[var(--brand-600)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--brand-500)] focus-visible:ring-offset-2"
-              aria-label="Plan een bakje koffie via email"
+              aria-label="Schedule a coffee via email"
             >
               <Coffee className="h-4 w-4" />
               {ctaButtonLabel}

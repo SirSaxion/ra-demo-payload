@@ -151,12 +151,12 @@ export default function HeroSection({
             <div className="flex items-center gap-2 sm:gap-3">
               <div className="flex items-center gap-1">
                 <CheckCircle2 className="h-4 w-4 text-[var(--brand-300)]" />
-                <span className="text-xs sm:text-sm">30 minuten</span>
+                <span className="text-xs sm:text-sm">30 minutes</span>
               </div>
               <Separator orientation="vertical" className="h-4 bg-foreground/30" />
               <div className="flex items-center gap-1">
                 <CheckCircle2 className="h-4 w-4 text-[var(--brand-300)]" />
-                <span className="text-xs sm:text-sm">Vrijblijvend</span>
+                <span className="text-xs sm:text-sm">No obligation</span>
               </div>
             </div>
           </div>
