@@ -448,7 +448,8 @@ const pageData = {
       },
       {
         blockType: 'internationalStrategySessionCTA',
-        title: 'Ready to launch your international project globally?',
+        title: 'Ready to launch your international project',
+        highlightText: 'globally?',
         subtitle: 'Schedule a free strategy call and discover how we bring your project from unknown to sold out.',
         benefits: [
           { text: 'Analysis of your project & target markets' },
@@ -458,8 +459,8 @@ const pageData = {
           { text: 'Direct insights from international experts' }
         ],
         ctaLabel: 'Claim your free strategy session',
-        ctaSubtext: '30 minutes • Completely non-binding • For international projects',
-        ctaHref: '/contact'
+        ctaFooter: '30 min • Completely non-binding • Directly applicable insights',
+        bonusText: 'Access to our international network via IQI Global'
       },
       {
         blockType: 'internationalFAQSection',

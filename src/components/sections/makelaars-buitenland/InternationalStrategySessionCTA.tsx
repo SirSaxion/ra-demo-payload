@@ -16,20 +16,19 @@ export interface InternationalStrategySessionCTAProps {
 }
 
 export default function InternationalStrategySessionCTA({
-  title = 'Maak jouw buitenlandse vastgoedproject',
-  highlightText = 'internationaal zichtbaar',
-  subtitle = 'Ontdek hoe wij binnen 30 dagen gekwalificeerde leads genereren in Nederland, Duitsland en België.',
+  title = 'Ready to launch your international project',
+  highlightText = 'globally?',
+  subtitle = 'Schedule a free strategy call and discover how we bring your project from unknown to sold out.',
   benefits = [
-    'Analyse van jouw project en doelmarkt (30 min)',
-    'Concrete strategieen voor DACH- en Benelux-markten',
-    'Leadgeneratie & opvolging aanpak',
-    'ROI projectie en tijdlijn',
-    'Voorbeelden uit vergelijkbare projecten',
-    'BONUS: Inzicht in onze internationale netwerk mogelijkheden'
+    'Analysis of your project & target markets',
+    'Access to IQI Global network & resources',
+    'Concrete roadmap for international growth',
+    'No obligations, 100% non-binding',
+    'Direct insights from international experts'
   ],
-  ctaLabel = 'Plan een vrijblijvende projectsessie',
-  ctaFooter = '30 min • Volledig vrijblijvend • Direct toepasbare inzichten',
-  bonusText = 'Toegang tot ons internationale netwerk via IQI Global'
+  ctaLabel = 'Claim your free strategy session',
+  ctaFooter = '30 min • Completely non-binding • Directly applicable insights',
+  bonusText = 'Access to our international network via IQI Global'
 }: InternationalStrategySessionCTAProps) {
   const { openDialog } = useStrategyDialog() ?? { openDialog: () => {} };
 

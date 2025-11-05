@@ -10,21 +10,25 @@ export const InternationalStrategySessionCTA: Block = {
       type: 'text',
       label: 'Titel',
       required: true,
+      localized: true,
     },
     {
       name: 'highlightText',
       type: 'text',
       label: 'Highlighted tekst',
+      localized: true,
     },
     {
       name: 'subtitle',
       type: 'textarea',
       label: 'Subtitle',
+      localized: true,
     },
     {
       name: 'benefits',
       type: 'array',
       label: 'Voordelen',
+      localized: true,
       fields: [
         {
           name: 'text',
@@ -37,16 +41,19 @@ export const InternationalStrategySessionCTA: Block = {
       name: 'ctaLabel',
       type: 'text',
       label: 'CTA Label',
+      localized: true,
     },
     {
       name: 'ctaFooter',
       type: 'text',
       label: 'CTA Footer',
+      localized: true,
     },
     {
       name: 'bonusText',
       type: 'text',
       label: 'Bonus tekst',
+      localized: true,
     },
   ],
 }
