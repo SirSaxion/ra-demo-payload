@@ -56,8 +56,8 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
 COPY --from=builder --chown=nextjs:nodejs /app/node_modules ./node_modules
 COPY --from=builder --chown=nextjs:nodejs /app/package.json ./package.json
 COPY --from=builder --chown=nextjs:nodejs /app/src ./src
-COPY --from=builder --chown=nextjs:nodejs /app/ra-demo-payload.db ./ra-demo-payload.db
 COPY --from=builder --chown=nextjs:nodejs /app/next.config.mjs ./next.config.mjs
+# NOTE: Database is mounted as volume, not copied into image
 
 USER nextjs
 
