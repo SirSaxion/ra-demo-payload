@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./ra-demo-payload.db:/app/ra-demo-payload.db
+    environment:
+      - DATABASE_URI=file:./ra-demo-payload.db
+      - PAYLOAD_SECRET=${PAYLOAD_SECRET}
+      - NEXT_PUBLIC_SERVER_URL=${NEXT_PUBLIC_SERVER_URL}
+      - NODE_ENV=production
+    restart: unless-stopped
