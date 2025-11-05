@@ -38,9 +38,9 @@ export default function HeroSection({
 }: HeroSectionProps = {}) {
   return (
     <section className="relative isolate overflow-hidden bg-section min-h-[calc(100svh-56px)] md:min-h-[calc(100svh-76px)] mt-14 md:mt-[76px] flex items-center">
-      <div className="mx-auto w-full max-w-[90rem] px-4 lg:px-6 py-8 md:py-12 grid gap-10 lg:grid-cols-2 items-center">
+      <div className="mx-auto w-full max-w-[90rem] px-4 lg:px-6 py-8 md:py-12 grid gap-10 xl:grid-cols-2 items-center">
         {/* Visual montage */}
-        <div className="relative order-2 lg:order-1">
+        <div className="relative order-2 xl:order-1">
           <div className="relative aspect-[4/3]">
             <Image
               src={image}
@@ -54,7 +54,7 @@ export default function HeroSection({
         </div>
 
         {/* Copy */}
-        <div className="order-1 lg:order-2 min-w-0">
+        <div className="order-1 xl:order-2 min-w-0">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm md:text-base font-mono tracking-wider uppercase text-[var(--brand-400)]">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--brand-500)]" />
             {badge}

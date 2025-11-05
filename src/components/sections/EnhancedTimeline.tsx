@@ -109,26 +109,26 @@ export function EnhancedTimeline({
 
       <div ref={ref} className="relative mx-auto max-w-6xl pb-20">
         {data.map((item, index) => (
-          <div key={index} className="flex justify-start pt-10 md:pt-40 md:gap-10">
-            <div className="sticky flex flex-col md:flex-row z-40 items-center top-40 self-start shrink-0 md:basis-[520px] lg:basis-[600px]">
+          <div key={index} className="flex justify-start pt-10 xl:pt-40 xl:gap-10">
+            <div className="sticky flex flex-col xl:flex-row z-40 items-center top-40 self-start shrink-0 xl:basis-[520px] xl:basis-[600px]">
               <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-background border border-border flex items-center justify-center">
                 <div className={cn("h-4 w-4 rounded-full border p-2 transition-all duration-300", getStatusColor(item.status))} />
               </div>
-              <div className="hidden md:flex flex-col md:pl-20">
+              <div className="hidden xl:flex flex-col xl:pl-20">
                 <span className="text-lg md:text-xl font-semibold text-white/70 tracking-wide">{formatTitle(item.title).year}</span>
                 <span className="text-3xl md:text-5xl font-bold text-white/90 leading-tight">{formatTitle(item.title).headline}</span>
               </div>
             </div>
 
-            <div className="relative pl-20 pr-4 md:pl-6 md:ml-8 flex-1 min-w-0">
-              <div className="flex items-center gap-3 mb-4 md:hidden">
+            <div className="relative pl-20 pr-4 xl:pl-6 xl:ml-8 flex-1 min-w-0">
+              <div className="flex items-center gap-3 mb-4 xl:hidden">
                 <h3 className="text-2xl font-bold text-white/90">{item.title}</h3>
                 {item.status && (
                   <Badge variant={item.status === "completed" ? "default" : "secondary"}>{item.status}</Badge>
                 )}
               </div>
 
-              <div className="hidden md:flex items-center gap-3 mb-6">
+              <div className="hidden xl:flex items-center gap-3 mb-6">
                 {item.status && (
                   <Badge variant={item.status === "completed" ? "default" : "secondary"}>{item.status}</Badge>
                 )}
@@ -152,7 +152,7 @@ export function EnhancedTimeline({
 
         <div
           style={{ height: height + "px" }}
-          className="absolute md:left-8 left-8 top-0 overflow-hidden w-[2px] bg-gradient-to-b from-transparent via-border to-transparent [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
+          className="absolute xl:left-8 left-8 top-0 overflow-hidden w-[2px] bg-gradient-to-b from-transparent via-border to-transparent [mask-image:linear-gradient(to_bottom,transparent_0%,black_10%,black_90%,transparent_100%)]"
         >
           <motion.div
             style={{ height: heightTransform, opacity: opacityTransform }}

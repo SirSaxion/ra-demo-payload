@@ -81,7 +81,7 @@ export default function MissionSection({
 
         {/* Journey Cards */}
         <div className="mt-12 md:mt-16">
-          <div className="relative grid grid-cols-1 gap-6 md:grid-cols-[1fr_auto_1fr_auto_1fr] md:items-stretch">
+          <div className="relative grid grid-cols-1 gap-6 xl:grid-cols-[1fr_auto_1fr_auto_1fr] xl:items-stretch">
             {cards.map((card, index) => {
               const Icon = iconMap[card.icon] || Lightbulb;
               const isLast = index === cards.length - 1;
@@ -126,13 +126,13 @@ export default function MissionSection({
                   {index < cards.length - 1 && (
                     <>
                       {/* Desktop arrow */}
-                      <div className="hidden md:flex items-center justify-center">
+                      <div className="hidden xl:flex items-center justify-center">
                         <div className="rounded-xl border border-white/10 bg-gradient-to-br from-white/[0.06] to-white/[0.02] p-3 backdrop-blur-sm">
                           <ArrowRight className="h-5 w-5 text-[var(--brand-400)]" />
                         </div>
                       </div>
-                      {/* Mobile arrow */}
-                      <div className="md:hidden flex items-center justify-center">
+                      {/* Mobile/Tablet arrow */}
+                      <div className="xl:hidden flex items-center justify-center">
                         <ArrowRight className="h-5 w-5 text-[var(--brand-400)]/80 rotate-90" />
                       </div>
                     </>
