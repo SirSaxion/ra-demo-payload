@@ -370,7 +370,7 @@ export default function TargetGroupsOverview({
       <div className="mx-auto max-w-7xl px-6 pt-10 md:pt-14 pb-16 md:pb-20">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center text-black">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm md:text-base font-mono tracking-wider uppercase text-[var(--brand-400)]">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm md:text-base font-mono tracking-wider uppercase text-black">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--brand-500)]" />
             {kicker}
           </span>
@@ -499,7 +499,7 @@ export function TargetGroupsOverviewPhotos({
       <div className="mx-auto max-w-7xl px-6 pt-[84px] md:pt-[120px] pb-[96px] md:pb-[132px]">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center text-black">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm md:text-base font-mono tracking-wider uppercase text-[var(--brand-400)]">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm md:text-base font-mono tracking-wider uppercase text-black">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--brand-500)]" />
             {kicker}
           </span>
@@ -582,7 +582,7 @@ export function StrategySessionCTA() {
       <div className="mx-auto max-w-7xl px-6">
         {/* Section header */}
         <div className="text-center mb-8">
-          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm md:text-base font-mono tracking-wider uppercase text-[var(--brand-400)]">
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm md:text-base font-mono tracking-wider uppercase text-black">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--brand-500)]" />
             HOE WE BEGINNEN
           </span>

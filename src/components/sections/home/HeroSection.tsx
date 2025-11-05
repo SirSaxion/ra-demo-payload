@@ -108,13 +108,15 @@ export default function HeroSection({
                 {ctaPrimary.label}
               </a>
             </Button>
-            <Button
-              asChild
-              variant="link"
-              className="h-12 rounded-xl px-4 text-[var(--brand-200)] hover:text-[var(--brand-100)] hover:underline underline-offset-4 focus-visible:ring-[var(--brand-400)]/40"
-            >
-              <Link href={ctaSecondary.href}>{ctaSecondary.label}</Link>
-            </Button>
+            {ctaSecondary?.href && (
+              <Button
+                asChild
+                variant="link"
+                className="h-12 rounded-xl px-4 text-[var(--brand-200)] hover:text-[var(--brand-100)] hover:underline underline-offset-4 focus-visible:ring-[var(--brand-400)]/40"
+              >
+                <Link href={ctaSecondary.href}>{ctaSecondary.label}</Link>
+              </Button>
+            )}
           </div>
 
           {/* Cozy club: tiny avatar stack + trust copy */}
@@ -151,12 +153,12 @@ export default function HeroSection({
             <div className="flex items-center gap-2 sm:gap-3">
               <div className="flex items-center gap-1">
                 <CheckCircle2 className="h-4 w-4 text-[var(--brand-300)]" />
-                <span className="text-xs sm:text-sm">30 minutes</span>
+                <span className="text-xs sm:text-sm">30 minuten</span>
               </div>
               <Separator orientation="vertical" className="h-4 bg-foreground/30" />
               <div className="flex items-center gap-1">
                 <CheckCircle2 className="h-4 w-4 text-[var(--brand-300)]" />
-                <span className="text-xs sm:text-sm">No obligation</span>
+                <span className="text-xs sm:text-sm">Vrijblijvend</span>
               </div>
             </div>
           </div>

@@ -23,6 +23,9 @@ export const metadata: Metadata = {
     template: '%s | Real Accelerate'
   },
   description: 'Online marketing bureau gespecialiseerd in vastgoedmarketing voor makelaars en vastgoedondernemers',
+  icons: {
+    icon: '/favicon.ico',
+  },
   openGraph: {
     type: 'website',
     locale: 'nl_NL',

@@ -8,6 +8,14 @@ export const TestimonialsSection: Block = {
   },
   fields: [
     {
+      name: 'kicker',
+      type: 'text',
+      label: 'Kicker',
+      admin: {
+        description: 'Badge tekst bovenaan (bijv. "MEER SUCCESVERHALEN")',
+      },
+    },
+    {
       name: 'title',
       type: 'text',
       label: 'Titel',

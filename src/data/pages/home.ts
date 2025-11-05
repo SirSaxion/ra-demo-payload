@@ -28,10 +28,6 @@ export const pageData = {
               "label": "Plan een bakkie ☕",
               "href": "mailto:info@realaccelerate.nl"
             },
-            "ctaSecondary": {
-              "label": "Bekijk cases",
-              "href": "/cases"
-            }
           }
         },
         {
@@ -154,9 +150,9 @@ export const pageData = {
           "type": "Home-UniqueApproach",
           "order": 4,
           "props": {
-            "kicker": "Onze aanpak",
-            "title": "Wij werken anders dan andere marketing bureaus",
-            "subtitle": "We bouwen geen campagnes, we bouwen systemen",
+            "kicker": "Onze unieke aanpak",
+            "title": "Wij zijn geen standaard marketingbureau. Wij zijn vastgoedondernemers én marketingexperts",
+            "subtitle": "Complete marketingaanpak, meetbare groei en ruimte om te ondernemen.",
             "metricValue": "99%",
             "metricLabel": "klanttevredenheid",
             "card1Title": "Nieuwste technieken",
@@ -182,8 +178,9 @@ export const pageData = {
           "type": "Home-MarketingMachine",
           "order": 6,
           "props": {
-            "title": "De Marketing Machine",
-            "subtitle": "Een compleet systeem dat 24/7 voor je werkt",
+            "kicker": "WAT WIJ VOOR JE DOEN",
+            "title": "Complete marketing machine voor vastgoedprofessionals",
+            "subtitle": "Van eerste indruk tot deal: websites, leadgeneratie, vindbaarheid en opvolging in één systeem.",
             "features": [
               {
                 "icon": "Globe",
@@ -241,8 +238,9 @@ export const pageData = {
           "type": "Home-TargetGroupsOverview",
           "order": 7,
           "props": {
-            "title": "Voor wie is dit?",
-            "subtitle": "Gespecialiseerde oplossingen per doelgroep"
+            "kicker": "DOELGROEPEN",
+            "title": "Voor wie wij werken",
+            "subtitle": "Gespecialiseerde oplossingen voor elke vastgoedprofessional"
           }
         },
         {
@@ -278,7 +276,7 @@ export const pageData = {
                 "key": "hypotheek"
               },
               {
-                "name": "International",
+                "name": "Buitenland",
                 "description": "IQI Global Partnership • Dubai, Spanje, Bali ervaring",
                 "img": "/images/secondhomebeurs.jpg",
                 "alt": "Second Home Beurs",
@@ -293,19 +291,24 @@ export const pageData = {
           "type": "Home-NumbersSection",
           "order": 9,
           "props": {
+            "kicker": "WAAR WE TROTS OP ZIJN",
             "title": "Resultaten in cijfers",
             "stats": [
               {
-                "value": "50+",
-                "label": "Tevreden klanten"
+                "value": "30+",
+                "label": "jaar marketing ervaring team"
               },
               {
-                "value": "200+",
-                "label": "Projecten afgerond"
+                "value": "40+",
+                "label": "jaar vastgoed ervaring team"
               },
               {
-                "value": "95%",
-                "label": "Klant tevredenheid"
+                "value": "600k+",
+                "label": "ad spend"
+              },
+              {
+                "value": "1375",
+                "label": "bakken koffie"
               }
             ]
           }
@@ -315,8 +318,8 @@ export const pageData = {
           "type": "Home-TestimonialsSection",
           "order": 10,
           "props": {
+            "kicker": "MEER SUCCESVERHALEN",
             "title": "Uitgelichte succesverhalen",
-            "description": "MEER SUCCESVERHALEN",
             "durationSec": 70,
             "testimonials": [
               {
@@ -357,8 +360,9 @@ export const pageData = {
           "type": "Home-FAQSection",
           "order": 11,
           "props": {
-            "title": "Veelgestelde vragen",
-            "subtitle": "Alles wat je moet weten",
+            "kicker": "VEELGESTELDE VRAGEN",
+            "title": "Frequently Asked Questions",
+            "subtitle": "Heeft u nog andere vragen? Neem contact op met ons support team of plan een gratis strategiesessie in.",
             "items": [
               {
                 "id": "item-1",
@@ -404,8 +408,9 @@ export const pageData = {
           "type": "Home-HowItWorksSection",
           "order": 12,
           "props": {
-            "title": "Hoe werkt het?",
-            "subtitle": "Van kennismaking tot resultaat in 4 stappen",
+            "kicker": "HOE HET WERKT",
+            "title": "Van intake naar voorspelbare groei",
+            "subtitle": "Drie heldere stappen. Precies wat je van ons kan verwachten.",
             "steps": [
               {
                 "id": 1,
@@ -449,9 +454,9 @@ export const pageData = {
           "type": "Home-FinalCTA",
           "order": 13,
           "props": {
-            "title": "Klaar om te groeien?",
-            "subtitle": "Plan een kennismakingsgesprek en ontdek wat we voor jou kunnen betekenen",
-            "ctaLabel": "Plan een bakkie",
+            "title": "Laten we samen jouw bedrijf naar een hoger niveau tillen",
+            "subtitle": "Analyse huidige situatie en groeidoelen",
+            "ctaLabel": "Neem contact op",
             "ctaHref": "mailto:info@realaccelerate.nl",
             "bullets": [
               "Analyse huidige situatie en groeidoelen",

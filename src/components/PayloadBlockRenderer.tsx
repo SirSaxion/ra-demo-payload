@@ -245,6 +245,7 @@ export default function PayloadBlockRenderer({ blocks, siteSettings }: PayloadBl
             key={index}
             title={block.title}
             description={block.description}
+            kicker={block.kicker}
             durationSec={block.durationSec}
             testimonials={block.testimonials?.map((testimonial: any) => ({
               ...testimonial,

@@ -399,6 +399,10 @@ export interface Page {
             blockType: 'numbersSection';
           }
         | {
+            /**
+             * Badge tekst bovenaan (bijv. "MEER SUCCESVERHALEN")
+             */
+            kicker?: string | null;
             title: string;
             description?: string | null;
             durationSec?: number | null;
@@ -2833,6 +2837,7 @@ export interface PagesSelect<T extends boolean = true> {
         testimonialsSection?:
           | T
           | {
+              kicker?: T;
               title?: T;
               description?: T;
               durationSec?: T;

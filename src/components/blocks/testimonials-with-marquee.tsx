@@ -3,7 +3,8 @@ import { TestimonialCard, TestimonialAuthor } from "@/components/ui/testimonial-
 
 interface TestimonialsSectionProps {
   title: string
-  description: string
+  description?: string
+  kicker?: string
   testimonials: Array<{
     author: TestimonialAuthor
     text: string
@@ -21,6 +22,7 @@ interface TestimonialsSectionProps {
 export function TestimonialsSection({ 
   title,
   description,
+  kicker,
   testimonials,
   className,
   cardClassName,
@@ -31,17 +33,28 @@ export function TestimonialsSection({
   return (
     <section 
       className={cn(
-        "relative text-foreground py-20 md:py-28",
+        "relative isolate text-foreground py-20 md:py-28",
         className
       )}
-      style={{ backgroundColor: '#121212' }}
+      style={{ backgroundColor: '#1A1A1A' }}
     >
+      {/* Grid background without fade - same as NumbersSection */}
+      <div className="pointer-events-none absolute inset-0 opacity-[0.06]">
+        <svg className="h-full w-full" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+          <defs>
+            <pattern id="testimonials-grid" width="36" height="36" patternUnits="userSpaceOnUse">
+              <path d="M 36 0 L 0 0 0 36" fill="none" stroke="currentColor" strokeWidth="1" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#testimonials-grid)" className="text-foreground" />
+        </svg>
+      </div>
       <div className="mx-auto max-w-7xl px-6">
         <div className="mx-auto max-w-3xl text-center">
           <div className="flex justify-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm md:text-base font-mono tracking-wider uppercase text-[var(--brand-400)]">
               <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--brand-500)]" />
-              {description}
+              {kicker || description}
             </span>
           </div>
           <h2 className="mt-6 type-h2 text-foreground">
