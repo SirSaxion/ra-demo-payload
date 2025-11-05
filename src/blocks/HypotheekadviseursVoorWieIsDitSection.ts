@@ -65,5 +65,11 @@ export const HypotheekadviseursVoorWieIsDitSection: Block = {
         },
       ],
     },
+    {
+      name: 'bottomInsightText',
+      type: 'textarea',
+      label: 'Bottom Insight Text',
+      localized: true,
+    },
   ],
 }

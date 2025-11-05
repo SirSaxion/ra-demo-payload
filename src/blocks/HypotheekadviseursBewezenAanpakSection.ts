@@ -43,5 +43,29 @@ export const HypotheekadviseursBewezenAanpakSection: Block = {
         },
       ],
     },
+    {
+      name: 'visualTitle',
+      type: 'text',
+      label: 'Visual Title',
+      localized: true,
+    },
+    {
+      name: 'visualDescription',
+      type: 'textarea',
+      label: 'Visual Description',
+      localized: true,
+    },
+    {
+      name: 'detailsTitle',
+      type: 'text',
+      label: 'Details Title',
+      localized: true,
+    },
+    {
+      name: 'quote',
+      type: 'textarea',
+      label: 'Quote',
+      localized: true,
+    },
   ],
 }

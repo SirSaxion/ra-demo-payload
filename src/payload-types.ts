@@ -1747,8 +1747,22 @@ export interface HypotheekadviseursEditBVPartnershipSection {
       }[]
     | null;
   oldWayTitle?: string | null;
+  oldWaySubtitle?: string | null;
+  oldWayItems?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  transformLabel?: string | null;
   newWayTitle?: string | null;
   newWaySubtitle?: string | null;
+  newWayItems?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   bottomInsight?: string | null;
   id?: string | null;
   blockName?: string | null;
@@ -1799,6 +1813,7 @@ export interface HypotheekadviseursVoorWieIsDitSection {
         id?: string | null;
       }[]
     | null;
+  bottomInsightText?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'hypotheekadviseursVoorWieIsDitSection';
@@ -1837,6 +1852,25 @@ export interface HypotheekadviseursWatJeKrijgtSection {
         id?: string | null;
       }[]
     | null;
+  supportTitle?: string | null;
+  supportSubtitle?: string | null;
+  supportItems?:
+    | {
+        icon?: string | null;
+        title?: string | null;
+        description?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  bonusIcon?: string | null;
+  bonusTitle?: string | null;
+  bonusDescription?: string | null;
+  bonusItems?:
+    | {
+        text?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'hypotheekadviseursWatJeKrijgtSection';
@@ -1857,6 +1891,10 @@ export interface HypotheekadviseursBewezenAanpakSection {
         id?: string | null;
       }[]
     | null;
+  visualTitle?: string | null;
+  visualDescription?: string | null;
+  detailsTitle?: string | null;
+  quote?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'hypotheekadviseursBewezenAanpakSection';
@@ -4031,8 +4069,22 @@ export interface HypotheekadviseursEditBVPartnershipSectionSelect<T extends bool
         id?: T;
       };
   oldWayTitle?: T;
+  oldWaySubtitle?: T;
+  oldWayItems?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
+  transformLabel?: T;
   newWayTitle?: T;
   newWaySubtitle?: T;
+  newWayItems?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
   bottomInsight?: T;
   id?: T;
   blockName?: T;
@@ -4081,6 +4133,7 @@ export interface HypotheekadviseursVoorWieIsDitSectionSelect<T extends boolean =
         text?: T;
         id?: T;
       };
+  bottomInsightText?: T;
   id?: T;
   blockName?: T;
 }
@@ -4117,6 +4170,25 @@ export interface HypotheekadviseursWatJeKrijgtSectionSelect<T extends boolean = 
             };
         id?: T;
       };
+  supportTitle?: T;
+  supportSubtitle?: T;
+  supportItems?:
+    | T
+    | {
+        icon?: T;
+        title?: T;
+        description?: T;
+        id?: T;
+      };
+  bonusIcon?: T;
+  bonusTitle?: T;
+  bonusDescription?: T;
+  bonusItems?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }
@@ -4136,6 +4208,10 @@ export interface HypotheekadviseursBewezenAanpakSectionSelect<T extends boolean 
         description?: T;
         id?: T;
       };
+  visualTitle?: T;
+  visualDescription?: T;
+  detailsTitle?: T;
+  quote?: T;
   id?: T;
   blockName?: T;
 }
