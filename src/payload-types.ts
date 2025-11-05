@@ -1826,6 +1826,23 @@ export interface HypotheekadviseursBewezenResultatenSection {
   kicker?: string | null;
   title: string;
   subtitle?: string | null;
+  kpis?:
+    | {
+        label: string;
+        from: number;
+        to: number;
+        unit?: string | null;
+        sublabel?: string | null;
+        span?: number | null;
+        id?: string | null;
+      }[]
+    | null;
+  bullets?:
+    | {
+        text: string;
+        id?: string | null;
+      }[]
+    | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'hypotheekadviseursBewezenResultatenSection';
@@ -4164,6 +4181,23 @@ export interface HypotheekadviseursBewezenResultatenSectionSelect<T extends bool
   kicker?: T;
   title?: T;
   subtitle?: T;
+  kpis?:
+    | T
+    | {
+        label?: T;
+        from?: T;
+        to?: T;
+        unit?: T;
+        sublabel?: T;
+        span?: T;
+        id?: T;
+      };
+  bullets?:
+    | T
+    | {
+        text?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }

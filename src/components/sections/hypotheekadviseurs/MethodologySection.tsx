@@ -29,7 +29,7 @@ export default function MethodologySection({
   return (
     <section className="relative overflow-hidden bg-section text-foreground py-16 md:py-24">
       {/* Background grid pattern */}
-      <div className="absolute inset-0 opacity-[0.06] [mask-image:linear-gradient(to_bottom,transparent,var(--bg-section)_15%,var(--bg-section)_85%,transparent)]">
+      <div className="absolute inset-0 opacity-[0.06]">
         <svg className="h-full w-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern id="methodology-grid" width="40" height="40" patternUnits="userSpaceOnUse">
@@ -39,9 +39,6 @@ export default function MethodologySection({
           <rect width="100%" height="100%" fill="url(#methodology-grid)" className="text-foreground" />
         </svg>
       </div>
-
-      {/* Top subtle fade */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-[color-mix(in_oklab,var(--neutral-900)_28%,transparent)] to-transparent" />
 
       <div className="relative mx-auto max-w-7xl px-6">
         {/* Section Header */}

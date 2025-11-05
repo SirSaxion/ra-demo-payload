@@ -80,19 +80,19 @@ const pageData = {
         oldWayTitle: 'TRADITIONELE HYPOTHEEK ADVISERING',
         oldWaySubtitle: 'De oude manier',
         oldWayItems: [
-          'Alleen hypotheken',
-          'Prijs focus',
-          'Commoditisering',
-          'Lage marges'
+          { text: 'Alleen hypotheken' },
+          { text: 'Prijs focus' },
+          { text: 'Commoditisering' },
+          { text: 'Lage marges' }
         ],
         transformLabel: 'WORDT',
         newWayTitle: 'EDIT BV PARTNERSHIP',
         newWaySubtitle: 'Duurzaamheid + hypotheek expertise',
         newWayItems: [
-          '<strong>46 afspraken</strong> uit 1.300 contacten',
-          'Duurzaamheid als toegevoegde waarde',
-          'Nieuwe business via innovatie',
-          'Bewezen campagne resultaten'
+          { text: '<strong>46 afspraken</strong> uit 1.300 contacten' },
+          { text: 'Duurzaamheid als toegevoegde waarde' },
+          { text: 'Nieuwe business via innovatie' },
+          { text: 'Bewezen campagne resultaten' }
         ],
         bottomInsight: '<strong>Het verschil:</strong> Van pure hypotheekadvisering naar waardevolle duurzaamheidsexpertise'
       },
@@ -296,19 +296,19 @@ const pageData = {
         oldWayTitle: 'TRADITIONAL MORTGAGE ADVISORY',
         oldWaySubtitle: 'The old way',
         oldWayItems: [
-          'Only mortgages',
-          'Price focus',
-          'Commoditization',
-          'Low margins'
+          { text: 'Only mortgages' },
+          { text: 'Price focus' },
+          { text: 'Commoditization' },
+          { text: 'Low margins' }
         ],
         transformLabel: 'BECOMES',
         newWayTitle: 'EDIT BV PARTNERSHIP',
         newWaySubtitle: 'Sustainability + mortgage expertise',
         newWayItems: [
-          '<strong>46 appointments</strong> from 1,300 contacts',
-          'Sustainability as added value',
-          'New business through innovation',
-          'Proven campaign results'
+          { text: '<strong>46 appointments</strong> from 1,300 contacts' },
+          { text: 'Sustainability as added value' },
+          { text: 'New business through innovation' },
+          { text: 'Proven campaign results' }
         ],
         bottomInsight: '<strong>The difference:</strong> From pure mortgage advisory to valuable sustainability expertise'
       },

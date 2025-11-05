@@ -273,9 +273,12 @@ export const pageData = {
           "type": "Hypotheekadviseurs-BewezenAanpakSection",
           "order": 8,
           "props": {
-            "kicker": "Bewezen aanpak",
-            "title": "Waarom onze aanpak werkt",
-            "subtitle": "Getest en verbeterd met hypotheekadviseurs zoals jij",
+            "kicker": "Onze bewezen aanpak",
+            "title": "Waarom onze campagnes succesvol zijn",
+            "subtitle": "Onze campagnes leveren structureel meer afspraken en klanten op. We testen, meten en optimaliseren continu — zodat jij met zekerheid kunt groeien.",
+            "visualTitle": "Continue optimalisatie",
+            "visualDescription": "We testen, meten en verbeteren continu voor maximaal resultaat",
+            "detailsTitle": "WAT MAAKT ONS ANDERS",
             "points": [
               {
                 "icon": "Target",
@@ -287,7 +290,8 @@ export const pageData = {
                 "title": "Bewezen strategieën",
                 "description": "We gebruiken alleen wat werkt bij onze klanten"
               }
-            ]
+            ],
+            "quote": "We testen, meten en optimaliseren continu — zodat jij met zekerheid kunt groeien."
           }
         },
         {

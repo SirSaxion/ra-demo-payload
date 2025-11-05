@@ -827,6 +827,15 @@ export default function PayloadBlockRenderer({ blocks, siteSettings }: PayloadBl
             kicker={block.kicker}
             title={block.title}
             subtitle={block.subtitle}
+            kpis={block.kpis?.map((kpi: any) => ({
+              label: kpi.label,
+              from: kpi.from,
+              to: kpi.to,
+              unit: kpi.unit,
+              sublabel: kpi.sublabel,
+              span: kpi.span
+            })) || []}
+            bullets={block.bullets?.map((bullet: any) => bullet.text) || []}
           />
         )
         
