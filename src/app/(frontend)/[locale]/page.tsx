@@ -20,6 +20,9 @@ async function getPageData(locale: Locale) {
         slug: {
           equals: '/',
         },
+        _status: {
+          equals: 'published',
+        },
       },
       locale,
       limit: 1,
@@ -90,14 +93,7 @@ export default async function LocaleHomePage({ params }: { params: { locale: str
   ])
   
   if (!page) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">Loading page...</h1>
-          <p className="text-muted-foreground">Please wait while we fetch the content.</p>
-        </div>
-      </div>
-    )
+    notFound()
   }
   
   // Structured data for SEO

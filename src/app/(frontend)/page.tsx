@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import PayloadBlockRenderer from "@/components/PayloadBlockRenderer";
 import { getPayload } from 'payload'
 import config from '@/payload.config'
+import { notFound } from 'next/navigation'
 
 // Make this page dynamic to fetch from Payload
 export const dynamic = 'force-dynamic'
@@ -15,6 +16,9 @@ async function getPageData() {
       where: {
         slug: {
           equals: '/',
+        },
+        _status: {
+          equals: 'published',
         },
       },
       locale: 'nl', // Default to Dutch
@@ -81,14 +85,7 @@ export default async function HomePage() {
   const page = await getPageData()
   
   if (!page) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">Loading page...</h1>
-          <p className="text-muted-foreground">Please wait while we fetch the content.</p>
-        </div>
-      </div>
-    )
+    notFound()
   }
   
   return (

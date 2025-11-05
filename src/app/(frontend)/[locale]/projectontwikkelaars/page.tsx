@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { getPayload } from 'payload'
 import config from '@/payload.config'
 import PayloadBlockRenderer from '@/components/PayloadBlockRenderer'
+import { notFound } from 'next/navigation'
 
 export const dynamic = 'force-dynamic'
 
@@ -15,6 +16,9 @@ async function getPageData(locale: Locale) {
     where: {
       slug: {
         equals: '/projectontwikkelaars',
+      },
+      _status: {
+        equals: 'published',
       },
     },
     locale,
@@ -36,7 +40,7 @@ export default async function ProjectontwikkelaarsPage({ params }: { params: { l
   const page = await getPageData(params.locale)
   
   if (!page) {
-    return <div>Loading...</div>
+    notFound()
   }
   
   return (

@@ -78,18 +78,18 @@ export default function StrategieSessionCTA({
             initialOffset={18}
           />
 
-          <div className="grid gap-6">
-            <ul className="w-full space-y-3 text-base md:text-lg text-[var(--color-text-secondary)]">
+          <div className="grid gap-6 w-full min-w-0">
+            <div className="space-y-3 text-sm sm:text-base md:text-lg text-[var(--color-text-secondary)]">
               {bullets.map((item, idx) => {
                 const text = typeof item === 'string' ? item : item.text;
                 return (
-                  <li key={idx} className="grid grid-cols-[20px_1fr] gap-2 sm:gap-3 w-full" style={{ wordBreak: 'break-word' }}>
-                    <Check className="mt-1 h-5 w-5 text-[var(--brand-500)]" />
-                    <span style={{ wordWrap: 'break-word', overflowWrap: 'break-word', wordBreak: 'break-word', whiteSpace: 'normal' }}>{text}</span>
-                  </li>
+                  <div key={idx} className="flex gap-2 sm:gap-3">
+                    <Check className="mt-1 h-5 w-5 flex-shrink-0 text-[var(--brand-500)]" />
+                    <div className="flex-1 min-w-0" style={{ wordWrap: 'break-word', overflowWrap: 'break-word', wordBreak: 'break-word' }}>{text}</div>
+                  </div>
                 );
               })}
-            </ul>
+            </div>
 
             {/* CTA Button */}
             <div className="mx-auto w-full max-w-2xl">

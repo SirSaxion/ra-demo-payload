@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { getPayload } from 'payload'
 import config from '@/payload.config'
 import PayloadBlockRenderer from '@/components/PayloadBlockRenderer'
+import { notFound } from 'next/navigation'
 
 export const dynamic = 'force-dynamic'
 
@@ -21,6 +22,9 @@ async function getPageData(locale: Locale) {
       where: {
         slug: {
           equals: '/cases',
+        },
+        _status: {
+          equals: 'published',
         },
       },
       locale,
@@ -54,16 +58,7 @@ export default async function CasesPage({ params }: PageProps) {
   const page = await getPageData(params.locale)
 
   if (!page) {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold mb-4">Cases pagina wordt geladen...</h1>
-          <p className="text-muted-foreground">
-            De cases pagina is nog niet beschikbaar in het CMS.
-          </p>
-        </div>
-      </div>
-    )
+    notFound()
   }
 
   return (

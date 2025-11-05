@@ -38,7 +38,7 @@ export default function HeroSection({
 }: HeroSectionProps = {}) {
   return (
     <section className="relative isolate overflow-hidden bg-section min-h-[calc(100svh-56px)] md:min-h-[calc(100svh-76px)] mt-14 md:mt-[76px] flex items-center">
-      <div className="mx-auto max-w-[90rem] px-4 lg:px-6 py-8 md:py-12 grid gap-10 lg:grid-cols-2 items-center">
+      <div className="mx-auto w-full max-w-[90rem] px-4 lg:px-6 py-8 md:py-12 grid gap-10 lg:grid-cols-2 items-center">
         {/* Visual montage */}
         <div className="relative order-2 lg:order-1">
           <div className="relative aspect-[4/3]">
@@ -54,15 +54,14 @@ export default function HeroSection({
         </div>
 
         {/* Copy */}
-        <div className="order-1 lg:order-2">
+        <div className="order-1 lg:order-2 min-w-0">
           <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm md:text-base font-mono tracking-wider uppercase text-[var(--brand-400)]">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--brand-500)]" />
             {badge}
           </span>
-          <h1 className="mt-5 md:mt-6 max-w-[24ch] text-5xl font-extrabold leading-[1.05] tracking-[-0.025em] md:text-6xl lg:text-5xl xl:text-6xl">
+          <h1 className="mt-5 md:mt-6 max-w-full md:max-w-[24ch] text-4xl font-extrabold leading-[1.05] tracking-[-0.025em] md:text-6xl lg:text-5xl xl:text-6xl break-words overflow-wrap-anywhere">
             {title} <span className="text-[var(--brand-400)]">{highlightedWord}</span>,
-            <br className="hidden md:block" />
-            {subtitle}
+            <br className="hidden md:block" /> {subtitle}
           </h1>
           <p className="mt-5 max-w-xl text-base text-foreground/80 md:text-lg">
             {description}
