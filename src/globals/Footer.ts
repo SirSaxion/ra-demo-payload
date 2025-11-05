@@ -72,20 +72,9 @@ export const Footer: GlobalConfig = {
       label: 'Badge tekst (bijv. "IQI Global Partner")',
       localized: true,
       defaultValue: 'IQI Global Partner',
-    },
-    {
-      name: 'phone',
-      type: 'text',
-      label: 'Telefoonnummer',
-      required: true,
-      defaultValue: '085 060 2989',
-    },
-    {
-      name: 'email',
-      type: 'text',
-      label: 'E-mailadres',
-      required: true,
-      defaultValue: 'info@realaccelerate.nl',
+      admin: {
+        description: 'Badge wordt nu centraal beheerd via Site settings. Dit veld is deprecated.',
+      },
     },
     {
       name: 'mainLinks',

@@ -8,14 +8,19 @@ interface SiteLayoutServerProps {
 }
 
 /**
- * Server component that fetches Header and Footer globals from Payload
- * and passes them to the client SiteLayout component
+ * Server component that fetches Header, Footer and SiteSettings globals from Payload
+ * and passes them to the client SiteLayout component.
+ * Contact info comes ONLY from SiteSettings (centralized).
  */
 export default async function SiteLayoutServer({ children, locale }: SiteLayoutServerProps) {
   const payload = await getPayload({ config })
 
-  // Fetch header and footer globals with locale
-  const [headerData, footerData] = await Promise.all([
+  // Fetch header, footer and site-settings globals with locale
+  const [siteSettings, headerData, footerData] = await Promise.all([
+    payload.findGlobal({
+      slug: 'site-settings',
+      locale,
+    }),
     payload.findGlobal({
       slug: 'header',
       locale,
@@ -29,21 +34,22 @@ export default async function SiteLayoutServer({ children, locale }: SiteLayoutS
   // Transform to SiteLayout config format
   const siteConfig = {
     company: {
-      name: footerData.companyName || 'Real Accelerate',
-      tagline: footerData.tagline || 'Online marketing voor vastgoedprofessionals',
-      logo: '/images/logorealaccelerate.webp', // For now keep static, can be updated to use media field
-      badge: footerData.badge || 'IQI Global Partner',
-      address: footerData.address || {
+      name: siteSettings.companyName || 'Real Accelerate',
+      tagline: siteSettings.tagline || 'Online marketing voor vastgoedprofessionals',
+      logo: '/images/logorealaccelerate.webp',
+      badge: siteSettings.badge || 'IQI Global Partner',
+      address: siteSettings.address || {
         street: 'Daalwijkdreef 47',
         postalCode: '1103 AD',
         city: 'Amsterdam',
       },
     },
     contact: {
-      phone: headerData.phone || '085 060 2989',
-      phoneLink: headerData.phoneLink || 'tel:+31850602989',
-      email: headerData.email || 'info@realaccelerate.nl',
-      emailLink: headerData.emailLink || 'mailto:info@realaccelerate.nl',
+      // Alle contact info komt ALLEEN uit SiteSettings
+      phone: siteSettings.phone || '085 060 2989',
+      phoneLink: siteSettings.phoneLink || 'tel:+31850602989',
+      email: siteSettings.email || 'info@realaccelerate.nl',
+      emailLink: siteSettings.emailLink || 'mailto:info@realaccelerate.nl',
     },
     navigation: {
       mainLinks: (headerData.mainLinks || []).map((link: any) => ({
@@ -59,9 +65,10 @@ export default async function SiteLayoutServer({ children, locale }: SiteLayoutS
       })),
     },
     social: {
-      linkedin: footerData.social?.linkedin ?? 'https://www.linkedin.com/company/realaccelerate',
-      facebook: footerData.social?.facebook ?? 'https://www.facebook.com/realaccelerate',
-      instagram: footerData.social?.instagram ?? undefined,
+      // Social media komt ALLEEN uit SiteSettings
+      linkedin: siteSettings.social?.linkedin ?? 'https://www.linkedin.com/company/realaccelerate',
+      facebook: siteSettings.social?.facebook ?? 'https://www.facebook.com/realaccelerate',
+      instagram: siteSettings.social?.instagram ?? undefined,
     },
     footer: {
       mainLinks: (footerData.mainLinks || []).map((link: any) => ({

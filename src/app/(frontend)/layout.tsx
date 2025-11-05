@@ -90,7 +90,7 @@ export default async function FrontendLayout({
   ])
 
   // Transform both locales to SiteLayout config format
-  // Now using SiteSettings for company/contact/social data
+  // Using ONLY SiteSettings for company/contact/social data (centralized)
   const createConfig = (siteSettings: any, headerData: any, footerData: any) => {
     if (!siteSettings || !headerData || !footerData) return null
     
@@ -107,6 +107,7 @@ export default async function FrontendLayout({
         },
       },
       contact: {
+        // Alle contact info komt ALLEEN uit SiteSettings
         phone: siteSettings.phone || '085 060 2989',
         phoneLink: siteSettings.phoneLink || 'tel:+31850602989',
         email: siteSettings.email || 'info@realaccelerate.nl',

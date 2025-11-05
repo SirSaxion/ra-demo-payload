@@ -75,11 +75,9 @@ export const ProjectontwikkelaarsFAQSection: Block = {
       type: 'text',
       label: 'Phone Label',
       localized: true,
-    },
-    {
-      name: 'phoneNumber',
-      type: 'text',
-      label: 'Phone Number',
+      admin: {
+        description: 'Telefoonnummer wordt automatisch uit Site settings gehaald.',
+      },
     },
     {
       name: 'phoneCallText',

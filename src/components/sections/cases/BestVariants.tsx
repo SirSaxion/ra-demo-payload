@@ -123,8 +123,8 @@ export default function BestVariants({
             <p className="type-subtitle text-muted-foreground">{featuredSubtitle}</p>
           </div>
 
-          {/* Stats Cards Grid - 2x2 */}
-          <div className="grid grid-cols-2 gap-4 mb-8">
+          {/* Stats Cards Grid - 1 col mobile, 2 cols tablet+ */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
             {stats.map((stat, idx) => {
               const iconMap: Record<string, LucideIcon> = { TrendingUp, Target, Users2, Building2 }
               const Icon = iconMap[stat.icon] || TrendingUp

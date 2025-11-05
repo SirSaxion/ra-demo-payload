@@ -52,18 +52,6 @@ export const OverOnsOfficeSection: Block = {
       ],
     },
     {
-      name: 'phone',
-      type: 'text',
-      label: 'Telefoonnummer',
-      required: true,
-    },
-    {
-      name: 'email',
-      type: 'text',
-      label: 'Email',
-      required: true,
-    },
-    {
       name: 'image',
       type: 'text',
       label: 'Afbeelding URL',

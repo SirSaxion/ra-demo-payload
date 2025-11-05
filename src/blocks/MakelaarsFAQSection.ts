@@ -51,11 +51,9 @@ export const MakelaarsFAQSection: Block = {
       type: 'text',
       label: 'CTA Tekst (bijv. "of plan een gratis strategiesessie in")',
       localized: true,
-    },
-    {
-      name: 'phoneNumber',
-      type: 'text',
-      label: 'Telefoonnummer',
+      admin: {
+        description: 'Telefoonnummer wordt automatisch uit Site settings gehaald.',
+      },
     },
     {
       name: 'faqs',

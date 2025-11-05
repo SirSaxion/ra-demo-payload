@@ -39,11 +39,9 @@ export const InternationalFAQSection: Block = {
       name: 'phoneLabel',
       type: 'text',
       label: 'Telefoon Label',
-    },
-    {
-      name: 'phoneNumber',
-      type: 'text',
-      label: 'Telefoonnummer',
+      admin: {
+        description: 'Telefoonnummer wordt automatisch uit Site settings gehaald.',
+      },
     },
     {
       name: 'phonePrefix',

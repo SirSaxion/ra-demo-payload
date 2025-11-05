@@ -63,6 +63,33 @@ const pageData = {
         badge: 'Projectontwikkelaar uitdagingen',
         title: 'Herken je deze frustraties bij projectverkoop?',
         subtitle: 'Veel projectontwikkelaars lopen tegen dezelfde uitdagingen aan. Herkenbaar? Dan is er een betere manier.',
+        challenges: [
+          {
+            icon: 'Clock',
+            title: 'Verkooptrajecten die te veel tijd kosten',
+            description: 'Je projecten blijven onnodig lang op de markt staan. Elke maand vertraging kost duizenden euro\'s en creëert extra druk.'
+          },
+          {
+            icon: 'Users',
+            title: 'Afhankelijkheid van externe partijen',
+            description: 'Geen grip op het proces. Je bent afhankelijk van externe partijen zonder duidelijke regie of voorspelbaarheid.'
+          },
+          {
+            icon: 'DollarSign',
+            title: 'Gebrek aan creatieve campagnes',
+            description: 'Standaard marketing die niet opvalt. Je project verdient campagnes die echt onderscheidend zijn en de juiste aandacht trekken.'
+          },
+          {
+            icon: 'Building2',
+            title: 'Onvoldoende inzicht in de juiste doelgroep',
+            description: 'Lastig om de juiste kopers op het juiste moment te vinden en te bereiken. Wie koopt jouw specifieke project?'
+          },
+          {
+            icon: 'Users',
+            title: 'Leads die niet optimaal worden opgevolgd',
+            description: 'Interesse komt binnen maar lekt weg. Gebrek aan systematische opvolging zorgt ervoor dat potentiële kopers verloren gaan.'
+          }
+        ],
         ctaIcon: 'Building2',
         ctaTitle: 'Wij hebben de oplossing!',
         ctaDescription: 'Met onze ervaring als vastgoedondernemers combineren we marketing, beleving en slimme opvolging.'
@@ -72,28 +99,82 @@ const pageData = {
         blockType: 'projectontwikkelaarsMethodologySection',
         badge: 'Onze project methodologie',
         title: 'Zo zorgen wij voor succesvolle projectverkoop',
-        subtitle: 'Onze aanpak is geen losse marketingactie, maar een complete verkoopmachine'
+        subtitle: 'Onze aanpak is geen losse marketingactie, maar een complete verkoopmachine',
+        steps: [
+          {
+            icon: 'Target',
+            title: 'ANALYSE & STRATEGIE',
+            description: 'We brengen je project, doelgroep en markt in kaart voor een gerichte aanpak'
+          },
+          {
+            icon: 'Zap',
+            title: 'CREATIEVE MARKETING',
+            description: 'Opvallende online campagnes en content die aanspreekt en converteert'
+          },
+          {
+            icon: 'CalendarCheck',
+            title: 'EVENTS & BELEVING',
+            description: 'Offline momenten waar kopers je project echt beleven en zich verbinden'
+          },
+          {
+            icon: 'Phone',
+            title: 'SLIMME OPVOLGING',
+            description: 'Automatische emails, persoonlijke opvolging en AI zorgen dat geen lead verloren gaat'
+          },
+          {
+            icon: 'Rocket',
+            title: 'CONTINUE OPTIMALISATIE',
+            description: 'Meten, bijstellen en verbeteren voor maximale resultaten en voorspelbare groei'
+          }
+        ],
+        bottomText: 'Een complete verkoopmachine die je projecten sneller en effectiever naar de markt brengt'
       },
       // 5. Bewezen Aanpak
       {
         blockType: 'projectontwikkelaarsBewezenAanpakSection',
         badge: 'Onze ervaring',
         title: 'Ervaring als vastgoedondernemers en investeerders',
-        subtitle: 'Wij zijn geen traditioneel marketingbureau. Als vastgoedondernemers en vastgoedinvesteerders begrijpen we de uitdagingen van binnenuit. Wat we voor onze klanten doen, hebben we zelf getest, verfijnd en bewezen in de praktijk.'
+        subtitle: 'Wij zijn geen traditioneel marketingbureau. Als vastgoedondernemers en vastgoedinvesteerders begrijpen we de uitdagingen van binnenuit. Wat we voor onze klanten doen, hebben we zelf getest, verfijnd en bewezen in de praktijk.',
+        image: '/images/emiro_working_at_desk.png',
+        imageAlt: 'Project Marketing Machine',
+        practiceTitle: 'ONZE PRAKTIJKERVARING',
+        practicePoints: [
+          { text: '<strong>Actief als vastgoedondernemers</strong> met hands-on ervaring in projectmarketing' },
+          { text: '<strong>Creatieve campagnes en slimme opvolgsystemen</strong> die echt converteren' },
+          { text: '<strong>Brede marktkennis</strong> van Nederlandse tot internationale projecten' },
+          { text: '<strong>Moderne marketing tools en automatisering</strong> gecombineerd met persoonlijke aanpak' },
+          { text: '<strong>Resultaatgericht met transparante rapportage</strong> en continue optimalisatie' }
+        ],
+        missionStatement: 'Wat we voor onze klanten doen, doen we ook voor onszelf. Daarom weten we dat het werkt.'
       },
-      // 6. Resultaten Bento Grid
-      {
-        blockType: 'projectontwikkelaarsResultatenBentoGrid',
-        badge: 'Project resultaten bento grid',
-        title: 'Resultaten uit de praktijk',
-        subtitle: 'Met onze bewezen aanpak zien projectontwikkelaars dat hun projecten sneller verkopen en beter in de markt worden gezet'
-      },
-      // 7. Dubai Success Story (Waarom Wij)
+      // 6. Dubai Success Story (Waarom Wij)
       {
         blockType: 'projectontwikkelaarsDubaiSuccessStorySection',
         badge: 'Waarom wij',
         title: 'Waarom onze aanpak werkt',
-        subtitle: 'Bij Real Accelerate combineren we onze ervaring als vastgoedondernemers en vastgoedinvesteerders met slimme marketing, creatieve campagnes en moderne opvolgsystemen.'
+        subtitle: 'Bij Real Accelerate combineren we onze ervaring als vastgoedondernemers en vastgoedinvesteerders met slimme marketing, creatieve campagnes en moderne opvolgsystemen.',
+        benefits: [
+          {
+            icon: 'Zap',
+            title: 'Snellere verkoop',
+            description: 'Door gerichte campagnes en sterke positionering brengen we je projecten sneller en effectiever naar de markt.'
+          },
+          {
+            icon: 'Target',
+            title: 'Creatieve beleving',
+            description: 'Projecten die opvallen. Met creatieve campagnes en unieke belevenissen creëren we impact die blijft hangen.'
+          },
+          {
+            icon: 'Users',
+            title: 'Slimme opvolging',
+            description: 'Met automatische emails, persoonlijke telefonische opvolging en AI-ondersteuning zorgen we dat geen lead verloren gaat.'
+          },
+          {
+            icon: 'TrendingUp',
+            title: 'Bewezen systemen',
+            description: 'Grip en voorspelbaarheid. Onze bewezen systemen geven je controle over het verkoopproces en zorgen voor meetbare resultaten.'
+          }
+        ]
       },
       // 8. Wat Je Krijgt
       {
@@ -107,7 +188,44 @@ const pageData = {
         blockType: 'projectontwikkelaarsVoorWieIsDitSection',
         badge: 'Voor wie is dit?',
         title: 'Perfect voor projectontwikkelaars die',
-        subtitle: 'Onze aanpak werkt het beste voor ambitieuze ontwikkelaars die klaar zijn voor snelle verkoop'
+        subtitle: 'Onze aanpak werkt het beste voor ambitieuze ontwikkelaars die klaar zijn voor snelle verkoop',
+        perfectTitle: 'Perfect voor ontwikkelaars die:',
+        perfectFor: [
+          {
+            icon: 'Zap',
+            title: 'Projecten sneller en effectiever willen verkopen',
+            description: 'Van lange verkoopcycli naar snelle resultaten met een bewezen aanpak.'
+          },
+          {
+            icon: 'Target',
+            title: 'Meer grip willen op marketing en opvolging',
+            description: 'Controle over het proces en inzicht in wat werkt en wat niet.'
+          },
+          {
+            icon: 'CalendarClock',
+            title: 'Op zoek zijn naar creatieve campagnes',
+            description: 'Marketing die onderscheidend is en je project echt doet opvallen in de markt.'
+          },
+          {
+            icon: 'Users',
+            title: 'Efficiënter willen werken met slimme systemen',
+            description: 'Automatisering en opvolgsystemen die zorgen dat geen lead verloren gaat.'
+          },
+          {
+            icon: 'CheckCircle2',
+            title: 'Op zoek zijn naar een betrouwbare partner met vastgoedervaring',
+            description: 'Samenwerken met professionals die de vastgoedbranche van binnenuit kennen.'
+          }
+        ],
+        notSuitableTitle: 'Niet geschikt voor ontwikkelaars die:',
+        notSuitableFor: [
+          { text: 'Tevreden zijn met lange verkoopcycli van maanden of jaren en geen haast hebben' },
+          { text: 'Geen budget hebben voor marketing investeringen en event organisatie' },
+          { text: 'Geen interesse hebben in event marketing en alleen online willen werken' },
+          { text: 'Op zoek zijn naar quick fixes zonder professionele begeleiding en ondersteuning' },
+          { text: 'Alleen focussen op Nederlandse projecten en geen internationale ambitie hebben' }
+        ],
+        bottomText: 'Dan ben je klaar voor een slimme aanpak die je projecten sneller verkoopt'
       },
       // 10. Strategie Session CTA
       {
@@ -115,6 +233,14 @@ const pageData = {
         title: 'Klaar voor een',
         titleHighlight: 'project strategiesessie',
         subtitle: 'Benieuwd hoe jouw volgende project sneller en slimmer verkocht kan worden? Plan een vrijblijvende strategiesessie en krijg direct inzicht in jouw mogelijkheden.',
+        bullets: [
+          { text: 'Gratis 30-min project strategiesessie' },
+          { text: 'Analyse van je huidige situatie en doelgroep' },
+          { text: 'Identificatie van snelle verkoop kansen' },
+          { text: 'Creatieve marketing strategieën voor je project' },
+          { text: 'Concreet stappenplan met slimme opvolging' },
+          { text: 'Inzicht in hoe we je project sneller verkocht krijgen' }
+        ],
         ctaLabel: 'Claim je gratis project strategiesessie',
         ctaSubtext: 'Waarde €1000 • Volledig vrijblijvend • Beperkte plaatsen voor serieuze projectontwikkelaars'
       },

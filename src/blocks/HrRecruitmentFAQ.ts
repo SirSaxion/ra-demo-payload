@@ -51,11 +51,9 @@ export const HrRecruitmentFAQ: Block = {
       name: 'contactText',
       type: 'text',
       label: 'Contact Text',
-    },
-    {
-      name: 'phoneLabel',
-      type: 'text',
-      label: 'Phone Label',
+      admin: {
+        description: 'Telefoonnummer wordt automatisch uit Site settings gehaald.',
+      },
     },
   ],
 }

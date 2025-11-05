@@ -59,14 +59,14 @@ export default function Hero({
         <div className="absolute inset-0 bg-[radial-gradient(55%_60%_at_50%_100%,color-mix(in_oklab,var(--brand-400)_22%,transparent),transparent_65%)] opacity-70 mix-blend-screen" />
       </div>
 
-      <div className="h-[calc(100svh-var(--nav-h))] grid items-center lg:grid-cols-12">
-        <div className="w-full lg:col-span-7">
+      <div className="h-[calc(100svh-var(--nav-h))] grid items-center xl:grid-cols-12">
+        <div className="w-full xl:col-span-7 min-w-0">
           {/* Hero copy */}
           <span className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm md:text-base font-mono tracking-wider uppercase text-[var(--brand-400)]">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--brand-500)]" />
             {badge}
           </span>
-          <h1 className="mt-5 md:mt-6 max-w-[24ch] text-5xl font-extrabold leading-[1.05] tracking-[-0.025em] md:text-6xl lg:text-5xl xl:text-6xl">
+          <h1 className="mt-5 md:mt-6 max-w-full md:max-w-[24ch] text-4xl font-extrabold leading-[1.05] tracking-[-0.025em] md:text-6xl lg:text-5xl xl:text-6xl break-words overflow-wrap-anywhere">
             {title} <span className="text-[var(--brand-400)]">{titleHighlight}</span> vastgoedprofessionals
           </h1>
           <p className="mt-5 max-w-xl text-base text-foreground/80 md:text-lg">
@@ -127,7 +127,7 @@ export default function Hero({
         </div>
 
         {/* Right: Rudy image with bottom mask shadow */}
-        <div className="relative hidden lg:block lg:col-span-5 lg:h-full">
+        <div className="relative hidden xl:block xl:col-span-5 xl:h-full">
           <div className="relative w-full h-[60vh] min-h-[380px] lg:h-full">
             {/* Circular glow behind the image (shifted right, larger, softer) */}
             <div

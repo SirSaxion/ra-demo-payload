@@ -35,11 +35,9 @@ export const HypotheekadviseursFAQSection: Block = {
       name: 'phoneLabel',
       type: 'text',
       label: 'Phone Label',
-    },
-    {
-      name: 'phoneNumber',
-      type: 'text',
-      label: 'Phone Number',
+      admin: {
+        description: 'Telefoonnummer wordt automatisch uit Site settings gehaald.',
+      },
     },
     {
       name: 'faqs',

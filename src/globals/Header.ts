@@ -13,34 +13,9 @@ export const Header: GlobalConfig = {
       relationTo: 'media',
       label: 'Logo',
       required: false,
-    },
-    {
-      name: 'phone',
-      type: 'text',
-      label: 'Telefoonnummer (display)',
-      required: true,
-      defaultValue: '085 060 2989',
-    },
-    {
-      name: 'phoneLink',
-      type: 'text',
-      label: 'Telefoonnummer (link)',
-      required: true,
-      defaultValue: 'tel:+31850602989',
-    },
-    {
-      name: 'email',
-      type: 'text',
-      label: 'E-mailadres',
-      required: true,
-      defaultValue: 'info@realaccelerate.nl',
-    },
-    {
-      name: 'emailLink',
-      type: 'text',
-      label: 'E-mail (link)',
-      required: true,
-      defaultValue: 'mailto:info@realaccelerate.nl',
+      admin: {
+        description: 'Logo wordt nu centraal beheerd via Site settings. Dit veld is deprecated.',
+      },
     },
     {
       name: 'mainLinks',

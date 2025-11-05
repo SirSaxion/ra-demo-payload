@@ -1061,8 +1061,6 @@ export interface OverOnsOfficeSection {
     street?: string | null;
     city?: string | null;
   };
-  phone: string;
-  email: string;
   image: string;
   imageAlt: string;
   openInMapsLabel?: string | null;
@@ -1355,8 +1353,10 @@ export interface MakelaarsFAQSection {
   contactLinkHref?: string | null;
   phoneLabel?: string | null;
   phonePrefix?: string | null;
+  /**
+   * Telefoonnummer wordt automatisch uit Site settings gehaald.
+   */
   ctaText?: string | null;
-  phoneNumber?: string | null;
   faqs?:
     | {
         question: string;
@@ -1645,8 +1645,10 @@ export interface InternationalFAQSection {
   subtitleSuffix?: string | null;
   contactLinkText?: string | null;
   contactLinkHref?: string | null;
+  /**
+   * Telefoonnummer wordt automatisch uit Site settings gehaald.
+   */
   phoneLabel?: string | null;
-  phoneNumber?: string | null;
   phonePrefix?: string | null;
   faqs?:
     | {
@@ -1953,8 +1955,10 @@ export interface HypotheekadviseursFAQSection {
   subtitle?: string | null;
   contactLinkText?: string | null;
   contactLinkHref?: string | null;
+  /**
+   * Telefoonnummer wordt automatisch uit Site settings gehaald.
+   */
   phoneLabel?: string | null;
-  phoneNumber?: string | null;
   faqs?:
     | {
         icon?: string | null;
@@ -2168,8 +2172,10 @@ export interface HrRecruitmentFAQBlock {
         id?: string | null;
       }[]
     | null;
+  /**
+   * Telefoonnummer wordt automatisch uit Site settings gehaald.
+   */
   contactText?: string | null;
-  phoneLabel?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'hrRecruitmentFAQ';
@@ -2429,8 +2435,10 @@ export interface ProjectontwikkelaarsFAQSectionBlock {
   contactLinkText?: string | null;
   contactLinkHref?: string | null;
   contactCtaText?: string | null;
+  /**
+   * Telefoonnummer wordt automatisch uit Site settings gehaald.
+   */
   phoneLabel?: string | null;
-  phoneNumber?: string | null;
   phoneCallText?: string | null;
   id?: string | null;
   blockName?: string | null;
@@ -3434,8 +3442,6 @@ export interface OverOnsOfficeSectionSelect<T extends boolean = true> {
         street?: T;
         city?: T;
       };
-  phone?: T;
-  email?: T;
   image?: T;
   imageAlt?: T;
   openInMapsLabel?: T;
@@ -3721,7 +3727,6 @@ export interface MakelaarsFAQSectionSelect<T extends boolean = true> {
   phoneLabel?: T;
   phonePrefix?: T;
   ctaText?: T;
-  phoneNumber?: T;
   faqs?:
     | T
     | {
@@ -4004,7 +4009,6 @@ export interface InternationalFAQSectionSelect<T extends boolean = true> {
   contactLinkText?: T;
   contactLinkHref?: T;
   phoneLabel?: T;
-  phoneNumber?: T;
   phonePrefix?: T;
   faqs?:
     | T
@@ -4307,7 +4311,6 @@ export interface HypotheekadviseursFAQSectionSelect<T extends boolean = true> {
   contactLinkText?: T;
   contactLinkHref?: T;
   phoneLabel?: T;
-  phoneNumber?: T;
   faqs?:
     | T
     | {
@@ -4509,7 +4512,6 @@ export interface HrRecruitmentFAQBlockSelect<T extends boolean = true> {
         id?: T;
       };
   contactText?: T;
-  phoneLabel?: T;
   id?: T;
   blockName?: T;
 }
@@ -4762,7 +4764,6 @@ export interface ProjectontwikkelaarsFAQSectionBlockSelect<T extends boolean = t
   contactLinkHref?: T;
   contactCtaText?: T;
   phoneLabel?: T;
-  phoneNumber?: T;
   phoneCallText?: T;
   id?: T;
   blockName?: T;
@@ -5013,9 +5014,10 @@ export interface Footer {
     postalCode: string;
     city: string;
   };
+  /**
+   * Badge wordt nu centraal beheerd via Site settings. Dit veld is deprecated.
+   */
   badge?: string | null;
-  phone: string;
-  email: string;
   mainLinks?:
     | {
         name: string;
@@ -5046,11 +5048,10 @@ export interface Footer {
  */
 export interface Header {
   id: number;
+  /**
+   * Logo wordt nu centraal beheerd via Site settings. Dit veld is deprecated.
+   */
   logo?: (number | null) | Media;
-  phone: string;
-  phoneLink: string;
-  email: string;
-  emailLink: string;
   mainLinks?:
     | {
         name: string;
@@ -5200,8 +5201,6 @@ export interface FooterSelect<T extends boolean = true> {
         city?: T;
       };
   badge?: T;
-  phone?: T;
-  email?: T;
   mainLinks?:
     | T
     | {
@@ -5235,10 +5234,6 @@ export interface FooterSelect<T extends boolean = true> {
  */
 export interface HeaderSelect<T extends boolean = true> {
   logo?: T;
-  phone?: T;
-  phoneLink?: T;
-  email?: T;
-  emailLink?: T;
   mainLinks?:
     | T
     | {

@@ -1184,7 +1184,7 @@ export default function PayloadBlockRenderer({ blocks, siteSettings }: PayloadBl
             subtitle={block.subtitle}
             faqs={block.faqs || []}
             contactText={block.contactText}
-            phoneLabel={block.phoneLabel || siteSettings?.phone}
+            phoneLabel={siteSettings?.phone}
             phoneLink={siteSettings?.phoneLink}
           />
         )
