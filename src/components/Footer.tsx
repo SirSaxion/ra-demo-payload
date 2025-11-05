@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Facebook, Linkedin } from "lucide-react";
@@ -78,7 +79,20 @@ export default function Footer({
   showSocial = true,
   locale = 'nl',
 }: FooterProps = {}) {
-  const t = sectionLabels[locale]
+  const pathname = usePathname()
+  const currentLocale = pathname?.startsWith('/en') ? 'en' : pathname?.startsWith('/nl') ? 'nl' : 'nl'
+  const t = sectionLabels[currentLocale]
+  
+  // Helper function to make links locale-aware
+  const getLocalizedHref = (href: string) => {
+    // Homepage is special: / for NL, /en for EN
+    if (href === '/') {
+      return currentLocale === 'en' ? '/en' : '/'
+    }
+    // All other pages: /nl/slug for NL, /en/slug for EN
+    return currentLocale === 'en' ? `/en${href}` : `/nl${href}`
+  }
+  
   return (
     <footer className="relative isolate overflow-hidden border-t border-[var(--color-border)] bg-[var(--color-surface-3)] text-foreground">
 
@@ -111,7 +125,7 @@ export default function Footer({
               <ul className="space-y-2 text-sm text-[var(--color-text-secondary)]">
                 {mainLinks.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} className="hover:text-foreground transition-colors">
+                    <Link href={getLocalizedHref(link.href)} className="hover:text-foreground transition-colors">
                       {link.name}
                     </Link>
                   </li>
@@ -126,7 +140,7 @@ export default function Footer({
               <ul className="space-y-2 text-sm text-[var(--color-text-secondary)]">
                 {targetGroups.map((group) => (
                   <li key={group.href}>
-                    <Link href={group.href} className="hover:text-foreground transition-colors">
+                    <Link href={getLocalizedHref(group.href)} className="hover:text-foreground transition-colors">
                       {group.name}
                     </Link>
                   </li>

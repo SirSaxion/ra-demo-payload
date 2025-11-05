@@ -155,26 +155,45 @@ export default function Navbar({
     const path = pathname
     if (path.startsWith('/en')) {
       setCurrentLocale('en')
+    } else if (path.startsWith('/nl') || path === '/') {
+      setCurrentLocale('nl')
     } else {
       setCurrentLocale('nl')
     }
   }, [pathname])
   
+  // Helper function to make links locale-aware (read directly from pathname)
+  const getLocalizedHref = (href: string) => {
+    const isEnglish = pathname?.startsWith('/en')
+    // Homepage is special: / for NL, /en for EN
+    if (href === '/') {
+      return isEnglish ? '/en' : '/'
+    }
+    // All other pages: /nl/slug for NL, /en/slug for EN
+    return isEnglish ? `/en${href}` : `/nl${href}`
+  }
+  
   const switchLocale = (newLocale: string) => {
     let newPath = pathname
     
     // Remove current locale prefix if exists
-    if (pathname.startsWith('/nl')) {
+    if (pathname.startsWith('/en')) {
       newPath = pathname.substring(3) || '/'
-    } else if (pathname.startsWith('/en')) {
+    } else if (pathname.startsWith('/nl')) {
       newPath = pathname.substring(3) || '/'
     }
     
-    // Add new locale prefix (except for nl which is default)
+    // Homepage is special case
+    if (newPath === '/' || newPath === '') {
+      router.push(newLocale === 'en' ? '/en' : '/')
+      return
+    }
+    
+    // All other pages: add locale prefix
     if (newLocale === 'en') {
       router.push(`/en${newPath}`)
     } else {
-      router.push(newPath)
+      router.push(`/nl${newPath}`)
     }
   }
   
@@ -362,7 +381,7 @@ export default function Navbar({
     <>
       {/* Top bar (not floating) */}
       <div ref={navBarRef} className="fixed left-0 top-0 z-[5000] flex h-14 w-full items-center justify-between border-b border-border bg-hero/80 px-4 backdrop-blur-md text-foreground md:h-[76px]">
-        <Link href="/" className="flex items-center">
+        <Link href={getLocalizedHref('/')} className="flex items-center">
           <Image
             src={logo}
             alt="Real Accelerate"
@@ -377,7 +396,7 @@ export default function Navbar({
           <nav className="flex items-center gap-2">
             {/* Home */}
             <Link
-              href="/"
+              href={getLocalizedHref('/')}
               className={cn(
                 "rounded-[var(--radius-md)] px-4 py-2 text-[16px] font-medium text-foreground/90 transition-colors hover:bg-[color-mix(in_oklab,var(--brand-500)_10%,transparent)]",
                 pathname === "/" && "bg-accent/20 text-foreground",
@@ -435,7 +454,7 @@ export default function Navbar({
                             {groups.map((g, i) => (
                               <Link
                                 key={g.link ?? g.href}
-                                href={g.link ?? g.href ?? '/'}
+                                href={getLocalizedHref(g.link ?? g.href ?? '/')}
                                 onMouseEnter={() => setActiveIndex(i)}
                                 className={cn(
                                   "group relative flex items-center justify-between gap-2 rounded-xl px-4 py-2.5 text-[15px] font-medium text-foreground transition-all hover:bg-yellow-400/20 hover:ring-1 hover:ring-yellow-300/40 hover:text-foreground",
@@ -495,7 +514,7 @@ export default function Navbar({
                                   </div>
                                   <div className="mt-auto">
                                     <Link
-                                      href={detail?.href ?? g.link ?? g.href ?? '/'}
+                                      href={getLocalizedHref(detail?.href ?? g.link ?? g.href ?? '/')}
                                       className="inline-flex items-center gap-2 rounded-[var(--radius-md)] bg-yellow-500 px-4 py-2.5 text-[14px] font-semibold text-black shadow-sm transition-[transform,filter] hover:brightness-95 active:scale-[0.99]"
                                       onClick={(e) => e.stopPropagation()}
                                     >
@@ -521,7 +540,7 @@ export default function Navbar({
               .map((l) => (
                 <Link
                   key={l.link ?? l.href}
-                  href={l.link ?? l.href ?? '/'}
+                  href={getLocalizedHref(l.link ?? l.href ?? '/')}
                   className={cn(
                     "rounded-[var(--radius-md)] px-4 py-2 text-[16px] font-medium text-foreground/90 transition-colors hover:bg-[color-mix(in_oklab,var(--brand-500)_10%,transparent)]",
                     pathname === (l.link ?? l.href) && "bg-accent/20 text-foreground",
@@ -576,7 +595,7 @@ export default function Navbar({
               <nav className="mt-2 flex flex-col gap-1 p-2">
                 <SheetClose asChild>
                   <Link
-                    href="/"
+                    href={getLocalizedHref('/')}
                     className={cn(
                       "rounded-[var(--radius-md)] px-3 py-2 text-[16px] hover:bg-accent hover:text-accent-foreground",
                       pathname === "/" && "bg-accent/50",
@@ -596,7 +615,7 @@ export default function Navbar({
                           {groups.map((g) => (
                             <SheetClose asChild key={g.link ?? g.href}>
                               <Link
-                                href={g.link ?? g.href ?? '/'}
+                                href={getLocalizedHref(g.link ?? g.href ?? '/')}
                                 className={cn(
                                   "rounded-[var(--radius-md)] px-3 py-2 text-[16px] hover:bg-accent hover:text-accent-foreground",
                                   pathname === g.link && "bg-accent/50",
@@ -613,7 +632,7 @@ export default function Navbar({
                 </div>
                 <SheetClose asChild>
                   <Link
-                    href="/cases"
+                    href={getLocalizedHref('/cases')}
                     className={cn(
                       "rounded-[var(--radius-md)] px-3 py-2 text-[16px] hover:bg-accent hover:text-accent-foreground",
                       pathname === "/cases" && "bg-accent/50",
@@ -624,7 +643,7 @@ export default function Navbar({
                 </SheetClose>
                 <SheetClose asChild>
                   <Link
-                    href="/over-ons"
+                    href={getLocalizedHref('/over-ons')}
                     className={cn(
                       "rounded-[var(--radius-md)] px-3 py-2 text-[16px] hover:bg-accent hover:text-accent-foreground",
                       pathname === "/over-ons" && "bg-accent/50",
@@ -635,7 +654,7 @@ export default function Navbar({
                 </SheetClose>
                 <SheetClose asChild>
                   <Link
-                    href="/contact"
+                    href={getLocalizedHref('/contact')}
                     className={cn(
                       "rounded-[var(--radius-md)] px-3 py-2 text-[16px] hover:bg-accent hover:text-accent-foreground",
                       pathname === "/contact" && "bg-accent/50",
