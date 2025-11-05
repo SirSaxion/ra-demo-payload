@@ -68,9 +68,6 @@ export default function InternationalMethodologySection({
         </svg>
       </div>
 
-      {/* Top subtle fade */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-[color-mix(in_oklab,var(--neutral-900)_28%,transparent)] to-transparent" />
-
       <div className="relative mx-auto max-w-7xl px-6">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">
@@ -84,7 +81,12 @@ export default function InternationalMethodologySection({
         </div>
 
         {/* Methodology Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 md:gap-6">
+        <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-6 ${
+          steps.length === 2 ? 'lg:grid-cols-2' :
+          steps.length === 3 ? 'lg:grid-cols-3' :
+          steps.length === 4 ? 'lg:grid-cols-4' :
+          'lg:grid-cols-5'
+        }`}>
           {steps.map((step, idx) => {
             const Icon = iconMap[step.icon] || Target;
             return (
