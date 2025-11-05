@@ -56,9 +56,7 @@ export default function WatJeKrijgtSection({
         </svg>
       </div>
 
-      {/* Top subtle fade */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-[color-mix(in_oklab,var(--neutral-900)_28%,transparent)] to-transparent" />
-
+      
       <div className="relative mx-auto max-w-7xl px-6">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-16">

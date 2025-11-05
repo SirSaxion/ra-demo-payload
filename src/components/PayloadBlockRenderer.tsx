@@ -276,8 +276,11 @@ export default function PayloadBlockRenderer({ blocks, siteSettings }: PayloadBl
             key={index}
             title={block.title}
             subtitle={block.subtitle}
-            steps={block.steps?.map((step: any) => ({
-              ...step,
+            steps={block.steps?.map((step: any, idx: number) => ({
+              id: idx + 1,
+              title: step.title,
+              subtitle: step.subtitle,
+              icon: step.icon,
               bullets: step.bullets?.map((bullet: any) => bullet.text || bullet) || []
             })) || []}
           />
