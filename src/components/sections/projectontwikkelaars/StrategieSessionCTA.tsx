@@ -52,7 +52,7 @@ export default function StrategieSessionCTA({
         <div className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_48%,transparent,rgba(22,22,22,0.06))]" />
       </div>
 
-      <div className="mx-auto max-w-4xl px-6">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6">
         {/* Title */}
         <h2 className="mx-auto max-w-3xl text-center type-h2 mb-4">
           {title}
@@ -67,7 +67,7 @@ export default function StrategieSessionCTA({
         </p>
 
         {/* Framed content */}
-        <div className="relative mx-auto overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-3)] p-6 shadow-sm">
+        <div className="relative mx-auto overflow-hidden rounded-xl border border-[var(--color-border)] bg-[var(--color-surface-3)] p-4 sm:p-6 shadow-sm">
           <BorderBeam
             duration={12}
             size={120}
@@ -79,13 +79,13 @@ export default function StrategieSessionCTA({
           />
 
           <div className="grid gap-6">
-            <ul className="mx-auto max-w-2xl space-y-3 type-body text-[var(--color-text-secondary)]">
+            <ul className="w-full space-y-3 text-base md:text-lg text-[var(--color-text-secondary)]">
               {bullets.map((item, idx) => {
                 const text = typeof item === 'string' ? item : item.text;
                 return (
-                  <li key={idx} className="flex items-start gap-3">
+                  <li key={idx} className="grid grid-cols-[20px_1fr] gap-2 sm:gap-3 w-full" style={{ wordBreak: 'break-word' }}>
                     <Check className="mt-1 h-5 w-5 text-[var(--brand-500)]" />
-                    <span>{text}</span>
+                    <span style={{ wordWrap: 'break-word', overflowWrap: 'break-word', wordBreak: 'break-word', whiteSpace: 'normal' }}>{text}</span>
                   </li>
                 );
               })}
