@@ -150,6 +150,21 @@ export default function Navbar({
   const [voorWieOpen, setVoorWieOpen] = useState(false)
   const [currentLocale, setCurrentLocale] = useState('nl')
   
+  // Translations
+  const translations = {
+    nl: {
+      contactCta: 'Neem contact op',
+      switchToEn: 'Switch to English',
+      forWho: 'Voor wie?',
+    },
+    en: {
+      contactCta: 'Contact us',
+      switchToNl: 'Schakel naar Nederlands',
+      forWho: 'For who?',
+    },
+  }
+  const t = translations[currentLocale as 'nl' | 'en'] || translations.nl
+  
   // Detect current locale from URL
   useEffect(() => {
     const path = pathname
@@ -419,7 +434,7 @@ export default function Navbar({
                 className="rounded-[var(--radius-md)] px-4 py-2 text-[16px] font-medium text-foreground/90 transition-colors hover:bg-[color-mix(in_oklab,var(--brand-500)_10%,transparent)]"
                 ref={triggerBtnRef}
               >
-                Voor wie?
+                {t.forWho}
               </button>
               <AnimatePresence>
                 {voorWieOpen && (
@@ -572,7 +587,7 @@ export default function Navbar({
               href={emailLink}
               className="rounded-[var(--radius-md)] bg-[var(--primary)] px-4 py-2 text-[16px] font-semibold text-[var(--primary-foreground)] hover:brightness-95"
             >
-              Neem contact op
+              {t.contactCta}
             </a>
           </div>
         </div>
@@ -608,7 +623,7 @@ export default function Navbar({
                   <Accordion type="single" collapsible>
                     <AccordionItem value="voor-wie">
                       <AccordionTrigger className="rounded-[var(--radius-md)] px-3 py-2 text-[16px] font-semibold text-foreground/90 hover:no-underline">
-                        Voor wie?
+                        {t.forWho}
                       </AccordionTrigger>
                       <AccordionContent>
                         <div className="mt-1 flex flex-col gap-1">
@@ -674,7 +689,7 @@ export default function Navbar({
                     className="flex w-full items-center gap-2 rounded-[var(--radius-md)] border border-[color-mix(in_oklab,var(--brand-500)_25%,transparent)] px-3 py-2 text-[16px] font-medium"
                   >
                     <Languages className="size-5" />
-                    <span>{currentLocale === 'nl' ? 'Switch to English' : 'Schakel naar Nederlands'}</span>
+                    <span>{currentLocale === 'nl' ? translations.nl.switchToEn : translations.en.switchToNl}</span>
                   </button>
                 </div>
                 
@@ -691,7 +706,7 @@ export default function Navbar({
                     href={emailLink}
                     className="mt-2 rounded-[var(--radius-md)] bg-[var(--primary)] px-4 py-2 text-[15px] font-semibold text-[var(--primary-foreground)]"
                   >
-                    Neem contact op
+                    {t.contactCta}
                   </a>
                 </SheetClose>
               </nav>
