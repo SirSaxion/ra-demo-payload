@@ -570,7 +570,7 @@ export default function Navbar({
             <div className="relative">
               <button
                 onClick={() => switchLocale(currentLocale === 'nl' ? 'en' : 'nl')}
-                className="flex items-center gap-1.5 rounded-[var(--radius-md)] border border-[color-mix(in_oklab,var(--brand-500)_25%,transparent)] px-2 py-2 text-[13px] font-medium text-foreground/90 transition-colors hover:bg-[color-mix(in_oklab,var(--brand-500)_10%,transparent)] lg:px-3 lg:text-[15px]"
+                className="flex items-center gap-1.5 rounded-[var(--radius-md)] border border-[color-mix(in_oklab,var(--brand-500)_35%,transparent)] px-2 py-2 text-[13px] font-semibold text-foreground/90 transition-all hover:bg-[color-mix(in_oklab,var(--brand-500)_15%,transparent)] hover:border-[color-mix(in_oklab,var(--brand-500)_50%,transparent)] hover:cursor-pointer md:px-3 lg:px-4 lg:text-[16px]"
                 title={currentLocale === 'nl' ? 'Switch to English' : 'Schakel naar Nederlands'}
               >
                 <Languages className="size-4" />
@@ -579,7 +579,7 @@ export default function Navbar({
             </div>
             <a
               href={phoneLink}
-              className="rounded-[var(--radius-md)] border border-[color-mix(in_oklab,var(--brand-500)_35%,transparent)] px-2 py-2 text-[13px] font-semibold text-foreground/90 hover:bg-transparent md:px-3 lg:px-4 lg:text-[16px]"
+              className="rounded-[var(--radius-md)] border border-[color-mix(in_oklab,var(--brand-500)_35%,transparent)] px-2 py-2 text-[13px] font-semibold text-foreground/90 transition-all hover:bg-[color-mix(in_oklab,var(--brand-500)_15%,transparent)] hover:border-[color-mix(in_oklab,var(--brand-500)_50%,transparent)] md:px-3 lg:px-4 lg:text-[16px]"
             >
               {phone}
             </a>
@@ -686,7 +686,7 @@ export default function Navbar({
                       switchLocale(currentLocale === 'nl' ? 'en' : 'nl')
                       setMobileOpen(false)
                     }}
-                    className="flex w-full items-center gap-2 rounded-[var(--radius-md)] border border-[color-mix(in_oklab,var(--brand-500)_25%,transparent)] px-3 py-2 text-[16px] font-medium"
+                    className="flex w-full items-center gap-2 rounded-[var(--radius-md)] border border-[color-mix(in_oklab,var(--brand-500)_35%,transparent)] px-3 py-2 text-[16px] font-semibold transition-all hover:bg-[color-mix(in_oklab,var(--brand-500)_15%,transparent)] hover:border-[color-mix(in_oklab,var(--brand-500)_50%,transparent)] hover:cursor-pointer active:scale-[0.98]"
                   >
                     <Languages className="size-5" />
                     <span>{currentLocale === 'nl' ? translations.nl.switchToEn : translations.en.switchToNl}</span>
@@ -696,7 +696,7 @@ export default function Navbar({
                 <SheetClose asChild>
                   <a
                     href={phoneLink}
-                    className="mt-2 rounded-[var(--radius-md)] border border-[color-mix(in_oklab,var(--brand-500)_35%,transparent)] px-3 py-2 text-[16px]"
+                    className="mt-2 rounded-[var(--radius-md)] border border-[color-mix(in_oklab,var(--brand-500)_35%,transparent)] px-3 py-2 text-[16px] font-semibold transition-all hover:bg-[color-mix(in_oklab,var(--brand-500)_15%,transparent)] hover:border-[color-mix(in_oklab,var(--brand-500)_50%,transparent)] active:scale-[0.98]"
                   >
                     {phone}
                   </a>
