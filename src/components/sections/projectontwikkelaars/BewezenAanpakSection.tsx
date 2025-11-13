@@ -8,7 +8,7 @@ export interface BewezenAanpakSectionProps {
   badge?: string;
   title?: string;
   subtitle?: string;
-  image?: string;
+  image?: any; // Media object from CMS
   imageAlt?: string;
   practiceTitle?: string;
   practicePoints?: Array<{ text: string }> | string[];
@@ -19,7 +19,7 @@ export default function BewezenAanpakSection({
   badge = "Onze ervaring",
   title = "Ervaring als vastgoedondernemers en investeerders",
   subtitle = "Wij zijn geen traditioneel marketingbureau. Als vastgoedondernemers en vastgoedinvesteerders begrijpen we de uitdagingen van binnenuit. Wat we voor onze klanten doen, hebben we zelf getest, verfijnd en bewezen in de praktijk.",
-  image = "/images/emiro_working_at_desk.png",
+  image,
   imageAlt = "Project Marketing Machine",
   practiceTitle = "ONZE PRAKTIJKERVARING",
   practicePoints = [
@@ -71,8 +71,8 @@ export default function BewezenAanpakSection({
             <div className="lg:order-last">
               <div className="relative overflow-hidden rounded-xl shadow-lg max-w-md mx-auto lg:mx-0 lg:max-w-none bg-[var(--color-surface-3)] border border-[var(--color-border)] aspect-[4/3]">
                 <Image 
-                  src={image} 
-                  alt={imageAlt}
+                  src={image?.url || "/images/emiro_working_at_desk.png"} 
+                  alt={image?.alt || imageAlt}
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"

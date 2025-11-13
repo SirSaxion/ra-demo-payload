@@ -29,8 +29,12 @@ export const ProjectontwikkelaarsBewezenAanpakSection: Block = {
     },
     {
       name: 'image',
-      type: 'text',
-      label: 'Image',
+      type: 'upload',
+      relationTo: 'media',
+      label: 'Image (upload)',
+      admin: {
+        description: 'Afbeelding voor de bewezen aanpak sectie',
+      },
     },
     {
       name: 'imageAlt',

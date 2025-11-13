@@ -14,7 +14,7 @@ export interface HeroProps {
   bullets?: string[];
   ctaPrimary?: { label: string };
   ctaSecondary?: { label: string; href: string };
-  showcaseImage?: string;
+  showcaseImage?: any; // Media object from CMS
   showcaseImageAlt?: string;
   showcaseIcon?: string;
   showcaseTitle?: string;
@@ -36,7 +36,7 @@ export default function Hero({
   ],
   ctaPrimary = { label: "Plan een project strategiesessie" },
   ctaSecondary = { label: "Ontdek onze aanpak", href: "#onze-aanpak" },
-  showcaseImage = "/media/projectontwikkelaar.webp",
+  showcaseImage,
   showcaseImageAlt = "Dubai-property.nl - Bewezen projectmarketing expertise",
   showcaseIcon = "Building2",
   showcaseTitle = "Dubai-property.nl Success",
@@ -73,8 +73,8 @@ export default function Hero({
                 {/* Dubai Project Image Thumbnail */}
                 <div className="relative h-40 mb-4">
                   <Image
-                    src={showcaseImage}
-                    alt={showcaseImageAlt}
+                    src={showcaseImage?.url || "/media/projectontwikkelaar.webp"}
+                    alt={showcaseImage?.alt || showcaseImageAlt}
                     fill
                     loading="lazy"
                     className="object-cover"

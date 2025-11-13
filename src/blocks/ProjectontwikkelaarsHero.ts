@@ -82,8 +82,12 @@ export const ProjectontwikkelaarsHero: Block = {
     },
     {
       name: 'showcaseImage',
-      type: 'text',
-      label: 'Showcase Image',
+      type: 'upload',
+      relationTo: 'media',
+      label: 'Showcase Image (upload)',
+      admin: {
+        description: 'Dubai-property.nl showcase afbeelding',
+      },
     },
     {
       name: 'showcaseImageAlt',

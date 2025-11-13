@@ -2375,7 +2375,10 @@ export interface ProjectontwikkelaarsHeroBlock {
     label?: string | null;
     href?: string | null;
   };
-  showcaseImage?: string | null;
+  /**
+   * Dubai-property.nl showcase afbeelding
+   */
+  showcaseImage?: (number | null) | Media;
   showcaseImageAlt?: string | null;
   showcaseIcon?: string | null;
   showcaseTitle?: string | null;
@@ -2483,7 +2486,10 @@ export interface ProjectontwikkelaarsBewezenAanpakSectionBlock {
   badge?: string | null;
   title?: string | null;
   subtitle?: string | null;
-  image?: string | null;
+  /**
+   * Afbeelding voor de bewezen aanpak sectie
+   */
+  image?: (number | null) | Media;
   imageAlt?: string | null;
   practiceTitle?: string | null;
   practicePoints?:
