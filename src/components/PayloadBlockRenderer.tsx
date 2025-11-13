@@ -125,6 +125,14 @@ export default function PayloadBlockRenderer({ blocks, siteSettings }: PayloadBl
             subtitle={block.subtitle}
             ctaPrimary={block.ctaPrimary}
             ctaSecondary={block.ctaSecondary}
+            heroVideo={block.heroVideo}
+            heroVideoPoster={block.heroVideoPoster}
+            avatar1={block.avatar1}
+            avatar1Alt={block.avatar1Alt}
+            avatar2={block.avatar2}
+            avatar2Alt={block.avatar2Alt}
+            avatar3={block.avatar3}
+            avatar3Alt={block.avatar3Alt}
           />
         )
         
@@ -188,6 +196,7 @@ export default function PayloadBlockRenderer({ blocks, siteSettings }: PayloadBl
             ctaText={block.ctaText}
             ctaButtonLabel={block.ctaButtonLabel}
             ctaButtonHref={block.ctaButtonHref}
+            decorativeImage={block.decorativeImage}
           />
         )
         
@@ -284,6 +293,7 @@ export default function PayloadBlockRenderer({ blocks, siteSettings }: PayloadBl
               icon: step.icon,
               bullets: step.bullets?.map((bullet: any) => bullet.text || bullet) || []
             })) || []}
+            decorativeImage={block.decorativeImage}
           />
         )
         
@@ -297,6 +307,7 @@ export default function PayloadBlockRenderer({ blocks, siteSettings }: PayloadBl
             ctaHref={block.ctaHref}
             bullets={block.bullets?.map((bullet: any) => bullet.text || bullet) || []}
             phone={siteSettings?.phone}
+            teamImage={block.teamImage}
           />
         )
         

@@ -43,5 +43,14 @@ export const FinalCTA: Block = {
         },
       ],
     },
+    {
+      name: 'teamImage',
+      type: 'upload',
+      relationTo: 'media',
+      label: 'Team foto',
+      admin: {
+        description: 'Foto van het team',
+      },
+    },
   ],
 }

@@ -22,6 +22,7 @@ interface HowItWorksSectionProps {
   subtitle?: string;
   kicker?: string;
   steps?: Step[];
+  decorativeImage?: any; // Media object from CMS
 }
 
 // Icon mapping
@@ -46,16 +47,16 @@ function BackgroundGrid() {
   );
 }
 
-function RudySticker() {
+function RudySticker({ decorativeImage }: { decorativeImage?: any }) {
   // Source image size: 398x1110 → aspect ratio ~2.79 (tall portrait)
   // Statisch beeld dat de sectiehoogte benut aan de rechterzijde.
   return (
     <figure className="pointer-events-none select-none hidden lg:block absolute inset-y-6 right-0 z-10 w-[205px] xl:w-[230px]">
       <div className="relative h-full w-full">
         <Image
-          src="/media/rudyraket-640x480.png"
+          src={decorativeImage?.url || "/media/rudyraket-640x480.png"}
           loading="lazy"
-          alt="Rudy raket"
+          alt={decorativeImage?.alt || "Rudy raket"}
           width={398}
           height={1110}
           className="h-full w-auto max-w-full object-contain [-webkit-mask-image:linear-gradient(to_top,transparent_0%,var(--bg-section)_12%,var(--bg-section)_100%)] [mask-image:linear-gradient(to_top,transparent_0%,var(--bg-section)_12%,var(--bg-section)_100%)]"
@@ -66,10 +67,11 @@ function RudySticker() {
 }
 
 export default function HowItWorksSection({
-  title = "Van intake naar voorspelbare groei",
-  subtitle = "Drie heldere stappen. Precies wat je van ons kan verwachten.",
-  kicker = "HOW IT WORKS",
+  title = "In 3 stappen naar voorspelbare groei",
+  subtitle = "We bouwen samen een slimme marketingmachine die blijft werken — zelfs wanneer jij er niet bij bent.",
+  kicker = "Hoe het werkt",
   steps: propSteps,
+  decorativeImage,
 }: HowItWorksSectionProps = {}) {
   const { openDialog } = useStrategyDialog();
   
@@ -176,7 +178,7 @@ export default function HowItWorksSection({
       bottomWave="sine"
     >
       <BackgroundGrid />
-      <RudySticker />
+      <RudySticker decorativeImage={decorativeImage} />
 
       <div className="relative mx-auto mt-2 max-w-6xl lg:pr-[320px]">
         <SectionHeader

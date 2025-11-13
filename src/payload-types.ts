@@ -234,6 +234,29 @@ export interface Page {
               label?: string | null;
               href?: string | null;
             };
+            /**
+             * URL naar de video (bijv. /videos/herofootage_34s.mp4)
+             */
+            heroVideo?: string | null;
+            /**
+             * Eerste frame van de video
+             */
+            heroVideoPoster?: (number | null) | Media;
+            /**
+             * Eerste avatar in trust indicators
+             */
+            avatar1?: (number | null) | Media;
+            avatar1Alt?: string | null;
+            /**
+             * Tweede avatar in trust indicators
+             */
+            avatar2?: (number | null) | Media;
+            avatar2Alt?: string | null;
+            /**
+             * Derde avatar in trust indicators
+             */
+            avatar3?: (number | null) | Media;
+            avatar3Alt?: string | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'heroSection';
@@ -341,6 +364,10 @@ export interface Page {
             ctaText?: string | null;
             ctaButtonLabel?: string | null;
             ctaButtonHref?: string | null;
+            /**
+             * Optionele decoratieve afbeelding (bijv. Emiro pointing)
+             */
+            decorativeImage?: (number | null) | Media;
             id?: string | null;
             blockName?: string | null;
             blockType: 'uniqueApproach';
@@ -496,6 +523,10 @@ export interface Page {
                 | null;
               id?: string | null;
             }[];
+            /**
+             * Optionele decoratieve afbeelding (bijv. Rudy raket)
+             */
+            decorativeImage?: (number | null) | Media;
             id?: string | null;
             blockName?: string | null;
             blockType: 'howItWorksSection';
@@ -511,6 +542,10 @@ export interface Page {
                   id?: string | null;
                 }[]
               | null;
+            /**
+             * Foto van het team
+             */
+            teamImage?: (number | null) | Media;
             id?: string | null;
             blockName?: string | null;
             blockType: 'finalCTA';
@@ -2732,6 +2767,14 @@ export interface PagesSelect<T extends boolean = true> {
                     label?: T;
                     href?: T;
                   };
+              heroVideo?: T;
+              heroVideoPoster?: T;
+              avatar1?: T;
+              avatar1Alt?: T;
+              avatar2?: T;
+              avatar2Alt?: T;
+              avatar3?: T;
+              avatar3Alt?: T;
               id?: T;
               blockName?: T;
             };
@@ -2844,6 +2887,7 @@ export interface PagesSelect<T extends boolean = true> {
               ctaText?: T;
               ctaButtonLabel?: T;
               ctaButtonHref?: T;
+              decorativeImage?: T;
               id?: T;
               blockName?: T;
             };
@@ -2994,6 +3038,7 @@ export interface PagesSelect<T extends boolean = true> {
                         };
                     id?: T;
                   };
+              decorativeImage?: T;
               id?: T;
               blockName?: T;
             };
@@ -3010,6 +3055,7 @@ export interface PagesSelect<T extends boolean = true> {
                     text?: T;
                     id?: T;
                   };
+              teamImage?: T;
               id?: T;
               blockName?: T;
             };

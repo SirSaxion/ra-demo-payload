@@ -126,6 +126,7 @@ interface UniqueApproachSectionProps {
   ctaText?: string;
   ctaButtonLabel?: string;
   ctaButtonHref?: string;
+  decorativeImage?: any; // Media object from CMS
 }
 
 export default function UniqueApproachSection({
@@ -145,6 +146,7 @@ export default function UniqueApproachSection({
   ctaText = "Klinkt als de juiste fit?",
   ctaButtonLabel = "Claim gratis strategiesessie",
   ctaButtonHref = "mailto:info@realaccelerate.nl",
+  decorativeImage,
 }: UniqueApproachSectionProps = {}) {
   const { openDialog } = useStrategyDialog();
   const ref = useRef<HTMLDivElement | null>(null);
@@ -197,8 +199,8 @@ export default function UniqueApproachSection({
                 className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[34vw] w-[34vw] max-h-[540px] max-w-[540px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_50%_50%,color-mix(in_oklab,var(--brand-400)_55%,transparent)_0%,transparent_70%)] blur-[24px] opacity-95 mix-blend-screen"
               />
               <Image
-                src="/media/emiro_pointing_right-400x300.png"
-                alt="Emiro wijst naar rechts"
+                src={decorativeImage?.url || "/media/emiro_pointing_right-400x300.png"}
+                alt={decorativeImage?.alt || "Emiro wijst naar rechts"}
                 fill
                 loading="lazy"
                 sizes="(min-width: 1536px) 24vw, (min-width: 1280px) 23vw, (min-width: 1024px) 22vw, 90vw"

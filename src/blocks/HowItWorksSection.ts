@@ -64,5 +64,14 @@ export const HowItWorksSection: Block = {
         },
       ],
     },
+    {
+      name: 'decorativeImage',
+      type: 'upload',
+      relationTo: 'media',
+      label: 'Decoratieve afbeelding',
+      admin: {
+        description: 'Optionele decoratieve afbeelding (bijv. Rudy raket)',
+      },
+    },
   ],
 }

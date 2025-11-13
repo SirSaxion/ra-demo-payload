@@ -19,6 +19,14 @@ interface HeroSectionProps {
     label: string;
     href: string;
   };
+  heroVideo?: string;
+  heroVideoPoster?: any; // Media object from CMS
+  avatar1?: any; // Media object
+  avatar1Alt?: string;
+  avatar2?: any; // Media object
+  avatar2Alt?: string;
+  avatar3?: any; // Media object
+  avatar3Alt?: string;
 }
 
 export default function HeroSection({
@@ -27,6 +35,14 @@ export default function HeroSection({
   subtitle = "Vanuit onze eigen ervaring helpen wij jouw bedrijf groeien en projecten sneller verkopen met slimme online marketing.",
   ctaPrimary = { label: "Plan een bakkie ☕", href: "mailto:info@realaccelerate.nl" },
   ctaSecondary = { label: "Bekijk cases", href: "/cases" },
+  heroVideo,
+  heroVideoPoster,
+  avatar1,
+  avatar1Alt,
+  avatar2,
+  avatar2Alt,
+  avatar3,
+  avatar3Alt,
 }: HeroSectionProps = {}) {
   const { openDialog } = useStrategyDialog();
   return (
@@ -34,13 +50,13 @@ export default function HeroSection({
       {/* Background video */}
       <video
         className="absolute inset-0 h-full w-full object-cover"
-        src="/videos/herofootage_34s.mp4"
+        src={heroVideo || "/videos/herofootage_34s.mp4"}
         autoPlay
         muted
         loop
         playsInline
         preload="none"
-        poster="/media/herofootage_first_frame-640x480.webp"
+        poster={heroVideoPoster?.url || "/media/herofootage_first_frame-640x480.webp"}
         aria-hidden="true"
       />
 
@@ -123,24 +139,24 @@ export default function HeroSection({
           <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-3 text-sm text-foreground/70">
             <div className="flex -space-x-2">
               <Image
-                src="/media/brabantmakelaar_avatar-400x300.webp"
-                alt="Amory - De Brabant Makelaar"
+                src={avatar1?.url || "/media/brabantmakelaar_avatar-400x300.webp"}
+                alt={avatar1Alt || "Amory - De Brabant Makelaar"}
                 width={40}
                 height={40}
                 priority
                 className="h-8 w-8 sm:h-9 sm:w-9 rounded-full object-cover ring-1 ring-[var(--color-border)] shadow-sm"
               />
               <Image
-                src="/media/thomapost_avatar-400x300.webp"
-                alt="Marlies - Thoma Post"
+                src={avatar2?.url || "/media/thomapost_avatar-400x300.webp"}
+                alt={avatar2Alt || "Marlies - Thoma Post"}
                 width={40}
                 height={40}
                 priority
                 className="h-8 w-8 sm:h-9 sm:w-9 rounded-full object-cover ring-1 ring-[var(--color-border)] shadow-sm"
               />
               <Image
-                src="/media/paulthijssen_avatar-400x300.webp"
-                alt="Paul - Paul Thijssen Makelaardij"
+                src={avatar3?.url || "/media/paulthijssen_avatar-400x300.webp"}
+                alt={avatar3Alt || "Paul - Paul Thijssen Makelaardij"}
                 width={40}
                 height={40}
                 priority

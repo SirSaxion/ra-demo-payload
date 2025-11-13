@@ -88,5 +88,14 @@ export const UniqueApproach: Block = {
       type: 'text',
       label: 'CTA button link',
     },
+    {
+      name: 'decorativeImage',
+      type: 'upload',
+      relationTo: 'media',
+      label: 'Decoratieve afbeelding',
+      admin: {
+        description: 'Optionele decoratieve afbeelding (bijv. Emiro pointing)',
+      },
+    },
   ],
 }

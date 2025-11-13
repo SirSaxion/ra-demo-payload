@@ -13,6 +13,7 @@ interface FinalCTAProps {
   ctaHref?: string;
   bullets?: string[];
   phone?: string;
+  teamImage?: any; // Media object from CMS
 }
 
 export default function FinalCTA({
@@ -26,6 +27,7 @@ export default function FinalCTA({
     "Concreet plan om doelstellingen te behalen",
   ],
   phone = "085 060 2989",
+  teamImage,
 }: FinalCTAProps = {}) {
   const { openDialog } = useStrategyDialog() ?? { openDialog: () => {} };
 
@@ -54,8 +56,8 @@ export default function FinalCTA({
         {/* Team Photo */}
         <div className="relative mx-auto mb-6 md:mb-8 h-[15.4rem] md:h-[22rem] w-auto max-w-full">
           <Image
-            src="/media/teamfoto_einde-640x480.png"
-            alt="Teamfoto"
+            src={teamImage?.url || "/media/teamfoto_einde-640x480.png"}
+            alt={teamImage?.alt || "Teamfoto"}
             width={800}
             height={352}
             loading="lazy"
