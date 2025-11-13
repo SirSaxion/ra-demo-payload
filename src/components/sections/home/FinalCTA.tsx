@@ -54,7 +54,7 @@ export default function FinalCTA({
         {/* Team Photo */}
         <div className="relative mx-auto mb-6 md:mb-8 h-[15.4rem] md:h-[22rem] w-auto max-w-full">
           <Image
-            src="/images/teamfoto_einde.png"
+            src="/media/teamfoto_einde-640x480.png"
             alt="Teamfoto"
             width={800}
             height={352}

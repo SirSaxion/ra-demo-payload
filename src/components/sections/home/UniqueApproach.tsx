@@ -197,7 +197,7 @@ export default function UniqueApproachSection({
                 className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[34vw] w-[34vw] max-h-[540px] max-w-[540px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_50%_50%,color-mix(in_oklab,var(--brand-400)_55%,transparent)_0%,transparent_70%)] blur-[24px] opacity-95 mix-blend-screen"
               />
               <Image
-                src="/images/emiro_pointing_right.png"
+                src="/media/emiro_pointing_right-400x300.png"
                 alt="Emiro wijst naar rechts"
                 fill
                 loading="lazy"

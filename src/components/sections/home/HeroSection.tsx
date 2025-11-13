@@ -40,7 +40,7 @@ export default function HeroSection({
         loop
         playsInline
         preload="none"
-        poster="/images/herofootage_first_frame.webp"
+        poster="/media/herofootage_first_frame-640x480.webp"
         aria-hidden="true"
       />
 
@@ -123,7 +123,7 @@ export default function HeroSection({
           <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-3 text-sm text-foreground/70">
             <div className="flex -space-x-2">
               <Image
-                src="/images/brabantmakelaar_avatar.webp"
+                src="/media/brabantmakelaar_avatar-400x300.webp"
                 alt="Amory - De Brabant Makelaar"
                 width={40}
                 height={40}
@@ -131,7 +131,7 @@ export default function HeroSection({
                 className="h-8 w-8 sm:h-9 sm:w-9 rounded-full object-cover ring-1 ring-[var(--color-border)] shadow-sm"
               />
               <Image
-                src="/images/thomapost_avatar.webp"
+                src="/media/thomapost_avatar-400x300.webp"
                 alt="Marlies - Thoma Post"
                 width={40}
                 height={40}
@@ -139,7 +139,7 @@ export default function HeroSection({
                 className="h-8 w-8 sm:h-9 sm:w-9 rounded-full object-cover ring-1 ring-[var(--color-border)] shadow-sm"
               />
               <Image
-                src="/images/paulthijssen_avatar.webp"
+                src="/media/paulthijssen_avatar-400x300.webp"
                 alt="Paul - Paul Thijssen Makelaardij"
                 width={40}
                 height={40}

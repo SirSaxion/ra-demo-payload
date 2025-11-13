@@ -50,7 +50,7 @@ const photoItems: Array<
     name: "Makelaars",
     description: "Duurzame klant‑relaties ipv lead‑jacht",
     href: "/makelaars",
-    img: "/images/remax.jpg",
+    img: "/media/remax-640x480.jpg",
     alt: "Re/max makelaars",
   },
   {
@@ -58,7 +58,7 @@ const photoItems: Array<
     name: "Buitenland",
     description: "IQI Global Partnership • Dubai, Spanje, Bali ervaring",
     href: "/makelaars-buitenland",
-    img: "/images/secondhomebeurs.jpg",
+    img: "/media/secondhomebeurs-640x480.jpg",
     alt: "Second Home Beurs",
   },
   {
@@ -66,7 +66,7 @@ const photoItems: Array<
     name: "Hypotheekadviseurs",
     description: "Onafhankelijk van offerte‑sites worden",
     href: "/hypotheekadviseurs",
-    img: "/images/hypotheekvisie.jpg",
+    img: "/media/hypotheekvisie-640x480.jpg",
     alt: "Hypotheekvisie kantoor",
   },
   {
@@ -74,7 +74,7 @@ const photoItems: Array<
     name: "Projectontwikkelaars",
     description: "Project marketing & events",
     href: "/projectontwikkelaars",
-    img: "/images/recreatie.jpg",
+    img: "/media/recreatie-640x480.jpg",
     alt: "Recreatie projectontwikkeling",
   },
 ];

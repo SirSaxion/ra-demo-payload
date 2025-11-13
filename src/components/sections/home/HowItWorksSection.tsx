@@ -53,7 +53,8 @@ function RudySticker() {
     <figure className="pointer-events-none select-none hidden lg:block absolute inset-y-6 right-0 z-10 w-[205px] xl:w-[230px]">
       <div className="relative h-full w-full">
         <Image
-          src="/images/rudyraket.png"
+          src="/media/rudyraket-640x480.png"
+          loading="lazy"
           alt="Rudy raket"
           width={398}
           height={1110}

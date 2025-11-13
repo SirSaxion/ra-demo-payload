@@ -62,7 +62,7 @@ export default function MarketingMachineSection({
       description: "Professionele websites die converteren. SEO, responsive, en lead-capture ingebouwd.",
       href: "/cases",
       cta: "Bekijk voorbeelden",
-      imageSrc: "/images/32.EmiroSmolders-Settle-DSC07215--compressed.webp",
+      imageSrc: "/media/32.EmiroSmolders-Settle-DSC07215--compressed-640x480.webp",
     },
     {
       icon: "Target",
@@ -70,7 +70,7 @@ export default function MarketingMachineSection({
       description: "Kwalitatieve leads via Meta & Google. Slim targetten voor maximaal resultaat.",
       href: "/cases",
       cta: "Zo werkt het",
-      imageSrc: "/images/leadgen.webp",
+      imageSrc: "/media/leadgen-640x480.png",
     },
     {
       icon: "GaugeCircle",
@@ -78,7 +78,7 @@ export default function MarketingMachineSection({
       description: "SEO optimalisatie, Google Business en content die je gevonden laat worden.",
       href: "/cases",
       cta: "Onze aanpak",
-      imageSrc: "/images/42.EmiroSmolders-Settle-DSC07252--compressed.webp",
+      imageSrc: "/media/42.EmiroSmolders-Settle-DSC07252--compressed-640x480.webp",
     },
     {
       icon: "Repeat",
@@ -86,7 +86,7 @@ export default function MarketingMachineSection({
       description: "Email en SMS flows die slapende leads wakker maken met relevante triggers.",
       href: "/cases",
       cta: "Voorbeeldflows",
-      imageSrc: "/images/rudybrief.webp",
+      imageSrc: "/media/rudybrief-640x480.webp",
     },
     {
       icon: "PhoneCall",
@@ -94,7 +94,7 @@ export default function MarketingMachineSection({
       description: "CRM, automatische follow‑ups en appointment setting. Geen lead meer verloren.",
       href: "/cases",
       cta: "Zie systeem",
-      imageSrc: "/images/joeptelefoon.webp",
+      imageSrc: "/media/joeptelefoon-640x480.png",
     },
     {
       icon: "Palette",
@@ -102,7 +102,7 @@ export default function MarketingMachineSection({
       description: "Sterke merkidentiteit: logo, huisstijl en contentstrategie die vertrouwen wekt.",
       href: "/cases",
       cta: "Bekijk werk",
-      imageSrc: "/images/47.EmiroSmolders-Settle-DSC07264--compressed.webp",
+      imageSrc: "/media/47.EmiroSmolders-Settle-DSC07264--compressed-640x480.webp",
     },
   ];
   

@@ -113,7 +113,7 @@ export const pageData = {
             "tone": "light",
             "frameless": true,
             "showBackdropLogo": false,
-            "imageSrc": "/images/case-de-brabant-makelaar.webp",
+            "imageSrc": "/media/case-de-brabant-makelaar-1024x768.png",
             "imageAlt": "Team De Brabant Makelaar",
             "kpis": [
               {
@@ -188,7 +188,7 @@ export const pageData = {
                 "description": "Professionele websites die converteren. SEO, responsive, en lead-capture ingebouwd.",
                 "href": "/cases",
                 "cta": "Bekijk voorbeelden",
-                "imageSrc": "/images/32.EmiroSmolders-Settle-DSC07215--compressed.webp"
+                "imageSrc": "/media/32.EmiroSmolders-Settle-DSC07215--compressed-640x480.webp"
               },
               {
                 "icon": "Target",
@@ -196,7 +196,7 @@ export const pageData = {
                 "description": "Kwalitatieve leads via Meta & Google. Slim targetten voor maximaal resultaat.",
                 "href": "/cases",
                 "cta": "Zo werkt het",
-                "imageSrc": "/images/leadgen.webp"
+                "imageSrc": "/media/leadgen-640x480.png"
               },
               {
                 "icon": "GaugeCircle",
@@ -204,7 +204,7 @@ export const pageData = {
                 "description": "SEO optimalisatie, Google Business en content die je gevonden laat worden.",
                 "href": "/cases",
                 "cta": "Onze aanpak",
-                "imageSrc": "/images/42.EmiroSmolders-Settle-DSC07252--compressed.webp"
+                "imageSrc": "/media/42.EmiroSmolders-Settle-DSC07252--compressed-640x480.webp"
               },
               {
                 "icon": "Repeat",
@@ -212,7 +212,7 @@ export const pageData = {
                 "description": "Email en SMS flows die slapende leads wakker maken met relevante triggers.",
                 "href": "/cases",
                 "cta": "Voorbeeldflows",
-                "imageSrc": "/images/rudybrief.webp"
+                "imageSrc": "/media/rudybrief-640x480.webp"
               },
               {
                 "icon": "PhoneCall",
@@ -220,7 +220,7 @@ export const pageData = {
                 "description": "CRM, automatische follow‑ups en appointment setting. Geen lead meer verloren.",
                 "href": "/cases",
                 "cta": "Zie systeem",
-                "imageSrc": "/images/joeptelefoon.webp"
+                "imageSrc": "/media/joeptelefoon-640x480.png"
               },
               {
                 "icon": "Palette",
@@ -228,7 +228,7 @@ export const pageData = {
                 "description": "Sterke merkidentiteit: logo, huisstijl en contentstrategie die vertrouwen wekt.",
                 "href": "/cases",
                 "cta": "Bekijk werk",
-                "imageSrc": "/images/47.EmiroSmolders-Settle-DSC07264--compressed.webp"
+                "imageSrc": "/media/47.EmiroSmolders-Settle-DSC07264--compressed-640x480.webp"
               }
             ]
           }
@@ -254,7 +254,7 @@ export const pageData = {
               {
                 "name": "Makelaars",
                 "description": "Duurzame klant‑relaties ipv lead‑jacht",
-                "img": "/images/remax.jpg",
+                "img": "/media/remax-640x480.jpg",
                 "alt": "Re/max makelaars",
                 "href": "/makelaars",
                 "key": "makelaars"
@@ -262,7 +262,7 @@ export const pageData = {
               {
                 "name": "Projectontwikkelaars",
                 "description": "Project marketing & events",
-                "img": "/images/recreatie.jpg",
+                "img": "/media/recreatie-640x480.jpg",
                 "alt": "Recreatie projectontwikkeling",
                 "href": "/projectontwikkelaars",
                 "key": "projectontwikkelaars"
@@ -270,7 +270,7 @@ export const pageData = {
               {
                 "name": "Hypotheekadviseurs",
                 "description": "Onafhankelijk van offerte‑sites worden",
-                "img": "/images/hypotheekvisie.jpg",
+                "img": "/media/hypotheekvisie-640x480.jpg",
                 "alt": "Hypotheekvisie kantoor",
                 "href": "/hypotheekadviseurs",
                 "key": "hypotheek"
@@ -278,7 +278,7 @@ export const pageData = {
               {
                 "name": "Buitenland",
                 "description": "IQI Global Partnership • Dubai, Spanje, Bali ervaring",
-                "img": "/images/secondhomebeurs.jpg",
+                "img": "/media/secondhomebeurs-640x480.jpg",
                 "alt": "Second Home Beurs",
                 "href": "/makelaars-buitenland",
                 "key": "buitenland"
@@ -324,7 +324,7 @@ export const pageData = {
             "testimonials": [
               {
                 "title": "De Brabant Makelaar",
-                "imageSrc": "/images/brabantmakelaar_logo.webp",
+                "imageSrc": "/media/brabantmakelaar_logo.webp",
                 "badges": [
                   "8 makelaars actief",
                   "Agenda gevuld"
@@ -332,14 +332,14 @@ export const pageData = {
                 "author": {
                   "name": "Amory",
                   "handle": "De Brabant Makelaar",
-                  "avatar": "/images/brabantmakelaar_avatar.webp"
+                  "avatar": "/media/brabantmakelaar_avatar-400x300.webp"
                 },
                 "text": "De dynamische heren van Real Accelerate zijn erg fijn om mee samen te werken. Proactief en zorgen voor veel resultaten. Aanrader voor iedereen die meer uit online marketing wilt halen!",
                 "href": "/cases"
               },
               {
                 "title": "Bink & Partners",
-                "imageSrc": "/images/binkpartners_logo.webp",
+                "imageSrc": "/media/binkpartners_logo.webp",
                 "badges": [
                   "Leads boven verwachting",
                   "Website complimenten"
@@ -347,7 +347,7 @@ export const pageData = {
                 "author": {
                   "name": "Pieter",
                   "handle": "Bink & Partners",
-                  "avatar": "/images/binkpartners_avatar.webp"
+                  "avatar": "/media/binkpartners_avatar.webp"
                 },
                 "text": "Real Accelerate is een enthousiaste groep. Mijn nieuwe website levert veel complimenten op. Het vervolgtraject om op de socials leads te genereren is zojuist gestart en loopt prima.",
                 "href": "/cases"

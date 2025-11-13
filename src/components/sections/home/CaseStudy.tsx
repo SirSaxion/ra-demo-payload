@@ -363,7 +363,7 @@ export default function CaseStudy({
               <defs>
                 {/* Tile size controls spacing; image size controls logo size */}
                 <pattern id="cs-ra-logo" width="252" height="189" patternUnits="userSpaceOnUse">
-                  <image href="/images/ralogosvg.svg" x="0" y="0" width="240" height="177" />
+                  <image href="/media/ralogosvg.svg" x="0" y="0" width="240" height="177" />
                 </pattern>
               </defs>
               <rect width="100%" height="100%" fill="url(#cs-ra-logo)" />
