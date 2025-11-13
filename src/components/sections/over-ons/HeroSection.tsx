@@ -13,7 +13,7 @@ interface HeroSectionProps {
   highlightedWord?: string;
   subtitle?: string;
   description?: string;
-  image?: string;
+  image?: any; // Media object from CMS
   imageAlt?: string;
   stats?: StatItem[];
 }
@@ -43,8 +43,8 @@ export default function HeroSection({
         <div className="relative order-2 xl:order-1">
           <div className="relative aspect-[4/3]">
             <Image
-              src={image}
-              alt={imageAlt}
+              src={image?.sizes?.large?.url || image?.url}
+              alt={imageAlt || "Team Real Accelerate"}
               fill
               loading="lazy"
               sizes="(max-width: 1280px) 100vw, 50vw"

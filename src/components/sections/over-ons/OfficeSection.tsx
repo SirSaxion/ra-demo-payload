@@ -17,7 +17,7 @@ interface OfficeSectionProps {
   };
   phone?: string;
   email?: string;
-  image?: string;
+  image?: any; // Media object from CMS
   imageAlt?: string;
   openInMapsLabel?: string;
   locationBadge?: string;
@@ -125,7 +125,7 @@ const OfficeSection: React.FC<OfficeSectionProps> = ({
                 <div className="h-[90%] w-[90%] rounded-full blur-[42px] opacity-85 bg-[radial-gradient(50%_50%_at_50%_50%,color-mix(in_oklab,var(--brand-500)_50%,transparent)_0%,transparent_80%)]" />
               </div>
               <div className="relative z-10 w-full aspect-[4/3] rounded-2xl overflow-hidden">
-                <Image src={image} alt={imageAlt} fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw" className="object-contain" />
+                <Image src={image?.sizes?.medium?.url || image?.url} alt={imageAlt || "Office"} fill loading="lazy" sizes="(max-width: 768px) 100vw, 50vw" className="object-contain" />
               </div>
             </div>
 

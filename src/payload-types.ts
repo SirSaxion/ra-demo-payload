@@ -944,7 +944,10 @@ export interface OverOnsHeroSection {
   highlightedWord: string;
   subtitle: string;
   description: string;
-  image: string;
+  /**
+   * Upload de team foto voor de hero sectie
+   */
+  image?: (number | null) | Media;
   imageAlt: string;
   stats?:
     | {
@@ -1029,7 +1032,10 @@ export interface OverOnsTeamSection {
     | {
         name?: string | null;
         role?: string | null;
-        image?: string | null;
+        /**
+         * Upload de foto van het teamlid
+         */
+        image?: (number | null) | Media;
         id?: string | null;
       }[]
     | null;
@@ -1071,7 +1077,10 @@ export interface OverOnsPartnershipsSection {
     | {
         title?: string | null;
         description?: string | null;
-        image?: string | null;
+        /**
+         * Upload het logo of de foto van de partner
+         */
+        image?: (number | null) | Media;
         features?:
           | {
               text?: string | null;
@@ -1132,7 +1141,10 @@ export interface OverOnsOfficeSection {
     street?: string | null;
     city?: string | null;
   };
-  image: string;
+  /**
+   * Upload de foto voor de office sectie
+   */
+  image?: (number | null) | Media;
   imageAlt: string;
   openInMapsLabel?: string | null;
   locationBadge?: string | null;

@@ -10,7 +10,7 @@ import {
 interface TeamMember {
   name: string;
   role: string;
-  image: string;
+  image: any; // Media object from CMS
 }
 
 interface TeamSectionProps {
@@ -83,7 +83,7 @@ export default function TeamSection({
                 <div className="mx-auto mb-3 flex items-center justify-center">
                   <div className="relative size-24 md:size-28 overflow-hidden rounded-full ring-2 ring-black/10 shadow-[0_6px_18px_rgba(0,0,0,0.08)]">
                     <Image
-                      src={member.image}
+                      src={member.image?.sizes?.thumbnail?.url || member.image?.url}
                       alt={member.name}
                       fill
                       loading="lazy"

@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
 export interface PartnershipData {
   title: string
   description: string
-  image: string
+  image: any // Media object from CMS
   features: string[]
 }
 
@@ -124,7 +124,7 @@ export default function PartnershipsSection({
               <div className="relative rounded-[var(--radius-xl)] overflow-hidden mb-6 md:mb-8">
                 <div className="relative aspect-video w-full">
                   <Image
-                    src={partnership.image}
+                    src={partnership.image?.sizes?.medium?.url || partnership.image?.url}
                     alt={partnership.title}
                     fill
                     loading="lazy"

@@ -33,8 +33,12 @@ export const OverOnsPartnershipsSection: Block = {
         },
         {
           name: 'image',
-          type: 'text',
-          label: 'Afbeelding URL',
+          type: 'upload',
+          relationTo: 'media',
+          label: 'Partnership logo/foto',
+          admin: {
+            description: 'Upload het logo of de foto van de partner',
+          },
         },
         {
           name: 'features',

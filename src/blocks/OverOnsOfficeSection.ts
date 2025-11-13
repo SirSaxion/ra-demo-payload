@@ -53,9 +53,12 @@ export const OverOnsOfficeSection: Block = {
     },
     {
       name: 'image',
-      type: 'text',
-      label: 'Afbeelding URL',
-      required: true,
+      type: 'upload',
+      relationTo: 'media',
+      label: 'Office/team foto',
+      admin: {
+        description: 'Upload de foto voor de office sectie',
+      },
     },
     {
       name: 'imageAlt',

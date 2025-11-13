@@ -33,8 +33,12 @@ export const OverOnsTeamSection: Block = {
         },
         {
           name: 'image',
-          type: 'text',
-          label: 'Foto URL',
+          type: 'upload',
+          relationTo: 'media',
+          label: 'Team member foto',
+          admin: {
+            description: 'Upload de foto van het teamlid',
+          },
         },
       ],
     },

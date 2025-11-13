@@ -1,8 +1,17 @@
 {
-  "/images/2.EmiroSmolders-Settle-DSC06899-.webp": "33",
-  "/images/3.EmiroSmolders-Settle-DSC06907-.webp": "34",
-  "/images/4.EmiroSmolders-Settle-DSC06915-.webp": "35",
-  "/images/5.EmiroSmolders-Settle-DSC06927-.webp": "36",
-  "/images/6.EmiroSmolders-Settle-DSC06931-.webp": "37",
-  "/images/joep-koffie.png": "38"
+  "mapping": {
+    "/images/teamfoto_einde.png": 22,
+    "/images/1.EmiroSmolders-Settle-DSC06894-.webp": 24,
+    "/images/2.EmiroSmolders-Settle-DSC06899-.webp": 33,
+    "/images/3.EmiroSmolders-Settle-DSC06907-.webp": 34,
+    "/images/4.EmiroSmolders-Settle-DSC06915-.webp": 35,
+    "/images/5.EmiroSmolders-Settle-DSC06927-.webp": 36,
+    "/images/6.EmiroSmolders-Settle-DSC06931-.webp": 37,
+    "/images/10.EmiroSmolders-Settle-DSC06970-.jpg": 25,
+    "/images/placeholder.jpg": 29,
+    "/images/iqiglobal.jpg": 30,
+    "/images/editbv.jpg": 32,
+    "/images/joep-koffie.png": 38
+  },
+  "timestamp": "2025-11-13T17:30:02.923Z"
 }

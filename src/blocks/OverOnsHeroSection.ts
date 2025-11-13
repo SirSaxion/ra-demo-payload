@@ -36,9 +36,12 @@ export const OverOnsHeroSection: Block = {
     },
     {
       name: 'image',
-      type: 'text',
-      label: 'Afbeelding URL',
-      required: true,
+      type: 'upload',
+      relationTo: 'media',
+      label: 'Hoofdafbeelding (team foto)',
+      admin: {
+        description: 'Upload de team foto voor de hero sectie',
+      },
     },
     {
       name: 'imageAlt',
