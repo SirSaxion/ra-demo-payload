@@ -1,0 +1,88 @@
+
+========================================
+SMART DEPLOYMENT - HOMEPAGE ONLY
+========================================
+
+Created: 2025-11-13T16:56:25.487Z
+Package: Real Accelerate Demo - Payload CMS
+
+========================================
+INCLUDED FILES
+========================================
+
+✅ Database: ra-demo-payload.db
+✅ Source code: /src
+✅ Homepage media: 15 files (102.89 MB)
+✅ Hero video: herofootage_34s.mp4
+✅ Static assets: favicons, logos
+
+========================================
+HOMEPAGE MEDIA FILES
+========================================
+
+1. videothumb2.jpeg (ID: 43)
+2. secondhomebeurs.jpg (ID: 16)
+3. hypotheekvisie.jpg (ID: 15)
+4. recreatie.jpg (ID: 14)
+5. remax.jpg (ID: 13)
+6. 47.EmiroSmolders-Settle-DSC07264--compressed.webp (ID: 12)
+7. joeptelefoon.webp (ID: 11)
+8. rudybrief.webp (ID: 10)
+9. 42.EmiroSmolders-Settle-DSC07252--compressed.webp (ID: 9)
+10. leadgen.webp (ID: 8)
+11. 32.EmiroSmolders-Settle-DSC07215--compressed.webp (ID: 7)
+12. case-de-brabant-makelaar.webp (ID: 5)
+13. paulthijssen_avatar.webp (ID: 4)
+14. thomapost_avatar.webp (ID: 3)
+15. brabantmakelaar_avatar.webp (ID: 2)
+
+========================================
+NOT INCLUDED (Other Pages)
+========================================
+
+❌ Makelaars page media
+❌ Hypotheekadviseurs page media
+❌ Cases page media
+❌ Over-ons page media
+❌ Other page media
+
+These will be added after migration!
+
+========================================
+DEPLOYMENT INSTRUCTIONS
+========================================
+
+1. Copy .env.example to .env
+2. Configure environment variables
+3. Run: pnpm install
+4. Run: pnpm build
+5. Run: pnpm start
+
+OR with Docker:
+docker-compose up -d
+
+========================================
+VERIFICATION CHECKLIST
+========================================
+
+After deployment:
+□ Homepage loads at /
+□ All homepage images load
+□ Hero video plays
+□ CMS accessible at /admin
+□ Database readable
+
+Known limitations:
+• Other pages will have placeholder/missing images
+• Migrate other pages separately later
+
+========================================
+TOTAL PACKAGE SIZE
+========================================
+
+Database: 11.28 MB
+Media: 102.89 MB
+Source: ~3 MB
+Total: ~117.03 MB
+
+========================================

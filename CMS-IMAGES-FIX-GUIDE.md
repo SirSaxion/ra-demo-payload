@@ -1,5 +1,21 @@
 # CMS Images Fix Guide - Complete Workflow
 
+## 📖 Quick Reference
+
+**Voor een nieuwe chat:** Lees deze hele guide om homepage images te fixen en deployment te maken!
+
+**Belangrijkste takeaways:**
+1. ✅ Blocks moeten `type: 'upload'` fields hebben
+2. ✅ Components moeten CMS props gebruiken met fallbacks
+3. ✅ Images moeten naar `/public/media/` EN `/public/images/` (BEIDE!)
+4. ✅ Kopieer ALLE variants (-small, -medium, -large, -400x300, etc.)
+5. ✅ Vergeet layout assets niet (navbar/footer logos)
+6. ✅ Deployment: ~120MB vs 1.3GB (scan blocks voor media IDs)
+
+**Script locatie:** `/scripts/prepare-deployment-homepage-only.ts` ← Working example!
+
+---
+
 ## 🎯 Het Probleem
 
 Images waren hardcoded in de React components en **NIET** aanpasbaar via het Payload CMS. Wanneer je in het CMS een image probeerde te wijzigen, gebeurde er niets op de frontend omdat:
@@ -570,6 +586,303 @@ Een pagina is "fixed" wanneer:
 
 ---
 
+## 🚀 DEPLOYMENT: Smart Package Creation
+
+### **Het Deployment Probleem**
+
+Na het fixen van de homepage images moet je een deployment package maken. **NIET** alle 1.3GB aan media meenemen, alleen wat de homepage gebruikt!
+
+### **KRITIEKE Lessons Learned**
+
+#### 1. **Images moeten in BEIDE folders** ❗
+```
+/public/media/     ← Voor Payload CMS
+/public/images/    ← Voor component fallbacks
+```
+
+**Waarom?** Components gebruiken fallbacks zoals `/images/foto.webp`, maar Payload genereert URLs naar `/media/`. Zonder beide folders krijg je 404 errors!
+
+#### 2. **Twee soorten optimized variants** 🎨
+
+**Name-based variants:**
+- `image-small.webp` (mobile)
+- `image-medium.webp` (tablet)
+- `image-large.webp` (desktop)
+- `image-thumbnail.webp` (preview)
+
+**Size-based variants:**
+- `image-400x300.png`
+- `image-640x480.png`
+- `image-1024x768.png`
+- `image-1920x1440.png`
+
+**⚠️ Ze kunnen in verschillende folders staan!**
+- Name-based vaak in `/public/images/`
+- Size-based vaak in `/public/media/`
+
+#### 3. **Layout assets zijn NIET in blocks** 📐
+
+Navbar, footer, en andere layout components gebruiken images die NIET in de page blocks zitten:
+- `logorealaccelerate.webp` (navbar logo)
+- `brabantmakelaar_logo.webp` (testimonials)
+- `binkpartners_logo.webp`
+- `paulthijssen_logo.webp`
+- `thomapost_logo.webp`
+- `ralogosvg.svg`
+
+**Deze moet je APART meenemen!**
+
+### **Smart Deployment Script Template**
+
+Gebruik dit script om ALLEEN homepage media te pakken (van 1.3GB → ~120MB):
+
+```typescript
+// scripts/prepare-deployment-[pagina]-only.ts
+
+import { getPayload } from 'payload'
+import config from '../src/payload.config.js'
+import fs from 'fs'
+import path from 'path'
+import { execSync } from 'child_process'
+
+async function prepareSmartDeployment() {
+  const payload = await getPayload({ config })
+  
+  // 1. Find the page
+  const pages = await payload.find({
+    collection: 'pages',
+    where: { slug: { equals: '/[pagina-slug]' } },
+    limit: 1,
+  })
+  
+  const page = pages.docs[0]
+  
+  // 2. Collect ALL media IDs from blocks
+  const mediaIds = new Set<number>()
+  
+  const collectMediaIds = (obj: any) => {
+    if (!obj) return
+    
+    if (typeof obj === 'object') {
+      // Check for media references
+      if (typeof obj === 'number') mediaIds.add(obj)
+      if (obj.id && typeof obj.id === 'number') mediaIds.add(obj.id)
+      
+      // Check common field names
+      const mediaFields = [
+        'image', 'companyLogo', 'avatar', 'heroVideoPoster',
+        'avatar1', 'avatar2', 'avatar3', 'decorativeImage', 'teamImage'
+      ]
+      
+      mediaFields.forEach(field => {
+        if (obj[field] && typeof obj[field] === 'number') {
+          mediaIds.add(obj[field])
+        }
+      })
+      
+      // Recurse
+      Object.values(obj).forEach(value => {
+        if (Array.isArray(value)) {
+          value.forEach(item => collectMediaIds(item))
+        } else if (typeof value === 'object' && value !== null) {
+          collectMediaIds(value)
+        }
+      })
+    }
+  }
+  
+  page.blocks?.forEach((block: any) => collectMediaIds(block))
+  
+  // 3. Fetch media records
+  const mediaRecords = await payload.find({
+    collection: 'media',
+    where: { id: { in: Array.from(mediaIds) } },
+    limit: 100,
+  })
+  
+  // 4. Copy files with ALL variants to BOTH locations
+  for (const media of mediaRecords.docs) {
+    const filename = media.filename as string
+    if (!filename) continue
+    
+    const ext = path.extname(filename)
+    const baseName = path.basename(filename, ext)
+    
+    // Find source file
+    const possiblePaths = [
+      path.join(PROJECT_ROOT, 'public', 'media', filename),
+      path.join(PROJECT_ROOT, 'public', 'images', filename),
+    ]
+    
+    let sourcePath = ''
+    for (const p of possiblePaths) {
+      if (fs.existsSync(p)) {
+        sourcePath = p
+        break
+      }
+    }
+    
+    if (!sourcePath) continue
+    
+    // Copy main file to BOTH locations
+    fs.copyFileSync(sourcePath, path.join(DEPLOY_DIR, 'public', 'media', filename))
+    fs.copyFileSync(sourcePath, path.join(DEPLOY_DIR, 'public', 'images', filename))
+    
+    // Copy ALL optimized variants
+    const nameVariants = ['-small', '-medium', '-large', '-thumbnail']
+    const sizeVariants = ['-400x300', '-640x480', '-1024x768', '-1920x1440']
+    const extensions = ['.webp', '.png', '.jpg', '.jpeg']
+    
+    const possibleDirs = [
+      path.join(PROJECT_ROOT, 'public', 'images'),
+      path.join(PROJECT_ROOT, 'public', 'media'),
+    ]
+    
+    // Name-based variants
+    nameVariants.forEach(variant => {
+      for (const dir of possibleDirs) {
+        for (const tryExt of extensions) {
+          const variantFile = `${baseName}${variant}${tryExt}`
+          const variantPath = path.join(dir, variantFile)
+          
+          if (fs.existsSync(variantPath)) {
+            // Copy to BOTH locations
+            fs.copyFileSync(variantPath, path.join(DEPLOY_DIR, 'public', 'media', variantFile))
+            fs.copyFileSync(variantPath, path.join(DEPLOY_DIR, 'public', 'images', variantFile))
+            break
+          }
+        }
+      }
+    })
+    
+    // Size-based variants
+    sizeVariants.forEach(variant => {
+      for (const dir of possibleDirs) {
+        for (const tryExt of extensions) {
+          const variantFile = `${baseName}${variant}${tryExt}`
+          const variantPath = path.join(dir, variantFile)
+          
+          if (fs.existsSync(variantPath)) {
+            // Copy to BOTH locations
+            fs.copyFileSync(variantPath, path.join(DEPLOY_DIR, 'public', 'media', variantFile))
+            fs.copyFileSync(variantPath, path.join(DEPLOY_DIR, 'public', 'images', variantFile))
+            break
+          }
+        }
+      }
+    })
+  }
+  
+  // 5. Copy static layout assets
+  const staticLogos = [
+    'logorealaccelerate.webp',
+    'logorealaccelerate-small.webp',
+    'logorealaccelerate-medium.webp',
+    'logorealaccelerate-large.webp',
+    'logorealaccelerate-thumbnail.webp',
+    'brabantmakelaar_logo.webp',
+    'brabantmakelaar_logo-small.webp',
+    'brabantmakelaar_logo-thumbnail.webp',
+    'binkpartners_logo.webp',
+    'binkpartners_logo-small.webp',
+    'binkpartners_logo-thumbnail.webp',
+    'paulthijssen_logo.webp',
+    'paulthijssen_logo-small.webp',
+    'paulthijssen_logo-thumbnail.webp',
+    'thomapost_logo.webp',
+    'thomapost_logo-medium.png',
+    'thomapost_logo-small.png',
+    'ralogosvg.svg',
+  ]
+  
+  staticLogos.forEach(logo => {
+    const source = path.join(PROJECT_ROOT, 'public', 'images', logo)
+    if (fs.existsSync(source)) {
+      fs.copyFileSync(source, path.join(DEPLOY_DIR, 'public', 'media', logo))
+      fs.copyFileSync(source, path.join(DEPLOY_DIR, 'public', 'images', logo))
+    }
+  })
+  
+  // 6. Copy database, source, config, etc.
+  // ... (rest of deployment script)
+}
+```
+
+### **Deployment Checklist**
+
+Voor elke pagina deployment:
+
+- [ ] **Scan blocks** voor media IDs
+- [ ] **Copy main files** naar `/public/media/` EN `/public/images/`
+- [ ] **Copy ALL variants** (name-based + size-based)
+- [ ] **Check beide folders** voor variants (images/ én media/)
+- [ ] **Add static layout assets** (navbar, footer logos)
+- [ ] **Copy database** (bevat alle media relations)
+- [ ] **Test deployment** zonder errors
+
+### **Deployment Package Sizes**
+
+**Voorbeeld (Homepage):**
+```
+Database:      11 MB
+Media files:   103 MB (15 images × ~7 variants each)
+Hero video:    29 MB
+Source code:   3 MB
+Total:         ~120 MB ✅ (vs 1.3GB origineel!)
+```
+
+### **Common Deployment Errors**
+
+#### Error: "The requested resource isn't a valid image for /images/..."
+**Oorzaak:** Files staan alleen in `/public/media/`, niet in `/public/images/`  
+**Oplossing:** Kopieer naar BEIDE folders!
+
+#### Error: Images load but are not optimized
+**Oorzaak:** Alleen main files gekopieerd, geen variants  
+**Oplossing:** Kopieer ALLE variants (-small, -medium, -large, -400x300, etc.)
+
+#### Error: Navbar/footer logos 404
+**Oorzaak:** Layout assets niet meegenomen (zitten niet in blocks)  
+**Oplossing:** Maak lijst met static assets en kopieer apart
+
+### **Verification na Deployment**
+
+```bash
+# Test deployment package
+cd deployment
+npm install
+npm run build
+npm start
+
+# Check for errors
+# ✅ Geen "requested resource isn't a valid image" errors
+# ✅ Alle images laden (inclusief responsive variants)
+# ✅ Navbar/footer logos laden
+# ✅ CMS admin werkt op /admin
+```
+
+---
+
+## 📦 Complete Deployment Workflow
+
+1. **Fix CMS images** (blocks + components) ✅
+2. **Run smart deployment script** → `/deployment` folder
+3. **Verify deployment package locally** (test with `npm start`)
+4. **Compress**: `tar -czf deployment.tar.gz deployment/`
+5. **Upload to VPS**: `scp deployment.tar.gz user@vps:/var/www/`
+6. **Deploy on VPS**:
+   ```bash
+   tar -xzf deployment.tar.gz
+   cd deployment
+   cp .env.example .env
+   # Configure .env
+   pnpm install
+   pnpm build
+   pnpm start
+   ```
+
+---
+
 **Last Updated:** 13 november 2025  
-**Status:** Homepage 100% compleet ✅  
+**Status:** Homepage 100% compleet + Deployment ready ✅  
 **Template ready voor alle andere pagina's** 🚀

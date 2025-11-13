@@ -1,0 +1,5 @@
+export { SEO } from './SEO'
+export { Footer } from './Footer'
+export { Header } from './Header'
+export { SiteSettings } from './SiteSettings'
+export { NotFoundPage } from './NotFoundPage'
