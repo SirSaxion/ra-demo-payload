@@ -22,7 +22,7 @@ export interface HeroProps {
     value: number
     suffix?: string
   }>
-  image?: string
+  image?: any // Media object from CMS
   imageAlt?: string
 }
 
@@ -40,7 +40,7 @@ export default function Hero({
     { icon: "Briefcase", label: "Deals", value: 2847 },
     { icon: "Globe", label: "Landen", value: 4 }
   ],
-  image = "/images/rudy-thumbs-up.png",
+  image,
   imageAlt = "Rudy met duim omhoog"
 }: HeroProps) {
   const { openDialog } = useStrategyDialog();
@@ -135,8 +135,8 @@ export default function Hero({
               className="pointer-events-none absolute right-0 top-1/2 z-0 h-[52vw] w-[52vw] max-h-[720px] max-w-[720px] -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_60%_50%,color-mix(in_oklab,var(--brand-400)_50%,transparent)_0%,transparent_75%)] blur-[28px] opacity-90 mix-blend-screen"
             />
             <Image
-              src={image}
-              alt={imageAlt}
+              src={image?.url || "/media/rudy-thumbs-up-640x480.png"}
+              alt={image?.alt || imageAlt}
               fill
               loading="lazy"
               sizes="(max-width: 768px) 90vw, (max-width: 1280px) 50vw, 40vw"

@@ -75,15 +75,20 @@ export const CasesHero: Block = {
     },
     {
       name: 'image',
-      type: 'text',
-      label: 'Afbeelding URL',
-      required: true,
+      type: 'upload',
+      relationTo: 'media',
+      label: 'Hero Afbeelding',
+      admin: {
+        description: 'Hero afbeelding (bijv. Rudy met duim omhoog)',
+      },
     },
     {
       name: 'imageAlt',
       type: 'text',
-      label: 'Afbeelding alt tekst',
-      required: true,
+      label: 'Afbeelding alt tekst (fallback)',
+      admin: {
+        description: 'Alt tekst voor als Media object geen alt heeft',
+      },
     },
   ],
 }

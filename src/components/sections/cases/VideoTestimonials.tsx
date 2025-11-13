@@ -18,7 +18,7 @@ export interface VideoTestimonialsProps {
     company: string
     name: string
     role: string
-    thumbnail: string
+    thumbnail: any // Media object from CMS
     videoUrl?: string
     quote: string
     highlight: string
@@ -38,7 +38,7 @@ export default function VideoTestimonials({
       company: "De Brabant Makelaar",
       name: "Amory",
       role: "Eigenaar",
-      thumbnail: "/images/videothumb1.jpeg",
+      thumbnail: undefined,
       videoUrl: "/videos/testimonial-brabant.mp4",
       quote: "Van €20k naar €65k maandomzet in 18 maanden. De marketing machine werkt echt.",
       highlight: "225% omzetgroei"
@@ -48,7 +48,7 @@ export default function VideoTestimonials({
       company: "Bink & Partners",
       name: "Pieter",
       role: "Makelaar",
-      thumbnail: "/images/videothumb2.jpeg",
+      thumbnail: undefined,
       videoUrl: "/videos/testimonial-bink.mp4",
       quote: "Ik betaalde €800 per maand aan slechte leads. Nu heb ik een wachtrij van ideale klanten die mij al willen.",
       highlight: "30+ afspraken per jaar"
@@ -58,7 +58,7 @@ export default function VideoTestimonials({
       company: "Thoma Post Makelaardij",
       name: "Thoma",
       role: "Eigenaar",
-      thumbnail: "/images/videothumb3.jpeg",
+      thumbnail: undefined,
       videoUrl: "/videos/testimonial-thoma.mp4",
       quote: "31 kwalitatieve afspraken in de eerste maand. Ik had niet verwacht dat het zo snel zou gaan.",
       highlight: "Snelste resultaten ooit"
@@ -102,8 +102,8 @@ export default function VideoTestimonials({
             {/* Placeholder Image with Play Button Overlay */}
             <div className="relative w-full h-full group cursor-pointer">
               <Image
-                src={activeVideo.thumbnail}
-                alt={`${activeVideo.name} van ${activeVideo.company}`}
+                src={activeVideo.thumbnail?.sizes?.medium?.url || activeVideo.thumbnail?.url || `/media/videothumb${activeVideo.id}-640x480.jpg`}
+                alt={activeVideo.thumbnail?.alt || `${activeVideo.name} van ${activeVideo.company}`}
                 fill
                 loading="lazy"
                 sizes="100vw"
@@ -202,8 +202,8 @@ export default function VideoTestimonials({
                   {/* Thumbnail */}
                   <div className="relative w-full aspect-video">
                     <Image
-                      src={video.thumbnail}
-                      alt={`${video.name} van ${video.company}`}
+                      src={video.thumbnail?.sizes?.small?.url || video.thumbnail?.url || `/media/videothumb${video.id}-640x480.jpg`}
+                      alt={video.thumbnail?.alt || `${video.name} van ${video.company}`}
                       fill
                       loading="lazy"
                       sizes="200px"

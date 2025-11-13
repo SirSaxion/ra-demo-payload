@@ -67,8 +67,12 @@ export const CasesVideoTestimonials: Block = {
         },
         {
           name: 'thumbnail',
-          type: 'text',
-          label: 'Thumbnail URL',
+          type: 'upload',
+          relationTo: 'media',
+          label: 'Video Thumbnail',
+          admin: {
+            description: 'Thumbnail afbeelding voor video testimonial',
+          },
         },
         {
           name: 'videoUrl',

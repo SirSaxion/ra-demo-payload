@@ -14,7 +14,7 @@ export interface BestVariantsProps {
   featuredBadge?: string
   featuredCompany?: string
   featuredSubtitle?: string
-  featuredImage?: string
+  featuredImage?: any // Media object from CMS
   featuredImageAlt?: string
   stats?: Array<{
     icon: string
@@ -33,7 +33,7 @@ export interface BestVariantsProps {
     icon: string
     highlight: string
     bullets: string[]
-    image?: string
+    image?: any // Media object from CMS
   }>
 }
 
@@ -57,7 +57,7 @@ export default function BestVariants({
   featuredBadge = "FEATURED CASE",
   featuredCompany = "De Brabant Makelaar",
   featuredSubtitle = "Van 2 naar 8 werknemers in 18 maanden",
-  featuredImage = "/images/case-de-brabant-makelaar.webp",
+  featuredImage,
   featuredImageAlt = "Team De Brabant Makelaar",
   stats = [
     { icon: "TrendingUp", label: "Maandomzet", from: "€20k", to: "€65k", suffix: "in 18 maanden" },
@@ -77,7 +77,7 @@ export default function BestVariants({
       icon: "Home",
       highlight: "31 afspraken in maand 1",
       bullets: ["Snelste start", "Kwalitatieve leads", "Consistente pijplijn"],
-      image: "/images/thoma_thumb.png"
+      image: undefined
     },
     {
       company: "Dubai Property",
@@ -85,7 +85,7 @@ export default function BestVariants({
       icon: "Globe2",
       highlight: "$8.5M+ verkocht",
       bullets: ["Nationwide events", "IQI Global partner", "Snelle doorloop"],
-      image: "/images/dubai_thumb.jpg"
+      image: undefined
     }
   ]
 }: BestVariantsProps) {
@@ -176,8 +176,8 @@ export default function BestVariants({
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[250px] w-[250px] rounded-full bg-[var(--brand-400)] opacity-[0.12] blur-[80px]" />
             </div>
             <Image
-              src={featuredImage}
-              alt={featuredImageAlt}
+              src={featuredImage?.url || "/media/case-de-brabant-makelaar-640x480.png"}
+              alt={featuredImage?.alt || featuredImageAlt}
               fill
               sizes="(min-width: 1024px) 40vw, 90vw"
               className="object-contain object-center saturate-[0.85] contrast-[0.98]"
@@ -199,8 +199,8 @@ export default function BestVariants({
             {c.image && (
               <div className="relative w-full h-48 overflow-hidden bg-[var(--color-surface-2)]">
                 <Image
-                  src={c.image}
-                  alt={c.company}
+                  src={c.image?.sizes?.medium?.url || c.image?.url || `/media/${c.company.toLowerCase().replace(/\s+/g, '_')}_thumb-640x480.png`}
+                  alt={c.image?.alt || c.company}
                   fill
                   loading="lazy"
                   sizes="(max-width: 768px) 100vw, 33vw"

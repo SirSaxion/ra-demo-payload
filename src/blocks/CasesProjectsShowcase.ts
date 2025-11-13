@@ -22,5 +22,32 @@ export const CasesProjectsShowcase: Block = {
       label: 'Subtitle',
       required: true,
     },
+    {
+      name: 'projects',
+      type: 'array',
+      label: 'Website Previews',
+      admin: {
+        description: 'Website preview afbeeldingen (optioneel - fallback naar hardcoded)',
+      },
+      fields: [
+        {
+          name: 'websitePreview',
+          type: 'upload',
+          relationTo: 'media',
+          label: 'Website Preview',
+          admin: {
+            description: 'Screenshot van de website',
+          },
+        },
+        {
+          name: 'caseStudyId',
+          type: 'text',
+          label: 'Case Study ID',
+          admin: {
+            description: 'ID voor case study dialog (bijv. "brabant-makelaar")',
+          },
+        },
+      ],
+    },
   ],
 }

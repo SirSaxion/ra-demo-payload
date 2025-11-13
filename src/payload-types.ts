@@ -670,8 +670,14 @@ export interface CasesHero {
         id?: string | null;
       }[]
     | null;
-  image: string;
-  imageAlt: string;
+  /**
+   * Hero afbeelding (bijv. Rudy met duim omhoog)
+   */
+  image?: (number | null) | Media;
+  /**
+   * Alt tekst voor als Media object geen alt heeft
+   */
+  imageAlt?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'casesHero';
@@ -687,8 +693,14 @@ export interface CasesBestVariants {
   featuredBadge: string;
   featuredCompany: string;
   featuredSubtitle: string;
-  featuredImage: string;
-  featuredImageAlt: string;
+  /**
+   * Hoofdafbeelding voor featured case
+   */
+  featuredImage?: (number | null) | Media;
+  /**
+   * Alt tekst voor als Media object geen alt heeft
+   */
+  featuredImageAlt?: string | null;
   stats?:
     | {
         icon?: string | null;
@@ -718,7 +730,10 @@ export interface CasesBestVariants {
               id?: string | null;
             }[]
           | null;
-        image?: string | null;
+        /**
+         * Thumbnail afbeelding voor deze case
+         */
+        image?: (number | null) | Media;
         id?: string | null;
       }[]
     | null;
@@ -743,7 +758,10 @@ export interface CasesVideoTestimonials {
         company?: string | null;
         name?: string | null;
         role?: string | null;
-        thumbnail?: string | null;
+        /**
+         * Thumbnail afbeelding voor video testimonial
+         */
+        thumbnail?: (number | null) | Media;
         videoUrl?: string | null;
         quote?: string | null;
         highlight?: string | null;
@@ -825,6 +843,22 @@ export interface CasesProjectsShowcase {
   badge: string;
   title: string;
   subtitle: string;
+  /**
+   * Website preview afbeeldingen (optioneel - fallback naar hardcoded)
+   */
+  projects?:
+    | {
+        /**
+         * Screenshot van de website
+         */
+        websitePreview?: (number | null) | Media;
+        /**
+         * ID voor case study dialog (bijv. "brabant-makelaar")
+         */
+        caseStudyId?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'casesProjectsShowcase';
@@ -3309,6 +3343,13 @@ export interface CasesProjectsShowcaseSelect<T extends boolean = true> {
   badge?: T;
   title?: T;
   subtitle?: T;
+  projects?:
+    | T
+    | {
+        websitePreview?: T;
+        caseStudyId?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }

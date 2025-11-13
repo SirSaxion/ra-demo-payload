@@ -5,12 +5,23 @@ import fs from 'fs'
 import path from 'path'
 
 const IMAGES = [
+  // Hero section
   { filename: 'rudy-thumbs-up.png', alt: 'Rudy met duim omhoog' },
-  { filename: 'thoma_thumb.png', alt: 'Thoma Post' },
-  { filename: 'dubai_thumb.jpg', alt: 'Dubai Property project' },
-  { filename: 'videothumb1.jpeg', alt: 'Video testimonial thumbnail 1' },
-  { filename: 'videothumb2.jpeg', alt: 'Video testimonial thumbnail 2' },
-  { filename: 'videothumb3.jpeg', alt: 'Video testimonial thumbnail 3' }
+  
+  // BestVariants section
+  { filename: 'case-de-brabant-makelaar.webp', alt: 'Team De Brabant Makelaar' },
+  { filename: 'thoma_thumb.png', alt: 'Thoma Post - 31 afspraken in maand 1' },
+  { filename: 'dubai_thumb.jpg', alt: 'Dubai Property project - $8.5M+ verkocht' },
+  
+  // VideoTestimonials section
+  { filename: 'videothumb1.jpeg', alt: 'Amory van De Brabant Makelaar' },
+  { filename: 'videothumb2.jpeg', alt: 'Pieter van Bink & Partners' },
+  { filename: 'videothumb3.jpeg', alt: 'Thoma Post Makelaardij' },
+  
+  // ProjectsShowcase section (website previews)
+  { filename: 'brabantmakelaar-website.png', alt: 'De Brabant Makelaar website screenshot' },
+  { filename: 'paulthijssen-website.png', alt: 'Paul Thijssen Makelaardij website screenshot' },
+  { filename: 'makelaarsvanamsterdam-website.png', alt: 'Makelaars van Amsterdam website screenshot' }
 ]
 
 async function migrateImages() {

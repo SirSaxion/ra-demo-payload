@@ -11,14 +11,19 @@ export interface ProjectsShowcaseProps {
   badge?: string
   title?: string
   subtitle?: string
-  // Note: projects are hardcoded for now as they link to case study dialogs
-  // Future: make projects array editable when case studies are also CMS-ready
+  projects?: Array<{
+    websitePreview?: any // Media object from CMS
+    caseStudyId?: string
+  }>
+  // Note: Projects array is optional - falls back to hardcoded if empty
+  // Future (Optie 2): make entire projects array editable when case studies are CMS-ready
 }
 
 export default function ProjectsShowcase({
   badge = "Onze Projecten",
   title = "Websites die écht converteren",
-  subtitle = "Bekijk enkele van onze recentste projecten voor ambitieuze makelaars. Van concept tot conversie."
+  subtitle = "Bekijk enkele van onze recentste projecten voor ambitieuze makelaars. Van concept tot conversie.",
+  projects = []
 }: ProjectsShowcaseProps) {
   const [selectedCaseStudy, setSelectedCaseStudy] = useState<CaseStudyData | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -34,6 +39,21 @@ export default function ProjectsShowcase({
   const handleCloseDialog = () => {
     setIsDialogOpen(false);
     setSelectedCaseStudy(null);
+  };
+
+  // Helper to get website preview image
+  const getWebsiteImage = (caseStudyId: string) => {
+    const project = projects.find(p => p.caseStudyId === caseStudyId);
+    if (project?.websitePreview) {
+      return project.websitePreview?.sizes?.large?.url || project.websitePreview?.url;
+    }
+    // Fallback to hardcoded images
+    const imageMap: Record<string, string> = {
+      'brabant-makelaar': '/images/brabantmakelaar-website.png',
+      'paul-thijssen': '/images/paulthijssen-website.png',
+      'makelaars-amsterdam': '/images/makelaarsvanamsterdam-website.png',
+    };
+    return imageMap[caseStudyId] || '/images/brabantmakelaar-website.png';
   };
 
   return (
@@ -106,7 +126,7 @@ export default function ProjectsShowcase({
                 {/* Website Preview */}
                 <div className="relative aspect-[16/10] bg-gradient-to-br from-green-500 via-green-600 to-emerald-700 overflow-hidden">
                   <Image
-                    src="/images/brabantmakelaar-website.png"
+                    src={getWebsiteImage('brabant-makelaar')}
                     alt="De Brabant Makelaar website"
                     fill
                     className="object-cover object-top"
@@ -170,7 +190,7 @@ export default function ProjectsShowcase({
                 {/* Website Preview */}
                 <div className="relative aspect-[16/10] bg-gradient-to-br from-purple-500 via-purple-600 to-indigo-700 overflow-hidden">
                   <Image
-                    src="/images/paulthijssen-website.png"
+                    src={getWebsiteImage('paul-thijssen')}
                     alt="Paul Thijssen Makelaardij website"
                     fill
                     className="object-cover object-top"
@@ -234,7 +254,7 @@ export default function ProjectsShowcase({
                 {/* Website Preview */}
                 <div className="relative aspect-[16/10] bg-gradient-to-br from-blue-500 via-blue-600 to-cyan-700 overflow-hidden">
                   <Image
-                    src="/images/makelaarsvanamsterdam-website.png"
+                    src={getWebsiteImage('makelaars-amsterdam')}
                     alt="Makelaars van Amsterdam website"
                     fill
                     className="object-cover object-top"

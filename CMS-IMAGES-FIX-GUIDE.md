@@ -1197,6 +1197,202 @@ image?.sizes?.medium?.url || image?.url
 
 ---
 
+### **Lesson 8: Image Cropping met Variants** ⚠️ **KRITIEK!**
+
+**PROBLEEM:** Payload variants worden **automatisch gecropped** naar vaste aspect ratios!
+
+```typescript
+// Payload genereert deze variants:
+- thumbnail: 400x300   (4:3 ratio) ⚠️ CROPPED!
+- small:     640x480   (4:3 ratio) ⚠️ CROPPED!
+- medium:    1024x768  (4:3 ratio) ⚠️ CROPPED!
+- large:     1920x1440 (4:3 ratio) ⚠️ CROPPED!
+```
+
+**Als je originele image een andere aspect ratio heeft** (bijv. portrait/vertical zoals een staande foto):
+- ❌ Top/bottom wordt afgesneden bij landscape variants
+- ❌ Belangrijke content verdwijnt (gezichten, voeten, etc.)
+
+**SYMPTOOM:**
+```
+Hero image toont alleen arm + duim, niet hele persoon
+Featured case toont team zonder voeten/vloer
+```
+
+**OPLOSSING:**
+
+```typescript
+// ❌ FOUT - gebruikt gecropte variant
+<Image src={image?.sizes?.medium?.url || image?.url} />
+
+// ✅ GOED - gebruikt originele image
+<Image src={image?.url} />
+```
+
+**WANNEER welke gebruiken:**
+
+| Scenario | Gebruik | Reden |
+|----------|---------|-------|
+| Portrait/vertical images | `image?.url` | Voorkom cropping |
+| Square/landscape thumbnails | `image?.sizes?.small?.url` | Performance |
+| Hero images (full frame) | `image?.url` | Volledige compositie |
+| Icon/logo images | `image?.sizes?.thumbnail?.url` | Performance |
+| Grid cards | `image?.sizes?.medium?.url` | Als aspect ratio klopt |
+
+**BEST PRACTICE:**
+```typescript
+// Voor belangrijke hero/featured images
+src={image?.url || fallbackUrl}
+
+// Voor thumbnails/cards waar cropping OK is
+src={image?.sizes?.medium?.url || image?.url || fallbackUrl}
+```
+
+---
+
+### **Lesson 9: Index Conflicts bij Schema Migrations** 🔧
+
+**PROBLEEM:** SQLite index conflicts blokkeren Payload init:
+```
+SQLITE_ERROR: index pages_blocks_cases_hero_order_idx already exists
+```
+
+**OORZAAK:**
+- Payload probeert indices opnieuw te maken bij schema changes
+- Oude indices bestaan nog in database
+- Nested blocks hebben VEEL indices (100+)
+
+**SNELLE FIX:**
+
+```bash
+# Drop ALLE gerelateerde indices
+pnpm tsx scripts/drop-all-[page]-indices.ts
+```
+
+**Script template:**
+```typescript
+#!/usr/bin/env tsx
+import { execSync } from 'child_process'
+
+const DB_PATH = 'ra-demo-payload.db'
+
+// Get ALL page-related indices (niet alleen _order_idx!)
+const indices = execSync(
+  `sqlite3 ${DB_PATH} "SELECT name FROM sqlite_master WHERE type='index' AND (name LIKE '%cases%' OR name LIKE '%international_cases%');"`,
+  { encoding: 'utf-8' }
+)
+  .trim()
+  .split('\n')
+  .filter(Boolean)
+  .filter(name => !name.startsWith('sqlite_autoindex')) // Skip auto indices
+
+console.log(`Found ${indices.length} indices to drop\n`)
+
+for (const index of indices) {
+  console.log(`Dropping: ${index}`)
+  execSync(`sqlite3 ${DB_PATH} "DROP INDEX IF EXISTS ${index};"`)
+}
+
+console.log('\n✅ Done!')
+```
+
+**Cases page voorbeeld:**
+- Moest **138 indices** droppen (niet alleen 23 `_order_idx`!)
+- Includes: `_locale_idx`, `_parent_id_idx`, `_path_idx`, `image_idx`, etc.
+
+**GOLDEN RULE:**
+> Bij schema changes: drop ALLE indices voor die block, niet alleen order indices!
+
+---
+
+### **Lesson 10: Nested Arrays & SQL Updates** 💾
+
+**PROBLEEM:** Payload API timeouts/auth issues bij complexe updates
+
+**OPLOSSING:** Direct SQL voor nested array inserts
+
+**Cases Page Voorbeeld - ProjectsShowcase:**
+
+```typescript
+// Block definitie heeft nieuwe nested array:
+{
+  name: 'projects',
+  type: 'array',
+  fields: [
+    { name: 'websitePreview', type: 'upload' },
+    { name: 'caseStudyId', type: 'text' }
+  ]
+}
+```
+
+**SQL Insert Pattern:**
+```sql
+-- CRITICAL: Altijd id, _locale en _parent_id meegeven!
+INSERT INTO pages_blocks_cases_projects_showcase_projects 
+  (id, _order, _parent_id, _locale, case_study_id, website_preview_id)
+VALUES 
+  (lower(hex(randomblob(12))), '1', (SELECT id FROM pages_blocks_cases_projects_showcase WHERE _parent_id = 3 LIMIT 1), 'nl', 'brabant-makelaar', 53),
+  (lower(hex(randomblob(12))), '2', (SELECT id FROM pages_blocks_cases_projects_showcase WHERE _parent_id = 3 LIMIT 1), 'nl', 'paul-thijssen', 54);
+```
+
+**CRITICAL Requirements:**
+1. ✅ `id` = `lower(hex(randomblob(12)))` (24 char hex)
+2. ✅ `_locale` = 'nl' (of 'en', nooit NULL!)
+3. ✅ `_parent_id` = parent block id (via SELECT subquery)
+4. ✅ `_order` = string! ('1', '2', niet 1, 2)
+
+**Foutmeldingen betekenis:**
+```
+NOT NULL constraint failed: table._locale
+→ Vergeten _locale='nl' toe te voegen
+
+NOT NULL constraint failed: table.id  
+→ Vergeten id=lower(hex(randomblob(12)))
+```
+
+---
+
+### **Lesson 11: Cases Page Specifieke Learnings** 📚
+
+**Unieke challenges:**
+1. **10 images** (meer dan homepage/over-ons)
+2. **4 nested arrays** (videos, otherCases, projects, stats)
+3. **Mixed aspect ratios** (portrait hero + landscape cards)
+
+**Oplossingen:**
+1. ✅ Originele URLs voor hero/featured (geen variants)
+2. ✅ Direct SQL voor alle nested updates
+3. ✅ 138 indices gedropped (meest ooit)
+4. ✅ Dedicated drop-indices script
+
+**Performance result:**
+```
+✅ 10 images uploaded (Media IDs 46-55)
+✅ All blocks updated via SQL
+✅ No cropping issues
+✅ Lazy loading werkt perfect
+```
+
+**Script flow:**
+```bash
+# 1. Upload images
+pnpm tsx scripts/migrate-cases-images.ts
+# → Output: cases-images-mapping.json
+
+# 2. Drop ALL indices
+pnpm tsx scripts/drop-all-cases-indices.ts  
+# → 138 indices dropped
+
+# 3. Start dev server
+pnpm dev
+# → Schema migration succeeds
+
+# 4. Update blocks (SQL)
+sqlite3 ra-demo-payload.db < scripts/update-cases-blocks.sql
+```
+
+---
+
 ## 📊 Over-ons Page: Complete Example
 
 **Fixed blocks:**
@@ -1228,9 +1424,48 @@ Improvement:         87% reduction! 🎉
 
 ---
 
+## 📊 Cases Page: Complete Example
+
+**Fixed blocks:**
+1. ✅ CasesHero - 1 hero image (portrait - no cropping!)
+2. ✅ CasesBestVariants - 3 images (1 featured + 2 other cases)
+3. ✅ CasesVideoTestimonials - 3 video thumbnails
+4. ✅ CasesProjectsShowcase - 3 website previews (large variant)
+
+**Complexiteit:**
+```
+Images:         10 (meest tot nu toe)
+Nested arrays:  4 (videos, otherCases, projects, stats)
+Indices dropped: 138 (record!)
+Aspect ratios:  Mixed (portrait + landscape)
+```
+
+**Kritieke oplossingen:**
+- ✅ Originele URLs voor portrait images (geen cropping)
+- ✅ Direct SQL voor alle nested array inserts
+- ✅ Drop-all-indices script voor 138 conflicting indices
+- ✅ ID generation met `lower(hex(randomblob(12)))`
+
+**Scripts gebruikt:**
+- `migrate-cases-images.ts` - Upload 10 images (IDs 46-55)
+- `drop-all-cases-indices.ts` - Drop 138 indices
+- Direct SQL updates voor nested arrays
+
+**Final checklist:**
+- [x] All 4 blocks have upload fields
+- [x] Hero/featured use original URLs (no cropping)
+- [x] Other images use appropriate variants
+- [x] No console errors
+- [x] Lazy loading works
+- [x] 138 indices dropped successfully
+- [x] CMS shows Media selectors
+- [x] Frontend loads images perfectly
+
+---
+
 **Last Updated:** 13 november 2025  
-**Status:** Homepage + Over-ons 100% compleet ✅  
-**Template ready voor alle andere pagina's** 🚀
+**Status:** Homepage + Over-ons + Cases 100% compleet ✅  
+**Template + Lessons Learned ready voor alle andere pagina's** 🚀
 
 ---
 

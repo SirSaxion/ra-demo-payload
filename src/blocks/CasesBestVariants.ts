@@ -42,15 +42,20 @@ export const CasesBestVariants: Block = {
     },
     {
       name: 'featuredImage',
-      type: 'text',
-      label: 'Featured Afbeelding URL',
-      required: true,
+      type: 'upload',
+      relationTo: 'media',
+      label: 'Featured Case Afbeelding',
+      admin: {
+        description: 'Hoofdafbeelding voor featured case',
+      },
     },
     {
       name: 'featuredImageAlt',
       type: 'text',
-      label: 'Featured Afbeelding Alt',
-      required: true,
+      label: 'Featured Afbeelding Alt (fallback)',
+      admin: {
+        description: 'Alt tekst voor als Media object geen alt heeft',
+      },
     },
     {
       name: 'stats',
@@ -140,8 +145,12 @@ export const CasesBestVariants: Block = {
         },
         {
           name: 'image',
-          type: 'text',
-          label: 'Afbeelding URL',
+          type: 'upload',
+          relationTo: 'media',
+          label: 'Case Afbeelding',
+          admin: {
+            description: 'Thumbnail afbeelding voor deze case',
+          },
         },
       ],
     },

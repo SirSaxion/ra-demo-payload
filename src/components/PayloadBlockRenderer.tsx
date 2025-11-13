@@ -521,6 +521,7 @@ export default function PayloadBlockRenderer({ blocks, siteSettings }: PayloadBl
             badge={block.badge}
             title={block.title}
             subtitle={block.subtitle}
+            projects={block.projects}
           />
         )
         
