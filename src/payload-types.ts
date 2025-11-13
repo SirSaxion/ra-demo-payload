@@ -2153,6 +2153,11 @@ export interface HrRecruitmentHeroBlock {
    * Supports HTML for bold text
    */
   subtitle?: string | null;
+  /**
+   * Main hero image
+   */
+  image?: (number | null) | Media;
+  imageAlt?: string | null;
   id?: string | null;
   blockName?: string | null;
   blockType: 'hrRecruitmentHero';
@@ -2186,6 +2191,10 @@ export interface HrRecruitmentPainPointsBlock {
         icon?: string | null;
         title: string;
         description: string;
+        /**
+         * Image for this pain point
+         */
+        image?: (number | null) | Media;
         imageAlt?: string | null;
         id?: string | null;
       }[]
@@ -2204,6 +2213,10 @@ export interface HrRecruitmentTransformationBlock {
   title?: string | null;
   oldWayTitle?: string | null;
   oldWaySubtitle?: string | null;
+  /**
+   * Image for traditional recruitment
+   */
+  oldWayImage?: (number | null) | Media;
   oldWayItems?:
     | {
         text: string;
@@ -2212,6 +2225,10 @@ export interface HrRecruitmentTransformationBlock {
     | null;
   newWayTitle?: string | null;
   newWaySubtitle?: string | null;
+  /**
+   * Image for modern recruitment strategy
+   */
+  newWayImage?: (number | null) | Media;
   newWayItems?:
     | {
         text: string;
@@ -2230,6 +2247,10 @@ export interface HrRecruitmentMethodologyBlock {
   badge?: string | null;
   title?: string | null;
   subtitle?: string | null;
+  /**
+   * Visual element for methodology section
+   */
+  methodologyImage?: (number | null) | Media;
   steps?:
     | {
         icon?: string | null;
@@ -2275,6 +2296,10 @@ export interface HrRecruitmentWatJeKrijgtBlock {
         icon?: string | null;
         title: string;
         description: string;
+        /**
+         * Image for this feature
+         */
+        image?: (number | null) | Media;
         id?: string | null;
       }[]
     | null;
@@ -4574,6 +4599,8 @@ export interface HrRecruitmentHeroBlockSelect<T extends boolean = true> {
   titleBefore?: T;
   titleHighlight?: T;
   subtitle?: T;
+  image?: T;
+  imageAlt?: T;
   id?: T;
   blockName?: T;
 }
@@ -4606,6 +4633,7 @@ export interface HrRecruitmentPainPointsBlockSelect<T extends boolean = true> {
         icon?: T;
         title?: T;
         description?: T;
+        image?: T;
         imageAlt?: T;
         id?: T;
       };
@@ -4622,6 +4650,7 @@ export interface HrRecruitmentTransformationBlockSelect<T extends boolean = true
   title?: T;
   oldWayTitle?: T;
   oldWaySubtitle?: T;
+  oldWayImage?: T;
   oldWayItems?:
     | T
     | {
@@ -4630,6 +4659,7 @@ export interface HrRecruitmentTransformationBlockSelect<T extends boolean = true
       };
   newWayTitle?: T;
   newWaySubtitle?: T;
+  newWayImage?: T;
   newWayItems?:
     | T
     | {
@@ -4647,6 +4677,7 @@ export interface HrRecruitmentMethodologyBlockSelect<T extends boolean = true> {
   badge?: T;
   title?: T;
   subtitle?: T;
+  methodologyImage?: T;
   steps?:
     | T
     | {
@@ -4691,6 +4722,7 @@ export interface HrRecruitmentWatJeKrijgtBlockSelect<T extends boolean = true> {
         icon?: T;
         title?: T;
         description?: T;
+        image?: T;
         id?: T;
       };
   bonusTitle?: T;

@@ -8,9 +8,11 @@ interface TransformationSectionProps {
   title?: string;
   oldWayTitle?: string;
   oldWaySubtitle?: string;
+  oldWayImage?: any; // Media object from CMS
   oldWayItems?: Array<{ text: string }>;
   newWayTitle?: string;
   newWaySubtitle?: string;
+  newWayImage?: any; // Media object from CMS
   newWayItems?: Array<{ text: string }>;
 }
 
@@ -19,9 +21,11 @@ export default function TransformationSection({
   title,
   oldWayTitle,
   oldWaySubtitle,
+  oldWayImage,
   oldWayItems = [],
   newWayTitle,
   newWaySubtitle,
+  newWayImage,
   newWayItems = [],
 }: TransformationSectionProps = {}) {
   return (
@@ -45,8 +49,8 @@ export default function TransformationSection({
             <div className="space-y-6">
               <div className="relative overflow-hidden rounded-xl">
                 <Image
-                  src="/images/placeholder.jpg"
-                  alt="Traditionele recruitment"
+                  src={oldWayImage?.sizes?.medium?.url || oldWayImage?.url || "/images/placeholder.jpg"}
+                  alt={oldWayImage?.alt || "Traditionele recruitment"}
                   width={500}
                   height={300}
                   className="w-full h-64 object-cover"
@@ -94,8 +98,8 @@ export default function TransformationSection({
             <div className="space-y-6">
               <div className="relative overflow-hidden rounded-xl">
                 <Image
-                  src="/images/placeholder.jpg"
-                  alt="Moderne recruitment strategie"
+                  src={newWayImage?.sizes?.medium?.url || newWayImage?.url || "/images/placeholder.jpg"}
+                  alt={newWayImage?.alt || "Moderne recruitment strategie"}
                   width={500}
                   height={300}
                   className="w-full h-64 object-cover"

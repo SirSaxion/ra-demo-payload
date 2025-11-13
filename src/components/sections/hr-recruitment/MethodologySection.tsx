@@ -15,6 +15,7 @@ interface MethodologySectionProps {
   badge?: string;
   title?: string;
   subtitle?: string;
+  methodologyImage?: any; // Media object from CMS
   steps?: MethodologyStep[];
   bottomText?: string;
 }
@@ -30,6 +31,7 @@ export default function MethodologySection({
   badge,
   title,
   subtitle,
+  methodologyImage,
   steps = [],
   bottomText,
 }: MethodologySectionProps = {}) {
@@ -73,8 +75,8 @@ export default function MethodologySection({
             {/* Visual element */}
             <div className="relative overflow-hidden rounded-xl border border-black/10">
               <Image
-                src="/images/placeholder.jpg"
-                alt="HR methodologie"
+                src={methodologyImage?.sizes?.medium?.url || methodologyImage?.url || "/images/placeholder.jpg"}
+                alt={methodologyImage?.alt || "HR methodologie"}
                 width={320}
                 height={240}
                 className="w-full h-auto object-cover"

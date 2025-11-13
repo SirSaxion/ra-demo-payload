@@ -8,6 +8,7 @@ interface PainPoint {
   icon: string;
   title: string;
   description: string;
+  image?: any; // Media object from CMS
   imageAlt?: string;
 }
 
@@ -70,8 +71,8 @@ export default function PainPointsSection({
               <div key={index} className="relative overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface-3)] rounded-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
                 <div className="relative h-48 overflow-hidden">
                   <Image
-                    src="/images/placeholder.jpg"
-                    alt={painPoint.imageAlt || painPoint.title}
+                    src={painPoint.image?.sizes?.medium?.url || painPoint.image?.url || "/images/placeholder.jpg"}
+                    alt={painPoint.image?.alt || painPoint.imageAlt || painPoint.title}
                     width={400}
                     height={300}
                     className="w-full h-full object-cover"

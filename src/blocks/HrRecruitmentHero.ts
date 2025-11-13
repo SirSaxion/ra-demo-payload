@@ -34,5 +34,20 @@ export const HrRecruitmentHero: Block = {
         description: 'Supports HTML for bold text',
       },
     },
+    {
+      name: 'image',
+      type: 'upload',
+      relationTo: 'media',
+      label: 'Hero Image',
+      admin: {
+        description: 'Main hero image',
+      },
+    },
+    {
+      name: 'imageAlt',
+      type: 'text',
+      label: 'Image Alt Text',
+      defaultValue: 'HR team at work',
+    },
   ],
 }

@@ -45,6 +45,15 @@ export const HrRecruitmentWatJeKrijgt: Block = {
           label: 'Description',
           required: true,
         },
+        {
+          name: 'image',
+          type: 'upload',
+          relationTo: 'media',
+          label: 'Feature Image',
+          admin: {
+            description: 'Image for this feature',
+          },
+        },
       ],
     },
     {

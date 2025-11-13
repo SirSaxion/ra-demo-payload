@@ -1093,6 +1093,8 @@ export default function PayloadBlockRenderer({ blocks, siteSettings }: PayloadBl
             titleBefore={block.titleBefore}
             titleHighlight={block.titleHighlight}
             subtitle={block.subtitle}
+            image={block.image}
+            imageAlt={block.imageAlt}
           />
         )
 
@@ -1125,9 +1127,11 @@ export default function PayloadBlockRenderer({ blocks, siteSettings }: PayloadBl
             title={block.title}
             oldWayTitle={block.oldWayTitle}
             oldWaySubtitle={block.oldWaySubtitle}
+            oldWayImage={block.oldWayImage}
             oldWayItems={block.oldWayItems || []}
             newWayTitle={block.newWayTitle}
             newWaySubtitle={block.newWaySubtitle}
+            newWayImage={block.newWayImage}
             newWayItems={block.newWayItems || []}
           />
         )
@@ -1139,6 +1143,7 @@ export default function PayloadBlockRenderer({ blocks, siteSettings }: PayloadBl
             badge={block.badge}
             title={block.title}
             subtitle={block.subtitle}
+            methodologyImage={block.methodologyImage}
             steps={block.steps || []}
             bottomText={block.bottomText}
           />

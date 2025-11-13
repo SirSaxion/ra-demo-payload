@@ -8,6 +8,7 @@ interface Feature {
   icon: string;
   title: string;
   description: string;
+  image?: any; // Media object from CMS
 }
 
 interface WatJeKrijgtSectionProps {
@@ -79,8 +80,8 @@ export default function WatJeKrijgtSection({
               <div key={index} className="relative overflow-hidden border border-black/10 bg-black/[0.04] rounded-xl transition-all duration-300 hover:shadow-xl">
                 <div className="relative h-56 overflow-hidden">
                   <Image
-                    src="/images/placeholder.jpg"
-                    alt={feature.title}
+                    src={feature.image?.sizes?.medium?.url || feature.image?.url || "/images/placeholder.jpg"}
+                    alt={feature.image?.alt || feature.title}
                     width={600}
                     height={400}
                     className="w-full h-full object-cover"

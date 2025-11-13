@@ -29,6 +29,15 @@ export const HrRecruitmentTransformation: Block = {
       label: 'Old Way Subtitle',
     },
     {
+      name: 'oldWayImage',
+      type: 'upload',
+      relationTo: 'media',
+      label: 'Old Way Image',
+      admin: {
+        description: 'Image for traditional recruitment',
+      },
+    },
+    {
       name: 'oldWayItems',
       type: 'array',
       label: 'Old Way Items',
@@ -50,6 +59,15 @@ export const HrRecruitmentTransformation: Block = {
       name: 'newWaySubtitle',
       type: 'text',
       label: 'New Way Subtitle',
+    },
+    {
+      name: 'newWayImage',
+      type: 'upload',
+      relationTo: 'media',
+      label: 'New Way Image',
+      admin: {
+        description: 'Image for modern recruitment strategy',
+      },
     },
     {
       name: 'newWayItems',

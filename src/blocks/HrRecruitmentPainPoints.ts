@@ -49,6 +49,15 @@ export const HrRecruitmentPainPoints: Block = {
           required: true,
         },
         {
+          name: 'image',
+          type: 'upload',
+          relationTo: 'media',
+          label: 'Pain Point Image',
+          admin: {
+            description: 'Image for this pain point',
+          },
+        },
+        {
           name: 'imageAlt',
           type: 'text',
           label: 'Image Alt Text',

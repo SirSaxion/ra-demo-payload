@@ -24,6 +24,15 @@ export const HrRecruitmentMethodology: Block = {
       label: 'Subtitle',
     },
     {
+      name: 'methodologyImage',
+      type: 'upload',
+      relationTo: 'media',
+      label: 'Methodology Visual',
+      admin: {
+        description: 'Visual element for methodology section',
+      },
+    },
+    {
       name: 'steps',
       type: 'array',
       label: 'Methodology Steps',

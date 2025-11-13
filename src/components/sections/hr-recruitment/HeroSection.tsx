@@ -20,7 +20,7 @@ interface HeroSectionProps {
   titleBefore?: string;
   titleHighlight?: string;
   subtitle?: string;
-  image?: string;
+  image?: any; // Media object from CMS
   imageAlt?: string;
   floatingStats?: FloatingStat[];
   ctaPrimary?: {
@@ -39,7 +39,7 @@ export default function HeroSection({
   titleBefore,
   titleHighlight,
   subtitle,
-  image = "/images/placeholder.jpg",
+  image,
   imageAlt = "HR team at work",
   floatingStats = [
     { value: "73%", label: "More applications", position: "top-left", rotation: "-rotate-2" },
@@ -91,8 +91,8 @@ export default function HeroSection({
             {/* Main image */}
             <div className="relative overflow-hidden rounded-2xl shadow-2xl border border-[var(--color-border)]">
               <Image
-                src={image}
-                alt={imageAlt}
+                src={image?.url || "/images/placeholder.jpg"}
+                alt={image?.alt || imageAlt}
                 width={800}
                 height={600}
                 className="w-full h-auto object-cover"
@@ -157,7 +157,7 @@ export default function HeroSection({
 
           <p 
             className="mt-4 md:mt-6 max-w-xl text-lg md:text-xl text-[var(--color-text-secondary)]"
-            dangerouslySetInnerHTML={{ __html: subtitle }}
+            dangerouslySetInnerHTML={{ __html: subtitle || '' }}
           />
 
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
