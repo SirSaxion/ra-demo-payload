@@ -138,9 +138,9 @@ export default function Hero({
               src={image}
               alt={imageAlt}
               fill
-              sizes="(min-width: 1536px) 30vw, (min-width: 1280px) 28vw, (min-width: 1024px) 26vw, 90vw"
-              className="relative z-[1] object-contain object-right-bottom lg:translate-y-0 xl:translate-y-0 lg:-translate-x-20 xl:-translate-x-28 lg:scale-[1] xl:scale-[1] [-webkit-mask-image:linear-gradient(to_top,transparent_0%,var(--bg-hero)_6%,var(--bg-hero)_100%)] [mask-image:linear-gradient(to_top,transparent_0%,var(--bg-hero)_6%,var(--bg-hero)_100%)]"
-              priority
+              loading="lazy"
+              sizes="(max-width: 768px) 90vw, (max-width: 1280px) 50vw, 40vw"
+              className="object-contain"
             />
           </div>
         </div>

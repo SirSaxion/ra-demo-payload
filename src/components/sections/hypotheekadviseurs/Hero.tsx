@@ -27,7 +27,7 @@ export default function Hero({
   subtitle = "Word onafhankelijk van offerte-sites en bouw een voorspelbare klantenstroom met bewezen campagnes en duurzaamheid als toegevoegde waarde.",
   ctaPrimary = { label: "Plan een gratis strategiegesprek", href: "/contact" },
   ctaSecondary = { label: "Bekijk Edit BV resultaten", href: "#hypotheek-cases" },
-  editBVImage = "/images/editbv.jpg",
+  editBVImage = "/media/editbv-640x480.jpg",
   editBVTitle = "Edit BV Partnership",
   editBVSubtitle = "Zwolle • Duurzaamheid expertise",
   editBVStats = [
@@ -70,6 +70,7 @@ export default function Hero({
                     src={editBVImage}
                     alt="Edit BV - Duurzaamheid expertise partner"
                     fill
+                    loading="lazy"
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-hero)]/60 to-transparent" />

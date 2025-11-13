@@ -105,7 +105,9 @@ export default function VideoTestimonials({
                 src={activeVideo.thumbnail}
                 alt={`${activeVideo.name} van ${activeVideo.company}`}
                 fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+                sizes="100vw"
+                className="object-cover transition-opacity duration-200 group-hover:opacity-90"
               />
 
               {/* Play Button Overlay */}
@@ -203,7 +205,9 @@ export default function VideoTestimonials({
                       src={video.thumbnail}
                       alt={`${video.name} van ${video.company}`}
                       fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      loading="lazy"
+                      sizes="200px"
+                      className="object-cover"
                     />
 
                     {/* Play icon overlay */}

@@ -28,25 +28,25 @@ export default function InternationalPainPointsSection({
       icon: 'Globe',
       title: 'Markten & cultuurverschillen',
       description: 'Elke markt werkt anders: regelgeving, gewoontes en verwachtingen verschillen sterk tussen Bali, Spanje en Oostenrijk.',
-      image: '/images/placeholder.jpg'
+      image: '/media/placeholder.jpg'
     },
     {
       icon: 'Users',
       title: 'Beperkt bereik onder kopers',
       description: 'Traditionele advertenties of portals leveren vooral nieuwsgierigen op — geen concrete kopers uit Nederland of Duitsland.',
-      image: '/images/placeholder.jpg'
+      image: '/media/placeholder.jpg'
     },
     {
       icon: 'DollarSign',
       title: 'Gebrek aan lokale opvolging',
       description: 'Leads worden niet goed opgevolgd door tijdzones, taal of gebrek aan lokale partners die Nederlandse kopers begrijpen.',
-      image: '/images/placeholder.jpg'
+      image: '/media/placeholder.jpg'
     },
     {
       icon: 'AlertTriangle',
       title: 'Geen grip op marketingkosten',
       description: 'Hoge uitgaven aan marketing en events zonder meetbaar rendement. Je investeert veel, maar ziet weinig concrete resultaten.',
-      image: '/images/placeholder.jpg'
+      image: '/media/placeholder.jpg'
     }
   ],
   bottomInsightIcon = 'AlertTriangle',
@@ -97,6 +97,7 @@ export default function InternationalPainPointsSection({
                       alt={point.title}
                       width={400}
                       height={300}
+                      loading="lazy"
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-surface-3)] to-transparent" />

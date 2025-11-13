@@ -202,7 +202,9 @@ export default function BestVariants({
                   src={c.image}
                   alt={c.company}
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  loading="lazy"
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="object-cover"
                 />
               </div>
             )}

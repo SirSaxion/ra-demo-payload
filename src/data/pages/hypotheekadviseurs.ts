@@ -32,7 +32,7 @@ export const pageData = {
               "label": "Bekijk Edit BV resultaten",
               "href": "#hypotheek-cases"
             },
-            "editBVImage": "/images/editbv.jpg",
+            "editBVImage": "/media/editbv-640x480.jpg",
             "editBVTitle": "Edit BV Partnership",
             "editBVSubtitle": "Zwolle • Duurzaamheid expertise",
             "editBVStats": [

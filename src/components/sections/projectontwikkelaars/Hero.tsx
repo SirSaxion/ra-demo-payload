@@ -36,7 +36,7 @@ export default function Hero({
   ],
   ctaPrimary = { label: "Plan een project strategiesessie" },
   ctaSecondary = { label: "Ontdek onze aanpak", href: "#onze-aanpak" },
-  showcaseImage = "/images/projectontwikkelaar.webp",
+  showcaseImage = "/media/projectontwikkelaar.webp",
   showcaseImageAlt = "Dubai-property.nl - Bewezen projectmarketing expertise",
   showcaseIcon = "Building2",
   showcaseTitle = "Dubai-property.nl Success",
@@ -76,6 +76,7 @@ export default function Hero({
                     src={showcaseImage}
                     alt={showcaseImageAlt}
                     fill
+                    loading="lazy"
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-hero)]/60 to-transparent" />

@@ -52,17 +52,17 @@ export default function Hero({
   ],
   avatarsTitle = "Sluit je aan bij 200+ succesvolle makelaars",
   avatars = [
-    { src: "/images/brabantmakelaar_avatar.webp", alt: "Amory - De Brabant Makelaar", tilt: "-rotate-1" },
-    { src: "/images/binkpartners_avatar.webp", alt: "Pieter - Bink & Partners", tilt: "rotate-3" },
-    { src: "/images/paulthijssen_avatar.webp", alt: "Paul - Paul Thijssen Makelaardij", tilt: "-rotate-2" },
-    { src: "/images/cat1.jpeg", alt: "Makelaar 5", tilt: "rotate-1" },
-    { src: "/images/cat2.jpeg", alt: "Makelaar 6", tilt: "-rotate-3" },
-    { src: "/images/cat3.png", alt: "Makelaar 7", tilt: "rotate-2" },
-    { src: "/images/cat1.jpeg", alt: "Makelaar 8", tilt: "-rotate-1" },
-    { src: "/images/cat2.jpeg", alt: "Makelaar 9", tilt: "rotate-3" },
-    { src: "/images/cat3.png", alt: "Makelaar 10", tilt: "-rotate-2" },
-    { src: "/images/cat1.jpeg", alt: "Makelaar 11", tilt: "rotate-1" },
-    { src: "/images/cat2.jpeg", alt: "Makelaar 12", tilt: "-rotate-1" },
+    { src: "/media/brabantmakelaar_avatar-400x300.webp", alt: "Amory - De Brabant Makelaar", tilt: "-rotate-1" },
+    { src: "/media/binkpartners_avatar-400x300.webp", alt: "Pieter - Bink & Partners", tilt: "rotate-3" },
+    { src: "/media/paulthijssen_avatar-400x300.webp", alt: "Paul - Paul Thijssen Makelaardij", tilt: "-rotate-2" },
+    { src: "/media/cat1-400x300.jpg", alt: "Makelaar 5", tilt: "rotate-1" },
+    { src: "/media/cat2-400x300.jpg", alt: "Makelaar 6", tilt: "-rotate-3" },
+    { src: "/media/cat3-400x300.png", alt: "Makelaar 7", tilt: "rotate-2" },
+    { src: "/media/cat1-400x300.jpg", alt: "Makelaar 8", tilt: "-rotate-1" },
+    { src: "/media/cat2-400x300.jpg", alt: "Makelaar 9", tilt: "rotate-3" },
+    { src: "/media/cat3-400x300.png", alt: "Makelaar 10", tilt: "-rotate-2" },
+    { src: "/media/cat1-400x300.jpg", alt: "Makelaar 11", tilt: "rotate-1" },
+    { src: "/media/cat2-400x300.jpg", alt: "Makelaar 12", tilt: "-rotate-1" },
   ],
   floatingStats = [
     { title: "30+ jaar", subtitle: "Gecombineerde ervaring" },
@@ -111,6 +111,7 @@ export default function Hero({
                         alt={avatar.alt}
                         width={80}
                         height={80}
+                        loading="lazy"
                         className="w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full object-cover ring-2 ring-[var(--brand-400)]/20 shadow-lg transition-all duration-300 group-hover:ring-[var(--brand-400)]/60 group-hover:shadow-xl"
                       />
                     </div>

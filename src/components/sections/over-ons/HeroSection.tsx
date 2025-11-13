@@ -46,9 +46,9 @@ export default function HeroSection({
               src={image}
               alt={imageAlt}
               fill
-              priority
-              sizes="(min-width: 1024px) 50vw, 90vw"
-              className="object-cover [-webkit-mask-image:linear-gradient(to_top,transparent_0%,var(--bg-section)_12%,var(--bg-section)_100%)] [mask-image:linear-gradient(to_top,transparent_0%,var(--bg-section)_12%,var(--bg-section)_100%)]"
+              loading="lazy"
+              sizes="(max-width: 1280px) 100vw, 50vw"
+              className="object-cover rounded-2xl"
             />
           </div>
         </div>

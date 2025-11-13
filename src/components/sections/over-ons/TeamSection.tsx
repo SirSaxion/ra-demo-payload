@@ -86,7 +86,7 @@ export default function TeamSection({
                       src={member.image}
                       alt={member.name}
                       fill
-                      sizes="120px"
+                      loading="lazy"
                       className="object-cover"
                     />
                   </div>

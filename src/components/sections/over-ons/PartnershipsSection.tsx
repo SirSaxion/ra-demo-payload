@@ -127,9 +127,9 @@ export default function PartnershipsSection({
                     src={partnership.image}
                     alt={partnership.title}
                     fill
-                    sizes="(min-width: 1024px) 560px, 100vw"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-cover"
-                    priority={index === 0}
                   />
                 </div>
               </div>

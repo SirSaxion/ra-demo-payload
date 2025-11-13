@@ -52,7 +52,7 @@ export const pageData = {
                 "value": 4
               }
             ],
-            "image": "/images/rudy-thumbs-up.png",
+            "image": "/media/rudy-thumbs-up-640x480.png",
             "imageAlt": "Rudy met duim omhoog"
           }
         },
@@ -67,7 +67,7 @@ export const pageData = {
             "featuredBadge": "FEATURED CASE",
             "featuredCompany": "De Brabant Makelaar",
             "featuredSubtitle": "Van 2 naar 8 werknemers in 18 maanden",
-            "featuredImage": "/images/case-de-brabant-makelaar.webp",
+            "featuredImage": "/media/case-de-brabant-makelaar-640x480.png",
             "featuredImageAlt": "Team De Brabant Makelaar",
             "stats": [
               {
@@ -124,7 +124,7 @@ export const pageData = {
                   "Kwalitatieve leads",
                   "Consistente pijplijn"
                 ],
-                "image": "/images/thoma_thumb.png"
+                "image": "/media/thoma_thumb-640x480.png"
               },
               {
                 "company": "Dubai Property",
@@ -136,7 +136,7 @@ export const pageData = {
                   "IQI Global partner",
                   "Snelle doorloop"
                 ],
-                "image": "/images/dubai_thumb.jpg"
+                "image": "/media/dubai_thumb-640x480.jpg"
               }
             ]
           }
@@ -158,7 +158,7 @@ export const pageData = {
                 "company": "De Brabant Makelaar",
                 "name": "Amory",
                 "role": "Eigenaar",
-                "thumbnail": "/images/videothumb1.jpeg",
+                "thumbnail": "/media/videothumb1-640x480.jpg",
                 "videoUrl": "/videos/testimonial-brabant.mp4",
                 "quote": "Van €20k naar €65k maandomzet in 18 maanden. De marketing machine werkt echt.",
                 "highlight": "225% omzetgroei"
@@ -168,7 +168,7 @@ export const pageData = {
                 "company": "Bink & Partners",
                 "name": "Pieter",
                 "role": "Makelaar",
-                "thumbnail": "/images/videothumb2.jpeg",
+                "thumbnail": "/media/videothumb2-640x480.jpg",
                 "videoUrl": "/videos/testimonial-bink.mp4",
                 "quote": "Ik betaalde €800 per maand aan slechte leads. Nu heb ik een wachtrij van ideale klanten die mij al willen.",
                 "highlight": "30+ afspraken per jaar"
@@ -178,7 +178,7 @@ export const pageData = {
                 "company": "Thoma Post Makelaardij",
                 "name": "Thoma",
                 "role": "Eigenaar",
-                "thumbnail": "/images/videothumb3.jpeg",
+                "thumbnail": "/media/videothumb3-640x480.jpg",
                 "videoUrl": "/videos/testimonial-thoma.mp4",
                 "quote": "31 kwalitatieve afspraken in de eerste maand. Ik had niet verwacht dat het zo snel zou gaan.",
                 "highlight": "Snelste resultaten ooit"

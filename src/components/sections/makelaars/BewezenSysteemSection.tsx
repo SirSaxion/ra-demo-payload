@@ -23,7 +23,7 @@ export default function BewezenSysteemSection({
   kicker = "Onze ervaring",
   title = "Ervaring uit de branche – wij staan er zelf middenin",
   subtitle = "Real Accelerate is geen traditioneel marketingbureau. Wij zijn makelaars. Met <strong>SETTL.</strong> staan we dagelijks in de markt. Alles wat wij doen voor onze klanten, hebben we zelf getest, verbeterd en bewezen.",
-  imageSrc = "/images/emiro_working_at_desk.png",
+  imageSrc = "/media/emiro_working_at_desk-640x480.png",
   imageAlt = "Emiro aan het werk achter zijn laptop",
   benefitsTitle = "WAAROM DIT VERSCHIL MAAKT",
   benefits = [
@@ -76,6 +76,7 @@ export default function BewezenSysteemSection({
                   alt={imageAlt}
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
+                  loading="lazy"
                   className="object-cover"
                 />
               </div>

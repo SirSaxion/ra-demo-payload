@@ -25,7 +25,7 @@ export default function IQIPartnershipSection({
   title = 'Van prachtig project naar verkoopklaar succes',
   subtitle = 'Real Accelerate koppelt jouw vastgoedproject aan een bewezen marketingmachine die gericht is op vertrouwen, storytelling en data. Wij combineren advertising, automation en lokale partners om kopers te vinden — en deals te sluiten.',
   quote = 'Complete internationale projectondersteuning',
-  leftImage = '/images/placeholder.jpg',
+  leftImage = '/media/placeholder.jpg',
   leftImageAlt = 'Lokale beperkingen',
   leftTitle = 'LOKALE BEPERKINGEN',
   leftSubtitle = 'Zelfstandig beginnen',
@@ -35,7 +35,7 @@ export default function IQIPartnershipSection({
     '70%+ failure rate',
     '2-3 jaar opbouw tijd'
   ],
-  rightImage = '/images/iqiglobal.jpg',
+  rightImage = '/media/iqiglobal.jpg',
   rightImageAlt = 'IQI Global Partnership',
   rightTitle = 'REAL ACCELERATE VOORDELEN',
   rightSubtitle = 'Bewezen marketingmachine voor jouw project',

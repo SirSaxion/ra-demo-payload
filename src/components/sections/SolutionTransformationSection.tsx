@@ -98,6 +98,7 @@ export default function SolutionTransformationSection({
                   alt={leftImageAlt}
                   width={500}
                   height={300}
+                  loading="lazy"
                   className="w-full h-64 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
@@ -147,6 +148,7 @@ export default function SolutionTransformationSection({
                   alt={rightImageAlt}
                   width={500}
                   height={300}
+                  loading="lazy"
                   className="w-full h-64 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[var(--brand-900)]/80 to-transparent flex items-end">

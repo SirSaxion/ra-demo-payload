@@ -95,25 +95,25 @@ export const pageData = {
                 "icon": "Globe",
                 "title": "Markten & cultuurverschillen",
                 "description": "Elke markt werkt anders: regelgeving, gewoontes en verwachtingen verschillen sterk tussen Bali, Spanje en Oostenrijk.",
-                "image": "/images/placeholder.jpg"
+                "image": "/media/placeholder.jpg"
               },
               {
                 "icon": "Users",
                 "title": "Beperkt bereik onder kopers",
                 "description": "Traditionele advertenties of portals leveren vooral nieuwsgierigen op — geen concrete kopers uit Nederland of Duitsland.",
-                "image": "/images/placeholder.jpg"
+                "image": "/media/placeholder.jpg"
               },
               {
                 "icon": "DollarSign",
                 "title": "Gebrek aan lokale opvolging",
                 "description": "Leads worden niet goed opgevolgd door tijdzones, taal of gebrek aan lokale partners die Nederlandse kopers begrijpen.",
-                "image": "/images/placeholder.jpg"
+                "image": "/media/placeholder.jpg"
               },
               {
                 "icon": "AlertTriangle",
                 "title": "Geen grip op marketingkosten",
                 "description": "Hoge uitgaven aan marketing en events zonder meetbaar rendement. Je investeert veel, maar ziet weinig concrete resultaten.",
-                "image": "/images/placeholder.jpg"
+                "image": "/media/placeholder.jpg"
               }
             ],
             "bottomInsightIcon": "AlertTriangle",
@@ -129,7 +129,7 @@ export const pageData = {
             "title": "Van prachtig project naar verkoopklaar succes",
             "subtitle": "Real Accelerate koppelt jouw vastgoedproject aan een bewezen marketingmachine die gericht is op vertrouwen, storytelling en data. Wij combineren advertising, automation en lokale partners om kopers te vinden — en deals te sluiten.",
             "quote": "Complete internationale projectondersteuning",
-            "leftImage": "/images/placeholder.jpg",
+            "leftImage": "/media/placeholder.jpg",
             "leftImageAlt": "Lokale beperkingen",
             "leftTitle": "LOKALE BEPERKINGEN",
             "leftSubtitle": "Zelfstandig beginnen",
@@ -139,7 +139,7 @@ export const pageData = {
               "70%+ failure rate",
               "2-3 jaar opbouw tijd"
             ],
-            "rightImage": "/images/iqiglobal.jpg",
+            "rightImage": "/media/iqiglobal.jpg",
             "rightImageAlt": "IQI Global Partnership",
             "rightTitle": "REAL ACCELERATE VOORDELEN",
             "rightSubtitle": "Bewezen marketingmachine voor jouw project",

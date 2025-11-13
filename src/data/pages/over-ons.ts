@@ -26,7 +26,7 @@ export const pageData = {
             "highlightedWord": "vastgoedondernemers",
             "subtitle": "voor vastgoedondernemers",
             "description": "Wij zijn Real Accelerate. Een team dat dagelijks actief is in de vastgoedbranche. We kennen de uitdagingen van binnenuit – omdat we ze zelf ervaren hebben. Vanuit die praktijk helpen we anderen vooruit met een aanpak die vernieuwend, praktisch en resultaatgericht is.",
-            "image": "/images/teamfoto_einde.png",
+            "image": "/media/teamfoto_einde-640x480.png",
             "imageAlt": "Team Real Accelerate",
             "stats": [
               {
@@ -109,42 +109,42 @@ export const pageData = {
               {
                 "name": "Joep",
                 "role": "Founder — CEO",
-                "image": "/images/1.EmiroSmolders-Settle-DSC06894-.webp"
+                "image": "/media/1.EmiroSmolders-Settle-DSC06894--640x480.webp"
               },
               {
                 "name": "Partner Naam",
                 "role": "Co-Founder — CTO",
-                "image": "/images/2.EmiroSmolders-Settle-DSC06899-.webp"
+                "image": "/media/2.EmiroSmolders-Settle-DSC06899--640x480.webp"
               },
               {
                 "name": "Nina",
                 "role": "Klant succes baas",
-                "image": "/images/3.EmiroSmolders-Settle-DSC06907-.webp"
+                "image": "/media/3.EmiroSmolders-Settle-DSC06907--640x480.webp"
               },
               {
                 "name": "Ravi",
                 "role": "Sales tijger",
-                "image": "/images/4.EmiroSmolders-Settle-DSC06915-.webp"
+                "image": "/media/4.EmiroSmolders-Settle-DSC06915--640x480.webp"
               },
               {
                 "name": "Milo",
                 "role": "Creatieve baas",
-                "image": "/images/5.EmiroSmolders-Settle-DSC06927-.webp"
+                "image": "/media/5.EmiroSmolders-Settle-DSC06927--640x480.webp"
               },
               {
                 "name": "Sofie",
                 "role": "Data baas",
-                "image": "/images/6.EmiroSmolders-Settle-DSC06931-.webp"
+                "image": "/media/6.EmiroSmolders-Settle-DSC06931--640x480.webp"
               },
               {
                 "name": "Alex",
                 "role": "Product owner",
-                "image": "/images/10.EmiroSmolders-Settle-DSC06970-.webp"
+                "image": "/media/10.EmiroSmolders-Settle-DSC06970--640x480.jpg"
               },
               {
                 "name": "Maya",
                 "role": "Design lead",
-                "image": "/images/placeholder.jpg"
+                "image": "/media/placeholder.jpg"
               }
             ]
           }
@@ -221,7 +221,7 @@ export const pageData = {
               {
                 "title": "IQI Global",
                 "description": "Internationale expansie partner. Versterkt onze slagkracht met wereldwijde aanwezigheid en expertise.",
-                "image": "/images/iqiglobal.jpg",
+                "image": "/media/iqiglobal.jpg",
                 "features": [
                   "Internationale expansie",
                   "40.000+ agents wereldwijd",
@@ -232,7 +232,7 @@ export const pageData = {
               {
                 "title": "SETTL.",
                 "description": "Ons eigen makelaarskantoor waar we dagelijks in de praktijk staan. Alles wat we doen voor onze klanten, hebben we zelf getest, verbeterd en bewezen.",
-                "image": "/images/editbv.jpg",
+                "image": "/media/editbv-640x480.jpg",
                 "features": [
                   "Eigen makelaarskantoor",
                   "Ervaring uit de praktijk",
@@ -314,7 +314,7 @@ export const pageData = {
             },
             "phone": "085 060 2989",
             "email": "info@realaccelerate.nl",
-            "image": "/images/joep-koffie.png",
+            "image": "/media/joep-koffie-640x480.png",
             "imageAlt": "Joep"
           }
         },

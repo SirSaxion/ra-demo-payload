@@ -43,8 +43,8 @@ export default function ResultsBentoGrid({
   results = [
     {
       company: "DE BRABANT MAKELAAR",
-      logo: "/images/brabantmakelaar_logo.webp",
-      image: "/images/1.EmiroSmolders-Settle-DSC06894-.webp",
+      logo: "/media/brabantmakelaar_logo-400x300.webp",
+      image: "/media/1.EmiroSmolders-Settle-DSC06894--640x480.webp",
       mainMetric: "€10k → €100k/maand",
       description: "Van 2 naar 8 werknemers in 18 maanden tijd. Complete transformatie van klein kantoor naar groeiend bedrijf.",
       icon: "DollarSign",
@@ -52,14 +52,14 @@ export default function ResultsBentoGrid({
     },
     {
       company: "MARCO VAN BARNEVELD",
-      image: "/images/10.EmiroSmolders-Settle-DSC06970-.jpg",
+      image: "/media/10.EmiroSmolders-Settle-DSC06970--640x480.jpg",
       mainMetric: "4 nieuwe franchise locaties",
       description: "Pipeline vol voor meer groei. Succesvolle uitbreiding door bewezen systeem.",
       icon: "Building2"
     },
     {
       company: "THOMA POST",
-      image: "/images/teamfoto_einde.png",
+      image: "/media/teamfoto_einde-640x480.png",
       mainMetric: "31 afspraken eerste maand",
       description: "Directe resultaten vanaf dag één. Bewezen aanpak die werkt.",
       icon: "Target"
@@ -121,6 +121,7 @@ export default function ResultsBentoGrid({
                       alt={result.company}
                       width={400}
                       height={300}
+                      loading="lazy"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   )}
@@ -134,6 +135,7 @@ export default function ResultsBentoGrid({
                         alt={result.company}
                         width={48}
                         height={48}
+                        loading="lazy"
                         className="w-full h-full object-contain"
                       />
                     </div>

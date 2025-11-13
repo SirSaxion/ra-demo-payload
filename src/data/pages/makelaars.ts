@@ -46,17 +46,17 @@ export const pageData = {
             "avatarsTitle": "Sluit je aan bij 200+ succesvolle makelaars",
             "avatars": [
               {
-                "src": "/images/brabantmakelaar_avatar.webp",
+                "src": "/media/brabantmakelaar_avatar-400x300.webp",
                 "alt": "Amory - De Brabant Makelaar",
                 "tilt": "-rotate-1"
               },
               {
-                "src": "/images/binkpartners_avatar.webp",
+                "src": "/media/binkpartners_avatar-400x300.webp",
                 "alt": "Pieter - Bink & Partners",
                 "tilt": "rotate-3"
               },
               {
-                "src": "/images/paulthijssen_avatar.webp",
+                "src": "/media/paulthijssen_avatar-400x300.webp",
                 "alt": "Paul - Paul Thijssen Makelaardij",
                 "tilt": "-rotate-2"
               }
@@ -180,7 +180,7 @@ export const pageData = {
             "kicker": "Onze ervaring",
             "title": "Ervaring uit de branche – wij staan er zelf middenin",
             "subtitle": "Real Accelerate is geen traditioneel marketingbureau. Wij zijn makelaars. Met <strong>SETTL.</strong> staan we dagelijks in de markt. Alles wat wij doen voor onze klanten, hebben we zelf getest, verbeterd en bewezen.",
-            "imageSrc": "/images/emiro_working_at_desk.png",
+            "imageSrc": "/media/emiro_working_at_desk-640x480.png",
             "imageAlt": "Emiro aan het werk achter zijn laptop",
             "benefitsTitle": "WAAROM DIT VERSCHIL MAAKT",
             "benefits": [
@@ -214,8 +214,8 @@ export const pageData = {
             "results": [
               {
                 "company": "DE BRABANT MAKELAAR",
-                "logo": "/images/brabantmakelaar_logo.webp",
-                "image": "/images/1.EmiroSmolders-Settle-DSC06894-.webp",
+                "logo": "/media/brabantmakelaar_logo-400x300.webp",
+                "image": "/media/1.EmiroSmolders-Settle-DSC06894--640x480.webp",
                 "mainMetric": "€10k → €100k/maand",
                 "description": "Van 2 naar 8 werknemers in 18 maanden tijd.",
                 "icon": "DollarSign",
@@ -223,14 +223,14 @@ export const pageData = {
               },
               {
                 "company": "MARCO VAN BARNEVELD",
-                "image": "/images/10.EmiroSmolders-Settle-DSC06970-.jpg",
+                "image": "/media/10.EmiroSmolders-Settle-DSC06970--640x480.jpg",
                 "mainMetric": "4 nieuwe franchise locaties",
                 "description": "Pipeline vol voor meer groei.",
                 "icon": "Building2"
               },
               {
                 "company": "THOMA POST",
-                "image": "/images/teamfoto_einde.png",
+                "image": "/media/teamfoto_einde-640x480.png",
                 "mainMetric": "31 afspraken eerste maand",
                 "description": "Directe resultaten vanaf dag één.",
                 "icon": "Target"

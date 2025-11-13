@@ -37,7 +37,7 @@ export const pageData = {
               "label": "Ontdek onze aanpak",
               "href": "#onze-aanpak"
             },
-            "showcaseImage": "/images/projectontwikkelaar.webp",
+            "showcaseImage": "/media/projectontwikkelaar.webp",
             "showcaseImageAlt": "Dubai-property.nl - Bewezen projectmarketing expertise",
             "showcaseIcon": "Building2",
             "showcaseTitle": "Dubai-property.nl Success",
