@@ -1,0 +1,175 @@
+{
+  "homepage_images": [
+    {
+      "path": "/images/herofootage_first_frame.webp",
+      "usage": "Hero section video poster",
+      "component": "HeroSection",
+      "priority": "high",
+      "alt": "Hero video first frame"
+    },
+    {
+      "path": "/images/brabantmakelaar_avatar.webp",
+      "usage": "Avatar in hero section trust indicators",
+      "component": "HeroSection",
+      "priority": "high",
+      "alt": "Amory - De Brabant Makelaar"
+    },
+    {
+      "path": "/images/thomapost_avatar.webp",
+      "usage": "Avatar in hero section trust indicators",
+      "component": "HeroSection",
+      "priority": "high",
+      "alt": "Marlies - Thoma Post"
+    },
+    {
+      "path": "/images/paulthijssen_avatar.webp",
+      "usage": "Avatar in hero section trust indicators",
+      "component": "HeroSection",
+      "priority": "high",
+      "alt": "Paul - Paul Thijssen Makelaardij"
+    },
+    {
+      "path": "/images/case-de-brabant-makelaar.webp",
+      "usage": "Case study main image",
+      "component": "CaseStudy",
+      "priority": "medium",
+      "alt": "Team De Brabant Makelaar"
+    },
+    {
+      "path": "/images/emiro_pointing_right.png",
+      "usage": "Unique approach section decoration",
+      "component": "UniqueApproach",
+      "priority": "low",
+      "alt": "Emiro wijst naar rechts"
+    },
+    {
+      "path": "/images/32.EmiroSmolders-Settle-DSC07215--compressed.webp",
+      "usage": "Marketing machine - Websites feature",
+      "component": "MarketingMachine",
+      "priority": "medium",
+      "alt": "Website development preview"
+    },
+    {
+      "path": "/images/leadgen.webp",
+      "usage": "Marketing machine - Leadgeneratie feature",
+      "component": "MarketingMachine",
+      "priority": "medium",
+      "alt": "Lead generation dashboard"
+    },
+    {
+      "path": "/images/42.EmiroSmolders-Settle-DSC07252--compressed.webp",
+      "usage": "Marketing machine - Vindbaarheid feature",
+      "component": "MarketingMachine",
+      "priority": "medium",
+      "alt": "SEO and visibility"
+    },
+    {
+      "path": "/images/rudybrief.webp",
+      "usage": "Marketing machine - Heractivatie feature",
+      "component": "MarketingMachine",
+      "priority": "medium",
+      "alt": "Email reactivation"
+    },
+    {
+      "path": "/images/joeptelefoon.webp",
+      "usage": "Marketing machine - Leads opvolgen feature",
+      "component": "MarketingMachine",
+      "priority": "medium",
+      "alt": "CRM and follow-up"
+    },
+    {
+      "path": "/images/47.EmiroSmolders-Settle-DSC07264--compressed.webp",
+      "usage": "Marketing machine - Branding feature",
+      "component": "MarketingMachine",
+      "priority": "medium",
+      "alt": "Branding and identity"
+    },
+    {
+      "path": "/images/remax.jpg",
+      "usage": "Target groups - Makelaars",
+      "component": "TargetGroupsOverview",
+      "priority": "medium",
+      "alt": "Re/max makelaars"
+    },
+    {
+      "path": "/images/recreatie.jpg",
+      "usage": "Target groups - Projectontwikkelaars",
+      "component": "TargetGroupsOverview",
+      "priority": "medium",
+      "alt": "Recreatie projectontwikkeling"
+    },
+    {
+      "path": "/images/hypotheekvisie.jpg",
+      "usage": "Target groups - Hypotheekadviseurs",
+      "component": "TargetGroupsOverview",
+      "priority": "medium",
+      "alt": "Hypotheekvisie kantoor"
+    },
+    {
+      "path": "/images/secondhomebeurs.jpg",
+      "usage": "Target groups - Buitenland",
+      "component": "TargetGroupsOverview",
+      "priority": "medium",
+      "alt": "Second Home Beurs"
+    },
+    {
+      "path": "/images/brabantmakelaar_logo.webp",
+      "usage": "Testimonials section",
+      "component": "TestimonialsSection",
+      "priority": "low",
+      "alt": "De Brabant Makelaar logo"
+    },
+    {
+      "path": "/images/binkpartners_logo.webp",
+      "usage": "Testimonials section",
+      "component": "TestimonialsSection",
+      "priority": "low",
+      "alt": "Bink & Partners logo"
+    },
+    {
+      "path": "/images/binkpartners_avatar.webp",
+      "usage": "Testimonials section",
+      "component": "TestimonialsSection",
+      "priority": "low",
+      "alt": "Pieter - Bink & Partners"
+    },
+    {
+      "path": "/images/ralogosvg.svg",
+      "usage": "Case study background pattern",
+      "component": "CaseStudy",
+      "priority": "low",
+      "alt": "Real Accelerate logo"
+    },
+    {
+      "path": "/images/rudyraket.png",
+      "usage": "How it works decoration",
+      "component": "HowItWorksSection",
+      "priority": "low",
+      "alt": "Rudy raket"
+    },
+    {
+      "path": "/images/teamfoto_einde.png",
+      "usage": "Final CTA section",
+      "component": "FinalCTA",
+      "priority": "medium",
+      "alt": "Teamfoto"
+    }
+  ],
+  "videos": [
+    {
+      "path": "/videos/herofootage_34s.mp4",
+      "usage": "Hero section background video",
+      "component": "HeroSection",
+      "priority": "high"
+    }
+  ],
+  "total_unique_images": 22,
+  "total_videos": 1,
+  "notes": [
+    "High priority images should be loaded with priority={true}",
+    "Medium priority images are above the fold but not critical",
+    "Low priority images are below the fold and can be lazy loaded",
+    "All images should be migrated to Payload Media collection",
+    "Video should remain in /public/videos for now"
+  ]
+}
