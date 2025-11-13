@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
-import PayloadBlockRenderer from "@/components/PayloadBlockRenderer";
+import type { Metadata } from 'next'
+import PayloadBlockRenderer from '@/components/PayloadBlockRenderer'
 import { getPayload } from 'payload'
 import config from '@/payload.config'
 import { notFound } from 'next/navigation'
@@ -8,12 +8,12 @@ import { notFound } from 'next/navigation'
 export const dynamic = 'force-dynamic'
 
 const locales = ['en', 'nl'] as const
-type Locale = typeof locales[number]
+type Locale = (typeof locales)[number]
 
 async function getPageData(slug: string, locale: Locale) {
   try {
     const payload = await getPayload({ config })
-    
+
     const pages = await payload.find({
       collection: 'pages',
       where: {
@@ -27,11 +27,11 @@ async function getPageData(slug: string, locale: Locale) {
       locale,
       limit: 1,
     })
-    
+
     if (pages.docs.length === 0) {
       return null
     }
-    
+
     return pages.docs[0]
   } catch (error) {
     console.error('Error fetching page data:', error)
@@ -49,67 +49,89 @@ async function getSiteSettings(locale: Locale) {
   }
 }
 
-export async function generateMetadata({ params }: { params: { locale: string; slug: string } }): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: string; slug: string }
+}): Promise<Metadata> {
   const locale = params.locale as Locale
   const slug = params.slug
-  
+
   if (!locales.includes(locale)) {
     return {
-      title: "Not Found",
+      title: 'Not Found',
     }
   }
-  
+
   const page = await getPageData(slug, locale)
-  
+
   if (!page) {
     return {
-      title: "Real Accelerate | Loading...",
-      description: "Loading content...",
+      title: 'Real Accelerate | Loading...',
+      description: 'Loading content...',
     }
   }
-  
+
   return {
-    title: page.seo?.metaTitle || page.title || "Real Accelerate",
-    description: page.seo?.metaDescription || "Real Accelerate - Online marketing for real estate professionals",
+    title: page.seo?.metaTitle || page.title || 'Real Accelerate',
+    description:
+      page.seo?.metaDescription ||
+      'Real Accelerate - Online marketing for real estate professionals',
+    alternates: {
+      canonical: `https://realaccelerate.nl/${locale}/${slug}`,
+      languages: {
+        nl: `https://realaccelerate.nl/nl/${slug}`,
+        en: `https://realaccelerate.nl/en/${slug}`,
+        'x-default': `https://realaccelerate.nl/nl/${slug}`,
+      },
+    },
   }
 }
 
 export async function generateStaticParams() {
   // Generate params for all page slugs and locales
-  const slugs = ['over-ons', 'cases', 'makelaars', 'makelaars-buitenland', 'hypotheekadviseurs', 'hr-recruitment', 'projectontwikkelaars']
-  
+  const slugs = [
+    'over-ons',
+    'cases',
+    'makelaars',
+    'makelaars-buitenland',
+    'hypotheekadviseurs',
+    'hr-recruitment',
+    'projectontwikkelaars',
+  ]
+
   const params: { locale: string; slug: string }[] = []
-  
+
   for (const locale of locales) {
     for (const slug of slugs) {
       params.push({ locale, slug })
     }
   }
-  
+
   return params
 }
 
 export default async function LocalePage({ params }: { params: { locale: string; slug: string } }) {
   const locale = params.locale as Locale
   const slug = params.slug
-  
+
   // Check if locale is valid
   if (!locales.includes(locale)) {
     notFound()
   }
-  
+
   const [page, siteSettings] = await Promise.all([
     getPageData(slug, locale),
     getSiteSettings(locale),
   ])
-  
+
   if (!page) {
     notFound()
   }
-  
+
   return (
     <div className="min-h-screen bg-background font-sans">
       <PayloadBlockRenderer blocks={page.blocks || []} siteSettings={siteSettings} />
     </div>
-  );
+  )
 }
