@@ -21,9 +21,21 @@ export const MakelaarsBewezenSysteemSection: Block = {
       label: 'Subtitle (HTML allowed)',
     },
     {
+      name: 'decorativeImage',
+      type: 'upload',
+      relationTo: 'media',
+      label: 'Decoratieve afbeelding (upload)',
+      admin: {
+        description: 'Upload een decoratieve afbeelding voor deze sectie',
+      },
+    },
+    {
       name: 'imageSrc',
       type: 'text',
-      label: 'Afbeelding URL',
+      label: 'Afbeelding URL (alternatief)',
+      admin: {
+        description: 'Of gebruik een directe URL (backwards compatibility)',
+      },
     },
     {
       name: 'imageAlt',

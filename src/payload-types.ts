@@ -1232,6 +1232,13 @@ export interface MakelaarsHero {
   avatarsTitle?: string | null;
   avatars?:
     | {
+        /**
+         * Upload een avatar afbeelding
+         */
+        image?: (number | null) | Media;
+        /**
+         * Of gebruik een directe URL (backwards compatibility)
+         */
         src?: string | null;
         alt?: string | null;
         tilt?: string | null;
@@ -1325,6 +1332,13 @@ export interface MakelaarsBewezenSysteemSection {
   kicker?: string | null;
   title: string;
   subtitle?: string | null;
+  /**
+   * Upload een decoratieve afbeelding voor deze sectie
+   */
+  decorativeImage?: (number | null) | Media;
+  /**
+   * Of gebruik een directe URL (backwards compatibility)
+   */
   imageSrc?: string | null;
   imageAlt?: string | null;
   benefitsTitle?: string | null;
@@ -1350,7 +1364,21 @@ export interface MakelaarsResultsBentoGrid {
   results?:
     | {
         company?: string | null;
+        /**
+         * Upload een logo afbeelding
+         */
+        logoImage?: (number | null) | Media;
+        /**
+         * Of gebruik een directe URL (backwards compatibility)
+         */
         logo?: string | null;
+        /**
+         * Upload een afbeelding voor dit resultaat
+         */
+        resultImage?: (number | null) | Media;
+        /**
+         * Of gebruik een directe URL (backwards compatibility)
+         */
         image?: string | null;
         mainMetric?: string | null;
         description?: string | null;
@@ -3678,6 +3706,7 @@ export interface MakelaarsHeroSelect<T extends boolean = true> {
   avatars?:
     | T
     | {
+        image?: T;
         src?: T;
         alt?: T;
         tilt?: T;
@@ -3766,6 +3795,7 @@ export interface MakelaarsBewezenSysteemSectionSelect<T extends boolean = true> 
   kicker?: T;
   title?: T;
   subtitle?: T;
+  decorativeImage?: T;
   imageSrc?: T;
   imageAlt?: T;
   benefitsTitle?: T;
@@ -3791,7 +3821,9 @@ export interface MakelaarsResultsBentoGridSelect<T extends boolean = true> {
     | T
     | {
         company?: T;
+        logoImage?: T;
         logo?: T;
+        resultImage?: T;
         image?: T;
         mainMetric?: T;
         description?: T;

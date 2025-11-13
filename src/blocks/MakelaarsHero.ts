@@ -78,9 +78,21 @@ export const MakelaarsHero: Block = {
       label: 'Avatars',
       fields: [
         {
+          name: 'image',
+          type: 'upload',
+          relationTo: 'media',
+          label: 'Avatar afbeelding (upload)',
+          admin: {
+            description: 'Upload een avatar afbeelding',
+          },
+        },
+        {
           name: 'src',
           type: 'text',
-          label: 'Afbeelding URL',
+          label: 'Afbeelding URL (alternatief)',
+          admin: {
+            description: 'Of gebruik een directe URL (backwards compatibility)',
+          },
         },
         {
           name: 'alt',

@@ -31,14 +31,38 @@ export const MakelaarsResultsBentoGrid: Block = {
           label: 'Bedrijfsnaam',
         },
         {
+          name: 'logoImage',
+          type: 'upload',
+          relationTo: 'media',
+          label: 'Logo (upload)',
+          admin: {
+            description: 'Upload een logo afbeelding',
+          },
+        },
+        {
           name: 'logo',
           type: 'text',
-          label: 'Logo URL',
+          label: 'Logo URL (alternatief)',
+          admin: {
+            description: 'Of gebruik een directe URL (backwards compatibility)',
+          },
+        },
+        {
+          name: 'resultImage',
+          type: 'upload',
+          relationTo: 'media',
+          label: 'Resultaat afbeelding (upload)',
+          admin: {
+            description: 'Upload een afbeelding voor dit resultaat',
+          },
         },
         {
           name: 'image',
           type: 'text',
-          label: 'Afbeelding URL',
+          label: 'Afbeelding URL (alternatief)',
+          admin: {
+            description: 'Of gebruik een directe URL (backwards compatibility)',
+          },
         },
         {
           name: 'mainMetric',

@@ -6,7 +6,8 @@ import { CheckCircle2 } from "lucide-react";
 import Image from "next/image";
 
 interface Avatar {
-  src: string;
+  image?: any; // Media object from CMS
+  src: string; // Fallback URL
   alt: string;
   tilt: string;
 }
@@ -107,8 +108,8 @@ export default function Hero({
                       }}
                     >
                       <Image
-                        src={avatar.src}
-                        alt={avatar.alt}
+                        src={avatar.image?.sizes?.thumbnail?.url || avatar.image?.url || avatar.src}
+                        alt={avatar.image?.alt || avatar.alt}
                         width={80}
                         height={80}
                         loading="lazy"

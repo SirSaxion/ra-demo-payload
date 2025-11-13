@@ -18,8 +18,10 @@ import Image from "next/image";
 
 interface ResultData {
   company: string;
-  logo?: string;
-  image?: string;
+  logoImage?: any; // Media object from CMS
+  logo?: string; // Fallback URL
+  resultImage?: any; // Media object from CMS
+  image?: string; // Fallback URL
   mainMetric: string;
   description: string;
   icon: string;
@@ -115,10 +117,10 @@ export default function ResultsBentoGrid({
               >
                 {/* Image */}
                 <div className="relative h-48 overflow-hidden">
-                  {result.image && (
+                  {(result.resultImage || result.image) && (
                     <Image
-                      src={result.image}
-                      alt={result.company}
+                      src={result.resultImage?.sizes?.medium?.url || result.resultImage?.url || result.image || ''}
+                      alt={result.resultImage?.alt || result.company}
                       width={400}
                       height={300}
                       loading="lazy"
@@ -128,11 +130,11 @@ export default function ResultsBentoGrid({
                   <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-surface-3)] to-transparent" />
                   
                   {/* Logo overlay if available */}
-                  {result.logo && (
+                  {(result.logoImage || result.logo) && (
                     <div className="absolute top-4 left-4 w-12 h-12 rounded-lg overflow-hidden bg-white p-1.5 shadow-lg">
                       <Image
-                        src={result.logo}
-                        alt={result.company}
+                        src={result.logoImage?.sizes?.thumbnail?.url || result.logoImage?.url || result.logo || ''}
+                        alt={result.logoImage?.alt || result.company}
                         width={48}
                         height={48}
                         loading="lazy"

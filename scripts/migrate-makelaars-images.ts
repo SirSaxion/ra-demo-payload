@@ -26,35 +26,49 @@ interface ImageData {
 }
 
 const MAKELAARS_IMAGES: ImageData[] = [
+  // Hero avatars
+  {
+    filename: 'brabantmakelaar_avatar.webp',
+    alt: 'Amory - De Brabant Makelaar',
+    description: 'Avatar for Makelaars hero section'
+  },
+  {
+    filename: 'binkpartners_avatar.webp',
+    alt: 'Pieter - Bink & Partners',
+    description: 'Avatar for Makelaars hero section'
+  },
+  {
+    filename: 'paulthijssen_avatar.webp',
+    alt: 'Paul - Paul Thijssen Makelaardij',
+    description: 'Avatar for Makelaars hero section'
+  },
+  // BewezenSysteemSection decorative image
   {
     filename: 'emiro_working_at_desk.png',
     alt: 'Emiro aan het werk achter zijn laptop',
     description: 'Emiro working at desk - used in Makelaars Bewezen Systeem section'
   },
+  // ResultsBentoGrid logo
+  {
+    filename: 'brabantmakelaar_logo.webp',
+    alt: 'De Brabant Makelaar logo',
+    description: 'Logo for De Brabant Makelaar result card'
+  },
+  // ResultsBentoGrid result images
   {
     filename: '1.EmiroSmolders-Settle-DSC06894-.webp',
-    alt: 'De Brabant Makelaar office',
+    alt: 'De Brabant Makelaar kantoor',
     description: 'De Brabant Makelaar result image'
   },
   {
     filename: '10.EmiroSmolders-Settle-DSC06970-.jpg',
-    alt: 'Marco van Barneveld office',
+    alt: 'Marco van Barneveld kantoor',
     description: 'Marco van Barneveld franchise result image'
   },
   {
-    filename: 'cat1.jpeg',
-    alt: 'Placeholder avatar 1',
-    description: 'Placeholder avatar for makelaars hero section'
-  },
-  {
-    filename: 'cat2.jpeg',
-    alt: 'Placeholder avatar 2',
-    description: 'Placeholder avatar for makelaars hero section'
-  },
-  {
-    filename: 'cat3.png',
-    alt: 'Placeholder avatar 3',
-    description: 'Placeholder avatar for makelaars hero section'
+    filename: 'teamfoto_einde.png',
+    alt: 'Thoma Post team foto',
+    description: 'Thoma Post result image'
   }
 ]
 
@@ -62,19 +76,23 @@ async function migrateImages() {
   console.log('🚀 Starting Makelaars Images Migration...\n')
 
   const payload = await getPayload({ config })
-  const sourceDir = path.join(process.cwd(), 'public', 'images')
   const mapping: Record<string, string> = {}
   let successCount = 0
   let errorCount = 0
 
   for (const imageData of MAKELAARS_IMAGES) {
     const { filename, alt, description } = imageData
-    const sourcePath = path.join(sourceDir, filename)
+    
+    // Try both directories
+    let sourcePath = path.join(process.cwd(), 'public', 'media', filename)
+    if (!fs.existsSync(sourcePath)) {
+      sourcePath = path.join(process.cwd(), 'public', 'images', filename)
+    }
 
     try {
       // Check if file exists
       if (!fs.existsSync(sourcePath)) {
-        console.log(`⚠️  SKIP: ${filename} - File not found`)
+        console.log(`⚠️  SKIP: ${filename} - File not found in media/ or images/`)
         errorCount++
         continue
       }

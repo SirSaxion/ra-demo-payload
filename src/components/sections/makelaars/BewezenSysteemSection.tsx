@@ -12,7 +12,8 @@ export interface BewezenSysteemSectionProps {
   kicker?: string;
   title?: string;
   subtitle?: string;
-  imageSrc?: string;
+  decorativeImage?: any; // Media object from CMS
+  imageSrc?: string; // Fallback URL
   imageAlt?: string;
   benefitsTitle?: string;
   benefits?: BenefitItem[];
@@ -23,6 +24,7 @@ export default function BewezenSysteemSection({
   kicker = "Onze ervaring",
   title = "Ervaring uit de branche – wij staan er zelf middenin",
   subtitle = "Real Accelerate is geen traditioneel marketingbureau. Wij zijn makelaars. Met <strong>SETTL.</strong> staan we dagelijks in de markt. Alles wat wij doen voor onze klanten, hebben we zelf getest, verbeterd en bewezen.",
+  decorativeImage,
   imageSrc = "/media/emiro_working_at_desk-640x480.png",
   imageAlt = "Emiro aan het werk achter zijn laptop",
   benefitsTitle = "WAAROM DIT VERSCHIL MAAKT",
@@ -72,8 +74,8 @@ export default function BewezenSysteemSection({
             <div className="lg:order-last">
               <div className="relative overflow-hidden rounded-xl shadow-lg max-w-md mx-auto lg:mx-0 lg:max-w-none aspect-[4/3]">
                 <Image
-                  src={imageSrc}
-                  alt={imageAlt}
+                  src={decorativeImage?.sizes?.medium?.url || decorativeImage?.url || imageSrc}
+                  alt={decorativeImage?.alt || imageAlt}
                   fill
                   sizes="(max-width: 1024px) 100vw, 50vw"
                   loading="lazy"
