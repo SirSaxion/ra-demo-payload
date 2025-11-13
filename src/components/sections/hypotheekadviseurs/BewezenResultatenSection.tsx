@@ -6,6 +6,8 @@ export interface BewezenResultatenSectionProps {
   kicker?: string
   title?: string
   subtitle?: string
+  caseStudyImage?: any  // Media object from CMS
+  caseStudyImageAlt?: string
   kpis?: Array<{ label: string; from: number; to: number; unit?: string; sublabel?: string; span?: number }>
   bullets?: string[]
 }
@@ -14,6 +16,8 @@ export default function BewezenResultatenSection({
   kicker = 'Bewezen resultaten',
   title = 'Van offerte-sites naar voorspelbare groei',
   subtitle = 'Hypotheekadviseur + Edit BV Partnership',
+  caseStudyImage,
+  caseStudyImageAlt,
   kpis = [
     { label: "Afspraken per maand", from: 5, to: 46, unit: "number", sublabel: "+820% groei", span: 2 },
     { label: "Contacten bereikt", from: 200, to: 1300 },
@@ -45,8 +49,8 @@ export default function BewezenResultatenSection({
           kicker={kicker}
           title={title}
           subtitle={subtitle}
-          imageSrc="/images/case-de-brabant-makelaar.webp"
-          imageAlt="Hypotheekadviseur Edit BV Partnership"
+          imageSrc={caseStudyImage?.sizes?.large?.url || caseStudyImage?.url || "/images/case-de-brabant-makelaar.webp"}
+          imageAlt={caseStudyImageAlt || caseStudyImage?.alt || "Hypotheekadviseur Edit BV Partnership"}
           imageSizes="(min-width: 1024px) 50vw, 90vw"
           kpis={kpis}
           bullets={bullets}

@@ -27,13 +27,12 @@ export const IQIPartnershipSection: Block = {
     },
     {
       name: 'leftImage',
-      type: 'text',
-      label: 'Linker afbeelding URL',
-    },
-    {
-      name: 'leftImageAlt',
-      type: 'text',
-      label: 'Linker afbeelding alt',
+      type: 'upload',
+      relationTo: 'media',
+      label: 'Linker afbeelding',
+      admin: {
+        description: 'Afbeelding voor linker kant (VOOR scenario)',
+      },
     },
     {
       name: 'leftTitle',
@@ -59,13 +58,12 @@ export const IQIPartnershipSection: Block = {
     },
     {
       name: 'rightImage',
-      type: 'text',
-      label: 'Rechter afbeelding URL',
-    },
-    {
-      name: 'rightImageAlt',
-      type: 'text',
-      label: 'Rechter afbeelding alt',
+      type: 'upload',
+      relationTo: 'media',
+      label: 'Rechter afbeelding',
+      admin: {
+        description: 'Afbeelding voor rechter kant (NA scenario)',
+      },
     },
     {
       name: 'rightTitle',

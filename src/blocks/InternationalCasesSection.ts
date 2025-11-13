@@ -62,8 +62,12 @@ export const InternationalCasesSection: Block = {
         },
         {
           name: 'avatar',
-          type: 'text',
-          label: 'Avatar URL',
+          type: 'upload',
+          relationTo: 'media',
+          label: 'Avatar afbeelding',
+          admin: {
+            description: 'Avatar afbeelding voor case',
+          },
         },
         {
           name: 'rating',

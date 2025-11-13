@@ -12,7 +12,8 @@ export interface HeroProps {
   subtitle?: string
   ctaPrimary?: { label: string; href: string }
   ctaSecondary?: { label: string; href: string }
-  editBVImage?: string
+  editBVImage?: any  // Media object from CMS
+  editBVImageAlt?: string
   editBVTitle?: string
   editBVSubtitle?: string
   editBVStats?: Array<{ icon: string; text: string }>
@@ -27,7 +28,8 @@ export default function Hero({
   subtitle = "Word onafhankelijk van offerte-sites en bouw een voorspelbare klantenstroom met bewezen campagnes en duurzaamheid als toegevoegde waarde.",
   ctaPrimary = { label: "Plan een gratis strategiegesprek", href: "/contact" },
   ctaSecondary = { label: "Bekijk Edit BV resultaten", href: "#hypotheek-cases" },
-  editBVImage = "/media/editbv-640x480.jpg",
+  editBVImage,
+  editBVImageAlt,
   editBVTitle = "Edit BV Partnership",
   editBVSubtitle = "Zwolle • Duurzaamheid expertise",
   editBVStats = [
@@ -67,8 +69,8 @@ export default function Hero({
                 {/* Edit BV Image Thumbnail */}
                 <div className="relative h-40 mb-4">
                   <Image
-                    src={editBVImage}
-                    alt="Edit BV - Duurzaamheid expertise partner"
+                    src={editBVImage?.sizes?.medium?.url || editBVImage?.url || "/media/editbv-640x480.jpg"}
+                    alt={editBVImageAlt || editBVImage?.alt || "Edit BV - Duurzaamheid expertise partner"}
                     fill
                     loading="lazy"
                     className="object-cover"

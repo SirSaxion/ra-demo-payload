@@ -16,7 +16,7 @@ interface InternationalCase {
   story: string;
   achievement: string;
   metric: string;
-  avatar: string;
+  avatar: any; // Media object from CMS
   rating: number;
   country: string;
   projectValue: string;
@@ -62,7 +62,7 @@ export default function InternationalCasesSection({
       story: "Internationale campagne gericht op investeerders. Meer dan 400 leads en 15 verkochte units binnen 3 maanden via onze bewezen aanpak.",
       achievement: "15 units verkocht",
       metric: "400+ leads",
-      avatar: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=150&h=150&fit=crop&crop=face",
+      avatar: null,
       rating: 5,
       country: "Bali",
       projectValue: "15 units",
@@ -76,7 +76,7 @@ export default function InternationalCasesSection({
       story: "Gerichte campagnes leverden 200+ warme leads op met een conversie van 10% naar afspraak. Real Accelerate zorgde voor de complete marketingaanpak.",
       achievement: "200+ warme leads",
       metric: "10% conversie",
-      avatar: "https://images.unsplash.com/photo-1583422409516-2895a77efded?w=150&h=150&fit=crop&crop=face",
+      avatar: null,
       rating: 5,
       country: "Spanje", 
       projectValue: "200+ leads",
@@ -90,7 +90,7 @@ export default function InternationalCasesSection({
       story: "Positionering rond rendement én beleving. Het project werd volledig uitverkocht dankzij slimme storytelling en gerichte campagnes in DACH-markten.",
       achievement: "Project uitverkocht",
       metric: "100% verkocht",
-      avatar: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=150&h=150&fit=crop&crop=face",
+      avatar: null,
       rating: 5,
       country: "Oostenrijk",
       projectValue: "Uitverkocht", 
@@ -104,7 +104,7 @@ export default function InternationalCasesSection({
       story: "Complete internationale campagne met events in Nederland en België. Van concept tot verkoop in 8 maanden met 85% conversie van leads naar afspraken.",
       achievement: "85% conversie",
       metric: "8 maanden",
-      avatar: "https://images.unsplash.com/photo-1523551088-7e0c35b18d65?w=150&h=150&fit=crop&crop=face",
+      avatar: null,
       rating: 5,
       country: "Portugal",
       projectValue: "85% conversie",
@@ -165,15 +165,17 @@ export default function InternationalCasesSection({
                 <Card className="group relative overflow-hidden bg-[var(--color-surface-3)] border border-[var(--color-border)] rounded-[20px] shadow-[inset_0_1px_0_rgba(255,255,255,0.03)] hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                   <CardHeader className="pb-4 relative z-10">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="relative w-12 h-12 rounded-full border-2 border-[var(--color-border)] shadow-md overflow-hidden">
-                        <Image 
-                          src={case_item.avatar} 
-                          alt={case_item.name}
-                          fill
-                          sizes="48px"
-                          className="object-cover"
-                        />
-                      </div>
+                      {case_item.avatar && (
+                        <div className="relative w-12 h-12 rounded-full border-2 border-[var(--color-border)] shadow-md overflow-hidden">
+                          <Image 
+                            src={case_item.avatar?.sizes?.thumbnail?.url || case_item.avatar?.url || 'https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=150&h=150&fit=crop&crop=face'} 
+                            alt={case_item.avatar?.alt || case_item.name}
+                            fill
+                            sizes="48px"
+                            className="object-cover"
+                          />
+                        </div>
+                      )}
                       <div>
                         <h3 className="font-bold text-foreground text-lg">{case_item.name}</h3>
                         <p className="text-sm text-[var(--color-text-secondary)]">{case_item.role}</p>

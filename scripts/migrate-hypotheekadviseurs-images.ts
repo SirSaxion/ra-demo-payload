@@ -9,6 +9,11 @@ const IMAGES = [
     filename: 'editbv.jpg',
     alt: 'Edit BV - Duurzaamheid expertise partner',
     description: 'Edit BV partnership image for hypotheekadviseurs hero section'
+  },
+  {
+    filename: 'case-de-brabant-makelaar.webp',
+    alt: 'Hypotheekadviseur Edit BV Partnership case study',
+    description: 'Case study image for hypotheekadviseurs bewezen resultaten section'
   }
 ]
 

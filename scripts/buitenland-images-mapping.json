@@ -1,0 +1,25 @@
+{
+  "mapping": {
+    "/images/placeholder.jpg": 29,
+    "/media/placeholder.jpg": 29,
+    "/images/iqiglobal.jpg": 30,
+    "/media/iqiglobal.jpg": 30,
+    "/images/dubai_thumb.jpg": 41,
+    "/media/dubai_thumb.jpg": 41,
+    "/images/cat1-640x480.jpg": 29,
+    "/media/cat1-640x480.jpg": 29,
+    "/images/cat2-640x480.jpg": 29,
+    "/media/cat2-640x480.jpg": 29,
+    "/images/editbv.jpg": 32,
+    "/media/editbv.jpg": 32,
+    "/images/10.EmiroSmolders-Settle-DSC06970-.jpg": 25,
+    "/media/10.EmiroSmolders-Settle-DSC06970-.jpg": 25
+  },
+  "timestamp": "2025-11-13T19:01:35.141Z",
+  "stats": {
+    "total": 7,
+    "uploaded": 0,
+    "existing": 5,
+    "failed": 2
+  }
+}

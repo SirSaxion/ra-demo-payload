@@ -43,8 +43,12 @@ export const InternationalPainPointsSection: Block = {
         },
         {
           name: 'image',
-          type: 'text',
-          label: 'Afbeelding URL',
+          type: 'upload',
+          relationTo: 'media',
+          label: 'Afbeelding',
+          admin: {
+            description: 'Pain point afbeelding',
+          },
         },
       ],
     },

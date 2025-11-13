@@ -5,14 +5,118 @@
 **Voor een nieuwe chat:** Lees deze hele guide om homepage images te fixen en deployment te maken!
 
 **Belangrijkste takeaways:**
-1. ✅ Blocks moeten `type: 'upload'` fields hebben
-2. ✅ Components moeten CMS props gebruiken met fallbacks
-3. ✅ Images moeten naar `/public/media/` EN `/public/images/` (BEIDE!)
-4. ✅ Kopieer ALLE variants (-small, -medium, -large, -400x300, etc.)
-5. ✅ Vergeet layout assets niet (navbar/footer logos)
-6. ✅ Deployment: ~120MB vs 1.3GB (scan blocks voor media IDs)
+1. 🚨 **GEBRUIK HTTP API** voor image uploads (NOOIT `getPayload()` - zie sectie hieronder!)
+2. ✅ Blocks moeten `type: 'upload'` fields hebben
+3. ✅ Components moeten CMS props gebruiken met fallbacks
+4. ✅ Images moeten naar `/public/media/` EN `/public/images/` (BEIDE!)
+5. ✅ Kopieer ALLE variants (-small, -medium, -large, -400x300, etc.)
+6. ✅ Vergeet layout assets niet (navbar/footer logos)
+7. ✅ Deployment: ~120MB vs 1.3GB (scan blocks voor media IDs)
 
 **Script locatie:** `/scripts/prepare-deployment-homepage-only.ts` ← Working example!
+
+---
+
+## 🚨 KRITIEK: Upload Images via HTTP API (niet getPayload!)
+
+**⚠️ GEBRUIK ALTIJD HTTP API VOOR IMAGE UPLOADS - NOOIT `getPayload()`**
+
+### Waarom dit zo belangrijk is:
+
+**❌ NIET DOEN: getPayload() voor image uploads**
+```typescript
+// ☠️ DIT WERKT NIET MEER NA SCHEMA CHANGES!
+const payload = await getPayload({ config })
+await payload.create({
+  collection: 'media',
+  data: { alt: 'Image' },
+  filePath: imagePath
+})
+// Resultaat: DrizzleQueryError: index already exists
+//           SQLITE_ERROR: pages_blocks_xxx_order_idx already exists
+```
+
+**Waarom faalt dit?**
+- `getPayload()` triggert ALTIJD een schema push bij init
+- Als je blocks hebt aangepast (nieuwe upload fields), zijn er schema conflicts
+- `PAYLOAD_DISABLE_PUSH=true` helpt NIET - wordt genegeerd
+- Je krijgt een eindeloze loop van schema errors
+- Zelfs na indices droppen, blijven er nieuwe conflicts komen
+
+**✅ WEL DOEN: HTTP API via running dev server**
+```typescript
+// ✅ DIT WERKT ALTIJD!
+// 1. Zorg dat dev server draait: pnpm dev
+// 2. Upload via HTTP API:
+
+const API_URL = 'http://localhost:3000/api'
+
+// Check if exists
+const checkResponse = await fetch(
+  `${API_URL}/media?where[filename][equals]=${filename}&limit=1`
+)
+const existing = await checkResponse.json()
+
+if (existing.docs.length === 0) {
+  // Upload new image
+  const formData = new FormData()
+  const file = new File([fileBuffer], filename, { type: 'image/webp' })
+  formData.append('file', file)
+  formData.append('alt', 'Alt text')
+
+  const response = await fetch(`${API_URL}/media`, {
+    method: 'POST',
+    body: formData
+  })
+  
+  const uploaded = await response.json()
+  console.log(`✅ Uploaded: Media ID ${uploaded.doc.id}`)
+}
+```
+
+**Voordelen HTTP API:**
+- ✅ Geen schema conflicts (dev server heeft al gemigreerd)
+- ✅ Geen auth issues (localhost is trusted)
+- ✅ Real-time zichtbaar in CMS
+- ✅ Gebruikt existing Payload infrastrucuur
+- ✅ Altijd betrouwbaar
+
+### Voor Page Block Updates: Direct SQL
+
+Als je blocks wilt updaten met image IDs, gebruik direct SQL:
+
+```typescript
+import { execSync } from 'child_process'
+
+// Direct SQL update (vermijdt auth + schema issues)
+execSync(`sqlite3 "ra-demo-payload.db" "UPDATE hyp_hero SET edit_b_v_image_id = 32 WHERE _parent_id = '6';"`)
+```
+
+**Waarom SQL voor updates?**
+- HTTP API PATCH naar `/api/pages/:id` kan 403 Forbidden geven
+- `getPayload().update()` triggert weer schema push
+- SQL is direct, betrouwbaar en werkt altijd
+
+### 📋 Best Practice Workflow
+
+```bash
+# 1. Start dev server (migreert schema automatisch)
+pnpm dev
+
+# 2. In nieuwe terminal: Upload images via HTTP API
+pnpm tsx scripts/upload-[page]-via-api.ts
+
+# 3. Update page blocks via direct SQL
+pnpm tsx scripts/update-[page]-direct-sql.ts
+
+# 4. Test met browser of Playwright
+# ✅ Images laden van /api/media/file/xxx
+```
+
+**Scripts voorbeelden:**
+- ✅ `scripts/upload-hypotheekadviseurs-via-api.ts` - HTTP API upload
+- ✅ `scripts/update-hypotheekadviseurs-direct-sql.ts` - SQL updates
+- ❌ `scripts/migrate-hypotheekadviseurs-images.ts` - Faalt met schema errors
 
 ---
 
@@ -299,16 +403,27 @@ await payload.update({
 - [ ] Update PayloadBlockRenderer
   - [ ] Pass image props door aan component
 
-### Images migreren:
+### Images uploaden (🚨 GEBRUIK HTTP API!):
+- [ ] Start dev server EERST: `pnpm dev` (migreert schema automatisch)
 - [ ] Check welke images ontbreken in Media collection
-- [ ] Maak migrate script voor nieuwe images
-- [ ] Run migrate script: `pnpm tsx scripts/migrate-[pagina]-images.ts`
-- [ ] Maak mapping file met Media IDs
+- [ ] Maak upload script met HTTP API: `scripts/upload-[pagina]-via-api.ts`
+  - [ ] Gebruik `fetch('http://localhost:3000/api/media')` 
+  - [ ] Check existing via query parameter
+  - [ ] Upload via FormData
+- [ ] Run upload script: `pnpm tsx scripts/upload-[pagina]-via-api.ts`
+- [ ] Mapping file wordt automatisch aangemaakt
 
-### Schema & Data update:
-- [ ] Start dev server: `pnpm dev` (migreert schema)
-- [ ] Maak update script voor page blocks
-- [ ] Run update script: `pnpm tsx scripts/update-[pagina]-images.ts`
+### Page blocks updaten (gebruik SQL!):
+- [ ] Maak SQL update script: `scripts/update-[pagina]-direct-sql.ts`
+  - [ ] Load mapping file
+  - [ ] Find page ID met sqlite3
+  - [ ] Update blocks met `execSync()` en sqlite3
+- [ ] Run update script: `pnpm tsx scripts/update-[pagina]-direct-sql.ts`
+
+### ❌ NIET DOEN:
+- [ ] ~~`getPayload()` gebruiken~~ → Geeft schema conflicts!
+- [ ] ~~`payload.create()` voor images~~ → Triggert schema push!
+- [ ] ~~HTTP API PATCH voor pages~~ → Kan 403 Forbidden geven!
 
 ### Verification:
 - [ ] Ga naar CMS: `http://localhost:3000/admin/collections/pages`
@@ -319,7 +434,119 @@ await payload.update({
 
 ## 🎯 Template Scripts
 
-### Template 1: Migrate Images Script
+**🚨 BELANGRIJK: Gebruik Template 1A (HTTP API) in plaats van Template 1 (getPayload)!**
+
+### Template 1A: Upload Images via HTTP API (✅ WERKT ALTIJD!)
+```typescript
+#!/usr/bin/env tsx
+/**
+ * Upload [Pagina] images via HTTP API
+ * Requires dev server running on port 3000
+ * Run with: pnpm tsx scripts/upload-[pagina]-via-api.ts
+ */
+
+import fs from 'fs'
+import path from 'path'
+
+const API_URL = 'http://localhost:3000/api'
+
+const IMAGES = [
+  {
+    filename: 'example.webp',
+    alt: 'Example image description',
+  },
+  // Add more images
+]
+
+async function uploadViaAPI() {
+  console.log('🚀 Starting [Pagina] Images Upload via API...\n')
+  
+  // Check if server is running
+  try {
+    const healthCheck = await fetch(`${API_URL}/media?limit=1`)
+    if (!healthCheck.ok) throw new Error('API not accessible')
+  } catch (error) {
+    console.error('❌ ERROR: Dev server not running on port 3000!')
+    console.error('   Start it with: pnpm dev')
+    process.exit(1)
+  }
+
+  const sourceDir = path.join(process.cwd(), 'public', 'images')
+  const mapping: Record<string, string> = {}
+  let successCount = 0
+
+  for (const imageData of IMAGES) {
+    const { filename, alt } = imageData
+    const sourcePath = path.join(sourceDir, filename)
+
+    try {
+      if (!fs.existsSync(sourcePath)) {
+        console.log(`⚠️  SKIP: ${filename} - File not found`)
+        continue
+      }
+
+      // Check if already exists
+      const checkResponse = await fetch(
+        `${API_URL}/media?where[filename][equals]=${encodeURIComponent(filename)}&limit=1`
+      )
+      const existing = await checkResponse.json()
+
+      if (existing.docs && existing.docs.length > 0) {
+        console.log(`ℹ️  EXISTS: ${filename} → Media ID: ${existing.docs[0].id}`)
+        mapping[`/images/${filename}`] = String(existing.docs[0].id)
+        successCount++
+        continue
+      }
+
+      // Upload new image
+      const fileBuffer = fs.readFileSync(sourcePath)
+      const formData = new FormData()
+      
+      const file = new File([fileBuffer], filename, {
+        type: `image/${path.extname(filename).slice(1).replace('jpg', 'jpeg')}`
+      })
+      
+      formData.append('file', file)
+      formData.append('alt', alt)
+
+      const uploadResponse = await fetch(`${API_URL}/media`, {
+        method: 'POST',
+        body: formData
+      })
+
+      if (!uploadResponse.ok) {
+        const errorText = await uploadResponse.text()
+        throw new Error(`Upload failed: ${uploadResponse.status} - ${errorText}`)
+      }
+
+      const uploaded = await uploadResponse.json()
+      mapping[`/images/${filename}`] = String(uploaded.doc.id)
+      console.log(`✅ SUCCESS: ${filename} → Media ID: ${uploaded.doc.id}`)
+      successCount++
+      
+    } catch (error: any) {
+      console.error(`❌ ERROR uploading ${filename}:`, error.message)
+    }
+  }
+
+  // Save mapping
+  const mappingPath = path.join(process.cwd(), 'scripts', '[pagina]-images-mapping.json')
+  fs.writeFileSync(mappingPath, JSON.stringify(mapping, null, 2))
+
+  console.log('\n✅ Upload complete!')
+  console.log(`📄 Mapping saved: ${mappingPath}`)
+  console.log(`👉 Next: Run update-[pagina]-direct-sql.ts\n`)
+
+  process.exit(0)
+}
+
+uploadViaAPI().catch((error) => {
+  console.error('💥 Upload failed:', error)
+  process.exit(1)
+})
+```
+
+### Template 1B: Migrate Images Script (❌ DEPRECATED - GEBRUIK 1A!)
 ```typescript
 /**
  * [Pagina] Images Migration to Payload Media Collection
@@ -413,10 +640,89 @@ async function migrateImages() {
 migrateImages()
 ```
 
-### Template 2: Update Page Blocks Script
+### Template 2A: Update Page Blocks - Direct SQL (✅ WERKT ALTIJD!)
+```typescript
+#!/usr/bin/env tsx
+/**
+ * Update [Pagina] page blocks with images - Direct SQL approach
+ * Avoids schema migration issues by updating database directly
+ * Run with: pnpm tsx scripts/update-[pagina]-direct-sql.ts
+ */
+
+import { execSync } from 'child_process'
+import fs from 'fs'
+import path from 'path'
+
+const dbPath = path.join(process.cwd(), 'ra-demo-payload.db')
+
+// Load mapping
+const mappingPath = path.join(process.cwd(), 'scripts', '[pagina]-images-mapping.json')
+if (!fs.existsSync(mappingPath)) {
+  console.error('❌ ERROR: Mapping file not found!')
+  console.error('   Run upload-[pagina]-via-api.ts first')
+  process.exit(1)
+}
+
+const mapping = JSON.parse(fs.readFileSync(mappingPath, 'utf-8'))
+console.log('🚀 Starting Direct SQL Update for [Pagina]...\n')
+
+// Find the page ID
+console.log('📍 Finding [pagina] page...')
+const pageQueryResult = execSync(
+  `sqlite3 "${dbPath}" "SELECT id FROM pages WHERE slug = '/[pagina-slug]';"`,
+  { encoding: 'utf-8' }
+).trim()
+
+if (!pageQueryResult) {
+  console.error('❌ ERROR: Page not found!')
+  process.exit(1)
+}
+
+const pageId = pageQueryResult
+console.log(`✅ Found page ID: ${pageId}\n`)
+
+// Example: Update Hero block
+console.log('📝 Updating Hero block...')
+const heroImageId = mapping['/images/hero-image.webp']
+try {
+  execSync(
+    `sqlite3 "${dbPath}" "UPDATE hero_block_table SET image_id = ${heroImageId}, image_alt = 'Hero image alt' WHERE _parent_id = '${pageId}';"`,
+    { encoding: 'utf-8' }
+  )
+  console.log(`✅ Updated Hero: image → Media ID ${heroImageId}`)
+} catch (error: any) {
+  console.error(`❌ ERROR updating Hero:`, error.message)
+}
+
+// Example: Update another block
+console.log('\n📝 Updating Gallery block...')
+const galleryImageId = mapping['/images/gallery-image.webp']
+try {
+  execSync(
+    `sqlite3 "${dbPath}" "UPDATE gallery_block_table SET image_id = ${galleryImageId}, image_alt = 'Gallery image' WHERE _parent_id = '${pageId}';"`,
+    { encoding: 'utf-8' }
+  )
+  console.log(`✅ Updated Gallery: image → Media ID ${galleryImageId}`)
+} catch (error: any) {
+  console.error(`❌ ERROR updating Gallery:`, error.message)
+}
+
+console.log('\n✅ Direct SQL update complete!')
+console.log('🌐 Check CMS: http://localhost:3000/admin/collections/pages')
+console.log('🌐 Check frontend: http://localhost:3000/[page-slug]')
+```
+
+**🔍 Tips voor SQL updates:**
+- Find table names: `sqlite3 db.db ".tables" | grep block`
+- Find columns: `sqlite3 db.db ".schema table_name"`
+- Check _order values: `SELECT _order, title FROM table WHERE _parent_id = 'X';`
+- _order kan 1-based zijn (niet 0-based)!
+
+### Template 2B: Update Page Blocks Script (❌ DEPRECATED - GEBRUIK 2A!)
 ```typescript
 /**
  * Update [Pagina] Images - Connect images to blocks
+ * ⚠️ DEPRECATED: Gebruikt getPayload() wat schema conflicts geeft!
  * Run with: pnpm tsx scripts/update-[pagina]-images.ts
  */
 
@@ -984,7 +1290,11 @@ for (const idx of indicesToDrop) {
 
 ### **Lesson 4: Upload via HTTP API > getPayload** 🌐
 
-**Problem:** `getPayload()` triggert schema push zelfs met `PAYLOAD_DISABLE_PUSH=true`
+**🚨 KRITIEK - DIT IS DE #1 LESSON UIT DEZE HELE GUIDE!**
+
+**⚠️ Zie de uitgebreide sectie bovenaan: "🚨 KRITIEK: Upload Images via HTTP API"**
+
+**Problem:** `getPayload()` triggert schema push zelfs met `PAYLOAD_DISABLE_PUSH=true`, wat resulteert in eindeloze schema conflicts na block wijzigingen.
 
 **Oplossing:** Upload via HTTP API (met running dev server):
 
@@ -1086,7 +1396,9 @@ Wanneer je een image upload naar Media collection:
 
 ### **Lesson 7: Dev Workflow Best Practices** 🛠️
 
-**Volgorde die ALTIJD werkt:**
+**⚠️ Zie ook: "🚨 KRITIEK: Upload Images via HTTP API" bovenaan voor complete uitleg**
+
+**Volgorde die ALTIJD werkt (na praktijkervaring hypotheekadviseurs pagina):**
 
 ```bash
 # 1. Start dev server EERST

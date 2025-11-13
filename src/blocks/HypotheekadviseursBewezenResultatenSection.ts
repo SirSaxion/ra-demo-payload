@@ -25,6 +25,24 @@ export const HypotheekadviseursBewezenResultatenSection: Block = {
       localized: true,
     },
     {
+      name: 'caseStudyImage',
+      type: 'upload',
+      relationTo: 'media',
+      label: 'Case Study Afbeelding',
+      admin: {
+        description: 'Afbeelding voor de case study',
+      },
+    },
+    {
+      name: 'caseStudyImageAlt',
+      type: 'text',
+      label: 'Case Study Afbeelding Alt Text',
+      localized: true,
+      admin: {
+        description: 'Alt text voor de case study afbeelding',
+      },
+    },
+    {
       name: 'kpis',
       type: 'array',
       label: 'KPIs',

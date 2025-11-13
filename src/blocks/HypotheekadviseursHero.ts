@@ -58,8 +58,20 @@ export const HypotheekadviseursHero: Block = {
     },
     {
       name: 'editBVImage',
-      type: 'text',
+      type: 'upload',
+      relationTo: 'media',
       label: 'Edit BV Afbeelding',
+      admin: {
+        description: 'Afbeelding voor Edit BV Partnership showcase',
+      },
+    },
+    {
+      name: 'editBVImageAlt',
+      type: 'text',
+      label: 'Edit BV Afbeelding Alt Text',
+      admin: {
+        description: 'Alt text voor Edit BV afbeelding',
+      },
     },
     {
       name: 'editBVTitle',

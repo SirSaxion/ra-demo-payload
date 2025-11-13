@@ -739,6 +739,7 @@ export default function PayloadBlockRenderer({ blocks, siteSettings }: PayloadBl
             ctaPrimary={block.ctaPrimary}
             ctaSecondary={block.ctaSecondary}
             editBVImage={block.editBVImage}
+            editBVImageAlt={block.editBVImageAlt}
             editBVTitle={block.editBVTitle}
             editBVSubtitle={block.editBVSubtitle}
             editBVStats={block.editBVStats?.map((stat: any) => ({
@@ -843,6 +844,8 @@ export default function PayloadBlockRenderer({ blocks, siteSettings }: PayloadBl
             kicker={block.kicker}
             title={block.title}
             subtitle={block.subtitle}
+            caseStudyImage={block.caseStudyImage}
+            caseStudyImageAlt={block.caseStudyImageAlt}
             kpis={block.kpis?.map((kpi: any) => ({
               label: kpi.label,
               from: kpi.from,

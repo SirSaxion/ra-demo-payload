@@ -1579,7 +1579,10 @@ export interface InternationalPainPointsSection {
         icon?: string | null;
         title?: string | null;
         description?: string | null;
-        image?: string | null;
+        /**
+         * Pain point afbeelding
+         */
+        image?: (number | null) | Media;
         id?: string | null;
       }[]
     | null;
@@ -1598,8 +1601,10 @@ export interface IQIPartnershipSection {
   title: string;
   subtitle?: string | null;
   quote?: string | null;
-  leftImage?: string | null;
-  leftImageAlt?: string | null;
+  /**
+   * Afbeelding voor linker kant (VOOR scenario)
+   */
+  leftImage?: (number | null) | Media;
   leftTitle?: string | null;
   leftSubtitle?: string | null;
   leftItems?:
@@ -1608,8 +1613,10 @@ export interface IQIPartnershipSection {
         id?: string | null;
       }[]
     | null;
-  rightImage?: string | null;
-  rightImageAlt?: string | null;
+  /**
+   * Afbeelding voor rechter kant (NA scenario)
+   */
+  rightImage?: (number | null) | Media;
   rightTitle?: string | null;
   rightSubtitle?: string | null;
   rightItems?:
@@ -1733,7 +1740,10 @@ export interface InternationalCasesSection {
         story?: string | null;
         achievement?: string | null;
         metric?: string | null;
-        avatar?: string | null;
+        /**
+         * Avatar afbeelding voor case
+         */
+        avatar?: (number | null) | Media;
         rating?: number | null;
         country?: string | null;
         projectValue?: string | null;
@@ -1823,7 +1833,14 @@ export interface HypotheekadviseursHero {
     label?: string | null;
     href?: string | null;
   };
-  editBVImage?: string | null;
+  /**
+   * Afbeelding voor Edit BV Partnership showcase
+   */
+  editBVImage?: (number | null) | Media;
+  /**
+   * Alt text voor Edit BV afbeelding
+   */
+  editBVImageAlt?: string | null;
   editBVTitle?: string | null;
   editBVSubtitle?: string | null;
   editBVStats?:
@@ -1981,6 +1998,14 @@ export interface HypotheekadviseursBewezenResultatenSection {
   kicker?: string | null;
   title: string;
   subtitle?: string | null;
+  /**
+   * Afbeelding voor de case study
+   */
+  caseStudyImage?: (number | null) | Media;
+  /**
+   * Alt text voor de case study afbeelding
+   */
+  caseStudyImageAlt?: string | null;
   kpis?:
     | {
         label: string;
@@ -4035,7 +4060,6 @@ export interface IQIPartnershipSectionSelect<T extends boolean = true> {
   subtitle?: T;
   quote?: T;
   leftImage?: T;
-  leftImageAlt?: T;
   leftTitle?: T;
   leftSubtitle?: T;
   leftItems?:
@@ -4045,7 +4069,6 @@ export interface IQIPartnershipSectionSelect<T extends boolean = true> {
         id?: T;
       };
   rightImage?: T;
-  rightImageAlt?: T;
   rightTitle?: T;
   rightSubtitle?: T;
   rightItems?:
@@ -4253,6 +4276,7 @@ export interface HypotheekadviseursHeroSelect<T extends boolean = true> {
         href?: T;
       };
   editBVImage?: T;
+  editBVImageAlt?: T;
   editBVTitle?: T;
   editBVSubtitle?: T;
   editBVStats?:
@@ -4406,6 +4430,8 @@ export interface HypotheekadviseursBewezenResultatenSectionSelect<T extends bool
   kicker?: T;
   title?: T;
   subtitle?: T;
+  caseStudyImage?: T;
+  caseStudyImageAlt?: T;
   kpis?:
     | T
     | {
